@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 3.2 I was… while you were…</title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-3_2/css/index.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-3_2/css/menuacces.css"> 
+
+    <link rel="stylesheet" href="Topic-3_2/css/unit3_2.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="Topic-3_2/css/seleccion.css">    
+    
+</head>
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+    
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="sr-only" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo sr-only">
+            <li><i lang="en">Activity OPA 34</i> Alt <i lang="es">+</i> 1</li>
+            <li><i lang="en">Activity OPA 35</i> Alt <i lang="es">+</i> 2</li>
+            <li><i lang="en">Activity OPA 36</i> Alt <i lang="es">+</i> 3</li>
+            <li><i lang="en">Activity OPA 37</i> Alt <i lang="es">+</i> 4</li>
+            <li><i lang="en">Activity OPA 38</i> Alt <i lang="es">+</i> 5</li>
+        </ul>
+        <p class="sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="sr-only">
+            <li><i lang="en">Activity OPA 34</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 1</li>
+            <li><i lang="en">Activity OPA 35</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 2</li>
+            <li><i lang="en">Activity OPA 36</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 3</li>
+            <li><i lang="en">Activity OPA 37</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 4</li>
+            <li><i lang="en">Activity OPA 38</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 5</li>
+        </ul>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-3_2/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-3_2/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-3_2/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-3_2/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-3_2/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-3_2/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-3_2/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-3_2/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-3_2/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-3_2/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-3_2/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es" aria-hidden="true">Universidad Veracruzana</a>
+               
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Topic 3.2 </b> <span style="font-weight: normal !important;">I was… while you were…</span>
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+
+            <img src="Topic-3_2/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                    <i class="fas fa-bars"></i>
+                </button>-->
+                
+                <div class="d-flex align-items-center mt-4">
+
+                    <div class="pleca__ee ml-0" style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <p class="tam-font font-weight-bold mb-1 texto-tema-margen">
+                                Topic 3.2 <!--<span style="font-weight: normal;">My habits and hobbies</span>-->
+                            </p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="Topic-3_2/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Topic 3.2 <br>
+                <span class="subtitulo-secundari-unit">I was… while you were…</span>
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>        
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA34. Last night, Maggie…
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Do you like reading or telling stories? Look at the following images and think of a story.</li>
+                        <li>What was she doing in the beginning? What was she doing at the end?</li>
+                        <li>Choose 1 to 6 under each image.</li>
+                    </ol>
+
+                    <div class="seleccionar-32-1 mb-2rem" tabindex="0">
+
+                        <div class="Grid2 tar-bot mb-0">
+                            <div id="t1" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">a.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-3_2/img/IB3V-M3_OPA34-02.png" alt="Imagen a. Maggie observa al perro saltar sobre la silla, toma la carne en su boca y huye." lang="es">
+                                </div>
+                                <div class="seleccionar-321-0 conTarjetas">
+                                    <div id="opsel-321-0" class="divcontsel">
+                                        <select id="s321-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-1" accesskey="1" tabindex="0">
+                                            <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                            <option value="1" lang="en">1</option>
+                                            <option value="2" lang="en">2</option>
+                                            <option value="3" lang="en">3</option>
+                                            <option value="4" lang="en">4</option>
+                                            <option value="5" lang="en">5</option>
+                                            <option value="6" lang="en">6</option>
+                                        </select>
+                                        <div class="contselopce invisible">
+                                            <div class="TexSel"></div>
+                                            <i class="result fa-solid" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="respmens sr-only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="t2" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">b.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-3_2/img/IB3V-M3_OPA34-06.png" alt="Imagen b. Maggie sentada, suspira." lang="es">
+                                </div>
+                                <div class="seleccionar-321-1 conTarjetas ">
+                                    <div id="opsel-321-1" class="divcontsel">
+                                        <select id="s321-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-1">
+                                            <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                            <option value="1" lang="en">1</option>
+                                            <option value="2" lang="en">2</option>
+                                            <option value="3" lang="en">3</option>
+                                            <option value="4" lang="en">4</option>
+                                            <option value="5" lang="en">5</option>
+                                            <option value="6" lang="en">6</option>
+                                        </select>
+                                        <div class="contselopce invisible">
+                                            <div class="TexSel"></div>
+                                            <i class="result fa-solid" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="respmens sr-only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="t3" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">c.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-3_2/img/IB3V-M3_OPA34-05.png" alt="Imagen c. Maggie intenta ahuyentarlo con la escoba, rompe la ventana y el gato salta." lang="es">
+                                </div>
+                                <div class="seleccionar-321-2 conTarjetas">
+                                    <div id="opsel-321-2" class="divcontsel">
+                                        <select id="s321-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-1">
+                                            <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                            <option value="1" lang="en">1</option>
+                                            <option value="2" lang="en">2</option>
+                                            <option value="3" lang="en">3</option>
+                                            <option value="4" lang="en">4</option>
+                                            <option value="5" lang="en">5</option>
+                                            <option value="6" lang="en">6</option>
+                                        </select>
+                                        <div class="contselopce invisible">
+                                            <div class="TexSel"></div>
+                                            <i class="result fa-solid" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="respmens sr-only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="t4" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">d.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-3_2/img/IB3V-M3_OPA34-03.png" alt="Imagen d. El gato salta sobre la mesa, y comienza a beber la leche." lang="es">
+                                </div>
+                                <div class="seleccionar-321-3 conTarjetas">
+                                    <div id="opsel-321-3" class="divcontsel">
+                                        <select id="s321-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-1">
+                                            <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                            <option value="1" lang="en">1</option>
+                                            <option value="2" lang="en">2</option>
+                                            <option value="3" lang="en">3</option>
+                                            <option value="4" lang="en">4</option>
+                                            <option value="5" lang="en">5</option>
+                                            <option value="6" lang="en">6</option>
+                                        </select>
+                                        <div class="contselopce invisible">
+                                            <div class="TexSel"></div>
+                                            <i class="result fa-solid" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="respmens sr-only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="t5" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">e.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-3_2/img/IB3V-M3_OPA34-01.png" alt="Imagen e. Por la noche, Maggie quería hacer una deliciosa cena. Su gato y su perro la observan." lang="es">
+                                </div>
+                                <div class="seleccionar-321-4 conTarjetas">
+                                    <div id="opsel-321-4" class="divcontsel">
+                                        <select id="s321-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-1">
+                                            <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                            <option value="1" lang="en">1</option>
+                                            <option value="2" lang="en">2</option>
+                                            <option value="3" lang="en">3</option>
+                                            <option value="4" lang="en">4</option>
+                                            <option value="5" lang="en">5</option>
+                                            <option value="6" lang="en">6</option>
+                                        </select>
+                                        <div class="contselopce invisible">
+                                            <div class="TexSel"></div>
+                                            <i class="result fa-solid" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="respmens sr-only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="t6" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">f.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-3_2/img/IB3V-M3_OPA34-04.png" alt="Imagen f. Maggie regaña al gato y este salta sobre la mesa asustado." lang="es">
+                                </div>
+                                <div class="seleccionar-321-5 conTarjetas">
+                                    <div id="opsel-321-5" class="divcontsel">
+                                        <select id="s321-5" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-1">
+                                            <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                            <option value="1" lang="en">1</option>
+                                            <option value="2" lang="en">2</option>
+                                            <option value="3" lang="en">3</option>
+                                            <option value="4" lang="en">4</option>
+                                            <option value="5" lang="en">5</option>
+                                            <option value="6" lang="en">6</option>
+                                        </select>
+                                        <div class="contselopce invisible">
+                                            <div class="TexSel"></div>
+                                            <i class="result fa-solid" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="respmens sr-only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>   
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="4">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                 
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-32-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="seleccionar-32-1">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-32-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled="" name="seleccionar-32-1">Try again</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <ol class="instruccion-color-verde parrafo ml-4 text-left" start="5">
+                        <li>Now, listen and check your answers.</li>
+                    </ol>
+
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="Topic-3_2/media/M3-OPA34-Last_night_Maggie.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="video1-1 mt-3 mb-5 escritorio">
+    
+                        <div class="colapsador text-center">
+            
+                            <button id="script1" data-toggle="collapse" data-target="#script-1" class="btn btn-colapsar waves-effect waves-light collapsed" style="border: #393E41 2px solid;" aria-expanded="false" disabled>
+                                <div class="btn-colapsar-layout2">
+                                    <span class="btn-colapsar-texto2 mb-0">Script</span>
+                                    <span class="btn-colapsar-icono"><i class="fas fa-chevron-down fa-plus"></i></span>
+                                </div>
+                            </button>
+                
+                            <div id="script-1" class="collapse collapsables-gi__content2">
+                                <div class="text-left">
+                                    
+                                    <p class="parrafo">
+                                        Last night, Maggie wanted to make a delicious dinner. She went to the supermarket and got some meat and some milk and flour to bake a cake. When she came back home, she put her shopping on her dining room table. While she was getting ready to cook, her dog and cat were under the table and observed her. After that, she went to the kitchen to make the cake. She forgot to take the meat and the milk and left them on the table.
+                                    </p>
+
+                                    <p class="parrafo">
+                                        While Maggie was making the cake, the dog jumped on a chair, took the meat in its mouth, and ran out. While she was coming back into the dining room, she saw the dog taking the meat. She ran after it. While she was trying to catch the dog, the cat jumped on the table and began to drink the milk.
+                                    </p>
+                                    <p class="parrafo">
+                                        Maggie could not catch the dog, and she came back into the dining room. When she saw the cat, she yelled at it so loudly that the cat jumped high into the air, and went out through the window. Maggie tried to hit it with a broom, but she missed and broke her window. And as she was walking backwards, she hit the table and spilled the milk all over the table.
+                                    </p>
+                                    <p parrafo class="mb-0">
+                                        Maggie just sat down and sighed.
+                                    </p>
+    
+                                </div>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+                    
+                    <p class="parrafo instruccion-color-verde mb-1 movil" style="font-size: 1.3rem;">
+                        <strong>Instruction:</strong> Press the button and download the file.
+                    </p>
+
+                    <p class="text-center movil" style="font-size: 1.3rem;">
+                        <a id="Descargar_OPA34" download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14 not-active" href="Topic-3_2/downloads/INGLES3-M3-Guion-OPA34-Last_night_Maggie.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+                    <p class="parrafo">Look at the following sentences taken from the previous exercise.</p>
+
+                    <!--<div class="cont-oraciones res1199mayor aria-hidden">
+                        <div class="recuadro-oracion parrafo">                            
+                            <p class="parrafo mb-0 seguido">1. While</p> <div><div class="text-rosa"><p class="parrafo mb-0 seguido">she was getting</p></div><div class="text-rosa mb-0"><p class="parrafo mb-0 seguido">Past continuous</p></div></div> <p class="parrafo mb-0 seguido">ready to cook,</p> <div><div class="text-morado"><p class="parrafo mb-0 seguido">her dog and cat were</p></div><div class="text-morado mb-0"><p class="parrafo mb-0 seguido">Past simple</p></div></div> <p class="parrafo mb-0 seguido">under the table.</p>
+                        </div>
+                        <div class="recuadro-oracion parrafo">
+                            2. While <div><div class="text-rosa">Maggie was making</div><div class="text-rosa mb-0">Past continuous</div></div> the cake, <div><div class="text-morado">the dog jumped</div><div class="text-morado mb-0">Past simple</div></div> on a chair.
+                        </div>
+                        <div class="recuadro-oracion parrafo">
+                            3. As <div><div class="text-rosa">she was walking backwards</div><div class="text-rosa mb-0">Past continuous</div></div>, <div><div class="text-morado">she hit the table</div><div class="text-morado mb-0">Past simple</div></div>.
+                        </div>
+                    </div>-->
+
+                    <!--<p class="sr-only">1. While she was getting ready to cook, her dog and cat were under the table.</p>
+                    <p class="sr-only">she was getting, Past continuous</p>
+                    <p class="sr-only">her dog and cat were, Past simple</p>
+
+                    <p class="sr-only">2. While Maggie was making the cake, the dog jumped on a chair.</p>
+                    <p class="sr-only">Maggie was making, Past continuous</p>
+                    <p class="sr-only">the dog jumped, Past simple</p>
+
+                    <p class="sr-only">3. As she was walking backwards, she hit the table.</p>
+                    <p class="sr-only">she was walking backwards, Past continuous</p>
+                    <p class="sr-only">she hit the table, Past simple</p>-->
+
+                    <div class="cont-oraciones2">
+                        <div class="recuadro-oracion2 parrafo">
+                            <p class="parrafo">
+                                1. While <span class="text-rosa2">she was getting</span> ready to cook, <span class="text-morado2">her dog and cat were</span> under the table.</p>
+                            <div class="Grid2-2 parrafo mb-0">
+                                <div>
+                                    <span class="sr-only">she was getting</span>
+                                    <p class="parrafo mb-0"><span class="text-rosa2">Past continuous</span></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">her dog and cat were</span>
+                                    <p class="parrafo mb-0"><span class="text-morado2">Past simple</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recuadro-oracion2 parrafo">
+                            <p class="parrafo">
+                                2. While <span class="text-rosa2">Maggie was making</span> the cake, <span class="text-morado2">the dog jumped</span> a chair.</p>
+                            <div class="Grid2-2 parrafo mb-0">
+                                <div>
+                                    <span class="sr-only">Maggie was making</span>
+                                    <p class="parrafo mb-0"><span class="text-rosa2">Past continuous</span></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">the dog jumped</span>
+                                    <p class="parrafo mb-0"><span class="text-morado2">Past simple</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recuadro-oracion2 parrafo">
+                            <p class="parrafo">
+                                3. As <span class="text-rosa2">she was walking backwards</span>, <span class="text-morado2">she hit the table</span>.</p>
+                            <div class="Grid2-2 parrafo mb-0">
+                                <div>
+                                    <span class="sr-only">she was walking backwards</span>
+                                    <p class="parrafo mb-0"><span class="text-rosa2">Past continuous</span></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">she hit the table</span>
+                                    <p class="parrafo mb-0"><span class="text-morado2">Past simple</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <p class="parrafo">The extracts in red are actions in progress (past continuous) and the blue ones are finished actions (past simple).</p>
+                    <p class="parrafo">The past continuous is usually interrupted by the past simple.</p>
+                    <p class="parrafo">Do you remember when to use one or the other?</p>
+
+            </div>
+        </section>
+
+
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA35. Past Continuous / Past Simple
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Read the following sentences.</li>
+                        <li>Choose between past continuous or past simple.</li>                        
+                    </ol>
+
+
+                    <div class="selescts seleccionar-32-2 recFacImg" tabindex="0">
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-0" accesskey="2" tabindex="0"><p class="mb-0">a. It is used for finished actions in the past.</p></label>
+                            </div>
+                            <div class="seleccionar-322-0">
+                                <div id="opsel-322-0" class="divcontsel">
+                                    <select id="s322-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-1"><p class="mb-0">b. It is normally followed by time expressions such as yesterday, last…, …ago.</p></label>
+                            </div>
+                            <div class="seleccionar-322-1">
+                                <div id="opsel-322-1" class="divcontsel">
+                                    <select id="s322-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-2"><p class="mb-0">c. It is used for actions happening in the past.</p></label>
+                            </div>
+                            <div class="seleccionar-322-2">
+                                <div id="opsel-322-2" class="divcontsel">
+                                    <select id="s322-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-3"><p class="mb-0">d. One action follows the other action.</p></label>
+                            </div>
+                            <div class="seleccionar-22-3">
+                                <div id="opsel-322-3" class="divcontsel">
+                                    <select id="s322-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-4"><p class="mb-0">e. Actions happen at the same time.</p></label>
+                            </div>
+                            <div class="seleccionar-322-4">
+                                <div id="opsel-322-4" class="divcontsel">
+                                    <select id="s322-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-5"><p class="mb-0">f. It refers to actions happening at a certain moment in the past and it is not finished yet.</p></label>
+                            </div>
+                            <div class="seleccionar-322-5">
+                                <div id="opsel-322-5" class="divcontsel">
+                                    <select id="s322-5" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-6"><p class="mb-0">g. It is usually used with times and time expressions such as: at 8 this morning, yesterday evening at 7…etc.</p></label>
+                            </div>
+                            <div class="seleccionar-322-6">
+                                <div id="opsel-322-6" class="divcontsel">
+                                    <select id="s322-6" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s322-7"><p class="mb-0">h. It is often used with when.</p></label>
+                            </div>
+                            <div class="seleccionar-322-7">
+                                <div id="opsel-322-7" class="divcontsel">
+                                    <select id="s322-7" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2 ult_opc">
+                            <div class="texSen">
+                                <label for="s322-8"><p class="mb-0">i. It is often used with while.</p></label>
+                            </div>
+                            <div class="seleccionar-322-8">
+                                <div id="opsel-322-8" class="divcontsel">
+                                    <select id="s322-8" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">Past continuous</option>
+                                        <option value="2" lang="en">Past simple</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="3">
+                            <li><p class="mb-0">Press the buttons and check your answers.</p></li>
+                        </ol>                
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-322-2" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-322-2" disabled="" name="seleccionar-32-2">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-322-2" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-322-2" disabled="" name="seleccionar-32-2">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+                    <p class="parrafo"><span class="text-azul">FYI:</span> Remember how to form sentences in past simple and past continuous:</p>
+
+
+                    
+                    <div class="escritorio">
+                        <div class="tabla3col tit">
+                            <div><p class="mb-0">Sentence</p></div>
+                            <div><p class="mb-0">Past simple</p></div>
+                            <div><p class="mb-0">Past continuous</p></div>                        
+                        </div>
+                        <div class="tabla3col">
+                            <div class="sr-only">Sentence</div>
+                            <div><p class="mb-0">Afirmative</p></div>
+                            <div class="sr-only">Past simple</div>
+                            <div><p class="mb-0">Subject + regular/irregular verb</p></div>
+                            <div class="sr-only">Past continuous</div>
+                            <div><p class="mb-0">Subject + was/were + -ing verb</p></div>                        
+                        </div>
+                        <div class="tabla3col">
+                            <div class="sr-only">Sentence</div>
+                            <div><p class="mb-0">Negative</p></div>
+                            <div class="sr-only">Past simple</div>
+                            <div><p class="mb-0">Subject + did not (didn’t) + infinitive verb</p></div>
+                            <div class="sr-only">Past continuous</div>
+                            <div><p class="mb-0">Subject + was not (wasn’t)/were not (weren’t) + -ing verb.</p></div>
+                        </div>
+                        <div class="tabla3col">
+                            <div class="sr-only">Sentence</div>
+                            <div><p class="mb-0">Interrogative (Yes/No)</p></div>
+                            <div class="sr-only">Past simple</div>
+                            <div><p class="mb-0">Did + subject + infinitive verb + ?</p></div>
+                            <div class="sr-only">Past continuous</div>
+                            <div><p class="mb-0">Was/Were + subject + -ing verb + ?</p></div>
+                        </div>
+                        <div class="tabla3col fin">
+                            <div class="sr-only">Sentence</div>
+                            <div><p class="mb-0">Interrogative (Wh-)</p></div>
+                            <div class="sr-only">Past simple</div>
+                            <div><p class="mb-0">Wh word + did + subject + verb + ?</p></div>
+                            <div class="sr-only">Past continuous</div>
+                            <div><p class="mb-0">Wh Word + was/were + subject + -ing verb + ?</p></div>
+                        </div>
+                    </div>
+
+                    <div class="movil">
+
+                        <div class="encabezados-tabla"><p class="mb-0">Sentence</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Afirmative</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past simple</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Subject + regular/irregular verb</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past continuous</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Subject + was/were + -ing verb</p></div>
+
+                        <div class="encabezados-tabla"><p class="mb-0">Sentence</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Negative</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past simple</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Subject + was not (wasn’t)/were not (weren’t) + -ing verb.</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past continuous</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Subject + was/were + -ing verb</p></div>
+
+                        <div class="encabezados-tabla"><p class="mb-0">Sentence</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Interrogative (Yes/No)</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past simple</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Did + subject + infinitive verb + ?</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past continuous</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Was/Were + subject + -ing verb + ?</p></div>
+
+                        <div class="encabezados-tabla"><p class="mb-0">Sentence</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Interrogative (Wh-)</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past simple</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Wh word + did + subject + verb + ?</p></div>
+                        <div class="encabezados-tabla"><p class="mb-0">Past continuous</p></div>
+                        <div class="contenidos-tabla"><p class="mb-0">Wh Word + was/were + subject + -ing verb + ?</p></div>
+
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                        <img src="./img/syllabus/separador-interior-e.png" alt="Separador - Imagen de apoyo" aria-hidden="true" width="80%" height="auto" class="escritorio">
+                        <img src="./img/syllabus/separador-interior-r.png" alt="Separador movil - Imagen de apoyo" aria-hidden="true" width="80%" height="auto" class="movil">
+                    </div>
+
+                    <h2 class="parrafo text-azul subtitulos">
+                       When & While
+                    </h2>
+
+                    <p class="parrafo">Before you do some practice, it is important to identify when to use these two words.</p>
+
+                    <ul class="bullcolor parrafo">
+                        <li><span class="trosa">While</span> is usually used with past continuous:</li>
+                    </ul>
+
+                    <div class="recuadro-azul">
+                        <p class="parrafo">My mother was cooking dinner <span class="trosa">while</span> I was watching a movie. (Simultaneous actions in the past).</p>
+                        <p class="parrafo mb-0"><span class="trosa">While</span> I was waiting for the bus, it started to rain. (Action in progress in the past when interrupted by another action).</p>
+                    </div>
+
+                    <ul class="bullcoloraz parrafo">
+                        <li><span class="tazul">When</span> is used before past simple:</li>
+                    </ul>
+
+                    <div class="recuadro-azul">
+                        <p class="parrafo mb-0">Mary was taking a shower <span class="tazul">when</span> her friend called.</p>
+                    </div>
+
+                    <ul class="bullcoloraz parrafo">
+                        <li><span class="tazul">When</span> is usually used with past simple:</li>
+                    </ul>
+
+                    <div class="recuadro-azul">
+                        <p class="parrafo"><span class="tazul">When</span> she saw the cat, she yelled at it… (An action that happened in the course of another action).</p>
+                        <p class="parrafo mb-0">Who were they talking to <span class="tazul">when</span> you saw them? (A continuous long action is interrupted by a short action).</p>
+                    </div>
+
+                    <p class="parrafo">Notice that when you use <span class="trosa">While</span> or <span class="tazul">When</span> at the beginning of the sentence, a comma is used.</p>                 
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA36. The Wolf and the Donkey
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Now let´s continue reading some stories.</li>
+                        <li>The following text is a well-known fable by Aesops. Read and choose the correct option.</li>
+                    </ol>
+
+                    <div class="text-center">
+                        <p class="parrafo text-azul">The Wolf and the Donkey</p>
+                    </div>
+
+                    <div class="text-center">
+                        <img src="Topic-3_2/img/IB3V-M3_OPA36.png" class="img-60" alt="Imagen ilustrativa" aria-hidden="true">                 
+                    </div>
+
+                    <div class="selescts seleccionar-32-3 recFacImg" tabindex="0">
+                        <div class="conTarjetas">
+                            <p class="mb-0 seguido">A Donkey</p>
+                            <div class="reactivo seguido seleccionar-323-0">
+                                <div id="opsel-323-0" class="divcontsel">
+                                    <select id="s323-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3" accesskey="3" tabindex="0">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">ate</option>
+                                        <option value="2" lang="en">was eating</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">happily near the woods when he</p>
+                            <div class="reactivo seguido seleccionar-323-1">
+                                <div id="opsel-323-1" class="divcontsel">
+                                    <select id="s323-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">saw</option>
+                                        <option value="2" lang="en">was seeing</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">a Wolf.</p>
+
+                            <br aria-hidden="true">
+
+                            <p class="mb-0 seguido">The Wolf</p>
+                            <div class="reactivo seguido seleccionar-323-2">
+                                <div id="opsel-323-2" class="divcontsel">
+                                    <select id="s323-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">tried</option>
+                                        <option value="2" lang="en">was trying</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">to get closer, so the Donkey soon</p>
+                            <div class="reactivo seguido seleccionar-323-3">
+                                <div id="opsel-323-3" class="divcontsel">
+                                    <select id="s323-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">realized</option>
+                                        <option value="2" lang="en">was realizing</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">what the Wolf</p>
+                            <div class="reactivo seguido seleccionar-323-4">
+                                <div id="opsel-323-4" class="divcontsel">
+                                    <select id="s323-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">thought</option>
+                                        <option value="2" lang="en">was thinking</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">about. So, he</p>
+                            <div class="reactivo seguido seleccionar-323-5">
+                                <div id="opsel-323-5" class="divcontsel">
+                                    <select id="s323-5" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">thought</option>
+                                        <option value="2" lang="en">was thinking</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">of a plan to save himself. He started to walk like if he were hurt.</p>
+                            
+                            <br aria-hidden="true">
+
+                            <p class="mb-0 seguido">When the Wolf finally</p>
+                            <div class="reactivo seguido seleccionar-323-6">
+                                <div id="opsel-323-6" class="divcontsel">
+                                    <select id="s323-6" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">came up to</option>
+                                        <option value="2" lang="en">was coming up to</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">him, he asked the Donkey why he</p>
+                            <div class="reactivo seguido seleccionar-323-7">
+                                <div id="opsel-323-7" class="divcontsel">
+                                    <select id="s323-7" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">walked</option>
+                                        <option value="2" lang="en">was walking</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">with difficulty. The Donkey replied that he had a sharp thorn in his back leg. “Please Mr. Wolf, take it out!” He asked. If not, the thorn could stick in your throat when you eat me.” The Wolf thought it was a good suggestion and asked the Donkey to lift up his foot. He began to search carefully. While he</p>
+                            <div class="reactivo seguido seleccionar-323-8">
+                                <div id="opsel-323-8" class="divcontsel">
+                                    <select id="s323-8" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">looked</option>
+                                        <option value="2" lang="en">was looking</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">at his foot, the Donkey</p>
+                            <div class="reactivo seguido seleccionar-323-9">
+                                <div id="opsel-323-9" class="divcontsel">
+                                    <select id="s323-9" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">asked</option>
+                                        <option value="2" lang="en">was asking</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">him to look closer.</p>
+
+                            <br aria-hidden="true">
+
+                            <p class="mb-0 seguido">Just then, the Donkey kicked out as hard as he could sending the Wolf some feet away. And while the Wolf</p>
+                            <div class="reactivo seguido seleccionar-323-10">
+                                <div id="opsel-323-10" class="divcontsel">
+                                    <select id="s323-10" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">got</option>
+                                        <option value="2" lang="en">was getting</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">very slowly and painfully to his feet, the Donkey</p>
+                            <div class="reactivo seguido seleccionar-323-11">
+                                <div id="opsel-323-11" class="divcontsel">
+                                    <select id="s323-11" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">ran</option>
+                                        <option value="2" lang="en">was running</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <p class="mb-0 seguido">as far as he could to be safe.</p>
+
+                            <br aria-hidden="true">
+
+                            <p class="mb-0 seguido">“Serves me right,” thought the Wolf as he was trying to get on his feet. “I’m a butcher by trade, not a doctor!”</p>
+                        </div>                
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+                        <p class="instruccion-color-verde text-left">3. Press the buttons and check your answers.</p>               
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-323-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-323-1" disabled="" name="seleccionar-32-3">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-323-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-33-3" disabled="" name="seleccionar-32-3">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ol class="instruccion-color-verde parrafo ml-4 text-left" start="4">
+                        <li>Now, listen and check your answers.</li>
+                    </ol>
+
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="Topic-3_2/media/M3-OPA36-The_Wolf_and_the_Donkey.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="video1-1 mt-3 mb-5 escritorio">
+    
+                        <div class="colapsador text-center">
+            
+                            <button id="script2" data-toggle="collapse" data-target="#script-2" class="btn btn-colapsar waves-effect waves-light collapsed" style="border: #393E41 2px solid;" aria-expanded="false" disabled>
+                                <div class="btn-colapsar-layout2">
+                                    <span class="btn-colapsar-texto2 mb-0">Script</span>
+                                    <span class="btn-colapsar-icono"><i class="fas fa-chevron-down fa-plus"></i></span>
+                                </div>
+                            </button>
+                
+                            <div id="script-2" class="collapse collapsables-gi__content2">
+                                <div class="text-left">
+
+                                    <div class="text-center"><p class="parrafo"><b>The Wolf and the Donkey</b></p></div>
+
+                                    <p class="parrafo">A Donkey was eating happily near the woods when he saw a Wolf. The Wolf was trying to get closer so the Donkey soon realized what the Wolf was thinking about. So, he thought of a plan to save himself. He started to walk like if he were hurt.</p>
+
+                                    <p class="parrafo">When the Wolf finally came up to him, he asked the Donkey why he was walking with difficulty. The Donkey replied that he had a sharp thorn in his back leg. “Please Mr. Wolf, take it out!” He asked. “If not, the thorn could stick in your throat when you eat me.” The Wolf thought it was a good suggestion and asked the Donkey to lift up his foot. He began to search carefully. While he was looking at his foot, the Donkey asked him to look closer.</p>
+
+                                    <p class="parrafo">Just then, the Donkey kicked out as hard as he could sending the Wolf some feet away. And while the Wolf was getting very slowly and painfully to his feet, the Donkey ran as far as he could to be safe.</p>
+
+                                    <p class="parrafo">“Serves me right,” thought the Wolf as he was trying to get on his feet. “I’m a butcher by trade, not a doctor!”</p>
+
+                                    <p class="parrafo mb-0"><b>Moral: Stick to your trade!</b></p>
+                                </div>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+                    
+                    <p class="parrafo instruccion-color-verde mb-1 movil" style="font-size: 1.3rem;">
+                        <strong>Instruction:</strong> Press the button and download the file.
+                    </p>
+
+                    <p class="text-center movil" style="font-size: 1.3rem;">
+                        <a id="Descargar_OPA36" download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14 not-active" href="Topic-3_2/downloads/INGLES3-M3-Guion-OPA36-The_Wolf_and_the_Donkey.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+                    <div class="text-center"><p class="parrafo"><span class="text-azul">Food for thought:</span> What do you think about the moral?</p></div>   
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA37. A frightening morning…
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Do you like scary stories? Listen to a woman telling hers.</li>
+                        <li>After, answer the questions.</li>                        
+                    </ol>
+
+                    <div class="text-center">
+                        <p class="parrafo text-azul">A frightening morning…y</p>
+                    </div>
+
+                    <div class="text-center">
+                        <img src="Topic-3_2/img/IB3V-M3_OPA37.png" class="img-60" alt="Imagen ilustrativa" aria-hidden="true">                 
+                    </div>
+
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="Topic-3_2/media/M3-OPA37-A_frightening_morning.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="video1-1 mt-3 mb-5 escritorio">
+    
+                        <div class="colapsador text-center">
+            
+                            <button id="script3" data-toggle="collapse" data-target="#script-3" class="btn btn-colapsar waves-effect waves-light collapsed" style="border: #393E41 2px solid;" aria-expanded="false">
+                                <div class="btn-colapsar-layout2">
+                                    <span class="btn-colapsar-texto2 mb-0">Script</span>
+                                    <span class="btn-colapsar-icono"><i class="fas fa-chevron-down fa-plus"></i></span>
+                                </div>
+                            </button>
+                
+                            <div id="script-3" class="collapse collapsables-gi__content2">
+                                <div class="text-left">
+
+                                    <div class="text-center"><p class="parrafo"><b>A frightening morning…</b></p></div>
+
+                                    <p class="parrafo mb-0">When I got up, I realized it was late and I had to go to work. My eggs were boiling when I poured a cup of coffee. While I was drinking my coffee, I turned on the radio. There was an interesting report about a crime. While I was listening to the radio I heard a noise downstairs. I put my coffee on the table. I got too scared, but I calmed down and went to the stairs. While I was standing at the stairs I heard another sound, so I decided to call the police, but my cellphone was in the kitchen. I didn’t remember when was the last time I felt so scared. I went back to the kitchen; my phone was on the table. While I was trying to dial 911, my best friend texted me. When I opened the message, I heard a man’s voice saying “do not move…”</p>
+                                </div>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+                    
+                    <p class="parrafo instruccion-color-verde mb-1 movil" style="font-size: 1.3rem;">
+                        <strong>Instruction:</strong> Press the button and download the file.
+                    </p>
+
+                    <p class="text-center movil" style="font-size: 1.3rem;">
+                        <a id="Descargar_OPA36" download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="Topic-3_2/downloads/INGLES3-M3-Guion-OPA37-A_frightening_morning.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+
+                    <div class="selescts seleccionar-32-4 recFacImg" tabindex="0">
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s324-0" accesskey="4" tabindex="0"><p class="mb-0">a. What did the woman realize when she got up?</p></label>
+                            </div>
+                            <div class="seleccionar-324-0">
+                                <div id="opsel-324-0" class="divcontsel">
+                                    <select id="s324-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-4">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) It was late.</option>
+                                        <option value="2" lang="en">b) She had work to do.</option>
+                                        <option value="3" lang="en">c) It was the end.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s324-1"><p class="mb-0">b. What did she do while she was drinking her coffee?</p></label>
+                            </div>
+                            <div class="seleccionar-324-1">
+                                <div id="opsel-324-1" class="divcontsel">
+                                    <select id="s324-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-4">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) She boiled and egg.</option>
+                                        <option value="2" lang="en">b) She turned on the radio.</option>
+                                        <option value="3" lang="en">c) She made some coffee.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s324-2"><p class="mb-0">c. She heard a noise while…</p></label>
+                            </div>
+                            <div class="seleccionar-324-2">
+                                <div id="opsel-324-2" class="divcontsel">
+                                    <select id="s324-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-4">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) she was setting the table.</option>
+                                        <option value="2" lang="en">b) she was listening to the radio.</option>
+                                        <option value="3" lang="en">c) she was getting scared.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s324-3"><p class="mb-0">d. After hearing a second noise she…</p></label>
+                            </div>
+                            <div class="seleccionar-324-3">
+                                <div id="opsel-324-3" class="divcontsel">
+                                    <select id="s324-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-4">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) stood on the stairs.</option>
+                                        <option value="2" lang="en">b) went to the kitchen.</option>
+                                        <option value="3" lang="en">c) decided to call the police.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2 mb-2rem">
+                            <div class="texSen">
+                                <label for="s324-4"><p class="mb-0">e. She got a message while she was…</p></label>
+                            </div>
+                            <div class="seleccionar-324-4">
+                                <div id="opsel-324-4" class="divcontsel">
+                                    <select id="s324-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-32-4">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) going back to the kitchen.</option>
+                                        <option value="2" lang="en">b) opening a message.</option>
+                                        <option value="3" lang="en">c) dialing 911.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                                            
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="3">
+                            <li><p class="mb-0">Press the buttons and check your answers.</p></li>
+                        </ol>                
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-324-4" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-324-4" disabled="" name="seleccionar-32-4">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-324-4" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-324-4" disabled="" name="seleccionar-32-4">Try again</button>
+                            </div>
+                        </div>
+                    </div>               
+                                    
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <section class="section-activity">
+
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+            
+
+            <div class="container py-4">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA38. Monica and Luisa
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="instruccion-color-verde ml-4 parrafo" start="1">
+                        <li>To finish up practicing this module’s topic, complete the following conversation with a phrase or word from the box.</li>
+                        <li>There are two words you do not need to use.</li>
+                    </ol>
+
+                    <p class="parrafo text-azul">Options</p>
+
+                    <div class="actividades-opciones">
+                        <p class="parrafo">got</p>
+                        <p class="parrafo">doing</p>
+                        <p class="parrafo">was</p>
+                        <p class="parrafo">while</p>
+                        <p class="parrafo">had</p>
+                        <p class="parrafo">weren’t</p>
+                        <p class="parrafo">when</p>
+                        <p class="parrafo">were</p>
+                        <p class="parrafo">wasn’t</p>
+                        <p class="parrafo">driving</p>
+                    </div>
+                   
+
+                    <div class="selescts escribir-32-1 recFacImg" tabindex="0">
+
+                        <div id="escribir-32-1" class="parrafo">
+
+                            <p class="sr-only text-ayuda">
+                                Monica: Luisa, tell me, how you <span lang="es">espacio a rellenar</span> the accident, 
+                                Luisa: Well, I was turning left on Main Street <span lang="es">espacio a rellenar</span> a car hit mine,
+                                Monica: Oh my god! Were you paying attention <span lang="es">espacio a rellenar</span> you were driving?,
+                                Luisa: Of course! I <span lang="es">espacio a rellenar</span> listening to music nor texting on the phone. That driver came out of nowhere!,
+                                Monica: Do you know what that driver was <span lang="es">espacio a rellenar</span> when he crashed?,
+                                Luisa: He said he <span lang="es">espacio a rellenar</span> talking on the phone! <span lang="es">espacio a rellenar</span> carefully!,
+                                Monica: Sure, he wasn’t! And you <span lang="es">espacio a rellenar</span> a broken arm!,
+                            </p>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-1" class="active" accesskey="5" tabindex="0"><p class="mb-0 seguido"><span class="text-azul">Monica:</span> Luisa, tell me, how you</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-1" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">the accident.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-2" class="active"><p class="mb-0 seguido"><span class="text-azul">Luisa:</span> Well, I was turning left on Main Street</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-2" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">a car hit mine.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-3" class="active"><p class="mb-0 seguido"><span class="text-azul">Monica:</span> Oh my god! Were you paying attention</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-3" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">you were driving?</p>
+                            </div>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-4" class="active"><p class="mb-0 seguido"><span class="text-azul">Luisa:</span> Of course! I</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-4" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">listening to music nor texting on the phone. That driver came out of nowhere!</p>
+                            </div>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-5" class="active"><p class="mb-0 seguido"><span class="text-azul">Monica:</span> Do you know what that driver was</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-5" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">when he crashed?</p>
+                            </div>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-6" class="active"><p class="mb-0 seguido"><span class="text-azul">Luisa:</span> He said he</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-6" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">talking on the phone!</p>
+                                <label for="escribir-32-1-7" class="active"><p class="mb-0 seguido">He wasn’t</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-7" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">carefully!</p>
+                            </div>
+
+                            <div class="incisos">
+                                <label for="escribir-32-1-8" class="active"><p class="mb-0 seguido"><span class="text-azul">Monica:</span> Sure, he wasn’t! And you</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-32-1-8" type="text" placeholder="Write here..." name="escribir-32-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">a broken arm!</p>
+                            </div>                            
+                            
+                            
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p> 
+                        <ol class="instruccion-color-verde ml-4 parrafo text-left" start="3">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                    
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-e-32-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="escribir-32-1">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-e-32-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled="" name="escribir-32-1">Try again</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <ol class="instruccion-color-verde parrafo ml-4 text-left" start="4">
+                        <li>Now, listen and check your answers.</li>
+                    </ol>
+
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="Topic-3_2/media/M3-OPA38-Monica_and_Luisa.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="video1-1 mt-3 mb-5 escritorio">
+    
+                        <div class="colapsador text-center">
+            
+                            <button id="script4" data-toggle="collapse" data-target="#script-4" class="btn btn-colapsar waves-effect waves-light collapsed" style="border: #393E41 2px solid;" aria-expanded="false" disabled>
+                                <div class="btn-colapsar-layout2">
+                                    <span class="btn-colapsar-texto2 mb-0">Script</span>
+                                    <span class="btn-colapsar-icono"><i class="fas fa-chevron-down fa-plus"></i></span>
+                                </div>
+                            </button>
+                
+                            <div id="script-4" class="collapse collapsables-gi__content2">
+                                <div class="text-left">
+                                    <div class="text-center"><p class="parrafo"><b>Answer key (Script)</b></p></div>
+                                    <p class="parrafo"><span class="text-azul">Monica:</span> Luisa, tell me, how you had the accident.</p>
+                                    <p class="parrafo"><span class="text-azul">Luisa:</span> Well, I was turning left on Main Street when a car hit mine.</p>
+                                    <p class="parrafo"><span class="text-azul">Monica:</span> Oh my god! Were you paying attention while you were driving?</p>
+                                    <p class="parrafo"><span class="text-azul">Luisa:</span> Of course! I wasn’t listening to music nor texting on the phone. That driver came out of nowhere!</p>
+                                    <p class="parrafo"><span class="text-azul">Monica:</span> Do you know what that driver was doing when he crashed?</p>
+                                    <p class="parrafo"><span class="text-azul">Luisa:</span> He said he was talking on the phone! He wasn’t driving carefully!</p>
+                                    <p class="parrafo mb-0"><span class="text-azul">Monica:</span> Sure, he wasn’t! And you got a broken arm!</p>
+                                </div>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+                    
+                    <p class="parrafo instruccion-color-verde mb-1 movil" style="font-size: 1.3rem;">
+                        <strong>Instruction:</strong> Press the button and download the file.
+                    </p>
+
+                    <p class="text-center movil" style="font-size: 1.3rem;">
+                        <a id="Descargar_OPA37" download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14 not-active" href="Topic-3_2/downloads/INGLES3-M3-Guion-OPA38-Monica_and_Luisa.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+
+
+                    <div class="CuadroAudio">
+                        <p class="texCenAzu parrafo">
+                            Recap of Topic I was… while you were…
+                        </p>
+                        <div>
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls="" aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-3_2/media/M3-Recap_of_Topic_3_2-I_was_while_you_were.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <p class="parrafo">In this section…</p>
+                        <p class="parrafo mb-0">
+                            You worked on past simple and past continuous to talk about experiences and stories. You reviewed these topics as well as the key words when and while which are used when comparing these two aspects.
+                        </p>
+                    </div>
+           
+
+            </div>
+
+        </section>
+
+
+        
+
+
+
+
+ 
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+        
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="Topic-3_2/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="Topic-3_2/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+        
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-3_2/scripts/home.js"></script>
+    <script type="text/javascript" src="Topic-3_2/scripts/menu-2.js"></script>
+
+    <!-- modales de ayuda y lector inmersivo -->
+    <script src="Topic-3_2/scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-3_2/scripts/menuacces.js"></script>
+    <script src="Topic-3_2/scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="Topic-3_2/scripts/scroll-timeline.js"></script>
+
+    <script type="text/javascript" src="Topic-3_2/scripts/unit-3_2.js"></script>
+
+        
+
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+    
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function(){
+
+            $('.ir-arriba').click(function(){
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function(){
+                if( $(this).scrollTop() > 0 ){
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</body>
+</html>
+

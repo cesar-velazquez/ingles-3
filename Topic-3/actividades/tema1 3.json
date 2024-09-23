@@ -1,0 +1,67 @@
+{
+    "autor": "Universidad Veracruzana",
+    "numeroFilas": 14,
+    "numeroColumnas": 11,    
+    "palabras": [
+        {
+          "valor": "RIESGO",
+          "definicion": "Son los daños o pérdidas probables sobre un sistema afectable, resultado de la interacción entre su vulnerabilidad y la presencia de una amenaza.",
+          "fila": 0,          
+          "columna": 2,
+          "direccion": "V"
+        },
+        {
+          "valor": "UIGIR",
+          "definicion": "Operan en beneficio de la comunidad universitaria, encaminadas a la reducción del riesgo, la vulnerabilidad y la construcción de una cultura universitaria del autocuidado personal y colectivo.",
+          "fila": 7,
+          "columna": 0,
+          "direccion": "H"
+        },
+        {
+          "valor": "VULNERABILIDAD",
+          "definicion": "Es la susceptibilidad o propensión de un sistema afectable a sufrir daños o pérdidas ante la presencia de un agente perturbador, determinado por factores físicos, sociales, económicos y ambientales.",
+          "fila": 0,
+          "columna": 7,
+          "direccion": "V"
+        },
+        {
+          "valor": "RESILIENCIA",
+          "definicion": "Es la capacidad de un sistema o comunidad expuestos a una amenaza para resistir, absorber, adaptarse y recuperarse de sus efectos, oportuna y eficazmente.",
+          "fila": 3,
+          "columna": 0,
+          "direccion": "H"
+        },
+        {
+          "valor": "ANUIES",
+          "definicion": "Creador del manual de Seguridad para las Instituciones de Educación Superior.",
+          "fila": 1,
+          "columna": 5,
+          "direccion": "H"
+        },
+        {
+          "valor": "SUGIR",
+          "definicion": "En 2013, se crea ________ por acuerdo rectoral y es ratificado por el Consejo Universitario General.",
+          "fila": 10,
+          "columna": 4,
+          "direccion": "H"
+        },
+        {
+          "valor": "VERACRUZ",
+          "definicion": "En 2013, se publica la Ley No. 856 de Protección Civil y la Reducción del Riesgo de Desastres para el Estado de ___________.",
+          "fila": 1,
+          "columna": 0,
+          "direccion": "V"
+        },
+        {
+          "valor": "SENDAI",
+          "fila": 12,
+          "columna": 3,
+          "direccion": "H"
+        }
+      ],
+  "idioma": [
+    {
+      "lang": "es"
+    }
+  ]
+}

@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 2.3 Childs prodigies </title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-2_3/css/index.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-2_3/css/menuacces.css"> 
+
+    <link rel="stylesheet" href="Topic-2_3/css/unit2_3.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="Topic-2_3/css/seleccion.css">    
+    
+</head>
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+    
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4 sr-only">
+            <li lang="es">Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li><i lang="en">Activity OPA 19</i> Alt <i lang="es">+</i> 1</li>
+            <li><i lang="en">Activity OPA 20</i> Alt <i lang="es">+</i> 2</li>
+            <li><i lang="en">Activity OPA 21</i> Alt <i lang="es">+</i> 3</li>
+            <li><i lang="en">Activity OPA 22</i> Alt <i lang="es">+</i> 4</li>
+            <li><i lang="en">Activity OPA 23</i> Alt <i lang="es">+</i> 5</li>
+        </ul>
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="parrafo ml-4 sr-only">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li><i lang="en">Activity OPA 19</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 1</li>
+            <li><i lang="en">Activity OPA 20</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 2</li>
+            <li><i lang="en">Activity OPA 21</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 3</li>
+            <li><i lang="en">Activity OPA 22</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 4</li>
+            <li><i lang="en">Activity OPA 23</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 5</li>
+        </ul>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-2_3/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-2_3/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-2_3/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-2_3/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-2_3/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-2_3/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-2_3/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-2_3/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-2_3/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-2_3/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-2_3/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es" aria-hidden="true">Universidad Veracruzana</a>
+               
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Topic 2.3 </b> <span style="font-weight: normal !important;">Childs prodigies</span>
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+
+            <img src="Topic-2_3/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                    <i class="fas fa-bars"></i>
+                </button>-->
+                
+                <div class="d-flex align-items-center mt-4">
+
+                    <div class="pleca__ee ml-0" style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <p class="tam-font font-weight-bold mb-1 texto-tema-margen">
+                                Topic 2.3 <!--<span style="font-weight: normal;">My habits and hobbies</span>-->
+                            </p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="Topic-2_3/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Topic 2.3 <br>
+                <span class="subtitulo-secundari-unit">Childs prodigies</span>            
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+            
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA19. Childs prodigies
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Select the button to watch the video about child prodigies.</li>
+                    </ol>
+
+                    <!--<div>
+                        <div class="vid3 embed-responsive embed-responsive-16by9 mt-4 mb-4 mt-md-5 mb-md-5">
+                            <iframe src="https://lumen.uv.mx/lumen/shared/embed/resource/8123" width="800" height="500" allowfullscreen="" scrolling="no"></iframe>
+                        </div>
+                        <div class="recuadro-video"></div>
+                    </div>-->
+
+                    <div class="vid3 embed-responsive embed-responsive-16by9 mt-4 mb-4">
+                        <video id="video1" poster="Topic-2_3/img/portada_video.png" src="https://lumen.uv.mx/resources/files/videos/2024/8/20/10805/e79d257d-16aa-4c7b-8d2e-5d6bf7b44195.mp4" controls="" width="80%">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+
+                    <div class="script-video escritorio" style="margin-bottom: 1.5rem;">
+                            <details class="collapsables-gi">
+                                <summary class="btn waves-effect waves-light" style=""><strong>Script</strong></summary>
+                                <div class="collapsables-gi__content">
+                                    <p><b>Child prodigies</b></p>
+
+                                    <p>
+                                        <b>Sor Juana Inés de la Cruz</b><br>
+                                        Juana Ramírez de Asbaje, better known as Sor Juana Inés de la Cruz was born in San Miguel Nepantla in the Viceroyalty of New Spain (now Mexico).<br>
+                                        She showed remarkable intellectual potential early on.<br>
+                                        She <b>could</b> read at the age of three.<br>
+                                        She <b>could</b> write dramatic poems before when she was eight.<br>
+                                        But she <b>couldn’t</b> receive formal education due to her family’s limited finances.<br>
+                                        However, she became one of the most famous writers in the history of Mexico.
+                                    </p>
+
+                                    <p>
+                                        <b>Wolfgang Amadeus Mozart</b><br>
+                                        Wolfgang Amadeus Mozart was the child prodigy par excellence.<br>
+                                        He <b>could</b> play songs on the harpsichord at the age of 4.<br>
+                                        He <b>could</b> also compose simple music at five.<br>
+                                        When he was seven years old, the Mozart family went on the first of several tours to demonstrate the prodigious musical abilities of the young marvel and his sister Maria Anna.
+                                    </p>
+
+                                    <p class="mb-0">
+                                        <b>Shirley Temple</b><br>
+                                        Shirley Temple was a famous singing and acting prodigy.<br>
+                                        Born in 1928, in California, she began her film career at the tender age of three.<br>
+                                        She <b>could</b> act and dance tap when she was five.<br>
+                                        She received a special Academy Award at the age of seven.<br>
+                                        She continued her career as the queen of the show for several years.<br>
+                                        Ultimately though, she quit movies and joined politics, and died in 2014.
+                                    </p>
+
+                                </div>
+                            </details>
+                    </div>
+                    <p class="text-center movil">
+                        <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="Topic-2_3/downloads/INGLES3-M2-Guion_de_video-OPA16-Child_prodigies.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+                    <ol class="parrafo instruccion-color-verde ml-4" start="2">
+                        <li>Now, answer True or False.</li>
+                    </ol>
+
+                    
+                    <div class="selescts seleccionar-23-1 recFacImg">
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s231-0" accesskey="1" tabindex="0"><p class="mb-0">a. Sor Juana couldn’t read at the age of 3.</p></label>
+                            </div>
+                            <div class="seleccionar-231-0">
+                                <div id="opsel-231-0" class="divcontsel">
+                                    <select id="s231-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-1">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s231-1"><p class="mb-0">b. Sor Juana could write dramatic poems at the age of 8.</p></label>
+                            </div>
+                            <div class="seleccionar-231-1">
+                                <div id="opsel-231-1" class="divcontsel">
+                                    <select id="s231-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-1">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s231-2"><p class="mb-0">c. Mozart couldn’t compose simple music at the age of 6.</p></label>
+                            </div>
+                            <div class="seleccionar-231-2">
+                                <div id="opsel-231-2" class="divcontsel">
+                                    <select id="s231-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-1">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s231-3"><p class="mb-0">d. Mozart could play music in front of people when he was 5.</p></label>
+                            </div>
+                            <div class="seleccionar-22-3">
+                                <div id="opsel-231-3" class="divcontsel">
+                                    <select id="s231-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-1">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s231-4"><p class="mb-0">e. Shirley could dance tap at the age of 7.</p></label>
+                            </div>
+                            <div class="seleccionar-231-4">
+                                <div id="opsel-231-4" class="divcontsel">
+                                    <select id="s231-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-1">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>    
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="3">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                  
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-231-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-231-1" disabled="" name="seleccionar-23-1">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-231-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-31-1" disabled="" name="seleccionar-23-1">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+
+
+                    <div class="mb-4 mb-md-5">
+                        
+                        <h2 class="parrafo text-azul subtitulos">
+                           Explanation
+                        </h2>
+
+                        <p class="parrafo instruccion-color-verde escritorio">
+                            <b>Instructions: </b> Press the buttons to access the information.
+                        </p>
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">Could</summary>
+                            <div class="details-content text-left">
+
+                                <p class="parrafo">We use <strong class="rosa">could</strong> when we talk about past abilities.</p>
+
+                                <p class="parrafo text-left texAzu">Examples:</p>
+
+                                <ul class="parrafo ml-4">
+                                    <li><span class="rosa">Could</span> for ability.</li>
+                                    <li>My sister <span class="rosa">could hold</span> a spider in his hands when she was a child. Now, she hates them.</li>
+                                    <li>I <span class="rosa">couldn’t travel</span> to Egypt last summer because my father didn’t pay for the trip.</li>
+                                    <li>Linda <span class="rosa">could fix</span> a car when she was a young. Nowadays, she always goes to the car service.</li>
+                                    <li><span class="rosa">Could</span> your cousin climb the Everest when he lived in Nepal?</li>
+                                    <li>No, he <span class="rosa">couldn’t</span>.</li>
+                                </ul>
+
+                                <p class="parrafo"><b>Could</b> is a modal verb. Like all modals, <b>could</b> come before the base form of the verbs. They also have the same form with all subjects.</p>
+
+
+                                <p class="parrafo text-left texAzu">Affirmative statements</p>
+
+                                <div class="text-center w70 mb-2rem">
+
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Could</p></div>
+                                        <div><p class="mb-0">Base form of verb</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">I</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">You</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div>
+                                            <p class="mb-0">He</p><br>
+                                            <p class="mb-0">She</p><br>
+                                            <p class="mb-0">It</p>
+                                        </div>
+                                        <div><p class="mb-0">could</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">We</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">You</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm uf mb-2rem" aria-hidden="true">
+                                        <div><p class="mb-0">They</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">Subject I Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject You Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject He Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject She Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject It Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject We Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject You Could could Base form of verb swim</div>
+                                <div class="sr-only">Subject They Could could Base form of verb swim</div>
+
+                                <p class="parrafo text-left texAzu">Examples:</p>
+
+                                <div class="text-center escritorio" lang="es" >
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-explanation-01.png" class="img-central" alt="Imagen de niño tocando la guitarra">
+                                </div>
+
+                                <p class="parrafo text-center">I <span class="rosa">could play</span> the guitar when i was a child.</p>
+
+                                <div class="text-center escritorio" lang="es" >
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-explanation-02.png" class="img-central" alt="Imagen de una persona mayor cantando ópera">
+                                </div>
+
+                                <p class="parrafo text-center">My grandpa <span class="rosa">could sing</span> opera.</p>
+
+                                <div class="text-center escritorio" lang="es" >
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-explanation-03.png" class="img-central" alt="Imagen de personas corriendo un maratón">
+                                </div>
+
+                                <p class="parrafo text-center mb-0">When they were  younger, they <span class="rosa">could run</span> a marathon.</p>           
+                                
+                            </div>
+                        </details>
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">Could not / Couldn’t</summary>
+                            <div class="details-content text-center"> 
+
+                                <p class="parrafo text-left"><span class="rosa">Could not</span> is the negative of could. <span class="rosa">Couldn’t</span> is the short form.</p>
+
+                                <div class="text-center w70 mb-2rem">
+
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Could</p></div>
+                                        <div><p class="mb-0">Base form of verb</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">I</p></div>
+                                        <div><p class="mb-0">could not</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">You</p></div>
+                                        <div><p class="mb-0">could not</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div>
+                                            <p class="mb-0">He</p><br>
+                                            <p class="mb-0">She</p><br>
+                                            <p class="mb-0">It</p>
+                                        </div>
+                                        <div><p class="mb-0">could not</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">We</p></div>
+                                        <div><p class="mb-0">could not</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">You</p></div>
+                                        <div><p class="mb-0">could not</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                    <div class="tabForm uf mb-2rem" aria-hidden="true">
+                                        <div><p class="mb-0">They</p></div>
+                                        <div><p class="mb-0">could not</p></div>
+                                        <div><p class="mb-0">swim</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">Subject I Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject You Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject He Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject She Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject It Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject We Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject You Could could not Base form of verb swim</div>
+                                <div class="sr-only">Subject They Could could not Base form of verb swim</div>
+
+
+                                <p class="parrafo text-left texAzu">Examples:</p>
+
+                                <div class="text-center escritorio" lang="es" >
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-explanation-04.png" class="img-central" alt="Imagen de niño intentando tocar una guitarra.">
+                                </div>
+
+                                <p class="parrafo text-center">I <span class="rosa">couldn't play</span> the guitar when I was a child.</p>
+
+                                <div class="text-center escritorio" lang="es" >
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-explanation-05.png" class="img-central" alt="Imagen de una persona mayor que no puede cantar ópera.">
+                                </div>
+
+                                <p class="parrafo text-center">My grandpa <span class="rosa">couldn't sing</span> opera.</p>
+
+                                <div class="text-center escritorio" lang="es" >
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-explanation-06.png" class="img-central" alt="Imagen de personas jóvenes que no pueden correr un maratón">
+                                </div>
+
+                                <p class="parrafo text-center mb-0">When they were younger, they <span class="rosa">couldn't run</span> a marathon.</p>  
+
+                                
+                            </div>
+                        </details>
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Could, in questions</summary>
+                            <div class="details-content text-center">
+
+                                <p class="parrafo text-left">In questions, <span class="rosa">could</span> comes before the subject.</p>
+
+                                <p class="parrafo text-left texAzu">Yes / no questions with short answers</p>
+
+                                <div class="text-center w70 mb-2rem">
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">Could</p></div>
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Base form of verb</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">Could</p></div>
+                                        <div><p class="mb-0">you</p></div>
+                                        <div><p class="mb-0">swim?</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">Could Could Subject you Base form of verb swim?</div>
+
+                                <div class="text-center w70 mb-2rem">
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">Yes</p></div>
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Could</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">Yes</p></div>
+                                        <div><p class="mb-0">I</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">Yes Yes Subject I Could could</div>
+
+                                <div class="text-center w70 mb-2rem">
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">No</p></div>
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Could</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">No</p></div>
+                                        <div><p class="mb-0">I</p></div>
+                                        <div><p class="mb-0">couldn’t</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">No No Subject I Could couldn’t</div>
+
+                                <div class="text-center w70 mb-2rem">
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">Could</p></div>
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Base form of verb</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">Could</p></div>
+                                        <div><p class="mb-0">she</p></div>
+                                        <div><p class="mb-0">swim?</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">Could Could Subject she Base form of verb swim?</div>
+
+                                <div class="text-center w70 mb-2rem">
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">Yes</p></div>
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Could</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">Yes</p></div>
+                                        <div><p class="mb-0">she</p></div>
+                                        <div><p class="mb-0">could</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">Yes Yes Subject she Could could</div>
+
+                                <div class="text-center w70 mb-2rem">
+                                    <div class="tabForm tit">
+                                        <div><p class="mb-0">No</p></div>
+                                        <div><p class="mb-0">Subject</p></div>
+                                        <div><p class="mb-0">Could</p></div>
+                                    </div>
+                                    <div class="tabForm" aria-hidden="true">
+                                        <div><p class="mb-0">No</p></div>
+                                        <div><p class="mb-0">she</p></div>
+                                        <div><p class="mb-0">couldn’t</p></div>
+                                    </div>
+                                </div>
+
+                                <div class="sr-only">No No Subject she Could couldn’t</div>
+
+
+
+                                <p class="parrafo text-left texAzu">Examples:</p>
+
+                                <p class="parrafo text-left">
+                                    A: <span class="rosa">Could</span> you <span class="rosa">play</span> the guitar when you were a child?<br ari-hidden="true">
+                                    B: Yes, I could.
+                                </p>
+
+                                <p class="parrafo text-left">
+                                    A: <span class="rosa">Could</span> grandpa <span class="rosa">sing</span> opera?<br ari-hidden="true">
+                                    B: <span class="rosa">No, he couldn't.</span>
+                                </p>
+
+                                <p class="parrafo text-left">
+                                    A: <span class="rosa">Could</span> they <span class="rosa">run</span> a marathon when they were younger?<br ari-hidden="true">
+                                    B: <span class="rosa">Yes, they could.</span>
+                                </p>
+
+
+                                <p class="parrafo text-left texAzu">Information questions</p>
+
+                                <div class="tabForm4 tit">
+                                    <div><p class="mb-0">Wh-word</p></div>
+                                    <div><p class="mb-0">Could</p></div>
+                                    <div><p class="mb-0">Subject</p></div>
+                                    <div><p class="mb-0">Base form of verb</p></div>
+                                </div>
+                                <div class="tabForm4" aria-hidden="true">
+                                    <div><p class="mb-0">When</p></div>
+                                    <div><p class="mb-0">could</p></div>
+                                    <div><p class="mb-0">she</p></div>
+                                    <div><p class="mb-0">walk?</p></div>
+                                </div>
+
+                                <div class="sr-only">Wh-word When Could could Subject she Base form of verb walk?</div>
+
+                                <div class="tabForm1">
+                                    <div class="text-left"><p class="mb-0">At 11 months</p></div>
+                                </div>
+                                <div class="tabForm4" aria-hidden="true">
+                                    <div><p class="mb-0">What</p></div>
+                                    <div><p class="mb-0">could</p></div>
+                                    <div><p class="mb-0">he</p></div>
+                                    <div><p class="mb-0">do?</p></div>
+                                </div>
+                                <div class="tabForm1 bb mb-2rem">
+                                    <div class="text-left"><p class="mb-0">He could read and write</p></div>
+                                </div>
+
+                                <div class="sr-only">Wh-word What Could could Subject he Base form of verb do?</div>
+
+
+                                <p class="parrafo text-left texAzu">Examples:</p>
+
+                                <p class="parrafo text-left">
+                                    A: What instruments <span class="rosa">could</span> you <span class="rosa">play</span> as a child?<br ari-hidden="true">
+                                    B: I <span class="rosa">could play</span> the guitar.
+                                </p>
+
+                                <p class="parrafo text-left">
+                                    A: What <span class="rosa">could</span> your grandpa do?<br ari-hidden="true">
+                                    B: He <span class="rosa">could play</span> sing opera.
+                                </p>
+
+                                <p class="parrafo text-left mb-0">
+                                    A: When <span class="rosa">could</span> they <span class="rosa">run</span> a marathon?<br ari-hidden="true">
+                                    B: When they were in high shool.
+                                </p>
+
+
+                            </div>
+                        </details>
+
+                        <p class="parrafo instruccion-color-verde mb-1 movil" style="font-size: 1.3rem;">
+                            <strong>Instruction:</strong> Press the button and download the file.
+                        </p>
+                        <p class="text-center movil" style="font-size: 1.3rem;">
+                            <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="Topic-2_3/downloads/INGLES3-M2-OPA16-Could_Explanation.pdf">
+                                Explanation
+                                <span class="sr-only">PDF file</span>
+                            </a>
+                        </p>
+
+                    </div>             
+                </div>
+                
+            </div>
+
+        </section>
+
+
+
+        <section class="section-activity">
+
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+            
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA20. Could or couldn’t
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="instruccion-color-verde ml-4 parrafo" start="1">
+                        <li>Complete the following sentences with could or couldn’t (could not).</li>
+                    </ol>
+
+                    <div class="cuadro-blanco parrafo">
+                        <p class="mb-0">Example:<br aria-hidden="true">
+                        When I was young, I <span class="text-azul">couldn’t</span> play the guitar.</p>
+                    </div>
+
+
+                    <div class="selescts escribir-23-1 recFacImg">
+
+                        <div id="escribir-23-1" class="parrafo">
+
+                            <p class="sr-only text-ayuda">
+                                a. My cousin Andrew (1) espacio a rellenar understand my sign language.
+                                b. I (2) espacio a rellenar help yesterday but I am too busy today.
+                                c. Billy (3) espacio a rellenar say a word in Japanese when he arrived in Tokyo but now he speaks Japanese really well.
+                                d. Sorry that I (4) espacio a rellenar come to your wedding.
+                                e. We (5) espacio a rellenar give you a ride because our car was too crowded.
+                                f. Jake (6) espacio a rellenar hear everything you said and now he knows your secret.
+                                g. Lisa (7) espacio a rellenar ride a bike when she was a child. Now, she finds it very difficult.
+                                h. My friends (8) espacio a rellenar believe that they all passed the Math exam.
+                                i. My son Ronald (9) espacio a rellenar run fast as a child because he was a little chubby.
+                                j. We (10) espacio a rellenar see the Mona Lisa at the <i lang="fra">Louvre</i> Museum. It’s a small painting.                            
+                            </p>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">a. My cousin Andrew</p>
+                                <label for="escribir-23-1-1" class="active" accesskey="2" tabindex="0"><p class="mb-0 seguido">(1)</p></label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-23-1-1" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">understand my sign language.</p>
+                            </div>
+                            
+                            <div class="incisos">
+                                <p class="mb-0 seguido">b. I</p>
+                                <label for="escribir-23-1-2" class="active"><p class="mb-0 seguido">(2)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-2" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">help yesterday but I am too busy today.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">c. Billy</p>
+                                <label for="escribir-23-1-3" class="active"><p class="mb-0 seguido">(3)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-3" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">say a word in Japanese when he arrived in Tokyo but now he speaks Japanese really well.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">d. Sorry that I</p>
+                                <label for="escribir-23-1-4" class="active"><p class="mb-0 seguido">(4)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-4" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">come to your wedding.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">e. We</p> 
+                                <label for="escribir-23-1-5" class="active"><p class="mb-0 seguido">(5)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-5" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">give you a ride because our car was too crowded.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">f. Jake</p>
+                                <label for="escribir-23-1-6" class="active"><p class="mb-0 seguido">(6)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-6" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">hear everything you said and now he knows your secret.</p>
+                            </div>
+
+                            <div class="incisos">                        
+                                <p class="mb-0 seguido">g. Lisa</p>
+                                <label for="escribir-23-1-7" class="active"><p class="mb-0 seguido">(7)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-7" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">ride a bike when she was a child. Now, she finds it very difficult.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">h. My friends</p>
+                                <label for="escribir-23-1-8" class="active"><p class="mb-0 seguido">(8)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-8" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">believe that they all passed the Math exam.</p>
+                            </div>
+
+                            <div class="incisos">
+                                <p class="mb-0 seguido">i. My son Ronald</p>
+                                <label for="escribir-23-1-9" class="active"><p class="mb-0 seguido">(9)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-9" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">run fast as a child because he was a little chubby.</p>
+                            </div>
+
+                            <div class="incisos mb-0">
+                                <p class="mb-0 seguido">j. We</p>
+                                <label for="escribir-23-1-10" class="active"><p class="mb-0 seguido">(10)</p></label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-1-10" type="text" placeholder="Write here..." name="escribir-23-1" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                                <p class="mb-0 seguido">see the Mona Lisa at the <i lang="fra">Louvre</i>&nbsp; Museum. It’s a small painting.</p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p> 
+                        <ol class="instruccion-color-verde ml-4 parrafo text-left" start="2">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                    
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-e-23-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="escribir-23-1">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-e-23-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled="" name="escribir-23-1">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4" accesskey="3" tabindex="0">
+                        Online Practice Activity  <br>
+                        OPA21. Play videogames?
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+
+                    <ol class="instruccion-color-verde ml-4 parrafo" start="1">
+                        <li>Unscramble the sentences.</li>
+                    </ol>
+                    
+
+                    <div class="RecAzul mb-2rem">
+                        <p class="parrafo mb-0">
+                            Example:<br aria-hidden="true">                        
+                            <span class="text-azul">Sentence:</span> people  -  videogames. -  In  -  couldn't  -  1920, -  play<br aria-hidden="true">
+                            <span class="text-azul">Answer:</span> In 1920, people couldn't play videogames.
+                        </p>
+                        
+
+                    </div>
+                    
+
+                    <div class="container py-4 escritorio">
+                        <div class="cont-activity-7" >
+                            <div id="activity-7" class="parrafo">
+
+
+
+
+
+                            </div>
+
+                        
+                            <!--<p class="retroalimentacion" lang="es"></p>
+
+                            <ol class='instruccion-color-verde ml-4 text-left' start='2'>
+                                <li>
+                                    <p class='mb-0'>Press the buttons and check your answers.</p>
+                                </li>
+                            </ol>
+
+                            <div class='contenedor-botones2'>
+                                <div class='text-right evaluacion'>
+                                    <button role='button' class='comprobarc btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check' disabled='' name='activity-7'>
+                                        Check
+                                    </button>
+                                </div>
+                                <div class='text-right evaluacion'>
+                                    <button role='button' class='tryc btn boton-check btn-reintentar bt waves-effect waves-light' disabled='' name='activity-7'>
+                                        Try again
+                                    </button>
+                                </div>
+                            </div>-->
+
+
+                        </div>
+                    </div>
+
+                    <div class="selescts escribir-23-2 recFacImg movil" >
+
+                        <div id="escribir-23-2" class="parrafo">
+
+                            <p class="sr-only text-ayuda">
+                                a. French - Leo - a - when - Could - he - speak - child? - was (1) espacio a rellenar
+                                b. homework - she - fell - Donna - asleep. - couldn’t - her - because - finish (2) espacio a rellenar
+                                c. sky. - the - in - stars - the - all - see - could - we - night - Yesterday (3) espacio a rellenar
+                                d. young - shoes. - When - tie - I - child - couldn’t - was - I - a - my (4) espacio a rellenar
+                                e. grandfather - an - Could - airplane? - your - fly (5) espacio a rellenar
+                                f. are - could - time. - because - project - They - on - finish - they - happy - their (6) espacio a rellenar
+                                g. car - were - you - a - Could - drive - younger? - when - you (7) espacio a rellenar
+                                h. old - was - I’m - climb - I - now - a - could - when - very - I - child - trees - but (8) espacio a rellenar
+                            </p>
+
+                            <div class="incisos">
+                                a. French - Leo - a - when - Could - he - speak - child? - was<br aria-hidden="true">
+                                <label for="escribir-23-2-1" class="active">(1)</label>
+                                <div class="reactivo">                             
+                                    <input id="escribir-23-2-1" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+                            
+                            <div class="incisos">
+                                b. homework - she - fell - Donna - asleep. - couldn’t - her - because - finish<br aria-hidden="true">
+                                <label for="escribir-23-2-2" class="active">(2)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-2" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+
+                            <div class="incisos">
+                                c. sky. - the - in - stars - the - all - see - could - we - night - Yesterday<br aria-hidden="true">
+                                <label for="escribir-23-2-3" class="active">(3)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-3" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+
+                            <div class="incisos">
+                                d. young - shoes. - When - tie - I - child - couldn’t - was - I - a - my<br aria-hidden="true">
+                                <label for="escribir-23-2-4" class="active">(4)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-4" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+
+                            <div class="incisos">
+                                e. grandfather - an - Could - airplane? - your - fly<br aria-hidden="true">
+                                <label for="escribir-23-2-5" class="active">(5)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-5" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+
+                            <div class="incisos">
+                                f. are - could - time. - because - project - They - on - finish - they - happy - their<br aria-hidden="true">
+                                <label for="escribir-23-2-6" class="active">(6)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-6" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+
+                            <div class="incisos">                        
+                                g. car - were - you - a - Could - drive - younger? - when - you<br aria-hidden="true">
+                                <label for="escribir-23-2-7" class="active">(7)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-7" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>                            
+                            </div>
+
+                            <div class="incisos">
+                                h. old - was - I’m - climb - I - now - a - could - when - very - I - child - trees - but<br aria-hidden="true">
+                                <label for="escribir-23-2-8" class="active">(8)</label> 
+                                <div class="reactivo">                            
+                                    <input id="escribir-23-2-8" type="text" placeholder="Write here..." name="escribir-23-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="2">
+                            <li><p class="mb-0">Press the buttons and check your answers.</p></li>
+                        </ol>
+
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-e-23-2" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="escribir-23-2">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-e-23-2" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled="" name="escribir-23-2">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA22. Sally is…
+                    </h2>
+
+                    <p class="parrafo">
+                        Sally is a very active woman. She has very good memories of his childhood because she was very skilled at doing physical activities, but she was not able to do certain things.
+                    </p>
+
+                    <p class="parrafo instruccion-color-verde">
+                            <b>Instruction:</b> 
+                    </p>
+
+                    <p class="parrafo instruccion-color-verde">1. Look at the pictures and select the correct word that completes each sentence.</p>
+
+                    <div class="opciones-23-1 escritorio mb-2rem">
+
+                        <div class="Grid2 tar-bot mb-0">
+                            <div id="t1" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">a.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-01.png" alt="Sally podía manejar una bicicleta." lang="es">
+                                </div>
+                                <div class="tex-tar-bot"><p class="mb-0">When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> ride a bike.</p></div>
+                                <hr aria-hidden="true">
+                                <div class="Grid2-2 btns">
+                                    <div class="text-center con-btn-1-1">
+                                        <button name="t1" id="opciones-1-1" accesskey="4" tabindex="0" >Could</button>
+                                        <div class="contselopc" name="t1"></div>
+                                    </div>
+                                    <div class="text-center con-btn-1-2">
+                                        <button name="t1" id="opciones-1-2">Couldn't</button>
+                                        <div class="contselopc" name="t1"></div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div id="t2" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">b.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-02.png" alt="Sally no podía cocinar un pastel." lang="es">
+                                </div>
+                                <div class="tex-tar-bot"><p class="mb-0">When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> bake a cake.</p></div>
+                                <hr aria-hidden="true">
+                                <div class="Grid2-2 btns">
+                                    <div class="text-center con-btn-2-1">
+                                        <button name="t2" id="opciones-2-1">Could</button>
+                                        <div class="contselopc" name="t2"></div>
+                                    </div>
+                                    <div class="text-center con-btn-2-2">
+                                        <button name="t2" id="opciones-2-2">Couldn't</button>
+                                        <div class="contselopc" name="t2"></div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div id="t3">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">c.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-03.png" alt="Sally podía patinar." lang="es">
+                                </div>
+                                <div class="tex-tar-bot"><p class="mb-0">When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> roller-skate.</p></div>
+                                <hr aria-hidden="true">
+                                <div class="Grid2-2 btns">
+                                    <div class="text-center con-btn-3-1">
+                                        <button name="t3" id="opciones-3-1">Could</button>
+                                        <div class="contselopc" name="t3"></div>
+                                    </div>
+                                    <div class="text-center con-btn-3-2">
+                                        <button name="t3" id="opciones-3-2">Couldn't</button>
+                                        <div class="contselopc" name="t3"></div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div id="t4">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">d.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-04.png" alt="Sally no podía conducir un auto." lang="es">
+                                </div>
+                                <div class="tex-tar-bot"><p class="mb-0">When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> drive a car.</p></div>
+                                <hr aria-hidden="true">
+                                <div class="Grid2-2 btns">
+                                    <div class="text-center con-btn-4-1">
+                                        <button name="t4" id="opciones-4-1">Could</button>
+                                        <div class="contselopc" name="t4"></div>
+                                    </div>
+                                    <div class="text-center con-btn-4-2">
+                                        <button name="t4" id="opciones-4-2">Couldn't</button>
+                                        <div class="contselopc" name="t4"></div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div id="t5" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">e.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-05.png" alt="Sally no podía trabajar en oficina." lang="es">
+                                </div>
+                                <div class="tex-tar-bot"><p class="mb-0">When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> work in an office.</p></div>
+                                <hr aria-hidden="true">
+                                <div class="Grid2-2 btns">
+                                    <div class="text-center con-btn-5-1">
+                                        <button name="t5" id="opciones-5-1">Could</button>
+                                        <div class="contselopc" name="t5"></div>
+                                    </div>
+                                    <div class="text-center con-btn-5-2">
+                                        <button name="t5" id="opciones-5-2">Couldn't</button>
+                                        <div class="contselopc" name="t5"></div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div id="t6" class="mt-0">
+                                <div class="inciso">
+                                    <span class="text-azul"><p class="mb-0">f.</p></span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-06.png" alt="Sally podía brincar en trampolín." lang="es">
+                                </div>
+                                <div class="tex-tar-bot"><p class="mb-0">When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> jump the trampoline.</p></div>
+                                <hr aria-hidden="true">
+                                <div class="Grid2-2 btns">
+                                    <div class="text-center con-btn-6-1">
+                                        <button name="t6" id="opciones-6-1">Could</button>
+                                        <div class="contselopc" name="t6"></div>
+                                    </div>
+                                    <div class="text-center con-btn-6-2">
+                                        <button name="t6" id="opciones-6-2">Couldn't</button>
+                                        <div class="contselopc" name="t6"></div>
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>   
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="2">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                 
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-o-23-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="opciones-23-1">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-o-23-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled="" name="opciones-23-1">Try again</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <div class="selescts seleccionar-23-2 recFacImg movil">
+                        <div class="RecAzul conTarjetas">
+                            <div class="text-center">
+                                <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-01.png" alt="Sally podía manejar una bicicleta." lang="es">
+                            </div>
+                            <div class="texSen">
+                                <label for="s232-0" accesskey="3" tabindex="2">a. When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> ride a bike.</label>
+                            </div>
+                            <div class="seleccionar-232-0">
+                                <div id="opsel-232-0" class="divcontsel">
+                                    <select id="s232-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">could</option>
+                                        <option value="2" lang="en">couldn’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="RecAzul conTarjetas">
+                            <div class="text-center">
+                                <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-02.png" alt="Sally no podía cocinar un pastel." lang="es">
+                            </div>
+                            <div class="texSen">
+                                <label for="s232-1">b. When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> bake a cake.</label>
+                            </div>
+                            <div class="seleccionar-232-1">
+                                <div id="opsel-232-1" class="divcontsel">
+                                    <select id="s232-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">could</option>
+                                        <option value="2" lang="en">couldn’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="RecAzul conTarjetas">
+                            <div class="text-center">
+                                <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-03.png" alt="Sally podía patinar." lang="es">
+                            </div>
+                            <div class="texSen">
+                                <label for="s232-2">c. When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> roller-skate.</label>
+                            </div>
+                            <div class="seleccionar-232-2">
+                                <div id="opsel-232-2" class="divcontsel">
+                                    <select id="s232-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">could</option>
+                                        <option value="2" lang="en">couldn’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="RecAzul conTarjetas">
+                            <div class="text-center">
+                                <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-04.png" alt="Sally no podía conducir un auto." lang="es">
+                            </div>
+                            <div class="texSen">
+                                <label for="s232-3">d. When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> drive a car.</label>
+                            </div>
+                            <div class="seleccionar-232-3">
+                                <div id="opsel-232-3" class="divcontsel">
+                                    <select id="s232-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">could</option>
+                                        <option value="2" lang="en">couldn’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="RecAzul conTarjetas">
+                            <div class="text-center">
+                                <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-05.png" alt="Sally no podía trabajar en oficina." lang="es">
+                            </div>
+                            <div class="texSen">
+                                <label for="s232-4">e. When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> work in an office.</label>
+                            </div>
+                            <div class="seleccionar-232-4">
+                                <div id="opsel-232-4" class="divcontsel">
+                                    <select id="s232-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">could</option>
+                                        <option value="2" lang="en">couldn’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="RecAzul conTarjetas">
+                            <div class="text-center">
+                                <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-06.png" alt="Sally podía brincar en trampolín." lang="es">
+                            </div>
+                            <div class="texSen">
+                                <label for="s232-5">f. When Sally was a child, she <span aria-hidden="true">_______</span> <span class="sr-only">espacio en blanco</span> jump the trampoline.</label>
+                            </div>
+                            <div class="seleccionar-232-5">
+                                <div id="opsel-232-5" class="divcontsel">
+                                    <select id="s232-5" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">could</option>
+                                        <option value="2" lang="en">couldn’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        
+
+                        <div class="retroalimentacion1 rojoretro" lang="en"></div>
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="2">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                 
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-232-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-232-1" disabled="" name="seleccionar-23-2">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-232-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-32-1" disabled="" name="seleccionar-23-2">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA23. Things women couldn’t do…
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                            <b>Instructions:</b> 
+                    </p>
+
+                    <p class="parrafo instruccion-color-verde">1. Read the following text.</p>
+
+                    <div class="text-center">
+                        <img src="Topic-2_3/img/IB3V-M2_2.3-OPA19-07.png" class="img-57" alt="Imagen de apoyo" aria-hidden="true">                 
+                    </div>
+
+                    <p class="parrafo">
+                        The 20th century marked a new era of freedom for women. This century saw the ratification of the 19th amendment, which gave women the right to vote in the USA. It also started a new era of social liberation that brought females some other basic rights. And while they are still fighting for equality, these were some norms for women at the beginning of this century:
+                    </p>
+                    <p class="parrafo">
+                        Most women married at a very young age and they could not decide the number of children they wanted to have because there were no contraceptive methods. It was until 1972 that birth control became accessible to all women.
+                    </p>
+                    <p class="parrafo">
+                        Working women couldn’t get pregnant because they could get fired and they couldn’t fight against sexual harassment because courts didn't recognize it was a crime, until 1980.
+                    </p>
+                    <p class="parrafo">
+                        Most single women at that time couldn't get a credit card. Only a married woman could get one if her husband was willing to sign it. It was until 1974 that it became illegal to deny a woman a credit card on the basis of gender.
+                    </p>
+                    <p class="parrafo">
+                        Most women couldn't also access prestigious education. It wasn’t an option even for the brightest women of that time. They couldn’t also receive military training. The first half of the 20th century saw two major wars, but both of these epic conflicts had no women in combat. They could only serve in traditionally female roles, such as nursing.
+                    </p>
+                    <p class="parrafo">
+                        And of course, women couldn’t vote in any kind of elections until 1920; when the passing of the 19th Amendment in the USA started a big movement that was echoed in other nations such as Mexico, where women could vote for the first time in 1955.
+                    </p>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde">2. Now, answer the following questions.</p>
+
+                    <div class="selescts seleccionar-23-3 recFacImg">
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s233-0" accesskey="5" tabindex="0"><p class="mb-0">When did a new era of freedom for women start?</p></label>
+                            </div>
+                            <div class="seleccionar-233-0">
+                                <div id="opsel-233-0" class="divcontsel">
+                                    <select id="s233-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) in the 19th century.</option>
+                                        <option value="2" lang="en">b) in 20th century.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s233-1"><p class="mb-0">Why couldn’t women decide the number of children they wanted to have?</p></label>
+                            </div>
+                            <div class="seleccionar-233-1">
+                                <div id="opsel-233-1" class="divcontsel">
+                                    <select id="s233-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) because they were too young.</option>
+                                        <option value="2" lang="en">b) because there weren’t contraceptive methods.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s233-2"><p class="mb-0">When was sexual harassment recognized as a crime?</p></label>
+                            </div>
+                            <div class="seleccionar-233-2">
+                                <div id="opsel-233-2" class="divcontsel">
+                                    <select id="s233-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) in 1972.</option>
+                                        <option value="2" lang="en">b) in 1980.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s233-3"><p class="mb-0">What kind of women could get a credit card before 1974?</p></label>
+                            </div>
+                            <div class="seleccionar-233-3">
+                                <div id="opsel-233-3" class="divcontsel">
+                                    <select id="s233-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) Married women.</option>
+                                        <option value="2" lang="en">b) Working women.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s233-4"><p class="mb-0">How could women serve during war times?</p></label>
+                            </div>
+                            <div class="seleccionar-233-4">
+                                <div id="opsel-233-4" class="divcontsel">
+                                    <select id="s233-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) as nurses.</option>
+                                        <option value="2" lang="en">b) as fighters.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s233-5"><p class="mb-0">When could women in Mexico vote for the first time?</p></label>
+                            </div>
+                            <div class="seleccionar-233-5">
+                                <div id="opsel-233-5" class="divcontsel">
+                                    <select id="s233-5" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-23-3">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">a) 1920.</option>
+                                        <option value="2" lang="en">b) 1955.</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+                        <p class="instruccion-color-verde text-left">3. Press the buttons and check your answers.</p>               
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-233-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-233-1" disabled="" name="seleccionar-23-3">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-233-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-33-3" disabled="" name="seleccionar-23-3">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+                    <div class="CuadroAudio">
+                        <p class="texCenAzu parrafo">
+                            Recap of Topic 2.3 Childs prodigies
+                        </p>
+                        <div>
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls="" aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-2_3/media/M2-A25-Recap_of_Topic_2_3.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <p class="parrafo">In this section…</p>
+                        <p class="parrafo mb-0">You learned to use the modal verb “could” to express and describe abilities that people did or did not have in the past.</p>           
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        
+
+
+
+
+
+ 
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+        
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="Topic-2_3/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="Topic-2_3/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+        
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-2_3/scripts/home.js"></script>
+    <script type="text/javascript" src="Topic-2_3/scripts/menu-2.js"></script>
+
+    <!-- modales de ayuda y lector inmersivo -->
+    <script src="Topic-2_3/scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-2_3/scripts/menuacces.js"></script>
+    <script src="Topic-2_3/scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="Topic-2_3/scripts/scroll-timeline.js"></script>
+
+    <script type="text/javascript" src="Topic-2_3/scripts/unit-2_3.js"></script>
+
+    <script src="Topic-2_3/scripts/actividad7.js"></script>
+
+    
+
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+    
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function(){
+
+            $('.ir-arriba').click(function(){
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function(){
+                if( $(this).scrollTop() > 0 ){
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</body>
+</html>
+

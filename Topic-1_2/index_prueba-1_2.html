@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 1.2 I love my family</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/unit1.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="css/menuacces.css">
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+    <!-- Instrucción para información de ayuda -->
+    <!-- <div lang="es">
+
+        <p class="parrafo mt-4">
+            <strong>Información de ayuda</strong>
+        </p>
+
+        <p class="parrafo">
+            Para navegar de mejor manera dentro de la experiencia hemos puesto una serie de atajos para
+            que puedas acceder de forma más rápida a algunos elementos dentro de la experiencia;
+            como botones, enlaces, evaluaciones etc.
+        </p>
+
+        <p class="parrafo">
+            A continuación te presentamos estos atajos.
+        </p>
+
+        <ul class="parrafo ml-4">
+            <li>Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li>Practice Activity OPA05. My lovely family: Alt + 1</li>
+            <li>Practice Activity OPA06. Family tree: Alt + 2</li>
+        </ul>
+    </div> -->
+
+    <!-- Instrucción para información de ayuda -->
+    <div>
+        <p class="sr-only" lang="es">Instrucción: Antes de iniciar debes acceder a la información de ayuda y conocer los
+            atajos de este módulo. Para conocerlos tienes que apretar el comando de las teclas Alt + I </p>
+    </div>
+
+    <button class="btn btn-azul-modals btn-information" aria-label="Información de ayuda" title="Información de ayuda"
+        data-toggle="modal" data-target="#information-1" accesskey="I">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+    </button>
+
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">            
+            <img src="./img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- SIDEBAR MENÚ -->
+    <!-- <navbar class="sidebar" style="overflow-y: scroll;">
+ 
+        <div class="sidebar__encabezado">
+            <button class="btn btn-link sidebar__dismiss" aria-label="Cerrar menú desplegado">
+                <span>X</span>
+            </button>
+        </div>
+        
+        <menu-component-2></menu-component-2>
+    
+    </navbar> -->
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="_blank" lang="es">Universidad Veracruzana</a>
+
+                <!-- <div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div> -->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Topic 1.2</b>
+                            <span style="font-weight: normal;">I love my family</span>
+                        </p>
+                    </span>
+                </div>
+
+            </div>
+
+            <img src="./img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!-- <button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                    <i class="fas fa-bars"></i>
+                </button> -->
+
+                <div class="d-flex align-items-center">
+
+                    <div class="pleca__ee ml-0" style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                                Topic 1.2 <span style="font-weight: normal;">I love my family</span>
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <img src="./img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <h1 class="titulo-principal-unit">
+
+            Topic 1.2 <br>
+            <span class="subtitulo-secundari-unit">I love my family</span>
+
+        </h1>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="40%"
+                    height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="60%"
+                    height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-4" accesskey="1" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA06. My lovely family
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> <br>
+                    1. Read the following text.
+                </p>
+
+                <div class="mt-4 mb-4 mt-md-5 mb-md-5 text-center">
+                    <img src="./img/topics/IB3V-M1_m1-opa05.png" width="80%" height="auto" alt="Support image"
+                        aria-hidden="true">
+                </div>
+
+                <p class="parrafo">
+                    My lovely family
+
+                <p class="parrafo">
+                    Hi! I’m Jenny, I’m 16 years old and this is my family. We’re from New York city but we live in
+                    London. My mother is a teacher, her name is Hayley, she is 38 years old. My father is an engineer,
+                    he is 40 years old, his name’s Nick. I have two older brothers Tony and Peter. Tony is 24 years old;
+                    he is married to a Brazilian woman but they live in Canada. They have two kids, Mary, and John.
+                    Peter is two years younger than Tony and he lives in Mexico with my grandparents, my aunt, my uncle,
+                    and my cousins because he is studying at the university. He wants to be a doctor.
+                </p>
+
+                <p class="parrafo">
+                    On vacation we always visit my family in Mexico. I like to go to the beach and play volleyball with
+                    Rita and Sandy, my aunt’s daughters, they are 16 too. We enjoy being on the beach. Rita can swim but
+                    Sandy is a better swimmer, I can’t swim very well, but I enjoy being with them. In the afternoons,
+                    my two brothers sometimes play chess or video games in the living room while my parents prepare some
+                    delicious food with my aunt and uncle. We really enjoy our vacation.
+                </p>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="escritorio">
+
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="movil">
+                </div>
+
+                <p class="parrafo instruccion-color-verde">
+                    2. Choose if the following staments are True or False.
+                </p>
+
+                <div class="seleccionar1_2_1">
+
+                    <div class="evaluacion">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    a. Jenny’s parents are British.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <p class="mensaje-correct-incorrect-1 sr-only"></p>
+
+                                <select id="Act_Select1_2_1"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-1"
+                                    name="seleccionar1_2_1" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">True</option>
+                                    <option value="2">False</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    b. Nick’s son is Peter.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <p class="mensaje-correct-incorrect-2 sr-only"></p>
+
+                                <select id="Act_Select1_2_2"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionar1_2_1" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">True</option>
+                                    <option value="2">False</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    c. Mary is Tony’s wife.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <p class="mensaje-correct-incorrect-3 sr-only"></p>
+
+                                <select id="Act_Select1_2_3"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3"
+                                    name="seleccionar1_2_1" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">True</option>
+                                    <option value="2">False</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    d. Peter is John’s uncle.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <p class="mensaje-correct-incorrect-4 sr-only"></p>
+
+                                <select id="Act_Select1_2_4"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-4"
+                                    name="seleccionar1_2_1" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">True</option>
+                                    <option value="2">False</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    e. Peter is 22 years old.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <p class="mensaje-correct-incorrect-5 sr-only"></p>
+
+                                <select id="Act_Select1_2_5"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-5"
+                                    name="seleccionar1_2_1" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">True</option>
+                                    <option value="2">False</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    f. Rita and Sandy are Mary’s cousins.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <p class="mensaje-correct-incorrect-6 sr-only"></p>
+
+                                <select id="Act_Select1_2_6"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-6"
+                                    name="seleccionar1_2_1" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">True</option>
+                                    <option value="2">False</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <p class="mb-0 parrafo text-success mensaje-correcto d-none mt-4 font-weight-bold">Very good!
+                            You are ready to continue.</p>
+
+                        <p class="mb-0 parrafo text-danger mensaje-incorrecto d-none mt-4 font-weight-bold">Please, try
+                            to answer the exercise again.</p>
+
+                        <p class="mb-0 parrafo mensaje-ver-respuestas d-none mt-4 font-weight-bold"><b>Please, check the
+                                correct answers.</b></p>
+
+                        <div class="retroalimentacion d-none">
+
+                            <p class="parrafo sr-only">
+                                Jenny’s parents are British is False.
+                                Nick’s son is Peter is True.
+                                Mary is Tony’s wife is False.
+                                Peter is John’s uncle is True.
+                                Peter is 22 years old is True.
+                                Rita and Sandy are Mary’s cousins is True.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde">
+                        3. Click on the buttons and check your answers.
+                    </p>
+
+                    <div class="text-right mt-4 mt-md-5">
+
+                        <button aria-label="button check" id="check-S1_2_1" role="button"
+                            class="btn boton-check no-imp btn-descarga seleccionar1_2_1" disabled=""
+                            name="seleccionar1_2_1" tabindex="1">
+                            Check
+                        </button>
+
+                        <br>
+
+                        <button aria-label="button try again" id="check-s-try-1" role="button"
+                            class="btn btn-reintentar no-imp btn-descarga-blanco mt-3" disabled="" tabindex="1">
+                            Try again
+                        </button>
+
+                    </div>
+
+                    <br>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="40%"
+                    height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="60%"
+                    height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-4" accesskey="2" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA07. Family tree
+                </h2>
+
+                <p class="escritorio parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> <br>
+                    1. Look at the picture "Family tree".
+                </p>
+
+                <p class="movil parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> <br>
+                    1. Download the information "Family tree".
+                </p>
+
+                <div class="escritorio mt-4 mb-4 mt-md-5 mb-md-5 text-center">
+
+                    <img src="./img/topics/IB3V-M1_m1-opa06-familytree.png" width="90%" height="auto"
+                        alt="Imagen de arbol familiar de Jenny">
+
+                    <p class="sr-only" lang="es">
+                        Una familia feliz.
+                        Daniel y Mari tienen 50 años de casados
+                        Juntos han creado una hermosa familia.
+                        Jane y Mike son sus hijos, quienes también han formado su propia familia.
+                        Romeo es el esposo de Jane y tienen tres hijos, Rosie, Freddy y Lili.
+                        Anna es esposa de Mike y sus hijos son Louis y Amy.
+                        Los cinco niños son la alegría de sus abuelos.
+                    </p>
+
+                </div>
+
+                <div class="movil">
+
+                    <div class="text-right mt-4 mb-4">
+
+                        <a class="btn btn-descarga" href="./downloads/INGLES3-M1-Arbol familiar.pdf" target="_blank"
+                            download="">
+                            Family tree
+                            <span class="sr-only">file pdf</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <p class="parrafo instruccion-color-verde">
+                    2. Complete the sentences with the correct relationship.
+                </p>
+
+                <div class="seleccionar1_2_2">
+
+                    <div class="evaluacion">
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    a. Daniel is Jane’s...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-1" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-2 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    b. Mike is Freddy’s...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-2" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-3 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    c. Rosie and Lili are Mary’s...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-3" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-4 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    d. Romeo is Jane’s...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-4" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-5 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    e. Amy is Lili’s...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-5" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-6 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    f. Mary and Daniel are Louis...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-6" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <p class="mensaje-correct-incorrect-esc-7 sr-only"></p>
+
+                            <div class="col-md-7 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0">
+                                    g. Anna is Mike’s...
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-5 p-3">
+
+                                <input id="input-e-7" type="text" name="seleccionar1_2_2" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <p class="mb-0 parrafo text-success mensaje-correcto-2 d-none mt-4 font-weight-bold">Very good!
+                            You are ready to continue.</p>
+
+                        <p class="mb-0 parrafo text-danger mensaje-incorrecto-2 d-none mt-4 font-weight-bold">Please,
+                            try to answer the exercise again.</p>
+
+                        <p class="mb-0 parrafo mensaje-ver-respuestas-2 d-none mt-4 font-weight-bold"><b>Please, check
+                                the correct answers.</b></p>
+
+                        <div class="retroalimentacion-2 d-none">
+
+                            <p class="parrafo sr-only">
+                                Daniel is Jane’s father.
+                                Mike is Freddy’s uncle.
+                                Rosie and Lili are Mary’s grandaughters.
+                                Romeo is Jane’s husband.
+                                Amy is Lili’s cousin.
+                                Mary and Daniel are Louis grandparents.
+                                Anna is Mike’s wife.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde">
+                        3. Click on the buttons and check your answers.
+                    </p>
+
+                    <div class="text-right mt-4 mt-md-5">
+
+                        <button aria-label="button check" id="check-S1_2_2" role="button"
+                            class="btn boton-check no-imp btn-descarga seleccionar1_2_2" disabled=""
+                            name="seleccionar1_2_2" tabindex="1">
+                            Check
+                        </button>
+
+                        <br>
+
+                        <button aria-label="button try again" id="check-s-try-2" role="button"
+                            class="btn btn-reintentar no-imp btn-descarga-blanco mt-3" disabled="" tabindex="1">
+                            Try again
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="escritorio">
+
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="movil">
+
+                </div>
+
+                <div class="recap">
+
+                    <h2 class="parrafo text-azul text-center">
+                        Recap of Topic 1.2 I love my family
+                    </h2>
+
+                    <div class="escritorio">
+                        <!-- Audio -->
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="./audios/M1 A6 Recap topic 1..2 i love family EDIT.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <p class="parrafo" aria-hidden="true">
+                        Don’t forget to use the verb to be to talk about your family.
+                    </p>
+
+                    <p class="parrafo mb-2" aria-hidden="true">
+                        Example:
+                    </p>
+
+                    <ul class="parrafo ml-4 mb-0" aria-hidden="true">
+                        <li>Gaby <b>is</b> Mike’s sister.</li>
+                        <li>Ulises and Karen <b>are</b> cousins.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="./img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+    <div class="modal fade" id="information-1" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;"
+        lang="es">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-label="Close"
+                        accesskey="X">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="container">
+
+                        <div class="text-center mb-3">
+
+                            <p class="parrafo mt-4">
+                                <strong>Información de ayuda</strong>
+                            </p>
+
+                        </div>
+
+                        <p class="parrafo">
+                            Para navegar dentro de la experiencia y acceder de forma más rápida en algunos elementos
+                            como botones, enlaces, evaluaciones, utiliza los siguientes atajos:
+                        </p>
+
+                        <p class="parrafo">
+                            A continuación te presentamos estos atajos.
+                        </p>
+
+                        <ul class="parrafo ml-4">
+                            <li>Abrir la ventana con la información de ayuda: Alt + I </li>
+                            <li>Practice Activity OPA05. My lovely family: Alt + 1</li>
+                            <li>Practice Activity OPA06. Family tree: Alt + 2</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cerrar-modal waves-effect waves-light"
+                        style="border-radius: 7px;" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="./scripts/home.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="scripts/menuacces.js"></script>
+    <script src="scripts/marcador.js"></script>
+
+    <!-- Evaluaciones -->
+    <script type="text/javascript" src="./scripts/evaluacion/topic-1_2_1.js"></script>
+    <script type="text/javascript" src="./scripts/evaluacion/topic-1_2_2.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script src="./scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper cards-->
+    <script>
+        var swiper = new Swiper(".mySwiper2", {
+            effect: "cards",
+            grabCursor: true
+        });
+    </script>
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

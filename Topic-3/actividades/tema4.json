@@ -1,0 +1,62 @@
+{
+    "numeroFilas": 13,
+    "numeroColumnas": 8,    
+    "palabras": [
+        {
+          "valor": "Receive",
+          "definicion": "To get or be given something",
+          "fila": 0,
+          "columna": 6,
+          "direccion": "V"
+        },
+        {
+          "valor": "Compose",
+          "definicion": "To produce music, poetry, or formal writing",
+          "fila": 6,
+          "columna": 0,
+          "direccion": "H"
+        },
+        {
+          "valor": "Quit",
+          "definicion": "To stop doing something or leave a job or a place",
+          "fila": 4,
+          "columna": 4,
+          "direccion": "H"
+        },
+        {
+          "valor": "Tie",
+          "definicion": "To fasten together two ends of a piece of string or other long, thin material",
+          "fila": 10,
+          "columna": 4,
+          "direccion": "V"
+        },
+        {
+          "valor": "Mark",
+          "definicion": "Acknowledge, honor, or celebrate an important event or occasion with a particular action.",
+          "fila": 8,
+          "columna": 3,
+          "direccion": "H"
+        },
+        {
+          "valor": "Deny",
+          "definicion": "To say that something is not true",
+          "fila": 12,
+          "columna": 3,
+          "direccion": "H"
+        },
+        {
+          "valor": "Vote",
+          "definicion": "To express your choice or opinion, especially by officially writing a mark on a paper or by raising your hand or speaking in a meeting",
+          "fila": 10,
+          "columna": 2,
+          "direccion": "H"
+        },
+        {
+          "valor": "Serve",
+          "definicion": "perform duties or services for another person or an organization",
+          "fila": 6,
+          "columna": 5,
+          "direccion": "V"
+        }
+      ]
+}

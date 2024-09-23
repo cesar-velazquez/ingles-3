@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inglés Básico 3 VIRTUAL</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="css/menuacces.css">
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- TAbs -->
+    <link rel="stylesheet" href="css/tabs.css">
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Un lector inmersivo es una herramienta de <i lang="en">software</i> que proporciona acceso a texto digital
+            al estudiante en
+            situación de discapacidad visual. Esta Experiencia Educativa cuenta con los ajustes e información necesaria
+            para ser accesible a lectores inmersivos, permitiendo navegar y acceder a contenido web de manera autónoma.
+        </p>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado" src="./img/accesibilidad/MA-_m-hiper-w.png"
+                            alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./img/accesibilidad/MA-_m-cursor-a.png" alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- SIDEBAR MENÚ -->
+    <!--<navbar class="sidebar" style="overflow-y: scroll;">
+ 
+        <div class="sidebar__encabezado">
+            <button class="btn btn-link sidebar__dismiss" aria-label="Cerrar menú desplegado">
+                <span>X</span>
+            </button>
+        </div>
+        
+        <menu-component></menu-component>
+    
+    </navbar>-->
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" class="pleca__uv" href="https://www.uv.mx/" target="__blank" lang="es">Universidad
+                    Veracruzana</a>
+                <!-- <div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div> -->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            Inglés Básico 3 VIRTUAL
+                            <!-- Inglés 3 <span aria-hidden="true">&nbsp;/&nbsp;</span> 
+                            Week 1 <span aria-hidden="true">&nbsp;/&nbsp;</span> 
+                            1.1 -->
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <img src="./img/150pp/INGLESINT_banner-e.png" alt="Banner principal" aria-hidden="true" width="100%"
+                height="auto">
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca scroll">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>-->
+
+                <!-- mt-4 -->
+                <div class="d-flex align-items-center ">
+
+                    <div class="pleca__ee ml-0 aparecer-desaparecer"
+                        style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <!-- margin_pleca -->
+                            <p class="tam-font font-weight-bold ">
+                                Syllabus
+                                <!--<span style="font-weight: normal;">What do you do on the weekend?</span>-->
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- pruebaaa -->
+
+            <!-- fin prueba -->
+            <img src="./img/150pp/INGLESINT_banner-r.png" alt="Banner principal" aria-hidden="true" width="100%"
+                height="auto">
+        </div>
+
+        <h1 class="titulo-principal">
+            Inglés Básico 3
+            <span class="virtual">VIRTUAL</span>
+            <!--<span class="cuadrado-titulo">3</span>            -->
+        </h1>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="introduction">
+
+            <div class="container py-4">
+
+                <div class="mb-5">
+
+
+
+                    <h2 class="parrafo text-azul subtitulos">
+                        <img src="./img/150pp/INGLESINT_icono02.png" alt="Icono de bienvenida - Imagen de apoyo"
+                            aria-hidden="true" width="45px" height="auto">
+                        &nbsp; Bienvenida
+                    </h2>
+
+                    <!-- <p class="parrafo instruccion-color-verde">
+                        <b>Instrucción:</b> Haz clic en el video para iniciar su reproducción.
+                    </p> -->
+                    <div class="text-center">
+                        <img src="img/syllabus/Syllabus_Intro.png" class="img-central"
+                            alt="Imagen de apoyo de Bienvenida" aria-hidden="true">
+                    </div>
+
+                    <p class="parrafo text-azul text-center" style="font-size: 1.3rem;">
+                        Listen to the audio.
+                    </p>
+
+                    <div>
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="./media/Bienvenida.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- <div class="text-center">
+                        <a href="downloads/syllabus/PEE-IBAS3V.pdf" download="" class="btn btn-azul-modals waves-effect waves-light btn-14">
+                            PEE-IBAS3V
+                            <span class="sr-only">archivo PDF</span>
+                        </a>
+                    </div> -->
+
+                    <!-- <div> -->
+                    <!--<div class="vid3 embed-responsive embed-responsive-16by9 mt-4 mb-4 mt-md-5 mb-md-5">
+                            <iframe src="https://lumen.uv.mx/lumen/shared/embed/resource/8123" width="800" height="500"
+                                allowfullscreen="" scrolling="no"></iframe>
+                        </div>-->
+                    <!-- <div class="recuadro-video"></div> -->
+                    <!-- </div> -->
+
+                    <div class="script-video escritorio" style="margin-bottom: 1.5rem;">
+                        <details class="collapsables-gi">
+                            <summary class="btn"><strong>Guion de bienvenida</strong></summary>
+                            <div class="collapsables-gi__content">
+                                <p class=" parrafo">
+                                    <b>Bienvenido a la Experiencia Educativa de Inglés Básico 3 Virtual</b>
+                                </p>
+                                <p class="parrafo ">
+                                    Al termino de este curso podrás comunicarte, de manera oral y escrita en inglés,
+                                    utilizando frases y expresiones sencillas y breves que describan tus actividades
+                                    cotidianas en la casa, en la escuela y/o en el trabajo; de igual forma serás capaz
+                                    de leer y comprender textos breves y sencillos en inglés con intención de compartir
+                                    con tus compañeros tu punto de vista, de manera cordial y respetuosa.
+                                </p>
+                                <p class="parrafo ">Este curso consta de 8 módulos.</p>
+                                <p class="parrafo ">A lo largo de este curso realizarás una serie de actividades que
+                                    implican el desarrollo y utilización de procedimientos y recursos educativos y que
+                                    juntos representan diferentes estrategias de aprendizaje como las de
+                                    sistematización, procesamiento, reflexión, colaboración, retroalimentación, entre
+                                    otras.</p>
+                                <p class="parrafo ">Aquí desarrollarás Actividades de Practica en Línea y Tareas de
+                                    Aprendizaje en la Plataforma.</p>
+                                <p class="parrafo ">Las Actividades de Practica en Línea implican el desarrollo de
+                                    ejercicios de recuperación de conocimientos previos, ejercicios de memorización, de
+                                    estructuración y organización de información, así como ejercicios que te permitirán
+                                    desarrollar tu habilidad para escuchar palabras, enunciados y textos en inglés.
+                                    Estas actividades, aunque son únicamente de práctica y no forman parte de la
+                                    evaluación de la EE, se recomienda que las trabajes porque te servirán para poner en
+                                    práctica los contenidos de cada módulo.</p>
+                                <p class="parrafo ">Por otro lado, las Tareas de Aprendizaje en la Plataforma son
+                                    tareas que desarrollarás con la intensión de demostrar que dominas la información y
+                                    habilidades que se han abordado en cada módulo de aprendizaje de este curso. Estas
+                                    tareas forman parte de la evaluación de la EE.</p>
+                                <p class="parrafo ">En esta modalidad es importante que te mantengas siempre en
+                                    contacto con tu facilitador. Los principales medios que se utilizarán para este fin
+                                    son el centro de mensajes de este curso, así como el correo institucional y en
+                                    ocasiones, si es necesario, se desarrollarán sesiones de apoyo a través de sistemas
+                                    de videoconferencias tales como zoom, teams, meet, whatsapp, etc.</p>
+                                <p class="parrafo ">La evaluación en Inglés Básico 3 Virtual se divide en dos
+                                    tipos de evidencia de desempeño:</p>
+                                <ul class="dos-pad ">
+                                    <li class="parrafo">Evidencias por productos que se refieren a las tareas de
+                                        aprendizaje en la
+                                        plataforma las cuales pueden ser: videos, audios, textos.</li>
+                                    <li class="parrafo">Evidencias por demostración, que se refiere a los exámenes
+                                        breves por módulo,
+                                        así como a dos exámenes parciales, oral y escrito, que se aplicarán a la mitad y
+                                        al final del periodo.</li>
+                                </ul>
+                                <p class="parrafo ">Al interior de la plataforma educativa, en el apartado de
+                                    CONTENIDOS, se describen cada uno de los criterios y valores de las evidencias de
+                                    desempeño que comprende IBAS3 Virtual. </p>
+                                <p class="parrafo ">Para la acreditación, deberás obtener un mínimo de 60% al sumar
+                                    los porcentajes de cada una de las evidencias de desempeño, las de productos y por
+                                    demostración.</p>
+                                <p class="parrafo ">Esperamos que esta experiencia sea enriquecedora y contribuya a
+                                    tu formación integral como estudiante universitario.</p>
+                                <p class="parrafo mb-0 ">¡Mucho éxito!</p>
+
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde movil">
+                        <b>Instrucción:</b> Haz clic en el botón para descargar el archivo.
+                    </p>
+                    <p class="text-center movil">
+                        <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14"
+                            href="./downloads/BIENVENIDAGUIONIBAS3VIRTUAL.docx">
+                            Guion de bienvenida
+                            <span class="sr-only">archivo PDF</span>
+                        </a>
+                    </p>
+                </div>
+
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Separador - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Separador movil - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+
+
+                <div class="cuadro-azul-degradado p-3 mt-4 mb-4">
+
+                    <h2 class="parrafo color-amarillo font-weight-bold mb-4 subtitulos">
+                        <img src="./img/150pp/INGLESINT_icono03.png" alt="Icono de competencia - Imagen de apoyo"
+                            aria-hidden="true" width="45px" height="auto">
+                        &nbsp; Competencia
+                    </h2>
+
+                    <p class="parrafo text-white mb-0">
+                        El estudiante de Inglés Básico 3 es capaz de comunicarse, de manera oral y escrita en inglés,
+                        utilizando frases y expresiones sencillas y breves que describen sus actividades cotidianas en
+                        la casa, en la escuela y/o en el trabajo; de igual forma es capaz de leer y comprender textos
+                        breves y sencillos en inglés con intención de compartir con sus compañeros su punto de vista, de
+                        manera cordial y respetuosa.
+                    </p>
+
+                </div>
+
+                <p class="parrafo instruccion-color-verde">
+                    <b>Instrucción:</b> Para conocer el Programa Educativo descarga el siguiente archivo.
+                </p>
+
+                <div class="text-center">
+                    <a href="downloads/syllabus/PEE-IBAS3V.pdf" download=""
+                        class="btn btn-azul-modals waves-effect waves-light btn-14">
+                        PEE-IBAS3V
+                        <span class="sr-only">archivo PDF</span>
+                    </a>
+                </div>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Separador - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Separador movil - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+                <div class="mb-4 mb-md-5">
+                    <h2 class="parrafo text-azul subtitulos">
+                        <img src="./img/150pp/INGLESINT_icono02.png"
+                            alt="Icono de Módulos de aprendizaje -Imagen de Apoyo" aria-hidden="true" width="45px"
+                            height="auto">
+                        &nbsp; Módulos de aprendizaje
+                    </h2>
+                    <div class="schedule-units p-2">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 1.</b> <i lang="en">My habits and hobbies</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 2.</b> <i lang="en">My last birthday</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 3.</b> <i lang="en">I was telling a story when…</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 4.</b> <i lang="en">I have just moved to another city</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 5.</b> <i lang="en">I need to make a reservation</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 6.</b> <i lang="en">Planning a trip</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 7.</b> <i lang="en">If I study hard…</i>
+                        </p>
+                    </div>
+                    <div class="schedule-units p-2 mt-3">
+                        <p class="parrafo mb-0 ml-3">
+                            <b>Módulo 8.</b> <i lang="en">Doing exercise is good for you</i>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Separador - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Separador movil - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+
+                <h2 class="parrafo text-azul subtitulos">
+                    <img src="./img/150pp/INGLESINT_icono02.png" alt="Icono de Dinámica de trabajo - Imagen de apoyo"
+                        aria-hidden="true" width="45px" height="auto">
+                    &nbsp; Dinámica de trabajo
+                </h2>
+
+                <p class="parrafo">A lo largo de la Experiencia Educativa (EE) de Inglés Básico 3 Virtual
+                    (IBAS3Virtual), realizarás una serie de actividades que implican el desarrollo y utilización de
+                    procedimientos y recursos educativos, que empleados conscientemente apoyan tu proceso de
+                    aprendizaje; cada conjunto de actividades, procedimientos y recursos representa una estrategia de
+                    aprendizaje.</p>
+                <p class="parrafo">Existen estrategias de búsqueda, sistematización, procesamiento y estructuración de
+                    información que sirven para crear enlaces o conexiones entre lo que ya sabes y lo que estás por
+                    aprender. Así mismo, encontrarás estrategias que te ayudarán a reconocer y reflexionar sobre tus
+                    propios procesos de aprendizaje y autoevaluación de las competencias que vas construyendo y
+                    consolidando a través del desarrollo de esta Experiencia Educativa (EE). Al mismo tiempo
+                    interactuarás con tus compañeros y facilitador por medio del desarrollo de estrategias de
+                    colaboración y retroalimentación del aprendizaje a través de la participación en los FOROS de
+                    discusión.</p>
+                <!-- <p class="parrafo">Los principales medios de comunicación que se utilizarán son a través de Centro de
+                    Mensajes en la plataforma, y en caso de ser necesario el <i lang="en">email</i>&nbsp; institucional
+                    y en ocasiones urgentes
+                    y en común acuerdo se desarrollarán sesiones a través del sistema de videoconferencia.</p> -->
+
+                <p class="parrafo">En específico en esta Experiencia Educativa (EE) desarrollarás Actividades de
+                    Practica en Línea <i lang="en">(Online Practice Activity (OPA))</i> y Tareas de Aprendizaje en la
+                    Plataforma
+                    <i lang="en">(Platform Learning Task (PLT))</i>.
+                </p>
+
+                <p class="parrafo instruccion-color-verde escritorio">
+                    <b>Instrucción:</b> Haz clic en cada botón para leer la información.
+                </p>
+
+                <div class="contenedor3Botones escritorio">
+                    <div class="div3Columnas">
+                        <div>
+                            <button class="btn btn-azul-modals waves-effect waves-light" data-toggle="modal"
+                                data-target="#dinamica-1">
+                                <i lang="en">Online Practice Activity (OPA)</i>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="btn btn-azul-modals waves-effect waves-light" data-toggle="modal"
+                                data-target="#dinamica-2">
+                                <i lang="en">Platform Learning Task (PLT)</i>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="btn btn-azul-modals waves-effect waves-light" data-toggle="modal"
+                                data-target="#dinamica-3">
+                                Diferencias entre las <i lang="en">OPA</i> y las <i lang="en">PLT</i>
+                            </button>
+                        </div>
+                    </div>
+                    <img src="img/syllabus/Syllabus_dinamicatrabajo.png" class="imgSeparaBotones" aria-hidden="true"
+                        alt="Separador - Imagen de apoyo">
+                    <div class="text-center">
+                        <button class="btn btn-azul-modals waves-effect waves-light btn-26p" data-toggle="modal"
+                            data-target="#dinamica-4">
+                            Recomendaciones
+                        </button>
+                    </div>
+                </div>
+
+                <p class="parrafo mt-2em escritorio ">Los principales medios de comunicación que se utilizarán son a
+                    través de Centro de
+                    Mensajes en la plataforma, y en caso de ser necesario el <i lang="en">email</i>&nbsp; institucional
+                    y en ocasiones urgentes
+                    y en común acuerdo se desarrollarán sesiones a través del sistema de videoconferencia.</p>
+
+
+                <div class="movil contenedor3BotonesMovil">
+                    <p class="parrafo text-azul">
+                        <i lang="en">Online Practice Activity (OPA)</i>
+                    </p>
+                    <p class="parrafo">
+                        Las Actividades de Practica en Línea <i lang="en">(Online Practice Activity (OPA))</i> implica
+                        el desarrollo de
+                        ejercicios de recuperación de conocimientos previos, ejercicios de memorización y ejercicios de
+                        estructuración y organización de información, así como ejercicios que te permitirán desarrollar
+                        tu habilidad para escuchar palabras, enunciados y textos en inglés.
+                    </p>
+                    <p class="parrafo text-azul">
+                        <i lang="en">Platform Learning Task (PLT)</i>
+                    </p>
+                    <p class="parrafo">
+                        Las Tareas de Aprendizaje en la Plataforma <i lang="en">(Platform Learning Task (PLT))</i>, son
+                        tareas que
+                        desarrollarás con la intensión de demostrar que dominas la información y habilidades que se han
+                        abordado en cada módulo de aprendizaje. Las tareas de aprendizaje en la plataforma son el medio
+                        de evaluación del avance que has logrado.
+                    </p>
+                    <p class="parrafo text-azul">
+                        Diferencias entre las <i lang="en">APL</i> y las <i lang="en">TAP</i>
+                    </p>
+                    <p class="parrafo">Las diferencias entre las <i lang="en">Online Practice Activity (OPA)</i> y las
+                        <i lang="en">Platform Learning Task (PLT)</i> son:
+                    </p>
+                    <ul class="parrafo pd-2 mb-0">
+                        <li>
+                            Con las <i lang="en">Online Practice Activity (OPA)</i> tienes la posibilidad de repetir su
+                            ejecución el
+                            número de veces que sea necesario y en cada ocasión recibirás un puntaje sobre los aciertos
+                            obtenidos en la ejecución del ejercicio y <i lang="en">tips</i> para mejorar para mejorar
+                            dicho puntaje. En
+                            las <i lang="en">Platform Learning Task (PLT)</i> el facilitador valorará tu desempeño y te
+                            proporcionará una
+                            retroalimentación personalizada y recomendaciones o asesoría para perfeccionar y consolidar
+                            las habilidades que se promovían en el módulo que ha concluido.
+                        </li>
+                        <li>Las <i lang="en">Online Practice Activity (OPA)</i> no tienen un valor porcentual dentro del
+                            sistema de evaluación de la Experiencia Educativa.</li>
+                        <li>Las <i lang="en">Platform Learning Task (PLT)</i> tienen un valor porcentual dentro del
+                            sistema de evaluación
+                            de la Experiencia Educativa.</li>
+                        <li class="mb-0">Las <i lang="en">Platform Learning Task (PLT)</i> se encuentran descritas en
+                            alguno de los apartados de Actividades, Exámenes o Foros de la plataforma educativa.</li>
+                    </ul>
+                </div>
+
+
+                <div class="text-center">
+                    <img src="img/syllabus/Syllabus_dinamicatrabajo.png" class="imgSeparaBotones movil"
+                        aria-hidden="true" alt="Separador movil - Imagen de apoyo">
+                </div>
+
+                <div class="movil contenedor3BotonesMovil">
+                    <p class="parrafo text-azul" lang="es">
+                        Recomendaciones
+                    </p>
+                    <p class="parrafo">Con la finalidad de que aproveches y transites satisfactoriamente cada actividad
+                        que te presenta la Experiencia Educativa (EE) de Inglés Básico 3 Virtual te presentamos las
+                        siguientes recomendaciones:</p>
+                    <ul class="parrafo mb-0 pd-2">
+                        <li>Una vez que tengas acceso a la Plataforma Educativa, realiza una exploración general
+                            ubicando los apartados de: Contenido, Actividades, Exámenes, Foro y Mensajes.</li>
+                        <li>Navega en los contenidos de estudio e identifica la microunidad de competencia de los
+                            módulos, los temas de estudio, glosarios, las actividades de practica en línea etc.</li>
+                        <li>Cuando comiences el estudio de cada módulo, avanza en orden, lee y escucha la microunidad de
+                            competencia, revisa y analiza el material de estudio de cada tema que integra el módulo en
+                            el que estás trabajando, si en esta etapa tienes dudas, ponte en contacto con tu facilitador
+                            a través de la herramienta de <i lang="en">email</i>&nbsp; ubicada en el apartado de
+                            MENSAJES en la plataforma
+                            educativa.</li>
+                        <li>Después de revisar el material de estudio, resuelve las <i lang="en">Online Practice
+                                Activity (OPA)</i>&nbsp;,
+                            la solución de estas actividades implica un proceso de autoobservación constante con la
+                            finalidad de que identifiques que material y habilidad has alcanzado, así como el
+                            material de estudio o habilidad que requiere más información o práctica. Si en esta
+                            etapa tienes dudas o comentarios y requieres que el facilitador te apoye, ponte en
+                            contacto a través del <i lang="en">email</i>&nbsp; en el apartado de Mensajes.
+                        </li>
+                        <li>Finalmente desarrolla la <i lang="en">Platform Learning Task (PLT);</i>&nbsp; lee y
+                            comprende cada una de las
+                            indicaciones que te proporciona la descripción de la Tarea de Aprendizaje, sigue al pie de
+                            la letra estas indicaciones.</li>
+                        <li>Lleva un control de tus avances ¿cuántos intentos te llevo obtener un resultado
+                            satisfactorio en cada actividad de práctica? ¿podrías clasificar cada actividad de práctica
+                            como: muy fácil, fácil, normal o neutral, difícil, muy difícil? </li>
+                        <li class="mb-0">Siempre mantente en contacto con tu facilitador, solicita su apoyo cuando
+                            consideres que es necesario.</li>
+                    </ul>
+                </div>
+
+                <p class="parrafo mt-2em  movil">Los principales medios de comunicación que se utilizarán son a través
+                    de Centro de
+                    Mensajes en la plataforma, y en caso de ser necesario el <i lang="en">email</i>&nbsp; institucional
+                    y en ocasiones urgentes
+                    y en común acuerdo se desarrollarán sesiones a través del sistema de videoconferencia.</p>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png"
+                        alt="Separador - Evaluación del aprendizaje - Imagen de apoyo" aria-hidden="true" width="80%"
+                        height="auto" class="escritorio">
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png"
+                        alt="Separador - Evaluación del aprendizaje - movil - Imagen de apoyo" aria-hidden="true"
+                        width="80%" height="auto" class="movil">
+                </div>
+
+
+
+                <h2 class="parrafo text-azul subtitulos">
+                    <img src="./img/150pp/INGLESINT_icono02.png"
+                        alt="Icono de Evaluación del aprendizaje - Imagen de apoyo" aria-hidden="true" width="45px"
+                        height="auto">
+                    &nbsp; Evaluación del aprendizaje
+                </h2>
+
+                <p class="parrafo">La evaluación en Inglés Básico 3 Virtual (IBAS3 Virtual) se divide en dos tipos
+                    de evidencia de desempeño; a continuación, las describimos.</p>
+
+                <p class="parrafo instruccion-color-verde escritorio">
+                    <b>Instrucción:</b> Haz clic en cada botón para leer la información.
+                </p>
+
+
+                <div class="container escritorio pestanas">
+                    <div>
+                        <ul class="nav nav-tabs tabs-1-nav mt-4">
+                            <li class="nav-item tab-1-item waves-effect waves-light tam-tab tabIzq">
+                                <button data-toggle="tab" href="#ppaso-1"
+                                    class="nav-link tab-1-link text-center ajuste-altura active">
+                                    <span class="tabs-1-texto parrafo mb-0">Evidencias por productos</span>
+                                </button>
+                            </li>
+                            <li class="nav-item tab-1-item waves-effect waves-light tam-tab tabDer">
+                                <button data-toggle="tab" href="#ppaso-2"
+                                    class="nav-link tab-1-link text-center ajuste-altura">
+                                    <span class="tabs-1-texto parrafo mb-0">Evidencias por demostración</span>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content bg-tab-content">
+
+                            <div id="ppaso-1" class="tab-pane container active">
+                                <div class="tam-content">
+                                    <div>
+                                        <p class="parrafo sr-only">
+                                            Estás en la pestaña de Evidencias por productos, continua bajando para leer
+                                            la información.
+                                        </p>
+                                        <div class="text-center">
+                                            <img src="img/syllabus/Syllabus_evaluacion01.png" class="img-tab"
+                                                alt="Evidencias por productos" aria-hidden="true">
+                                        </div>
+                                        <p class="mb-0">
+                                            Son todas las Tareas de Aprendizaje en Plataforma (TAP) que vas a
+                                            desarrollar y a enviar a tu facilitador, estas incluyen: trabajos escritos,
+                                            solución de ejercicios, redacción de tus reflexiones sobre videos, audios y
+                                            participaciones en foro.
+                                        </p>
+                                        <p class="parrafo sr-only">
+                                            Terminaste el contenido de la pestaña de Evidencias por productos, deberás
+                                            subir y elegir la pestaña siguiente.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="ppaso-2" class="tab-pane container">
+                                <div class="tam-content">
+                                    <div>
+                                        <p class="parrafo sr-only">
+                                            Estás en la pestaña de Evidencias por demostración, continua bajando para
+                                            leer la información.
+                                        </p>
+                                        <div class="text-center">
+                                            <img src="img/syllabus/Syllabus_evaluacion02.png" class="img-tab"
+                                                alt="Evidencias por demostración" aria-hidden="true">
+                                        </div>
+                                        <p class="mb-0">
+                                            Son básicamente los exámenes que presentarás durante el periodo escolar,
+                                            estos incluyen el examen parcial oral y el examen parcial escrito que se
+                                            aplicará a la mitad del periodo y los exámenes finales oral y escrito que se
+                                            aplicarán al finalizar el estudio de los módulos de la EE.
+                                        </p>
+                                        <p class="parrafo sr-only">
+                                            Terminaste el contenido de la pestaña de Evidencias por demostración.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-movil movil ">
+                    <div class="text-center">
+                        <img src="img/syllabus/Syllabus_evaluacion01.png" class="img-tab" alt="Evidencias por productos"
+                            aria-hidden="true">
+                    </div>
+                    <p class="parrafo text-azul">Evidencias por productos</p>
+                    <p class="parrafo">
+                        Son todas las Tareas de Aprendizaje en Plataforma (TAP) que vas a desarrollar y a enviar a tu
+                        facilitador, estas incluyen: trabajos escritos, solución de ejercicios, redacción de tus
+                        reflexiones sobre videos, audios y participaciones en foro.
+                    </p>
+                    <hr class="hr-azul-m">
+                    <div class="text-center">
+                        <img src="img/syllabus/Syllabus_evaluacion02.png" class="img-tab"
+                            alt="Evidencias por demostración" aria-hidden="true">
+                    </div>
+                    <p class="parrafo text-azul">Evidencias por demostración</p>
+                    <p class="parrafo mb-0">
+                        Son básicamente los exámenes que presentarás durante el periodo escolar, estos incluyen el
+                        examen parcial oral y el examen parcial escrito que se aplicará a la mitad del periodo y los
+                        exámenes finales oral y escrito que se aplicarán al finalizar el estudio de los módulos de la
+                        EE.
+                    </p>
+                </div>
+
+                <p class="parrafo">Al interior de la plataforma educativa, en el apartado de CONTENIDOS, se describen
+                    cada uno de los criterios y valores de las evidencias de desempeño que comprende IBAS3 Virtual.
+                </p>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./img/syllabus/separador-interior-e.png" alt="Separador - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./img/syllabus/separador-interior-r.png" alt="Separador movil - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+
+                <div class="">
+                    <h2 class="parrafo text-azul">Acreditación</h2>
+                </div>
+
+                <p class="parrafo">Para la acreditación, el estudiante deberá obtener un mínimo de 60% al sumar los
+                    porcentajes en cada una de las evidencias de desempeño siendo obligatorio el cumplimiento de las
+                    tareas de aprendizaje en plataforma. De esta manera el estudiante demostrará el uso básico de la
+                    lengua inglesa de manera oral y escrita en un ambiente comunicativo, intercultural, de colaboración,
+                    respeto y tolerancia.</p>
+                <p class="parrafo">Para tener derecho a ser examinado y evaluado, se requiere como mínimo el 80% de
+                    asistencia a las clases, en congruencia con el Estatuto de los Alumnos vigente.</p>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./img/syllabus/separador-interior-e.png" alt="Separador - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./img/syllabus/separador-interior-r.png" alt="Separador movil - Imagen de apoyo"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+
+
+                <h2 class="parrafo text-azul">
+                    Valores crediticios
+                </h2>
+
+                <div class="valCre escritorio">
+                    <div>
+                        <div>
+                            <p class="table_cont">Horas Teóricas</p>
+                        </div>
+                        <div>
+                            <p class="table_cont">1</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="table_cont">Horas Prácticas</p>
+                        </div>
+                        <div>
+                            <p class="table_cont">4</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="table_cont">Horas Otras</p>
+                        </div>
+                        <div>
+                            <p class="table_cont">NA</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="table_cont">Total de horas</p>
+                        </div>
+                        <div>
+                            <p class="table_cont">75</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dobleAlto">
+                            <p class="table_cont">Créditos</p>
+                        </div>
+                        <div>
+                            <p class="table_cont">6</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="table_cont">Equivalencia (s)</p>
+                        </div>
+                        <div>
+                            <p class="table_cont">Ninguna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="valCreMovil movil">
+                    <ul class="mb-0 pd-2 parrafo">
+                        <li><strong>Horas Teóricas:</strong> 1</li>
+                        <li><strong>Horas Prácticas:</strong> 4</li>
+                        <li><strong>Horas Otras:</strong> NA</li>
+                        <li><strong>Total de horas:</strong> 75</li>
+                        <li><strong>Créditos:</strong> 6</li>
+                        <li><strong>Equivalencia (s):</strong> Ninguna</li>
+                    </ul>
+                </div>
+
+
+
+
+
+            </div>
+        </section>
+
+        <section class="section-degree">
+
+            <div class="container py-5">
+
+                <div class="">
+                    <h2 class="parrafo text-azul subtitulos">
+                        <img src="./img/150pp/INGLESINT_icono02.png"
+                            alt="Icono de Expertos en contenido - Imagen de apoyo" aria-hidden="true" width="45px"
+                            height="auto">
+                        &nbsp; Expertos en contenido
+                    </h2>
+                </div>
+
+                <p class="parrafo instruccion-color-verde">
+                    <b>Instrucción:</b> Haz clic en el botón para descargar el archivo.
+                </p>
+
+                <div class="text-center mb-5">
+                    <a href="downloads/syllabus/INGLES3-sintesis-curriculares.pdf" download=""
+                        class="btn btn-azul-modals waves-effect waves-light btn-14">
+                        Síntesis curriculares
+                        <span class="sr-only">archivo PDF</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="./img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+    <div class="modal fade" id="dinamica-1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-label="Cerrar"
+                        aria-hidden="true">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="text-center">
+                            <p class="parrafo text-azul" lang="es">
+                                <i lang="en">Online Practice Activity (OPA)</i>
+                            </p>
+                        </div>
+                        <p class="parrafo mb-0">
+                            Las Actividades de Practica en Línea <i lang="en">(Online Practice Activity (OPA))</i>
+                            implica el desarrollo de ejercicios de recuperación de conocimientos previos, ejercicios de
+                            memorización y ejercicios de estructuración y organización de información, así como
+                            ejercicios que te permitirán desarrollar tu habilidad para escuchar palabras, enunciados y
+                            textos en inglés.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cerrar-modal waves-effect waves-light"
+                        style="border-radius: 7px;" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="dinamica-2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-label="Cerrar"
+                        aria-hidden="true">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="text-center">
+                            <p class="parrafo text-azul" lang="es">
+                                <i lang="en">Platform Learning Task (PLT)</i>
+                            </p>
+                        </div>
+                        <p class="parrafo mb-0">
+                            Las Tareas de Aprendizaje en la Plataforma <i lang="en">(Platform Learning Task (PLT))</i>,
+                            son tareas que desarrollarás con la intensión de demostrar que dominas la información y
+                            habilidades que se han abordado en cada módulo de aprendizaje. Las tareas de aprendizaje en
+                            la plataforma son el medio de evaluación del avance que has logrado.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cerrar-modal waves-effect waves-light"
+                        style="border-radius: 7px;" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="dinamica-3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-label="Cerrar"
+                        aria-hidden="true">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="text-center">
+                            <p class="parrafo text-azul" lang="es">
+                                Diferencias entre las <i lang="en">APL</i> y las <i lang="en">TAP</i>
+                            </p>
+                        </div>
+                        <p class="parrafo">Las diferencias entre las <i lang="en">Online Practice Activity (OPA)</i> y
+                            las
+                            <i lang="en">Platform Learning Task (PLT)</i> son:
+                        </p>
+
+                        <ul class="parrafo mb-0 pd-2">
+                            <li>Con las <i lang="en">Online Practice Activity (OPA)</i> tienes la posibilidad de repetir
+                                su ejecución el
+                                número de veces que sea necesario y en cada ocasión recibirás un puntaje sobre los
+                                aciertos obtenidos en la ejecución del ejercicio y <i lang="en">tips</i> para mejorar
+                                para mejorar dicho
+                                puntaje. En las <i lang="en">Platform Learning Task (PLT)</i> el facilitador valorará tu
+                                desempeño y te
+                                proporcionará una retroalimentación personalizada y recomendaciones o asesoría para
+                                perfeccionar y consolidar las habilidades que se promovían en el módulo que ha
+                                concluido.</li>
+                            <li>Las <i lang="en">Online Practice Activity (OPA)</i> No tienen un valor porcentual dentro
+                                del sistema de evaluación de la Experiencia Educativa.</li>
+                            <li>Las <i lang="en">Platform Learning Task (PLT)</i> tienen un valor porcentual dentro del
+                                sistema de
+                                evaluación de la Experiencia Educativa.</li>
+                            <li class="mb-0">Las <i lang="en">Platform Learning Task (PLT)</i> se encuentran descritas
+                                en alguno de los apartados de Actividades, Exámenes o Foros de la plataforma educativa.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cerrar-modal waves-effect waves-light"
+                        style="border-radius: 7px;" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="dinamica-4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-label="Cerrar"
+                        aria-hidden="true">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="text-center">
+                            <p class="parrafo text-azul" lang="es">
+                                Recomendaciones
+                            </p>
+                        </div>
+                        <p class="parrafo">Con la finalidad de que aproveches y transites satisfactoriamente cada
+                            actividad que te presenta la Experiencia Educativa (EE) de Inglés Básico 3 Virtual te
+                            presentamos las siguientes recomendaciones:</p>
+
+                        <ul class="parrafo mb-0 pd-2">
+                            <li>Una vez que tengas acceso a la Plataforma Educativa, realiza una exploración general
+                                ubicando los apartados de: Contenido, Actividades, Exámenes, Foro y Mensajes.</li>
+                            <li>Navega en los contenidos de estudio e identifica la microunidad de competencia de los
+                                módulos, los temas de estudio, glosarios, las actividades de practica en línea etc.
+                            </li>
+                            <li>Cuando comiences el estudio de cada módulo, avanza en orden, lee y escucha la
+                                microunidad de competencia, revisa y analiza el material de estudio de cada tema que
+                                integra el módulo en el que estás trabajando, si en esta etapa tienes dudas, ponte en
+                                contacto con tu facilitador a través de la herramienta de <i lang="en">email</i>&nbsp;
+                                ubicada en el apartado
+                                de MENSAJES en la plataforma educativa.</li>
+                            <li>Después de revisar el material de estudio, resuelve las <i lang="en">Online Practice
+                                    Activity (OPA)</i>&nbsp;,
+                                la solución de estas actividades implica un proceso de autoobservación constante con la
+                                finalidad de que identifiques que material y habilidad has alcanzado, así como el
+                                material de estudio o habilidad que requiere más información o práctica. Si en esta
+                                etapa tienes dudas o comentarios y requieres que el facilitador te apoye, ponte en
+                                contacto a través del <i lang="en">email</i>&nbsp; en el apartado de Mensajes.</li>
+                            <li>Finalmente desarrolla la <i lang="en">Platform Learning Task (PLT);</i>&nbsp; lee y
+                                comprende cada una de las
+                                indicaciones que te proporciona la descripción de la Tarea de Aprendizaje, sigue al pie
+                                de la letra estas indicaciones.</li>
+                            <li>Lleva un control de tus avances ¿cuántos intentos te llevo obtener un resultado
+                                satisfactorio en cada actividad de práctica? ¿podrías clasificar cada actividad de
+                                práctica como: muy fácil, fácil, normal o neutral, difícil, muy difícil? </li>
+                            <li>Siempre mantente en contacto con tu facilitador, solicita su apoyo cuando consideres que
+                                es necesario.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cerrar-modal waves-effect waves-light"
+                        style="border-radius: 7px;" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/menu.js"></script>
+    <!-- modales lector inmersivo -->
+    <script src="scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="scripts/menuacces.js"></script>
+    <script src="scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script src="scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

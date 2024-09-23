@@ -1,0 +1,65 @@
+{
+    "numeroFilas": 12,
+    "numeroColumnas": 10,    
+    "palabras": [
+        {
+          "valor": "Tender",
+          "definicion": "Gentle, loving, or kind",
+          "fila": 0,
+          "columna": 3,
+          "direccion": "V"
+        },
+        {
+          "valor": "Epic",
+          "definicion": "A movie, poem, or book that is long and contains a lot of action, usually dealing with a historical subject",
+          "fila": 1,
+          "columna": 3,
+          "direccion": "H"
+        },
+        {
+          "valor": "Dramatic",
+          "definicion": "Very sudden or noticeable, or full of action and excitement",
+          "fila": 2,
+          "columna": 1,
+          "direccion": "V"
+        },
+        {
+          "valor": "Prodigious",
+          "definicion": "Extremely great in ability, amount, or strength",
+          "fila": 3,
+          "columna": 0,
+          "direccion": "H"
+        },
+        {
+          "valor": "Marvel",
+          "definicion": "To show or experience great surprise or admiration",
+          "fila": 5,
+          "columna": 1,
+          "direccion": "H"
+        },
+        {
+          "valor": "Limited",
+          "definicion": "Small in amount or number",
+          "fila": 5,
+          "columna": 6,
+          "direccion": "V"
+        },
+        {
+          "valor": "Wide",
+          "definicion": "Having a larger distance from one side to the other than is usual or expected, especially in comparison with the length of something; not narrow",
+          "fila": 11,
+          "columna": 4,
+          "direccion": "H"
+        }
+        
+        
+      ]
+}
+
+
+
+
+
+
+
+

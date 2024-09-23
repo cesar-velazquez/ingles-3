@@ -1,0 +1,42 @@
+{
+    "numeroFilas": 5,
+    "numeroColumnas": 7,    
+    "palabras": [
+        {
+          "valor": "many",
+          "definicion": "A large number of",
+          "fila": 0,
+          "columna": 5,
+          "direccion": "V"
+        },
+        {
+          "valor": "several",
+          "definicion": "An amount that is not exact but is fewer than many",
+          "fila": 1,
+          "columna": 0,
+          "direccion": "H"
+        },
+        {
+          "valor": "some",
+          "definicion": "An amount or number of something that is not stated or not known; a part of something",
+          "fila": 1,
+          "columna": 0,
+          "direccion": "V"
+        },
+        {
+          "valor": "any",
+          "definicion": "Some, or even the smallest amount or number of",
+          "fila": 1,
+          "columna": 5,
+          "direccion": "V"
+        },
+        {
+          "valor": "much",
+          "definicion": "A large amount or to a large degree",
+          "fila": 3,
+          "columna": 0,
+          "direccion": "H"
+        }
+        
+      ]
+}

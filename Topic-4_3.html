@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 4.3 How long?</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="/Topic-4_3/css/index.css">
+    <!-- <link rel="stylesheet" href="/Topic-4_3/css/unit1.css"> -->
+    <link rel="stylesheet" href="/Topic-4_3/css/unit4.css">
+    <!-- <link rel="stylesheet" href="./css/memorama.css"> -->
+
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="./Topic-4_3/css/menuacces.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es" class="sr-only">
+
+        <p>
+            Para acceder a la información de ayuda de esta Experiencia Educativa en <i lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control <span
+                    aria-hidden="true">+</span>
+                <span class="sr-only">más</span> Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+
+        <p class="parrafo">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4">
+            <li><span lang="en">Activity</span> OPA 52. Alt + 1</li>
+            <li><span lang="en">Activity</span> OPA 53. Alt + 2</li>
+            <li><span lang="en">Activity</span> OPA 54. Alt + 3</li>
+            <li><span lang="en">Activity</span> OPA 55. Alt + 4</li>
+            <li><span lang="en">Activity</span> OPA 56. Alt + 5</li>
+        </ul>
+
+        <p class="parrafo mb-0" lang="en"><b>MacOS</b></p>
+
+        <ul class="parrafo ml-4">
+            <li><span lang="en">Activity</span> OPA 52. <i>Control + Option</i> + 1</li>
+            <li><span lang="en">Activity</span> OPA 53. <i>Control + Option</i> + 2</li>
+            <li><span lang="en">Activity</span> OPA 54. <i>Control + Option</i> + 3</li>
+            <li><span lang="en">Activity</span> OPA 55. <i>Control + Option</i> + 4</li>
+            <li><span lang="en">Activity</span> OPA 56. <i>Control + Option</i> + 5</li>
+        </ul>
+
+    </div>
+
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-4_3/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- Inicio menu accesible -->
+    <div class="menuacces" aria-hidden="true">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-4_3/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-4_3/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-4_3/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-4_3/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-4_3/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-4_3/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-4_3/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-4_3/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-4_3/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-4_3/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none">
+                    <span class="text-left">
+                        <p class="font-weight-bold mb-3 texto-tema-margen">
+                            Topic 4.3 <span style="font-weight: normal;">How long?</span>
+                        </p>
+                    </span>
+                </div>
+
+            </div>
+
+            <img src="Topic-3_1/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+
+
+                <div class="d-flex align-items-center ">
+
+                    <div class="pleca__ee ml-0" style="display: none; ">
+
+                        <p class="font-weight-bold mb-1 texto-tema-margen">
+                            Topic 4.3
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="Topic-3_1/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+        <div class="container">
+
+            <h1 class="titulo-principal-unit">
+
+                Topic 4.3
+                <span>How long?</span>
+
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- <header class="banner-1">
+
+        <div class="">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" id="pleca_uv" class="pleca__uv" href="https://uv.mx/" target="__blank"
+                    lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+
+                    <p class="escritorio tam-font texto-tema-margen " aria-hidden="true">
+                        Topic 4.3 <span style="font-weight: normal;">How long?</span>
+                    </p>
+
+                    <p class="movil tam-font texto-tema-margen " aria-hidden="true">
+                        Topic 4.3 <span style="font-weight: normal;">How long?</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <img class="escritorio" src="./Topic-4_3/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal"
+                aria-hidden="true" width="100%" height="auto">
+
+            <img class="movil" src="./Topic-4_3/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal"
+                aria-hidden="true" width="100%" height="auto">
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Topic 4.3
+                <span class="subtitulo-secundari-unit">How long?</span>
+            </h1>
+        </div>
+
+    </header> -->
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="">
+
+                    <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="1" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA52. Penélope Cruz
+                    </h2>
+
+                    <p class="parrafo mb-0 instruccion-color-verde">
+                        <b>Instructions: </b>
+                    </p>
+                    <ol class="parrafo text-left instruccion-color-verde ml-4 mb-2rem " start="1">
+                        <li class="pad2">Read and listen the following text and answer the questions.</li>
+                    </ol>
+
+                    <div class="text-center m-2rem" lang="es">
+                        <img src="./Topic-4_3/img/IB3V-M4-4.3_OPA52.png" alt="Imagen de apoyo." width="60%"
+                            height="auto">
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <p class="parrafo text-azul">Listen to the audio.</p>
+                    </div>
+
+                    <div class="m-2rem text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./Topic-4_3/audios/M4A62Penelope.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                        <img src="./Topic-4_3/img/150pp/INGLESINT_separador-interior-actividad.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="escritorio">
+                        <img src="./Topic-4_3/img/150pp/INGLESINT_separador-interior-actividad-r.png"
+                            alt="Support image" aria-hidden="true" width="80%" height="auto" class="movil">
+                    </div>
+
+                    <p class="parrafo">
+                        I’ve been a big fan of Penélope Cruz <span class="colorpink">for</span> more than five years.
+                        I’ve followed her carreer <span class="colorpink">since</span> I
+                        was in high school. That means I’ve watched every movie she’s made <span
+                            class="colorpink">since</span> 1988, except for
+                        “Volver”. I <span class="colorpink">still</span> haven’t seen that one, but I plan to see it
+                        soon. I’ve <span class="colorpink">always</span> loved Penélope’s
+                        work. I’ve <span class="colorpink">since</span> been the first person in line at the theater
+                        when her movies open. Of the
+                        movies Penélope has made lately, the most interesting to me is Nine. I think it’s the best movie
+                        she’s made so far. I’ve <span class="colorpink">already</span> seen it five times!
+                    </p>
+
+                    <div id="escribir_opa52" class="selescts escribir_opa52 recFacImg">
+
+                        <div class="parrafo text-left ">
+
+                            <p class="sr-only text-ayuda">
+                                a. (1) espacio a rellenar (hold) a snake?
+                            </p>
+
+                            <div class="parrafo reactivo16 flex_direction">
+                                <div class="tam_parrafo">
+                                    <div class="orientacion_parrafo">
+                                        <p class="parrafo mb-0">a.</p>
+                                        <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                        <span class="sr-only">&nbsp; How long has the writer been Penelope Cruz’s
+                                            fan?</span>
+                                        <!-- <p class="mb-0"><span class="s-resp">&nbsp; How long has the writer been Penelope Cruz’s fan?</span> -->
+                                        <p class="parrafo mb-0">
+                                            &nbsp; How long has the writer been Penelope Cruz’s fan?
+                                        </p>
+                                        </p>&nbsp;
+                                    </div>
+                                </div>
+                                <!-- <span class="s-resp" aria-hidden="true"> </span> -->
+                                <div class="tam_Input">
+                                    <input id="escribir_opa52-1" type="text" placeholder="Write here..."
+                                        name="escribir_opa52" class="escribir w-100">
+                                    <p class="parrafo mb-0 contselopc"></p>
+                                </div>
+                            </div>
+                            <div class="parrafo reactivo16 flex_direction">
+                                <div class="tam_parrafo2">
+                                    <div class="orientacion_parrafo">
+                                        <p class="parrafo mb-0">b.</p>&nbsp;
+                                        <span class="sr-only text-ayuda">espacio a rellenar (visit) an English speaking
+                                            country?</span>
+                                        <p class="parrafo">
+                                            <span class="sr-only"> When has the writer started watching Penelope’s
+                                                movies? </span>
+                                        </p>
+                                        <p class="parrafo mb-0">
+                                            <span class="s-resp"> When has the writer started watching Penelope’s
+                                                movies?
+                                            </span>
+                                        </p>&nbsp;
+                                    </div>
+                                </div>
+                                <!-- <span class="s-resp" aria-hidden="true"></span> -->
+                                <div class="tam_Input2">
+                                    <input id="escribir_opa52-2" type="text" placeholder="Write here..."
+                                        name="escribir_opa52" class="escribir w-100">
+                                    <p class="parrafo mb-0 contselopc"></p>
+                                </div>
+                            </div>
+
+                            <div class="parrafo reactivo16 mb-0 flex_direction">
+                                <div class="tam_parrafo">
+                                    <div class="orientacion_parrafo">
+                                        <p class="parrafo mb-0">c.</p>&nbsp;
+                                        <span class="sr-only text-ayuda">espacio a rellenar (do) yoga?</span>
+                                        <span class="sr-only"> Which is the most recent movie Penelope has made?</span>
+                                        <p class="parrafo mb-0">
+                                            <span class="s-resp"> Which is the most recent movie Penelope has
+                                                made?</span>
+                                        </p>&nbsp;
+                                    </div>
+                                </div>
+                                <!-- <span class="s-resp" ></span> -->
+                                <div class="tam_Input ">
+                                    <input id="escribir_opa52-3" type="text" placeholder="Write here..."
+                                        name="escribir_opa52" class="escribir w-100 mb-0">
+                                    <p class="parrafo mb-0 contselopc"></p>
+                                </div>
+                            </div>
+
+
+                            <ol class="parrafo text-left instruccion-color-verde ml-4 m-2rem " start="2">
+                                <li class="pad2">Press the buttons and check your answers. </li>
+                            </ol>
+
+                            <div class="retroalimentacion1 rojoretro none m-2rem ">
+                                <p class="parrafo"></p>
+                            </div>
+
+                            <div class="contenedor-botones2 ">
+                                <div class="text-right">
+                                    <button id="check-opa52" role="button"
+                                        class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                        disabled="" name="escribir_opa52">Check</button>
+                                </div>
+                                <div class="text-right">
+                                    <button id="try-opa52" role="button"
+                                        class="btn boton-check btn-reintentar try bt waves-effect waves-light" disabled
+                                        name="escribir_opa52">Try again</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                            <img src="./topic-4_3/img/150pp/INGLESINT_separador-contenido.png" alt="Support image"
+                                aria-hidden="true" width="80%" height="auto" class="escritorio">
+                            <img src="./topic-4_3/img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                                aria-hidden="true" width="80%" height="auto" class="movil">
+                        </div>
+
+                        <p class="parrafo text-left">
+                            As you can see, there are certain prepositions and adverbs which are used in the present
+                            perfect tense.
+                        </p>
+
+                        <p class="parrafo text-left">Now, look at the following information:</p>
+
+                        <div class="">
+
+                            <div class="layout-participle-form back_white m-2rem container_ajustableTotal">
+
+                                <div class="d-flex align-items-center w-100">
+                                    <!-- border-bottom: 2px solid #17529C; border-right: 2px solid #17529C; border-top: 2px solid #17529C; -->
+                                    <div
+                                        class="azul-claro text-center min_head_height cont_display formatColumn_first min_heightM4T2">
+                                        <p class="parrafo mb-0">Uses</p>
+                                    </div>
+                                    <!-- border-bottom: 2px solid #17529C;  border-right: 2px solid #17529C; border-top: 2px solid #17529C; -->
+                                    <div
+                                        class="azul-claro text-center min_head_height cont_display formatColumn_second min_heightM4T2">
+                                        <p class="parrafo mb-0">
+                                            Structure
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="texto contenedor-ajustable padd_table min_heightM4T2 transparent">
+                                            <p class="parrafo mb-0">
+                                                <b class="color_uv">Ever</b> indicates “at any time in your life until
+                                                now.”
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0 text-left color_uv"><b>Ever</b></p>
+                                            <p class="parrafo mb-0">It is used in questions about life experiences:</p>
+                                            <ul class="padd-L_Resp">
+                                                <li>Have you <b>ever</b> travelled abroad?</li>
+                                                <li>Has she <b>ever</b> been in London? </li>
+                                            </ul>
+
+                                            <p class="parrafo mb-0">
+                                                Do not use <b>ever</b> with already.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="texto contenedor-ajustable transparent padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0">
+                                                <b class="color_uv">Never</b> indicates “at no time in
+                                                your life.”
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0 color_uv"><b>Never</b></p>
+                                            <p class="parrafo mb-0">
+                                                I’ve <b>never</b> had a dog.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="transparent texto contenedor-ajustable padd_table min_heightM4T2 ">
+                                            <p class="parrafo mb-0">
+                                                <b class="color_uv">Yet</b> = until now. Yet shows that the speaker is
+                                                expecting something to
+                                                happen.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0 color_uv"><b>Yet</b></p>
+                                            <p class="parrafo mb-0">
+                                                Use <b>yet</b> only in questions and negative sentences; it usually goes
+                                                at the end of the sentence:
+                                            </p>
+                                            <ul class="padd-L_Resp mb-0">
+                                                <li>Has it stopped raining <b>yet</b>?</li>
+                                                <li>I’ve written the email, but I haven’t sent it <b>yet</b>.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="transparent texto contenedor-ajustable padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0">
+                                                <b class="color_uv">Just</b>
+                                                = a short time ago.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0 color_uv"><b>Just</b></p>
+                                            <p class="parrafo mb-0">
+                                                We can use the present perfect with <b>just</b>:
+                                            </p>
+                                            <ul class="padd-L_Resp mb-0">
+                                                <li>Are you hungry? No, I’ve <b>just</b> had lunch.</li>
+                                                <li>Hello. Have you <b>just</b> arrived?</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="transparent texto contenedor-ajustable padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0">
+                                                We use <b class="color_uv">already</b> to express recent experiences or
+                                                that something happened
+                                                sooner than expected.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0 color_uv"><b>Already</b></p>
+                                            <p class="parrafo mb-0">
+                                                Use <b>already also in questions and in affirmative statements:</b>
+                                            </p>
+                                            <ul class="padd-L_Resp ">
+                                                <li>Don’t forget to to pay your electicity bill. <br> <b>I’ve already
+                                                        paid it.</b>
+                                                </li>
+                                                <li>What time is Mark leaving? <br> <b>He’s already left.</b></li>
+                                                <li>Has she already tried Korean barbecue? <br> <b>I have already tried
+                                                        sushi.</b>
+                                                </li>
+                                            </ul>
+                                            <p class="parrafo mb-0">Do not use <b>already</b> in negative sentences.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="transparent texto contenedor-ajustable padd_table min_heightM4T2 ">
+                                            <p class="parrafo mb-0">
+                                                <span class="color_uv"><b>How long</b></span>...? (+ present perfect)
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0 color_uv"><b>How long</b></p>
+                                            <p class="parrafo ">
+                                                Use <b>how long</b>... to make present perfect questions.
+                                            </p>
+                                            <p class="parrafo mb-0">
+                                                The answer to this question might include for or since depending on the
+                                                type of information we are looking for.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex border_B">
+                                    <div class="columnFirst">
+                                        <div id="content_tabs"
+                                            class="transparent texto contenedor-ajustable padd_table min_heightM4T2 ">
+                                            <p class="parrafo">
+                                                <b class="color_uv">For</b>
+                                                is used to refer to a period of time in which an action has happened.
+                                            </p>
+                                            <p class="parrafo mb-0">
+                                                <b class="color_uv">Since</b>
+                                                is used to refer to an exact time in the past when an action started and
+                                                continues (a past time clause).
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="columnSecond">
+                                        <div
+                                            class="border-l texto contenedor-ajustable cont_display_column padd_table min_heightM4T2">
+                                            <p class="parrafo mb-0">
+                                                <b class="color_uv">FOR</b> + a period of time.
+                                            </p>
+                                            <p class="parrafo ">
+                                                <b class="color_uv">SINCE</b> + a past time clause.
+                                            </p>
+                                            <ul class="padd-L_Resp mb-0">
+                                                <li class="mb-2rem">How long have they been married? <br>
+                                                    They have been married for 15 years.</li>
+                                                <li class="mb-2rem">How long has he been in hospital? <br>
+                                                    He has been in hospital since Monday.</li>
+                                                <li class="mb-2rem">How long have you worked here? <br>
+                                                    I’ve worked here for a long time.</li>
+                                                <li>How long have they known each other? <br>
+                                                    They’ve known each other since they were at school.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- movil tabla inicio-->
+                        <!-- movil tabla fin -->
+                    </div>
+                </div>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="">
+
+                    <h2 class="parrafo text-azul subtitulos m-2rem " accesskey="2" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA53. Adverbs
+                    </h2>
+
+                    <p class="parrafo mb-0 instruccion-color-verde">
+                        <b>Instructions: </b>
+                    </p>
+                    <ol class="parrafo text-left instruccion-color-verde ml-4 mb-2rem " start="1">
+                        <li class="pad2">Now, to practice the adverbs you looked at, fill in the blanks with <b>for</b>
+                            or
+                            <b>since</b>.
+                        </li>
+                    </ol>
+
+                    <!-- <p class="parrafo instruccion-color-verde mb-4 movil">
+                        <b>Instructions:</b> <br>
+                        1. Now, to practice the adverbs you looked at, fill in the blanks with for or since.
+                    </p> -->
+
+                    <!-- prueba inicio -->
+                    <!-- <div> -->
+                    <div class="conTarjetas sImg seleccionar_opa53 ">
+
+                        <div id="" class="padd-2rem Activity_select mb-2rem format_activity">
+
+                            <div id="opSelectOpa53-0" class="divcontsel">
+                                <div class="parrafo mb-0  cont_display_activity  w-auto">
+                                    <!-- paddR_2rem -->
+                                    <p class="parrafo mb-0 paddR1_5">a:</p>&nbsp;
+
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-0"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-1"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">a half an hour.</p>
+                                    <br>
+                                </div>
+                            </div>
+                            <div id="opSelectOpa53-1" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">b:</p>&nbsp;
+
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+
+                                    <select id="select_Opa53-1"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">last year.</p>
+
+                                </div>
+                            </div>
+
+                            <div id="opSelectOpa53-2" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">c:</p>&nbsp;
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-2"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">noon.</p>
+                                </div>
+                            </div>
+
+                            <div id="opSelectOpa53-3" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">d:</p>&nbsp;
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-3"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">one month.</p>
+                                </div>
+                            </div>
+
+                            <div id="opSelectOpa53-4" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">e:</p>&nbsp;
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-4"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">yesterday.</p>
+                                </div>
+                            </div>
+
+                            <div id="opSelectOpa53-5" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">f:</p>&nbsp;
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-5"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">three hours.</p>
+
+
+                                </div>
+                            </div>
+
+                            <div id="opSelectOpa53-6" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">g:</p>&nbsp;
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-6"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">we were children.</p>
+                                </div>
+                            </div>
+
+                            <div id="opSelectOpa53-7" class="divcontsel">
+                                <div class="parrafo mb-0 cont_display_activity w-auto">
+                                    <p class="parrafo mb-0 paddR1_5">h:</p>&nbsp;
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <select id="select_Opa53-7"
+                                        class="form-control reactivo custom-select2 respuesta-correcta-select-2"
+                                        name="seleccionar_opa53" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">For</option>
+                                        <option value="2">Since</option>
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">decades.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <p class="parrafo instruccion-color-verde text-left m-2rem">
+                            2. Press the buttons and check your answers.
+                        </p> -->
+                        <ol class="parrafo text-left instruccion-color-verde ml-4 m-2rem " start="2">
+                            <li class="pad2">Press the buttons and check your answers.</li>
+                        </ol>
+                        <div class="mt-0 mb-0 retroalimentacion1 rojoretro none ">
+                            <p class="parrafo"></p>
+                        </div>
+                        <div id="" class="contenedor-botones2 paddR2_5">
+                            <div class="text-right seleccionar_opa53 ">
+                                <button id="checkopa53" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect 
+                                            waves-light checkopa53" disabled="" name="seleccionar_opa53">Check</button>
+                            </div>
+                            <div class="text-right ">
+                                <button id="tryopa53" role="button"
+                                    class="btn boton-check btn-reintentar bt waves-effect waves-light tryopa53" disabled
+                                    name="seleccionar_opa53">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- </div> -->
+
+                    <!-- prueba fin -->
+                </div>
+            </div>
+            </div>
+            <br>
+        </section>
+
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="3" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA54. For or since
+                </h2>
+
+                <!-- <p class="parrafo instruccion-color-verde">
+                    <b>Instructions:</b> <br>
+                    1. Complete these personal details. Use the present perfect with the verbs in parentheses and for or
+                    since.
+                </p> -->
+                <p class="parrafo mb-0 instruccion-color-verde">
+                    <b>Instructions: </b>
+                </p>
+                <ol class="parrafo text-left instruccion-color-verde ml-4 mb-2rem " start="1">
+                    <li class="pad2">
+                        Complete these personal details. Use the present perfect with the verbs in parentheses and
+                        <b>for</b>
+                        or <b>since</b>.
+                    </li>
+                </ol>
+
+                <div class="Activity_select mb-2rem padd-2rem">
+                    <p class="parrafo mb-0">
+                        Example:
+                    </p>
+                    <div class="movil">
+                        <p class="parrafo mb-0">
+                            <span style="text-decoration-line:underline; text-decoration-color:#17529C;
+                            text-decoration-thickness: .1rem;
+                            ">Have you ever slept</span> (sleep) on the floor?
+                        </p>
+                    </div>
+                    <div class="escritorio" style="display: flex; justify-content: center;
+                    width: 100%;">
+                        <div style="display: flex; justify-content: center; width: 50%;
+                        border-bottom: 2px solid #17529C;">
+                            <p class="parrafo mb-0 ">
+                                Have you ever slept
+                            </p>
+
+                        </div>
+
+                        <div style="display: flex; justify-content: left; width: 50%;">
+                            <p class="parrafo  text-center mb-0">
+                                (sleep) on the floor?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="escribir_opa54" class="selescts escribir_opa54 recFacImg">
+
+                    <div class="parrafo text-left mb-0  ">
+
+                        <p class="sr-only text-ayuda">
+                            espacio a rellenar (live) in the United States
+                        </p>
+
+                        <div class="reactivo16 disp-flex align-items-center ">
+                            <ol class="text-left ml-4 align-items-center " style="list-style: lower-latin;" start="1">
+                                <li>
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">I espacio a rellenar in the United States
+                                            espacio a
+                                            rellenar August.
+                                        </span>
+                                        <div class="wrap gap5 ">
+                                            <p class="parrafo mb-0 ">I</p>&nbsp;
+                                            <input id="escribirOpa54-1" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;<b>(live)</b> in the United States</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(live)</b> in the
+                                                    United
+                                                    States</span></p>
+                                        </div>
+                                        <div class="wrap gap5">
+                                            <span class="sr-only text-ayuda"> espacio a rellenar August.</span>&nbsp;
+                                            <input id="escribirOpa54-2" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp; August.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp; August.</span></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class=" reactivo16 disp-flex  align-items-center ">
+                            <ol class=" text-left ml-4 align-items-center " style="list-style: lower-latin;" start="2">
+                                <li>
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">I espacio a rellenar English espacio a rellenar
+                                            I
+                                            was in
+                                            high school.</span>
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">I</p>&nbsp;
+                                            <input id="escribirOpa54-3" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0 ">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;<b>(study)</b> English</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(study)</b>
+                                                    English</span>
+                                            </p>
+                                            &nbsp;
+                                        </div>
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-4" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp; I was in high school.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp; I was in high
+                                                    school.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class=" reactivo16 disp-flex  align-items-center ">
+                            <ol class=" text-left ml-4 align-items-center " style="list-style: lower-latin;" start="3">
+                                <li>
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">I’m studying for an exam right now. I espacio a
+                                            rellenar
+                                            well espacio a rellenar two days.</span>
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">I’m studying for an exam right now.&nbsp; I
+                                            </p>&nbsp;
+                                            <input id="escribirOpa54-5" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;<b>(not/sleep)</b> well</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(not/sleep)</b>
+                                                    well</span></p>
+                                            &nbsp;
+                                        </div>
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-6" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp; two days.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp; two days.</span></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+
+                        </div>
+
+                        <div class=" reactivo16 disp-flex  align-items-center ">
+                            <ol class=" text-left ml-4 align-items-center " style="list-style: lower-latin;" start="4">
+                                <li>
+                                    <div class="style_li disp-flex gap_2 ml-4 ">
+                                        <span class="sr-only text-ayuda">I espacio a rellenar three cups of coffee
+                                            espacio a
+                                            rellenar 9:00.</span>
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">I</p>&nbsp;
+                                            <input id="escribirOpa54-7" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;<b>(drink)</b> three cups of coffee</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(drink)</b> three cups
+                                                    of
+                                                    coffee</span></p>&nbsp;
+                                        </div>
+
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-8" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp; 9:00.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp; 9:00.</span></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+
+                        <div class=" reactivo16 disp-flex  align-items-center ">
+                            <ol class=" text-left ml-4 align-items-center " style="list-style: lower-latin;" start="5">
+                                <li>
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">He espacio a rellenar in college espacio a
+                                            rellenar
+                                            three
+                                            years.</span>
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">He</p>&nbsp;
+                                            <input id="escribirOpa54-9" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <p class="sr-only">&nbsp;<b>(be)</b> in college</p>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(be)</b> in
+                                                    college</span>
+                                            </p>
+                                            &nbsp;
+                                        </div>
+
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-10" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;three years.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;three years.</span></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+
+                        <div class=" reactivo16 disp-flex  align-items-center ">
+                            <ol class=" text-left ml-4 align-items-center " style="list-style: lower-latin;" start="6">
+                                <li>
+                                    <!-- <p class="parrafo mb-0">f.</p> -->
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">He espacio a rellenar home espacio a rellenar a
+                                            year. I
+                                            miss him. </span>
+
+                                        <!-- <span class="s-resp" >I</span> -->
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">He</p>&nbsp;
+                                            <input id="escribirOpa54-11" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;<b>(not / come)</b> home</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(not / come)</b>
+                                                    home</span></p>
+                                            &nbsp;
+                                        </div>
+
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-12" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp; a year. I miss him.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp; a year. I miss
+                                                    him.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+
+                        <div class=" reactivo16 disp-flex  align-items-center  ">
+                            <ol class=" text-left ml-4 align-items-center " style="list-style: lower-latin;" start="7">
+                                <li>
+
+                                    <!-- <p class="parrafo mb-0">g.</p>                             -->
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">He espacio a rellenar abroad espacio a rellenar
+                                            2003.</span>
+
+                                        <!-- <span class="s-resp" >Katia</span> -->
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">He</p>&nbsp;
+                                            <input id="escribirOpa54-13" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <p class="sr-only">&nbsp;<b>(live)</b> abroad</p>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(live)</b>
+                                                    abroad</span>&nbsp;
+                                            </p>
+                                        </div>
+
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-14" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;2003.</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;2003.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class=" reactivo16 disp-flex  align-items-center">
+                            <ol class=" text-left ml-4 align-items-center mb-0 " style="list-style: lower-latin;"
+                                start="8">
+                                <li>
+                                    <!-- <p class="parrafo mb-0">h.</p> -->
+                                    <div class="style_li disp-flex gap_2 ml-4">
+                                        <span class="sr-only text-ayuda">We espacio a rellenar on the phone espacio a
+                                            rellenar a
+                                            month.</span>
+
+                                        <div class="wrap gap5">
+                                            <p class="parrafo mb-0 ">We</p>&nbsp;
+                                            <!-- <span class="s-resp" >Katia</span> -->
+                                            <input id="escribirOpa54-15" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <span class="sr-only">&nbsp;<b>(not / talk)</b> on the phone</span>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp;<b>(not / talk)</b> on
+                                                    the
+                                                    phone</span>&nbsp;
+                                            </p>
+                                        </div>
+
+                                        <div class="wrap gap5">
+                                            <input id="escribirOpa54-16" type="text" placeholder="Write here..."
+                                                name="escribir_opa54" class="escribir mb-0">
+                                            <p class="contselopc"></p>
+                                            <p class="sr-only">&nbsp; a month.</p>
+                                            <p class="parrafo mb-0"><span class="s-resp">&nbsp; a month.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <ol class=" text-left instruccion-color-verde ml-4 m-2rem " start="2">
+                        <li class="pad2">Press the buttons and check your answers. </li>
+                    </ol>
+
+                    <div class="retroalimentacion1 rojoretro none m-2rem ">
+                        <p class="parrafo"></p>
+                    </div>
+
+                    <div class="contenedor-botones2 paddR2_5">
+                        <div class="text-right">
+                            <button id="checkopa54" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="escribir_opa54">Check</button>
+                        </div>
+                        <div class="text-right">
+                            <button id="tryopa54" role="button"
+                                class="btn boton-check btn-reintentar try bt waves-effect waves-light" disabled
+                                name="escribir_opa54">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="4" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA55. Remember that How long...?
+                </h2>
+
+                <!-- <p class="parrafo instruccion-color-verde escritorio">
+                    <b>Instructions:</b> <br>
+                    1. Listen to a man answering questions about his life experiences.
+                </p> -->
+                <p class="parrafo mb-0 instruccion-color-verde">
+                    <b>Instructions: </b>
+                </p>
+                <ol class="parrafo text-left instruccion-color-verde ml-4 mb-2rem " start="1">
+                    <li class="pad2">
+                        Remember that <b>How long</b>...? is used in the present perfect questions.
+                    </li>
+                </ol>
+
+                <div class="fondo-blanco-borde m-2-auto maxw_fondoblanco">
+                    <p class="parrafo  text-center">
+                        Read the situations and find the questions, reorder the words in brackets.
+                    </p>
+                    <p class="parrafo">
+                        Example:
+                    </p>
+
+                    <p class="parrafo">
+                        A friend tell you that Paul is in hospital. <br>
+                        <span class="color_uv bold">You ask him:</span>
+                    </p>
+                    <p class="parrafo color_uv mb-0">
+                        (has / how long / in / Paul / hospital? / been) <br>
+                        <span class=" bold">How long has Paul been in hospital?</span>
+                    </p>
+                </div>
+
+                <!-- inicio -->
+                <div id="escribir_opa55" class="selescts escribir_opa55 recFacImg">
+
+                    <!-- parrafo text-left container_escribir  -->
+                    <div class="">
+
+                        <div class="format_activity_2 m-2-auto w_Containeropa55">
+
+                            <ol class="parrafo text-left ml-4 mb-0 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    You know that Jane is a good friend of Katherine’s. <br>
+                                    <span class="color_uv bold">You ask Jane:</span>
+                                </li>
+                            </ol>
+
+                            <div class="options_containers padd-l_3-5">
+                                <div class="actividades-opciones width_opcionesv2 gap_5  ">
+                                    <p class="parrafo mb-0">How long</p>
+                                    <p class="parrafo mb-0">you</p>
+                                    <p class="parrafo mb-0">know</p>
+                                    <p class="parrafo mb-0">Katherine?</p>
+                                    <p class="parrafo mb-0">have</p>
+                                </div>
+                            </div>
+
+                            <div class="parrafo reactivo16 mb-0">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <input id="escribirOpa55-1" type="text" placeholder="Write here..."
+                                    name="escribir_opa55" class="escribir escribirv2 mb-0">
+                                <p class="mb-0 contselopc"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="format_activity_2 m-2-auto w_Containeropa55">
+                            <ol class="parrafo text-left ml-4 mb-0" style="list-style: lower-latin;" start="2">
+                                <li class="pad2">
+                                    Your friend’s sister went to Australia some time ago and she’s still there.<br>
+                                    <span class="color_uv bold">You ask your friend:</span>
+                                </li>
+                            </ol>
+                            <div class="options_containers padd-l_3-5">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">Australia?</p>
+                                    <p class="parrafo mb-0">been</p>
+                                    <p class="parrafo mb-0">has</p>
+                                    <p class="parrafo mb-0">How long </p>
+                                    <p class="parrafo mb-0">your</p>
+                                    <p class="parrafo mb-0">sister</p>
+                                    <p class="parrafo mb-0">in</p>
+                                </div>
+                            </div>
+                            <div class="parrafo reactivo16 mb-0">
+                                <span class="sr-only text-ayuda">espacio a rellenar (visit) an English speaking
+                                    country?</span>
+                                <input id="escribirOpa55-2" type="text" placeholder="Write here..."
+                                    name="escribir_opa55" class="escribir escribirv2 mb-0">
+                                <p class="contselopc mb-0"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="format_activity_2 m-2-auto w_Containeropa55">
+                            <ol class="parrafo text-left ml-4 mb-0" style="list-style: lower-latin;" start="3">
+                                <li class="pad2">
+                                    You meet a woman who tells you that she teaches English.<br>
+                                    <span class="color_uv bold">You ask her:</span>
+                                </li>
+                            </ol>
+                            <div class="options_containers padd-l_3-5">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">How long</p>
+                                    <p class="parrafo mb-0">have</p>
+                                    <p class="parrafo mb-0">you</p>
+                                    <p class="parrafo mb-0">taugth</p>
+                                    <p class="parrafo mb-0">English?</p>
+                                </div>
+                            </div>
+                            <div class="parrafo reactivo16 mb-0">
+                                <span class="sr-only text-ayuda">espacio a rellenar (do) yoga?</span>
+                                <input id="escribirOpa55-3" type="text" placeholder="Write here..."
+                                    name="escribir_opa55" class="escribir escribirv2 mb-0">
+                                <p class="parrafo mb-0 contselopc"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="format_activity_2 m-2-auto w_Containeropa55">
+                            <ol class="parrafo text-left ml-4 mb-0" style="list-style: lower-latin;" start="4">
+                                <li class="pad2">
+                                    Tom always wears the same jacket. It’s very old.<br>
+                                    <span class="color_uv bold">You ask him:</span>
+                                </li>
+                            </ol>
+                            <div class="options_containers padd-l_3-5">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">How long</p>
+                                    <p class="parrafo mb-0">you</p>
+                                    <p class="parrafo mb-0">have</p>
+                                    <p class="parrafo mb-0">that jacket?</p>
+                                    <p class="parrafo mb-0">have</p>
+                                </div>
+                            </div>
+                            <div class="parrafo reactivo16 mb-0">
+                                <span class="sr-only text-ayuda">espacio a rellenar (write) an e-mail in English?</span>
+                                <input id="escribirOpa55-4" type="text" placeholder="Write here..."
+                                    name="escribir_opa55" class="escribir escribirv2 mb-0">
+                                <p class="parrafo mb-0 contselopc"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="format_activity_2 m-2-auto w_Containeropa55">
+                            <ol class="parrafo text-left ml-4 mb-0" style="list-style: lower-latin;" start="5">
+                                <li class="pad2">
+                                    You are talking to a friend about Joe, who now works at the airport.<br>
+                                    <span class="color_uv bold">You ask your friend:</span>
+                                </li>
+                            </ol>
+                            <div class="options_containers padd-l_3-5">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">has</p>
+                                    <p class="parrafo mb-0">How long</p>
+                                    <p class="parrafo mb-0">Joe</p>
+                                    <p class="parrafo mb-0">worked</p>
+                                    <p class="parrafo mb-0">airport?</p>
+                                    <p class="parrafo mb-0">at</p>
+                                    <p class="parrafo mb-0">the</p>
+                                </div>
+                            </div>
+                            <div class="parrafo reactivo16 mb-0">
+                                <span class="sr-only text-ayuda">espacio a rellenar (win) a sport event? </span>
+                                <input id="escribirOpa55-5" type="text" placeholder="Write here..."
+                                    name="escribir_opa55" class="escribir escribirv2 mb-0">
+                                <p class="parrafo mb-0 contselopc"></p>
+                            </div>
+                        </div>
+
+                        <div class="format_activity_2 m-2-auto w_Containeropa55">
+                            <ol class="parrafo text-left ml-4 mb-0" style="list-style: lower-latin;" start="6">
+                                <li class="pad2">
+                                    You meet somebody on a plane. She says that she lives in Chicago.<br>
+                                    <span class="color_uv bold">You ask her:</span>
+                                </li>
+                            </ol>
+                            <div class="options_containers padd-l_3-5">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">you</p>
+                                    <p class="parrafo mb-0">always</p>
+                                    <p class="parrafo mb-0">lived</p>
+                                    <p class="parrafo mb-0">in Chicago?</p>
+                                    <p class="parrafo mb-0">Have</p>
+                                </div>
+                            </div>
+                            <div class="parrafo reactivo16 mb-0">
+                                <span class="sr-only text-ayuda">espacio a rellenar (lose) your house keys? </span>
+                                <input id="escribirOpa55-6" type="text" placeholder="Write here..."
+                                    name="escribir_opa55" class="escribir escribirv2 mb-0">
+                                <p class="parrafo mb-0 contselopc"></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <ol class="parrafo text-left instruccion-color-verde ml-4 m-2rem " start="2">
+                        <li>Press the buttons and check your answers. </li>
+                    </ol>
+
+                    <div class="retroalimentacion1 rojoretro none m-2rem ">
+                        <p class="parrafo"></p>
+                    </div>
+
+                    <div class="contenedor-botones2 paddR2_5">
+                        <div class="text-right">
+                            <button id="checkopa55" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="escribir_opa55">Check</button>
+                        </div>
+                        <div class="text-right">
+                            <button id="tryopa55" role="button"
+                                class="btn boton-check btn-reintentar try bt waves-effect waves-light" disabled
+                                name="escribir_opa55">Try again</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin -->
+            </div>
+        </section>
+
+
+        <section class="section-activity">
+            <div class="text-center">
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+            </div>
+            <div class="container py-4">
+                <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="5" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA56. Words in brackets
+                </h2>
+                <p class="parrafo instruccion-color-verde mb-0">
+                    <b>Instructions:</b>
+                </p>
+                <ol class="parrafo instruccion-color-verde text-left ml-4" start="1">
+                    <li class="pad2">
+                        Complete B’s sentences. Make sentences from the words in brackets.
+                    </li>
+                </ol>
+
+                <div class="fondo-blanco-borde m-2rem w_fondoBlancov2 margin_1_auto ">
+                    <p class="parrafo ">
+                        Example:
+                    </p>
+                    <p class="parrafo mb-0">
+                        Have you eaten anything?
+                    </p>
+                    <p class="parrafo color_uv mb-0">
+                        Yes, I’ve just had lunch.
+                    </p>
+                </div>
+
+                <!-- inicio -->
+                <div id="escribir_opa56" class="selescts escribir_opa56 recFacImg">
+                    <!-- parrafo text-left container_escribir  -->
+                    <div class="section_56">
+
+                        <div class="Activity_select w_Containeropa56">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">a.</label>
+                            </div>
+
+                            <!-- <ul class="parrafo text-left ml-4 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    Have you seen Julia?<br>                                    
+                                </li>
+                            </ul> -->
+                            <p class="parrafo mb-0 text-left">
+                                Have you seen Julia?
+                            </p>
+
+                            <div class="options_containers ">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">I</p>
+                                    <p class="parrafo mb-0">just</p>
+                                    <p class="parrafo mb-0">see</p>
+                                    <p class="parrafo mb-0">her</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-0 section_inputopa56">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <p class="parrafo color_uv bold mb-0 ">Yes,</p>&nbsp;
+                                <input id="escribiropa56-1" type="text" placeholder="Write here..."
+                                    name="escribir_opa56" class="escribir escribirv2 mb-0" style="margin-left: 0;">
+                                <p class="contselopc"></p>
+                            </div>
+                        </div>
+
+                        <div class="Activity_select w_Containeropa56">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">b.</label>
+                            </div>
+
+                            <!-- <ul class="parrafo text-left ml-4 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    Have you seen Julia?<br>                                    
+                                </li>
+                            </ul> -->
+                            <p class="parrafo mb-0 text-left">
+                                Is David around?
+                            </p>
+
+                            <div class="options_containers ">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">he</p>
+                                    <p class="parrafo mb-0">already</p>
+                                    <p class="parrafo mb-0">leave</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-0 section_inputopa56">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <p class="parrafo color_uv bold mb-0 noWrap ">No, he’s not.</p>&nbsp;
+                                <input id="escribiropa56-2" type="text" placeholder="Write here..."
+                                    name="escribir_opa56" class="escribir escribirv2 mb-0" style="margin-left: 0;">
+                                <p class="contselopc"></p>
+                            </div>
+                        </div>
+
+                        <div class="Activity_select w_Containeropa56">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">c.</label>
+                            </div>
+
+                            <!-- <ul class="parrafo text-left ml-4 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    Have you seen Julia?<br>                                    
+                                </li>
+                            </ul> -->
+                            <p class="parrafo mb-0 text-left">
+                                Have you read the newspaper today?
+                            </p>
+
+                            <div class="options_containers ">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">I</p>
+                                    <p class="parrafo mb-0">not</p>
+                                    <p class="parrafo mb-0">read</p>
+                                    <p class="parrafo mb-0">it yet</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-0 section_inputopa56">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <p class="parrafo color_uv bold mb-0 ">No,</p>&nbsp;
+                                <input id="escribiropa56-3" type="text" placeholder="Write here..."
+                                    name="escribir_opa56" class="escribir escribirv2 mb-0" style="margin-left: 0;">
+                                <p class="contselopc"></p>
+                            </div>
+                        </div>
+
+                        <div class="Activity_select w_Containeropa56">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">d.</label>
+                            </div>
+
+                            <!-- <ul class="parrafo text-left ml-4 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    Have you seen Julia?<br>                                    
+                                </li>
+                            </ul> -->
+                            <p class="parrafo mb-0 text-left">
+                                Has Sue seen the new movie?
+                            </p>
+
+                            <div class="options_containers ">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">she</p>
+                                    <p class="parrafo mb-0">already</p>
+                                    <p class="parrafo mb-0">see</p>
+                                    <p class="parrafo mb-0">the film</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-0 section_inputopa56">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <p class="parrafo color_uv bold mb-0 ">Yes,</p>&nbsp;
+                                <input id="escribiropa56-4" type="text" placeholder="Write here..."
+                                    name="escribir_opa56" class="escribir escribirv2 mb-0" style="margin-left: 0;">
+                                <p class="contselopc"></p>
+                            </div>
+                        </div>
+
+                        <div class="Activity_select w_Containeropa56">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">e.</label>
+                            </div>
+
+                            <!-- <ul class="parrafo text-left ml-4 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    Have you seen Julia?<br>                                    
+                                </li>
+                            </ul> -->
+                            <p class="parrafo mb-0 text-left">
+                                Are you friends here yet?
+                            </p>
+
+                            <div class="options_containers ">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">they</p>
+                                    <p class="parrafo mb-0">just</p>
+                                    <p class="parrafo mb-0">arrive</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-0 section_inputopa56">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <p class="parrafo color_uv bold mb-0 ">Yes,</p>&nbsp;
+                                <input id="escribiropa56-5" type="text" placeholder="Write here..."
+                                    name="escribir_opa56" class="escribir escribirv2 mb-0" style="margin-left: 0;">
+                                <p class="contselopc"></p>
+                            </div>
+                        </div>
+
+                        <div class="Activity_select w_Containeropa56">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">f.</label>
+                            </div>
+
+                            <!-- <ul class="parrafo text-left ml-4 " style="list-style: lower-latin;">
+                                <li class="pad2">
+                                    Have you seen Julia?<br>                                    
+                                </li>
+                            </ul> -->
+                            <p class="parrafo mb-0 text-left">
+                                Has Tim heard about your plan?
+                            </p>
+
+                            <div class="options_containers ">
+                                <div class="actividades-opciones width_opcionesv2 gap_5">
+                                    <p class="parrafo mb-0">we</p>
+                                    <p class="parrafo mb-0">not</p>
+                                    <p class="parrafo mb-0">tell</p>
+                                    <p class="parrafo mb-0">him yet</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-0 section_inputopa56">
+                                <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                                <p class="parrafo color_uv bold mb-0 ">No,</p>&nbsp;
+                                <input id="escribiropa56-6" type="text" placeholder="Write here..."
+                                    name="escribir_opa56" class="escribir escribirv2 mb-0" style="margin-left: 0;">
+                                <p class="contselopc"></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <ol class="parrafo text-left instruccion-color-verde ml-4 m-2rem " start="2">
+                        <li>Press the buttons and check your answers. </li>
+                    </ol>
+
+                    <div class="retroalimentacion1 rojoretro none m-2rem ">
+                        <p></p>
+                    </div>
+
+                    <div class="contenedor-botones2 paddR2_5">
+                        <div class="text-right">
+                            <button id="checkopa56" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="escribir_opa56">Check</button>
+                        </div>
+                        <div class="text-right">
+                            <button id="tryopa56" role="button"
+                                class="btn boton-check btn-reintentar try bt waves-effect waves-light" disabled
+                                name="escribir_opa56">Try again</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin -->
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./topic-4_3/img/150pp/INGLESINT_separador-contenido.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./topic-4_3/img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+
+                <div class="recap ">
+
+                    <h2 class="parrafo text-azul text-center mb-1-5">
+                        Recap of Topic 4.3 How long?
+                    </h2>
+
+                    <p class="text-center text-azul parrafo mb-1-5">Listen to the audio.</p>
+
+                    <div class="mb-4 mt-4 text-center">
+                        <audio class="tam_audio" controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./Topic-4_3/audios/M4A61Recap4.2.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <p class="parrafo">
+                        So far you have learned that the present perfect tense can be used with some adverbs and
+                        prepositions such as ever, never, yet, how long, just, already, for and since to talk about an
+                        unidentified time, to talk about an action that happened before in a nonspecific time, to
+                        indicate how much an action might last or the moment in which an action started and continues:
+                    </p>
+
+                    <ul class="parrafo ml-4 mb-0">
+                        <li>Have you <b>ever</b> tried mushrooms?</li>
+                        <li>I have <b>never</b> eaten Irish food. </li>
+                        <li>They haven’t arrived <b>yet</b>.</li>
+                        <li><b>How long</b> have you ridden a bike? </li>
+                        <li>She has <b>already</b> bought that book, don’t buy it.</li>
+                        <li>We have been together <b>for</b> more than 5 years.</li>
+                        <li>We have won the race many times, <b>since</b> 2019.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./Topic-4_3/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="./Topic-4_3/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="./Topic-4_3/scripts/home.js"></script>
+
+    <!-- Evaluaciones -->
+
+
+    <script src="./Topic-4_3/scripts/menuacces.js"></script>
+    <script src="./Topic-4_3/scripts/marcador.js"></script>
+    <script src="./Topic-4_3/scripts/table1_4_3.js"></script>
+    <script src="./Topic-4_3/scripts/table2.js"></script>
+    <script src="./Topic-4_3/scripts/modalLectorInmersivo.js"></script>
+    <script src="./scripts/memorama.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/selects.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/inputs.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/opa52.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/opa53.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/opa54.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/opa55.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_3/opa56.js"></script>
+    <!-- <script src="./Topic-4_3/scripts/unit-4_2/unit-4_2.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_2/opa47.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_2/opa48.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_2/opa49.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_2/opa50_2.js"></script>
+    <script src="./Topic-4_3/scripts/unit-4_2/opa51.js"></script> -->
+
+
+
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script src="./Topic-4_3/scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper horizontal -->
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            speed: 600,
+            parallax: true,
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+    </script>
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+    <script>
+
+        function agregarGuiones(input) {
+            // Obtenemos el valor actual del input
+            let valorActual = input.value;
+
+            // Eliminamos cualquier guión existente
+            valorActual = valorActual.replace(/-/g, '');
+
+            // Agregamos un guión entre cada letra
+            let valorConGuiones = valorActual.split('').join('-');
+
+            // Actualizamos el valor del input
+            input.value = valorConGuiones;
+        }
+
+    </script>
+
+</body>
+
+</html>

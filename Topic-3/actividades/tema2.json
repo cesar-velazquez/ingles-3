@@ -1,0 +1,76 @@
+{
+    "numeroFilas": 14,
+    "numeroColumnas": 14,    
+    "palabras": [
+        {
+          "valor": "Gender",
+          "definicion": "A group of people in a society who share particular qualities or ways of behaving which that society associates with being male, female, or another identity",
+          "fila": 0,
+          "columna": 12,
+          "direccion": "V"
+        },
+        {
+          "valor": "Finances",
+          "definicion": "The money that a person or company has",
+          "fila": 1,
+          "columna": 6,
+          "direccion": "H"
+        },
+        {
+          "valor": "Norms",
+          "definicion": "An accepted standard or a way of behaving or doing things that most people agree with",
+          "fila": 4,
+          "columna": 8,
+          "direccion": "V"
+        },
+        {
+          "valor": "Coworkers",
+          "definicion": "A person who you work with",
+          "fila": 5,
+          "columna": 5,
+          "direccion": "H"
+        },
+        {
+          "valor": "Equality",
+          "definicion": "The right of different groups of people to have a similar social position and receive the same treatment",
+          "fila": 5,
+          "columna": 11,
+          "direccion": "V"
+        },
+        {
+          "valor": "Prodigy",
+          "definicion": "Someone with a very great ability that usually shows itself when that person is a young child",
+          "fila": 6,
+          "columna": 3,
+          "direccion": "V"
+        },
+        {
+          "valor": "Freedom",
+          "definicion": "The condition or right of being able or allowed to do, say, think, etc. whatever you want to, without being controlled or limited",
+          "fila": 7,
+          "columna": 2,
+          "direccion": "H"
+        },
+        {
+          "valor": "Guests",
+          "definicion": "A person who is staying with you, or a person you have invited to a social occasion",
+          "fila": 8,
+          "columna": 13,
+          "direccion": "V"
+        },
+        {
+          "valor": "variety",
+          "definicion": "The characteristic of often changing and being different",
+          "fila": 10,
+          "columna": 0,
+          "direccion": "H"
+        },
+        {
+          "valor": "Wine",
+          "definicion": "An alcoholic drink that is usually made from grapes",
+          "fila": 10,
+          "columna": 10,
+          "direccion": "H"
+        }
+      ]
+}

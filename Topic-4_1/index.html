@@ -1,0 +1,3701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 4.1 I have studied...</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/unit1.css">
+    <link rel="stylesheet" href="./css/memorama.css">
+
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="./css/menuacces.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+<body onmousemove="detectarPosicionMouse(event);">
+
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es" class="sr-only">
+
+        <p>
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i lang="en">Windows</i> presiona
+            las teclas Alt + i, en MacOS presiona las teclas <i lang="en">Control <span aria-hidden="true">+</span> <span class="sr-only">más</span> Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en MacOS presiona la tecla Esc
+        </p>
+
+        <p class="parrafo">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4">
+            <li>Activity OPA 41. Alt + 1</li>
+            <li>Activity OPA 42. Alt + 2</li>
+            <li>Activity OPA 43. Alt + 3</li>
+            <li>Activity OPA 44. Alt + 4</li>
+            <li>Activity OPA 45. Alt + 5</li>
+        </ul>
+
+        <p class="parrafo mb-0"><b>MacOS</b></p>
+
+        <ul class="parrafo ml-4">
+            <li>Activity OPA 41. <i>Control + Option</i> + 1</li>
+            <li>Activity OPA 42. <i>Control + Option</i> + 2</li>
+            <li>Activity OPA 43. <i>Control + Option</i> + 3</li>
+            <li>Activity OPA 44. <i>Control + Option</i> + 4</li>
+            <li>Activity OPA 45. <i>Control + Option</i> + 5</li>
+        </ul>
+        
+    </div>
+
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- Inicio menu accesible -->
+    <div class="menuacces" aria-hidden="true">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./img/accesibilidad/MA-_m-tamanofuente-a.png" alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado" src="./img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./img/accesibilidad/MA-_m-hiper-a.png" alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado" src="./img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda" title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I" aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./img/accesibilidad/MA-_m-lector-a.png" alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado" src="./img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+ 
+    <header class="banner-1">
+
+        <div class="">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" id="pleca_uv" class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+
+                    <p class="escritorio tam-font texto-tema-margen " aria-hidden="true">
+                        Topic 4.1 <span style="font-weight: normal;">I have studied...</span>
+                    </p>
+
+                    <p class="movil tam-font texto-tema-margen " aria-hidden="true">
+                        Topic 4.1 <span style="font-weight: normal;">I have studied...</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <img class="escritorio" src="./img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto">
+
+            <img class="movil" src="./img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto">
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Topic 4.1
+                <span class="subtitulo-secundari-unit">I have studied...</span>
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <div class="container py-4">
+            <div class="pad2">
+                <h2 class="parrafo text-azul subtitulos mb-3" accesskey="0" tabindex="0">
+                    Past participe of regular and irregular verbs 
+                </h2>
+            </div>
+        </div>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-5 " accesskey="1" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA41. To coldly go
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> <br> 
+                        Read and listen the following text and identify the verbs in it.
+                    </p>
+
+                    <div class="text-center mb-4 mt-4 mt-md-5 mb-md-5">
+
+                        <img src="./img/IB3V-M4_OPA41.png" alt="Fotografía de la Antártica con turistas contaminando." width="60%" height="auto">
+                        
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./audios/M4 A54 OPA to coldly go EDIT.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="parrafos-rosado">
+
+                        <p class="parrafo">
+                            Tourism <strong>is damaging</strong> Antarctica. We <strong>should protect</strong> this place by limiting the numbers of people <strong>allowed to visit</strong>.
+                        </p>
+                        
+                        <p class="parrafo">
+                            There <strong>has been</strong> a rush of “<strong>see</strong> it before <strong>it's gone</strong>” tourism in recent years. 
+                            The popularity of “climate tourism” <strong>has</strong> certainly <strong>been encouraged</strong> by travel journalism. 
+                            In March, one newspaper <strong>had</strong> a travel article with the headline: Global warming 10 places 
+                            <strong>to see</strong> before <strong>it's too</strong> late. Last year, another newspaper <strong>had</strong> one called 10 wonders of the 
+                            disappearing world.
+                        </p>
+    
+                        <p class="parrafo">
+                            Antarctica is one place where I <strong>believe</strong> that this <strong>is</strong> true more than anywhere else. 
+                            In fact, I <strong>believe</strong> it <strong>is</strong> the one place in the world where there <strong>should</strong> now <strong>be</strong> a strict “no tourism” rule.  
+                        </p>
+    
+                        <p class="parrafo">
+                            It <strong>is</strong> too environmentally fragile for the heavy feet of tourists! It is also one of the only places 
+                            in the world that <strong>hasn’t got</strong> a human population -so it <strong>doesn’t need</strong> tourism for the money.
+                        </p>
+    
+                        <p class="parrafo">
+                            For decades, the country <strong>received</strong> just a few tourists. However, 
+                            in recent years, it <strong>has become</strong> extremely popular as a destination for cruise ships, 
+                            <strong>encouraged</strong> by the continual demand for “adventure tourism”. 
+                        </p>
+
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                        <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Support image" aria-hidden="true" width="80%" height="auto" class="escritorio">
+
+                        <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image" aria-hidden="true" width="80%" height="auto" class="movil">
+                    </div>
+
+                    <p class="parrafo">
+                        After having read the text, certainly you found different forms of the verbs you have already seen in previous courses.
+                    </p>
+
+                    <div class="escritorio mt-5 mb-5">
+
+                        <p class="parrafo instruccion-color-verde">
+                            <b>Instruction:</b> Press the buttons to access the information.
+                        </p>
+
+                        <ul class="nav nav-tabs tabs-1-nav justify-content-center" style="gap: 1em;">
+
+                            <li class="nav-item tab-1-item waves-effect waves-light tam-tab">
+                                <button data-toggle="tab" href="#ppaso-1" class="btn-block nav-link tab-1-link text-center active" id="firsttab">
+                                    <span class="parrafo mb-0 tabs-1-texto font-weight-bold">Infinitive form</span>
+                                </button>
+                            </li>
+                            
+                            <li class="nav-item tab-1-item waves-effect waves-light tam-tab">
+                                <button data-toggle="tab" href="#ppaso-2" class="btn-block nav-link tab-1-link text-center" id="secondtab">
+                                    <span class="parrafo mb-0 tabs-1-texto font-weight-bold">Simple past form</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item tab-1-item waves-effect waves-light tam-tab">
+                                <button data-toggle="tab" href="#ppaso-3" class="btn-block nav-link tab-1-link text-center" id="secondtab">
+                                    <span class="parrafo mb-0 tabs-1-texto font-weight-bold">Past participle form</span>
+                                </button>
+                            </li>
+    
+                        </ul>
+
+                        <div id="tabs-1-dinamica" class="tab-content bg-tab-content d-flex align-items-center">
+        
+                            <div id="ppaso-1" class="tab-pane tab-1-tab active">
+    
+                                <p class="parrafo sr-only"> 
+                                    Estás en el botón Infinitive form, continua bajando para leer la información
+                                </p>
+    
+                                <p class="parrafo">
+                                    Some verbs are in their natural form: infinitive form, for example:
+                                </p>
+                                
+                                <p class="parrafo">
+                                    “... protect...”
+                                </p>
+
+                                <p class="parrafo">
+                                    “... to visit...”
+                                </p>
+
+                                <p class="parrafo mb-0">
+                                    “... to see...”
+                                </p>
+
+                                <p class="sr-only">
+                                    Terminaste el contenido del botón Simple past form, deberás subir y elegir el botón siguiente.
+                                </p>
+                                
+                            </div>
+    
+                            <div id="ppaso-2" class="tab-pane tab-1-tab">
+    
+                                <p class="parrafo sr-only"> 
+                                    Estás en el botón Simple past form, continua bajando para leer la información
+                                </p>
+    
+                                <p class="parrafo">
+                                    There are also examples of verbs in their simple past form, which is used in the Past Simple tense, such as:  
+                                </p>
+                                
+                                <p class="parrafo">
+                                    “... allowed...”
+                                </p>
+
+                                <p class="parrafo">
+                                    “... had...”
+                                </p>
+
+                                <p class="parrafo mb-0">
+                                    “... received...”
+                                </p>
+
+                                <p class="sr-only">
+                                    Terminaste el contenido del botón Past participle form, deberás subir y elegir el botón siguiente.
+                                </p>
+    
+                            </div>
+
+                            <div id="ppaso-3" class="tab-pane tab-1-tab">
+    
+                                <p class="parrafo sr-only"> 
+                                    Estás en el botón Simple past form, continua bajando para leer la información
+                                </p>
+    
+                                <p class="parrafo">
+                                    Moreover, you can see some verbs in their past participle form. This form can be used in different tenses, one of them is the present perfect tense. Examples:
+                                </p>
+                                
+                                <p class="parrafo">
+                                    “... There has been a rush...”
+                                </p>
+
+                                <p class="parrafo">
+                                    “[It] ... Hasn't got a human population...”
+                                </p>
+
+                                <p class="parrafo mb-0">
+                                    “ It has become extremely popular...”
+                                </p>
+
+                                <p class="sr-only">
+                                    Terminaste el contenido del botón Past participle form.
+                                </p>
+
+                            </div>
+    
+                        </div>
+
+                    </div>
+
+                    <div class="movil">
+
+                        <div class="bg-tab-content mt-4 mb-4">
+
+                            <p class="parrafo text-azul">
+                                Infinitive form
+                            </p>
+
+                            <p class="parrafo">
+                                Some verbs are in their natural form: infinitive form, for example:
+                            </p>
+                            
+                            <p class="parrafo">
+                                “... protect...”
+                            </p>
+
+                            <p class="parrafo">
+                                “... to visit...”
+                            </p>
+
+                            <p class="parrafo mb-0">
+                                “... to see...”
+                            </p>
+
+                            <hr class="linea-tabs-movil">
+
+                            <p class="parrafo text-azul">
+                                Simple past form
+                            </p>
+
+                            <p class="parrafo">
+                                There are also examples of verbs in their simple past form, which is used in the Past Simple tense, such as:  
+                            </p>
+                            
+                            <p class="parrafo">
+                                “... allowed...”
+                            </p>
+
+                            <p class="parrafo">
+                                “... had...”
+                            </p>
+
+                            <p class="parrafo">
+                                “... received...”
+                            </p>
+
+                            <hr class="linea-tabs-movil">
+
+                            <p class="parrafo text-azul">
+                                Past participle form
+                            </p>
+
+                            <p class="parrafo">
+                                Moreover, you can see some verbs in their past participle form. This form can be used in different tenses, one of them is the present perfect tense. Examples:
+                            </p>
+                            
+                            <p class="parrafo">
+                                “... There has been a rush...”
+                            </p>
+
+                            <p class="parrafo">
+                                “[It] ... Hasn't got a human population...”
+                            </p>
+
+                            <p class="parrafo mb-0">
+                                “ It has become extremely popular...”
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                        <img src="./img/separador-interior-e.png" alt="Support image" aria-hidden="true" width="80%" height="auto" class="escritorio">
+                        <img src="./img/separador-interior-r.png" alt="Support image" aria-hidden="true" width="100%" height="auto" class="movil">
+                    </div>
+
+                    <p class="parrafo">
+                        Now, look at the following information.
+                    </p>
+
+                    <p class="parrafo">
+                        <strong>Structure of the past participle form of the verbs</strong>
+                    </p>
+
+                    <p class="parrafo">
+                        Some verbs <strong>only add (ed)</strong> to form both, the past simple and the past participle form. These are called <strong>regular verbs</strong>.
+                    </p>
+
+                    <p class="parrafo">
+                        Some examples are:
+                    </p>
+
+                    <div class="escritorio">
+
+                        <div class="layout-participle-form">
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Infinitive form
+                                    </p>
+                                </div>
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Past simple
+                                    </p>
+                                </div>
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Past participle
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To walk
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            walk<strong>ed</strong>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            walk<strong>ed</strong>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To talk
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            talk<strong>ed</strong>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            talk<strong>ed</strong>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To play
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            play<strong>ed</strong>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            play<strong>ed</strong>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="movil">
+
+                        <div class="layout-participle-form">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To walk
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        walk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        walk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form mt-4">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To talk
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        Talk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        Talk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form mt-4">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To play
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        Play<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        Play<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo">
+                        However, some other verbs change from infinitive to past simple and participle form. 
+                        These are called <strong>irregular verbs</strong>. The best way to learn the irregular past participles is by memorizing them.
+                    </p>
+
+                    <p class="parrafo">
+                        Here are some examples:
+                    </p>
+
+                    <div class="escritorio">
+
+                        <div class="layout-participle-form">
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Infinitive form
+                                    </p>
+                                </div>
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Past simple
+                                    </p>
+                                </div>
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Past participle
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To go
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            went
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            gone
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To speak
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            spoke
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            spoken
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To teach
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            taught
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            taught
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            To eat
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            ate
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                            eaten
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="movil">
+
+                        <div class="layout-participle-form">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To go
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        went
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        gone
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To speak
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        spoke
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        spoken
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To teach
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        taught
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        taught
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+    
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+        
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        To eat
+                                    </p>
+                                </div>
+                            
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+        
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        ate
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0" style="font-size: 1.3rem;">
+                                        aten
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo">
+                        You can check the previous verbs list in the glossary section to distinguish regular from irregular verbs.
+                    </p>
+
+                    <p class="parrafo">
+                        <span class="text-azul">NOTE:</span> Most people learn the irregular verb forms by hearing, reading, and practicing them or by being corrected at home or in school.
+                    </p>
+
+                    <p class="parrafo">
+                       <span class="text-azul"> HINT:</span> If you aren't sure whether a verb is irregular or not, the easiest solution is to look it up in the dictionary. If the verb is irregular, the dictionary will give you all the irregular forms.
+                    </p>
+
+                </div>
+            
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-5 " accesskey="2" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA42. Irregular verbs
+                    </h2>
+    
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> <br> 
+                        1. Let's make a verbs review. Fill in the following table with the correct form of the irregular verbs.
+                    </p>
+
+                    <div class="evaluacion-act42" tabindex="0" id="instruction-1">
+
+                        <div class="row">
+    
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            a.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Arise</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-1 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-1" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-2 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-2" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+    
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            b.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Be</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-3 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-3" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-4 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-4" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            c.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Awake</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Awoke</strong>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-5 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-5" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            d.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Begin</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Began</strong>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-6 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-6" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            e.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Simple past:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Bit</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Bitten</strong>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Infinitive:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-7 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-7" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            f.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Blow</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-8 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-8" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Blown</strong>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            g.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Break</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Broke</strong>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-9 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-9" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            h.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-10 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-10" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-11 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-11" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Chosen</strong>
+                                            </p>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            i.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Came</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Come</strong>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Infinitive:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-12 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-12" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            j.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Ride</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-13 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-13" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Riden</strong>
+                                            </p>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            k.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Ring</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-14 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-14" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-15 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-15" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            l.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Rise</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Rose</strong>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-16 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-16" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            m.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Run</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-17 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-17" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Run</strong>
+                                            </p>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            n.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>See</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-18 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-18" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-19 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-19" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            o.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Simple past:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Did</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Done</strong>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Infinitive:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-20 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-20" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            p.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Draw</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Drew</strong>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-21 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-21" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            q.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Simple past:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Fell</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-22 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-22" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Infinitive:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-23 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-23" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            r.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Drive</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-24 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-24" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-25 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-25" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+    
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            s.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Eat</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-26 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-26" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Eaten</strong>
+                                            </p>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                            <div class="col-md-6 col-12 mt-4">
+    
+                                <div class="bg-evaluacion-escribir">
+    
+                                    <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+    
+                                    <div class="text-center inciso-evaluacion mb-4">
+                                        <p class="parrafo text-azul mb-0">
+                                            t.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                               Infinitive:
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Fly</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-4">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Simple past:
+                                            </p>
+                                        </div>
+
+                                        <p class="mensaje-correct-incorrect-act42-27 sr-only"></p>
+
+                                        <div class="col-6">
+                                            <input id="input-act42-27" type="text" name="evaluacion-act42" class="form-control escribir" placeholder="Write here...">
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-6">
+                                            <p class="parrafo text-azul mb-0">
+                                                Past participle:
+                                            </p>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p class="parrafo border-bottom-azul mb-0">
+                                                <strong>Flown</strong>
+                                            </p>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+    
+                            </div>
+
+                        </div>
+    
+                        <div class="text-center">
+    
+                            <p class="mb-0 parrafo text-success mensaje-correcto-42 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Very good You are ready to continue.</p>
+    
+                            <p class="mb-0 parrafo text-danger mensaje-incorrecto-42 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Please, try to answer the exercise again.</p>
+    
+                            <p class="mb-0 parrafo mensaje-ver-respuestas-42 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold"><b>Please, check the correct answers.</b></p>
+    
+                            <div class="retroalimentacion-42 d-none">
+    
+                                <p class="parrafo sr-only">
+                                    
+                                </p>
+    
+                            </div>
+    
+                        </div>
+    
+                        <p class="parrafo instruccion-color-verde mt-4 mb-4 mt-md-5 mb-md-5">
+                            2. Press the buttons and check your answers.
+                        </p>
+    
+                        <div class="text-right mt-4 mt-md-5">
+    
+                            <button aria-label="button check" id="check-act42" role="button" class="btn boton-check no-imp btn-descarga evaluacion-act42 waves-effect waves-light" disabled="" name="evaluacion-act42" tabindex="1">
+                                Check
+                            </button>
+    
+                            <br>
+    
+                            <button aria-label="button try again" id="try-act42" role="button" class="btn btn-reintentar no-imp btn-descarga-blanco mt-3 waves-effect waves-light" disabled="" tabindex="1">
+                                Try again
+                            </button>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+
+            </div>
+            
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-5 " accesskey="3" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA43. Verbs
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde escritorio">
+                        <b>Instruction:</b> <br> 
+                        1. Find the matching pair.
+                    </p>
+
+                    <p class="parrafo instruccion-color-verde mb-4 movil">
+                        <b>Instructions: </b> <br> 
+                        1. Click on the cards to match the words with the images.
+                    </p>
+
+                    <p class="parrafo border-bottom-azul p-3 parrafo-act43">
+                        The following irregular verbs have the same <strong class="text-azul">simple past</strong> and <strong class="text-azul">past participle</strong> form.
+                    </p>
+
+                    <div id="memorama1" class="escritorio">
+
+                        <div class="conSel">
+                            <label>&nbsp;
+                                <select class="parrafo memo-nivel" data-actividad="memorama1" id="selMem">
+                                    <option value="7" selected="selected">Memorama 1</option>
+                                    <option value="7">Memorama 2</option>
+                                    <option value="11">Memorama 3</option>
+                                </select>
+                            </label>
+                        </div>
+    
+                        <div class="contador text-right font-weight-bold">
+                            
+                        </div>
+    
+                        <div class="sr-only respuestas-correctas" aria-hidden="true">
+                            <p>Respuestas correctas</p>
+                            <div>
+                            </div>
+                        </div>
+                        
+                        <div class="interiorMemorama">
+    
+                        </div>
+                        <!---->
+    
+                        <p class="retroalimentacion" aria-hidden="true">
+                            Very good! You are ready to continue.
+                            <span class="sr-only"> deberás subir para escuchar las respuestas correctas</span>
+                        </p>
+    
+                        <div class="text-right">
+                            <button class="reiniciarmemo btn boton-check btn-reintentar bt waves-effect waves-light" role="button" disabled>
+                                Try again
+                            </button>
+                        </div>
+    
+                    </div>
+
+                    <div class="movil evaluacion-select">
+
+                        <div class="evaluacion-act43 mt-4 mb-4">
+
+                            <div class="s1">
+
+                                <span class="mensaje-correct-incorrect-act43-1 sr-only"></span>
+
+                                <label for="select-act43-1">Bring</label>
+                                <select id="select-act43-1" class="form-control reactivo custom-select respuesta-correcta-select-act43-1" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s2">
+
+                                <span class="mensaje-correct-incorrect-act43-2 sr-only"></span>
+
+                                <label for="select-act43-2">Build</label>
+                                <select id="select-act43-2" class="form-control reactivo custom-select respuesta-correcta-select-act43-2" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s3">
+
+                                <span class="mensaje-correct-incorrect-act43-3 sr-only"></span>
+
+                                <label for="select-act43-3">Buy</label>
+                                <select id="select-act43-3" class="form-control reactivo custom-select respuesta-correcta-select-act43-3" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s4">
+
+                                <span class="mensaje-correct-incorrect-act43-4 sr-only"></span>
+
+                                <label for="select-act43-4">Catch</label>
+                                <select id="select-act43-4" class="form-control reactivo custom-select respuesta-correcta-select-act43-4" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s5">
+
+                                <span class="mensaje-correct-incorrect-act43-5 sr-only"></span>
+
+                                <label for="select-act43-5">Lose</label>
+                                <select id="select-act43-5" class="form-control reactivo custom-select respuesta-correcta-select-act43-5" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s6">
+
+                                <span class="mensaje-correct-incorrect-act43-6 sr-only"></span>
+
+                                <label for="select-act43-6">Make</label>
+                                <select id="select-act43-6" class="form-control reactivo custom-select respuesta-correcta-select-act43-6" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s7">
+
+                                <span class="mensaje-correct-incorrect-act43-7 sr-only"></span>
+
+                                <label for="select-act43-7">Meet</label>
+                                <select id="select-act43-7" class="form-control reactivo custom-select respuesta-correcta-select-act43-7" name="evaluacion-act43">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="3">Bought / bought</option>
+                                    <option value="6">Made / made </option>
+                                    <option value="4">Caught / caught</option>
+                                    <option value="5">Lost / lost</option>
+                                    <option value="2">Built / built </option>
+                                    <option value="7">Met / met </option>
+                                    <option value="1">Brought / brought</option>
+                                </select>
+
+                            </div>
+
+                            <p class="parrafo instruccion-color-verde mt-4_5">
+                                2. Press the buttons and check your answers.
+                            </p>
+
+                            <div class="text-center">
+    
+                                <p class="mb-0 parrafo text-success mensaje-correcto-43 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Very good You are ready to continue.</p>
+        
+                                <p class="mb-0 parrafo text-danger mensaje-incorrecto-43 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Please, try to answer the exercise again.</p>
+        
+                                <p class="mb-0 parrafo mensaje-ver-respuestas-43 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold"><b>Please, check the correct answers.</b></p>
+        
+                                <div class="retroalimentacion-43 d-none">
+        
+                                    <p class="parrafo sr-only">
+                                        
+                                    </p>
+        
+                                </div>
+        
+                            </div>
+
+                            <div class="text-right mt-4 mt-md-5">
+            
+                                <button id="check-act43" role="button" class="btn boton-check reactivo btn-descarga evaluacion-act43 waves-effect waves-light" disabled="" name="evaluacion-act43">
+                                    Check
+                                </button>
+    
+                                <br>
+    
+                                <button id="try-act43" role="button" class="btn btn-reintentar btn-descarga-blanco mt-3 waves-effect waves-light" disabled="">
+                                    Try again
+                                </button>
+            
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="evaluacion-act143 mt-4 mb-4">
+
+                            <div class="s1">
+
+                                <span class="mensaje-correct-incorrect-act143-1 sr-only"></span>
+
+                                <label for="select-act143-1">Pay</label>
+                                <select id="select-act143-1" class="form-control reactivo custom-select respuesta-correcta-select-act143-1" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s2">
+
+                                <span class="mensaje-correct-incorrect-act143-2 sr-only"></span>
+
+                                <label for="select-act143-2">Sell</label>
+                                <select id="select-act143-2" class="form-control reactivo custom-select respuesta-correcta-select-act143-2" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+                            
+                            <div class="s3">
+
+                                <span class="mensaje-correct-incorrect-act143-3 sr-only"></span>
+
+                                <label for="select-act143-3">Send</label>
+                                <select id="select-act143-3" class="form-control reactivo custom-select respuesta-correcta-select-act143-3" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s4">
+
+                                <span class="mensaje-correct-incorrect-act143-4 sr-only"></span>
+
+                                <label for="select-act143-4">Feel</label>
+                                <select id="select-act143-4" class="form-control reactivo custom-select respuesta-correcta-select-act143-4" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s5">
+
+                                <span class="mensaje-correct-incorrect-act143-5 sr-only"></span>
+
+                                <label for="select-act143-5">Fight</label>
+                                <select id="select-act143-5" class="form-control reactivo custom-select respuesta-correcta-select-act143-5" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s6">
+
+                                <span class="mensaje-correct-incorrect-act143-6 sr-only"></span>
+
+                                <label for="select-act143-6">Find</label>
+                                <select id="select-act143-6" class="form-control reactivo custom-select respuesta-correcta-select-act143-6" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s7">
+
+                                <span class="mensaje-correct-incorrect-act143-7 sr-only"></span>
+
+                                <label for="select-act143-7">Have</label>
+                                <select id="select-act143-7" class="form-control reactivo custom-select respuesta-correcta-select-act143-7" name="evaluacion-act143">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="5">Fought / fought</option>
+                                    <option value="2">Sold / sold</option>
+                                    <option value="4">Felt / felt</option>
+                                    <option value="6">Found / found</option>
+                                    <option value="3">Sent / sent</option>
+                                    <option value="1">Paid /paid</option>
+                                    <option value="7">Had / had</option>
+                                </select>
+
+                            </div>
+
+                            <p class="parrafo instruccion-color-verde mt-4_5">
+                                2. Press the buttons and check your answers.
+                            </p>
+
+                            <div class="text-center">
+    
+                                <p class="mb-0 parrafo text-success mensaje-correcto-143 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Very good You are ready to continue.</p>
+        
+                                <p class="mb-0 parrafo text-danger mensaje-incorrecto-143 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Please, try to answer the exercise again.</p>
+        
+                                <p class="mb-0 parrafo mensaje-ver-respuestas-143 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold"><b>Please, check the correct answers.</b></p>
+        
+                                <div class="retroalimentacion-143 d-none">
+        
+                                    <p class="parrafo sr-only">
+                                        
+                                    </p>
+        
+                                </div>
+        
+                            </div>
+
+                            <div class="text-right mt-4 mt-md-5">
+            
+                                <button id="check-act143" role="button" class="btn boton-check reactivo btn-descarga evaluacion-act143 waves-effect waves-light" disabled="" name="evaluacion-act143">
+                                    Check
+                                </button>
+    
+                                <br>
+    
+                                <button id="try-act143" role="button" class="btn btn-reintentar btn-descarga-blanco mt-3 waves-effect waves-light" disabled="">
+                                    Try again
+                                </button>
+            
+                            </div>
+
+                        </div>
+                        
+                        <hr class="linea-tabs-movil">
+
+                        <div class="evaluacion-act243 mt-4 mb-4">
+
+                            <div class="s1">
+
+                                <span class="mensaje-correct-incorrect-act243-1 sr-only"></span>
+
+                                <label for="select-act243-1">Shave</label>
+                                <select id="select-act243-1" class="form-control reactivo custom-select respuesta-correcta-select-act243-1" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s2">
+
+                                <span class="mensaje-correct-incorrect-act243-2 sr-only"></span>
+
+                                <label for="select-act243-2">Shine</label>
+                                <select id="select-act243-2" class="form-control reactivo custom-select respuesta-correcta-select-act243-2" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s3">
+
+                                <span class="mensaje-correct-incorrect-act243-3 sr-only"></span>
+
+                                <label for="select-act243-3">Shoot</label>
+                                <select id="select-act243-3" class="form-control reactivo custom-select respuesta-correcta-select-act243-3" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s4">
+
+                                <span class="mensaje-correct-incorrect-act243-4 sr-only"></span>
+
+                                <label for="select-act243-4">Spend</label>
+                                <select id="select-act243-4" class="form-control reactivo custom-select respuesta-correcta-select-act243-4" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s5">
+
+                                <span class="mensaje-correct-incorrect-act243-5 sr-only"></span>
+
+                                <label for="select-act243-5">Stand</label>
+                                <select id="select-act243-5" class="form-control reactivo custom-select respuesta-correcta-select-act243-5" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s6">
+
+                                <span class="mensaje-correct-incorrect-act243-6 sr-only"></span>
+
+                                <label for="select-act243-6">Strike</label>
+                                <select id="select-act243-6" class="form-control reactivo custom-select respuesta-correcta-select-act243-6" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s7">
+
+                                <span class="mensaje-correct-incorrect-act243-7 sr-only"></span>
+
+                                <label for="select-act243-7">Sweep</label>
+                                <select id="select-act243-7" class="form-control reactivo custom-select respuesta-correcta-select-act243-7" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s8">
+
+                                <span class="mensaje-correct-incorrect-act243-8 sr-only"></span>
+
+                                <label for="select-act243-8">Tell</label>
+                                <select id="select-act243-8" class="form-control reactivo custom-select respuesta-correcta-select-act243-8" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s9">
+
+                                <span class="mensaje-correct-incorrect-act243-9 sr-only"></span>
+
+                                <label for="select-act243-9">Think</label>
+                                <select id="select-act243-9" class="form-control reactivo custom-select respuesta-correcta-select-act243-9" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s10">
+
+                                <span class="mensaje-correct-incorrect-act243-10 sr-only"></span>
+
+                                <label for="select-act243-10">Win</label>
+                                <select id="select-act243-10" class="form-control reactivo custom-select respuesta-correcta-select-act243-10" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <div class="s11">
+
+                                <span class="mensaje-correct-incorrect-act243-11 sr-only"></span>
+
+                                <label for="select-act243-11">Understand</label>
+                                <select id="select-act243-11" class="form-control reactivo custom-select respuesta-correcta-select-act243-11" name="evaluacion-act243">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose here...</option>
+                                    <option value="6">Struck</option>
+                                    <option value="8">Told</option>
+                                    <option value="7">Swept</option>
+                                    <option value="2">Shone</option>
+                                    <option value="10">Won</option>
+                                    <option value="4">Spent</option>
+                                    <option value="11">Understood</option>
+                                    <option value="3">Shot</option>
+                                    <option value="5">Stood</option>
+                                    <option value="1">Shaved</option>
+                                    <option value="9">Thought</option>
+                                </select>
+
+                            </div>
+
+                            <p class="parrafo instruccion-color-verde mt-4_5">
+                                2. Press the buttons and check your answers.
+                            </p>
+
+                            <div class="text-center">
+    
+                                <p class="mb-0 parrafo text-success mensaje-correcto-243 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Very good You are ready to continue.</p>
+        
+                                <p class="mb-0 parrafo text-danger mensaje-incorrecto-243 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Please, try to answer the exercise again.</p>
+        
+                                <p class="mb-0 parrafo mensaje-ver-respuestas-243 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold"><b>Please, check the correct answers.</b></p>
+        
+                                <div class="retroalimentacion-243 d-none">
+        
+                                    <p class="parrafo sr-only">
+                                        
+                                    </p>
+        
+                                </div>
+        
+                            </div>
+
+                            <div class="text-right mt-4 mt-md-5">
+            
+                                <button id="check-act243" role="button" class="btn boton-check reactivo btn-descarga evaluacion-act243 waves-effect waves-light" disabled="" name="evaluacion-act243">
+                                    Check
+                                </button>
+    
+                                <br>
+    
+                                <button id="try-act243" role="button" class="btn btn-reintentar btn-descarga-blanco mt-3 waves-effect waves-light" disabled="">
+                                    Try again
+                                </button>
+            
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <br>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4"> 
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-5 " accesskey="4" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA44. Past participle (1)
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde escritorio">
+                        <b>Instruction:</b> <br> 
+                        1. Write the correct past participle form for the verbs in the picture.
+                    </p>
+
+                    <div class="evaluacion-act44">
+
+                        <div class="bg-evalact44">
+
+                            <div class="row">
+
+                                <div class="col-12 col-md-6 mb-4">
+
+                                    <div class="bg-evaluacion-escribir">
+
+                                        <div class="text-center mb-4">
+                                            <img src="./img/IB3V-M4_OPA44-01.png" width="90%" height="auto" alt="Imagen de prohibido">
+                                        </div>
+        
+                                        <p class="mensaje-correct-incorrect-act44-1 sr-only"></p>
+
+                                        <p class="parrafo pista-1 mb-3 d-none">
+                                            Pista: forbid
+                                        </p>
+                                        
+                                        <input id="input-act44-1" type="text" name="evaluacion-act44" class="form-control escribir" placeholder="Write here...">
+            
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-4">
+
+                                    <div class="bg-evaluacion-escribir">
+
+                                        <div class="text-center mb-4">
+                                            <img src="./img/IB3V-M4_OPA44-02.png" width="90%" height="auto" alt="Imagen de prohibido">
+                                        </div>
+        
+                                        <p class="mensaje-correct-incorrect-act44-2 sr-only"></p>
+
+                                        <p class="parrafo pista-2 mb-3 d-none">
+                                            Pista: forgive
+                                        </p>
+                                        
+                                        <input id="input-act44-2" type="text" name="evaluacion-act44" class="form-control escribir" placeholder="Write here...">
+            
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-4">
+
+                                    <div class="bg-evaluacion-escribir">
+
+                                        <div class="text-center mb-4">
+                                            <img src="./img/IB3V-M4_OPA44-03.png" width="90%" height="auto" alt="Imagen de prohibido">
+                                        </div>
+        
+                                        <p class="mensaje-correct-incorrect-act44-3 sr-only"></p>
+
+                                        <p class="parrafo pista-3 mb-3 d-none">
+                                            Pista: give
+                                        </p>
+                                        
+                                        <input id="input-act44-3" type="text" name="evaluacion-act44" class="form-control escribir" placeholder="Write here...">
+            
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-4">
+
+                                    <div class="bg-evaluacion-escribir">
+
+                                        <div class="text-center mb-4">
+                                            <img src="./img/IB3V-M4_OPA44-04.png" width="90%" height="auto" alt="Imagen de prohibido">
+                                        </div>
+        
+                                        <p class="mensaje-correct-incorrect-act44-4 sr-only"></p>
+
+                                        <p class="parrafo pista-4 mb-3 d-none">
+                                            Pista: sing
+                                        </p>
+                                        
+                                        <input id="input-act44-4" type="text" name="evaluacion-act44" class="form-control escribir" placeholder="Write here...">
+            
+                                    </div>
+
+                                </div>
+
+                                <div class="m-auto col-12 col-md-6 mb-4">
+
+                                    <div class="bg-evaluacion-escribir">
+
+                                        <div class="text-center mb-4">
+                                            <img src="./img/IB3V-M4_OPA44-05.png" width="90%" height="auto" alt="Imagen de prohibido">
+                                        </div>
+        
+                                        <p class="mensaje-correct-incorrect-act44-5 sr-only"></p>
+
+                                        <p class="parrafo pista-5 mb-3 d-none">
+                                            Pista: swim
+                                        </p>
+                                        
+                                        <input id="input-act44-5" type="text" name="evaluacion-act44" class="form-control escribir" placeholder="Write here...">
+            
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        
+                        </div>
+
+                        <div class="text-center">
+
+                            <p class="mb-0 parrafo text-success mensaje-correcto-44 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Very good You are ready to continue.</p>
+    
+                            <p class="mb-0 parrafo text-danger mensaje-incorrecto-44 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Please, try to answer the exercise again.</p>
+    
+                            <p class="mb-0 parrafo mensaje-ver-respuestas-44 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold"><b>Please, check the correct answers.</b></p>
+    
+                            <div class="retroalimentacion-44 d-none">
+    
+                                <p class="parrafo sr-only">
+                                    
+                                </p>
+    
+                            </div>
+    
+                        </div>
+
+                        <p class="parrafo instruccion-color-verde mt-4_5">
+                            2. Press the buttons and check your answers.
+                        </p>
+
+                        <div class="text-right mt-4 mt-md-5">
+        
+                            <button id="check-act44" role="button" class="btn boton-check reactivo btn-descarga evaluacion-act44 waves-effect waves-light" disabled="" name="evaluacion-act44">
+                                Check
+                            </button>
+
+                            <br>
+
+                            <button id="try-act44" role="button" class="btn btn-reintentar btn-descarga-blanco mt-3 waves-effect waves-light" disabled="">
+                                Try again
+                            </button>
+        
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity" width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity" width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-5 " accesskey="5" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA45. Past participle (2)
+                </h2>
+
+                <p class="parrafo instruccion-color-verde escritorio">
+                    <b>Instruction:</b> <br> 
+                    1. Choose the option that corresponds to the statement.
+                </p>
+
+                <div class="evaluacion-act45">
+                    
+                    <div class="text-center">
+
+                        <p class="mb-0 parrafo text-success mensaje-correcto-45 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Very good You are ready to continue.</p>
+
+                        <p class="mb-0 parrafo text-danger mensaje-incorrecto-45 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold">Please, try to answer the exercise again.</p>
+
+                        <p class="mb-0 parrafo mensaje-ver-respuestas-45 d-none mt-4 mb-4 mt-md-5 mb-md-5 font-weight-bold"><b>Please, check the correct answers.</b></p>
+
+                        <div class="retroalimentacion-45 d-none">
+
+                            <p class="parrafo sr-only">
+                                
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    https://www.uv.mx/celulaode/ingles-3/Topic-2_3.html
+
+                    <p class="parrafo instruccion-color-verde mt-4_5">
+                        2. Press the buttons and check your answers.
+                    </p>
+
+                    <div class="text-right mt-4 mt-md-5">
+    
+                        <button id="check-act45" role="button" class="btn boton-check reactivo btn-descarga evaluacion-act45 waves-effect waves-light" disabled="" name="evaluacion-act45">
+                            Check
+                        </button>
+
+                        <br>
+
+                        <button id="try-act45" role="button" class="btn btn-reintentar btn-descarga-blanco mt-3 waves-effect waves-light" disabled="">
+                            Try again
+                        </button>
+    
+                    </div>
+
+                </div>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                    <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Support image" aria-hidden="true" width="80%" height="auto" class="escritorio">
+
+                    <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image" aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+                <div class="recap">
+                    
+                    <h2 class="parrafo text-azul text-center">
+                        Recap of Topic 4.1 I have studied…
+                    </h2>
+
+                    <!-- Audio -->
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./audios/M4 A58 Recap topic 4.1 EDIT.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <p class="parrafo mb-2">
+                        Recall what you learned:
+                    </p>
+
+                    <p class="parrafo">
+                        There are regular and irregular verbs.
+                    </p>
+
+                    <p class="parrafo mb-2">
+                        <strong>Regular verbs</strong> only add -<strong>ed</strong> to the end to make the past simple and past participle form. Examples: 
+                    </p>
+
+                    <ul class="parrafo ml-4">
+                        <li>To travel – travelled – travelled</li>
+                        <li>To start – started - started</li>
+                    </ul>
+
+                    <p class="parrafo mb-2">
+                        However, some other verbs do not have regular form and it is necessary to pay close attention to their past simple and  past participle form because they are irregular. Examples:
+                    </p>
+
+                    <ul class="parrafo ml-4 mb-2">
+                        <li>To drive – drove – driven</li>
+                        <li>To sleep – slept - slept</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+        
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="./img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="./scripts/home.js"></script>
+
+    <!-- Evaluaciones -->
+    <script src="./scripts/evaluacion/eval-act42.js"></script>
+    <script src="./scripts/evaluacion/eval-act43.js"></script>
+    <script src="./scripts/evaluacion/eval-act44.js"></script>
+
+    <script src="./scripts/menuacces.js"></script>
+    <script src="./scripts/marcador.js"></script>
+    <script src="./scripts/modalLectorInmersivo.js"></script>
+    <script src="./scripts/change-fonts.js"></script>
+    <script src="./scripts/memorama.js"></script>
+    
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script src="./scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+     <!-- Initialize Swiper horizontal -->
+     <script>
+ 
+        var swiper = new Swiper(".mySwiper", {
+            speed: 600,
+            parallax: true,
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+ 
+     </script>
+    
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function(){
+
+            $('.ir-arriba').click(function(){
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function(){
+                if( $(this).scrollTop() > 0 ){
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+    <script>
+
+        function agregarGuiones(input) {
+            // Obtenemos el valor actual del input
+            let valorActual = input.value;
+
+            // Eliminamos cualquier guión existente
+            valorActual = valorActual.replace(/-/g, '');
+
+            // Agregamos un guión entre cada letra
+            let valorConGuiones = valorActual.split('').join('-');
+
+            // Actualizamos el valor del input
+            input.value = valorConGuiones;
+        }
+
+    </script>
+
+</body>
+</html>
+

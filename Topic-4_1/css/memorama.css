@@ -1,0 +1,192 @@
+/*p { font-size: 1.3rem; }*/
+
+.interiorMemorama {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0 1rem;
+}
+
+.interiorMemorama .color-1 img:first-child {
+    display: none !important;
+    color: #8E8E8E;
+}
+
+.interiorMemorama .color-1 p {
+    display: none !important;
+}
+
+.interiorMemorama img {
+    width: 150px;
+    height: 150px;
+}
+
+.tarjetamemo {
+    background: url("../img/IB3V-M4_OPA43-interrogacion.png") no-repeat center /60px #17529C;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    margin: .5rem;
+    border: none;
+    font-size: 1.3rem;
+}
+
+.tarjetamemo i {
+    font-style: normal;
+}
+
+.tarjetamemo:focus,
+.tarjetamemo:focus-visible {
+    outline: none;
+}
+
+.abierta img:first-child {
+    display: block !important;
+}
+
+.abierta {
+    border: 2px solid #5656BF;
+    background: #fff;
+}
+
+.matched {
+    position: relative;
+    border: 2px solid green;
+}
+
+select {
+    background: #E7EFF8;
+    min-width: 10em;
+    border: none;
+    padding: 0 1em;
+    margin: 0 0.3em 0.4em 0.4em;
+    background-image: url(../img/flecha.png);
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-size: 1.5rem;
+}
+
+.fa-solid {
+    position: absolute;
+    font-size: 2.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #007C32;
+}
+
+
+.control {
+    display: inline-flex;
+    background: #2E356C;
+    color: #fff;
+    border: 0.125rem solid #2E356C;
+    margin: 0 0 0 0.5em;
+    padding: 0.3em 0;
+    font-size: 1.3rem;
+    width: 15rem;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: .2rem
+}
+
+.control:hover,
+.control:focus-visible,
+.control:focus {
+    background: #fff;
+    color: #2E356C;
+    border: 0.125rem solid #2E356C;
+    outline: none;
+}
+
+.control:disabled {
+    background: #CCD3DB !important;
+    border: 2px solid #CCD3DB;
+    color: #626262;
+}
+
+.instrucciones {
+    color: #007C32;
+}
+
+.retroalimentacion {
+    color: #007C32;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    visibility: hidden;
+    font-size: 1.3rem;
+}
+
+#selMem {
+    border: 1px solid #17529C;
+    padding: 0.5rem 0;
+    background-color: #fff;
+    color: #17529C;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.conSel {
+    width: 100%;
+    text-align: center;
+}
+
+/*
+button:disabled {
+    background-color: white !important;
+    color: #706E6E;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    width: 10rem;
+    padding: 0.65rem 0.5rem !important;
+    min-height: 0 !important;
+    margin: 0 0 0 0em;
+    border: #D3D3D3 solid 2px;
+    font-weight: 700;
+    opacity: 1 !important;
+}
+
+*/
+
+
+@media screen and (max-width: 767px) {
+    /*.control{ font-size:1.125rem; }*/
+
+    .tarjetamemo {
+        background-size: 40px;
+        width: 134px;
+        height: 134px;
+        margin: .3rem;
+    }
+
+    .interiorMemorama img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .interiorMemorama {
+        margin-top: 1rem;
+    }
+
+    .retroalimentacion {
+        margin-bottom: 1rem;
+    }
+}
+
+.fa-solid {
+    font-size: 1.5rem !important;
+    right: 1.5rem !important;
+    top: 0.80rem !important;
+}

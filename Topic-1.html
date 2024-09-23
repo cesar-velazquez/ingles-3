@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Module 1. My habits and hobbies</title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-1/css/index.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-1/css/menuacces.css">
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- memorama -->
+    <link rel="stylesheet" href="Topic-1/css/memorama.css">
+    <link rel="stylesheet" href="Topic-1/css/unit1-1_2.css">
+
+    <style type="text/css">
+        .titulo-principal-unit {
+            left: 30.5%;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4 sr-only">
+            <li>Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li>Activity OPA01: Alt + 1</li>
+        </ul>
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="parrafo ml-4 sr-only">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li>Activity OPA01: <i lang="en">Control </i> + <i lang="en">Option</i> + 1</li>
+        </ul>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-1/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-1/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-1/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-1/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-1/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-1/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-1/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-1/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-1/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-1/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-1/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- SIDEBAR MENÚ -->
+    <!--<navbar class="sidebar" style="overflow-y: scroll;">
+
+        <div class="sidebar__encabezado">
+            <button class="btn btn-link sidebar__dismiss" aria-label="Cerrar menú desplegado">
+                <span>X</span>
+            </button>
+        </div>
+        
+        <menu-component-2></menu-component-2>
+    
+    </navbar>-->
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad
+                    Veracruzana</a>
+
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Module 1. </b> <span style="font-weight: normal !important;">My habits and hobbies</span>
+                        </p>
+                    </span>
+                </div>
+
+            </div>
+
+            <img src="Topic-1/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca scroll">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>-->
+
+                <!-- mt-4 -->
+                <div class="d-flex align-items-center ">
+
+                    <div class="pleca__ee ml-0 aparecer-desaparecer"
+                        style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <!-- margin_pleca -->
+                            <p class="tam-font font-weight-bold ">
+                                Module 1
+                                <!--<span style="font-weight: normal;">What do you do on the weekend?</span>-->
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <img src="Topic-1/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <h1 class="titulo-principal-unit margin-left-titulo">
+
+            Module 1. <br>
+            <span class="subtitulo-secundari-unit">My habits and hobbies</span>
+
+        </h1>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="introduction">
+
+            <div class="container py-4">
+
+                <div class="mt-4 mt-md-5">
+
+                    <h2 class="parrafo text-azul subtitulos">
+                        Welcome to the module
+                    </h2>
+
+                    <p class="texCenAzu parrafo">
+                        Listen to the audio.
+                    </p>
+
+                    <div>
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="Topic-1/media/M1-A1-My-Habits-EDIT.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <p class="parrafo">
+                        In this module, you will review topics related to daily routine, habits, abilities, family and
+                        physical descriptions. Read the explanations and remember to practice as much as you need. If
+                        you have any questions, get in touch with your facilitator.
+                    </p>
+
+                    <p class="parrafo text-center"><strong>Good luck!</strong></p>
+
+                </div>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                    <div class="separadorEsc escritorio"></div>
+                    <div class="separadorMov movil"></div>
+                </div>
+
+
+                <div class="mb-4 mb-md-5">
+
+                    <h2 class="parrafo text-azul subtitulos">
+                        Topics to talk about
+                    </h2>
+
+                    <div class="ContenedorTopics escritorio">
+                        <div class="Topics">
+                            <div>
+                                <div class="cuaBla">
+                                    <p>What do you do on the weekend?</p>
+                                </div>
+                                <div class="cuaAzu">
+                                    <p>(Simple Present: Abilities / Routines / Hobbies)</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="cuaBla">
+                                    <p>I love my family</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="cuaBla">
+                                    <p>What does he look like? / What is he like?</p>
+                                </div>
+                                <div class="cuaAzu">
+                                    <p>(Personality and physical description)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ContenedorTopics movil">
+                        <ul class="ml-4 mb-0">
+                            <li>What do you do on the weekend? (Simple Present: Abilities / Routines / Hobbies)</li>
+                            <li>I love my family</li>
+                            <li class="mb-0">What does he look like? / What is he like? (Personality and physical
+                                description)</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>
+                    </div>
+
+
+                </div>
+
+                <div class="mb-4 mb-md-5">
+
+                    <h2 class="parrafo text-azul subtitulos">
+                        Glossary of terms and phrases from the module
+                    </h2>
+
+                    <!-- <p class="texCenAzu parrafo">
+                        Listen to the audio.
+                    </p>
+
+                    <div>
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="Topic-1/media/M1-A2-Intro-Glossary.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div> -->
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instructions: </b> Click on the buttons below to read the information.
+                    </p>
+
+                    <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                        <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Abilities /
+                            Routines / Hobbies</summary>
+                        <div class="details-content text-center">
+
+                            <audio id="audio1-00" src="Topic-1/media/M1-A2-Abilities-Routines-Hobbies.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-00').play()"
+                                class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-01" src="Topic-1/media/cortos/M1-A2-To-Brush.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-01').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to brush one's teeth</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-02" src="Topic-1/media/cortos/M1-A2-To-Comb.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-02').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to comb one's hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-03" src="Topic-1/media/cortos/M1-A2-To-Get-Up.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-03').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to get up</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-04" src="Topic-1/media/cortos/M1-A2-To-Get-Dressed.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-04').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to get dress</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-05" src="Topic-1/media/cortos/M1-A2-To-go-to-Bed.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-05').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to go to bed</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-06" src="Topic-1/media/cortos/M1-A2-To-have-breakfast.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-06').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to have breakfast</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-07" src="Topic-1/media/cortos/M1-A2-To-have-dinner.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-07').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to have dinner</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-08" src="Topic-1/media/cortos/M1-A2-To-have-lunch.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-08').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to have lunch</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-09"
+                                                src="Topic-1/media/cortos/M1-A2-To-read-the-news-paper.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-09').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to read the newspaper</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-10" src="Topic-1/media/cortos/M1-A2-To-shower.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-10').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to shower</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-11" src="Topic-1/media/cortos/M1-A2-To-Wake-Up.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-11').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to wake up</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-12" src="Topic-1/media/cortos/M1-A2-To-walk.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-12').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to walk</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-13" src="Topic-1/media/cortos/M1-A2-To-watch-TV.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-13').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to watch TV</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio1-14" src="Topic-1/media/cortos/M1-A2-To-work.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio1-14').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">to work</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                        <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Family</summary>
+                        <div class="details-content text-center">
+
+                            <audio id="audio2-00" src="Topic-1/media/M1-A2-Family.mp3" type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio2-00').play()"
+                                class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+                            <div class="contenedorGlosario" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-01" src="Topic-1/media/cortos/M1-A2-Family-word.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-01').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Family</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-02" src="Topic-1/media/cortos/M1-A2-Aunt.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-02').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Aunt</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-03" src="Topic-1/media/cortos/M1-A2-Brother.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-03').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Brother</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-04" src="Topic-1/media/cortos/M1-A2-Child.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-04').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Child</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-05" src="Topic-1/media/cortos/M1-A2-Cousin.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-05').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Cousin</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-06" src="Topic-1/media/cortos/M1-A2-Dad.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-06').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Dad</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-006" src="Topic-1/media/cortos/M1-A2-Daddy.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-006').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Daddy</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-07" src="Topic-1/media/cortos/M1-A2-Daughter.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-07').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Daughter</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-08" src="Topic-1/media/cortos/M1-A2-Father.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-08').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Father</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-09" src="Topic-1/media/cortos/M1-A2-Grandchild.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-09').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandchild</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-10" src="Topic-1/media/cortos/M1-A2-Granddad.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-10').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Granddad</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-11" src="Topic-1/media/cortos/M1-A2-Grand-daughter.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-11').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Granddaughter</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-12" src="Topic-1/media/cortos/M1-A2-Grand-father.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-12').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandfather</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-13" src="Topic-1/media/cortos/M1-A2-Grandma.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-13').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandma</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-14" src="Topic-1/media/cortos/M1-A2-Grand-mother.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-14').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandmother</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-15" src="Topic-1/media/cortos/M1-A2-Grandpa.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-15').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandpa</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-16" src="Topic-1/media/cortos/M1-A2-Grandparents.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-16').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandparents</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-17" src="Topic-1/media/cortos/M1-A2-Grandson.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-17').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grandson</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-18" src="Topic-1/media/cortos/M1-A2-husband.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-18').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Husband</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-19" src="Topic-1/media/cortos/M1-A2-Married.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-19').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Married</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-20" src="Topic-1/media/cortos/M1-A2-Mom.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-20').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Mom</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-020" src="Topic-1/media/cortos/M1-A2-Mommy.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-020').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Mommy</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-21" src="Topic-1/media/cortos/M1-A2-Mother.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-21').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Mother</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-22" src="Topic-1/media/cortos/M1-A2-Sister.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-22').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Sister</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-23" src="Topic-1/media/cortos/M1-A2-Son.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-23').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Son</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-24" src="Topic-1/media/cortos/M1-A2-Uncle.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-24').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Uncle</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio2-25" src="Topic-1/media/cortos/M1-A2-Wife.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio2-25').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Wife</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                        <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Personality and
+                            physical description</summary>
+                        <div class="details-content text-center">
+
+                            <audio id="audio3-00" src="Topic-1/media/M1-A2-Personality-Physical-Description.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio3-00').play()"
+                                class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-01" src="Topic-1/media/cortos/M1-A2-Tall.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-01').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Tall</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-02" src="Topic-1/media/cortos/M1-A2-Short.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-02').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Short</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-03" src="Topic-1/media/cortos/M1-A2-Middle-height.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-03').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Middle height</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-04" src="Topic-1/media/cortos/M1-A2-Overweight.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-04').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Overweight</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-05" src="Topic-1/media/cortos/M1-A2-Slim.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-05').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Slim</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-06" src="Topic-1/media/cortos/M1-A2-Well-built.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-06').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Well built</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-07" src="Topic-1/media/cortos/M1-A2-Chubby.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-07').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Chubby</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-08" src="Topic-1/media/cortos/M1-A2-Long-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-08').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Long hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-09" src="Topic-1/media/cortos/M1-A2-Short-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-09').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Short hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-10" src="Topic-1/media/cortos/M1-A2-Bald.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-10').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Bald</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-11" src="Topic-1/media/cortos/M1-A2-Middle-Lenght.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-11').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Middle length</p>
+                                        </div>
+                                    </div>
+                                    <!--<div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-12" src="Topic-1/media/cortos/100.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio3-12').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">Length</div>
+                                    </div>-->
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-13" src="Topic-1/media/cortos/M1-A2-Wavy-Hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-13').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Wavy hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-14" src="Topic-1/media/cortos/M1-A2-Curly-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-14').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Curly hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-15" src="Topic-1/media/cortos/M1-A2-Straight-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-15').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Straight hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-16" src="Topic-1/media/cortos/M1-A2-Blonde.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-16').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Blond</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-17" src="Topic-1/media/cortos/M1-A2-Brown-Hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-17').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Brown hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-18" src="Topic-1/media/cortos/M1-A2-Red-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-18').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Red hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-19" src="Topic-1/media/cortos/M1-A2-Black-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-19').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span></button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Black hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-20" src="Topic-1/media/cortos/M1-A2-Grey-hair.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-20').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grey hair</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-21" src="Topic-1/media/cortos/M1-A2-Grey-eyes.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-21').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Grey eyes</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-22" src="Topic-1/media/cortos/M1-A2-Green-eyes.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-22').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Green eyes</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-23" src="Topic-1/media/cortos/M1-A2-Blue-eyes.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-23').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Blue eyes</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-24" src="Topic-1/media/cortos/M1-A2-Brown-eyes.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-24').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Brown eyes</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-25" src="Topic-1/media/cortos/M1-A2-Dark-brown-eyes.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-25').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Dark brown eyes</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-26" src="Topic-1/media/cortos/M1-A2-Friendly.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-26').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Friendly</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-27" src="Topic-1/media/cortos/M1-A2-Sociable.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-27').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Sociable</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-28" src="Topic-1/media/cortos/M1-A2-Hardworking.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-28').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Hardworking</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-29" src="Topic-1/media/cortos/M1-A2-Shy.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-29').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Shy</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-30" src="Topic-1/media/cortos/M1-A2-Lazy.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-30').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Lazy</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-31" src="Topic-1/media/cortos/M1-A2-Kind.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-31').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Kind</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-32" src="Topic-1/media/cortos/M1-A2-Generous.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-32').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Generous</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-33" src="Topic-1/media/cortos/M1-A2-Optimistic.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-33').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Optimistic</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-34" src="Topic-1/media/cortos/M1-A2-Clever.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-34').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Clever</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-35" src="Topic-1/media/cortos/M1-A2-Independent.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-35').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Independent</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-36" src="Topic-1/media/cortos/M1-A2-Extroverted.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-36').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Extroverted</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-37" src="Topic-1/media/cortos/M1-A2-Rude.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-37').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Rude</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-38" src="Topic-1/media/cortos/M1-A2-Introverted.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-38').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Introverted</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-39" src="Topic-1/media/cortos/M1-A2-Pesimistic.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-39').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Pessimistic</p>
+                                        </div>
+                                    </div>
+                                    <!--<div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-40" src="Topic-1/media/cortos/M1-A2-Lazy.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio3-40').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">Lazy</div>
+                                    </div>-->
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-41" src="Topic-1/media/cortos/M1-A2-Responsible.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-41').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Responsible</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-42" src="Topic-1/media/cortos/M1-A2-Moody.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-42').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Moody</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-43" src="Topic-1/media/cortos/M1-A2-Honest.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-43').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Honest</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-44" src="Topic-1/media/cortos/M1-A2-Talkative.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-44').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Talkative</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-45" src="Topic-1/media/cortos/M1-A2-Brave.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-45').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Brave</p>
+                                        </div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio3-46" src="Topic-1/media/cortos/M1-A2-Punctual.mp3"
+                                                type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio3-46').play()"
+                                                class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto">
+                                            <p class="mb-0">Punctual</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <div class="movil">
+
+                        <div class="text-center">
+                            <a href="Topic-1/abilities-routines-hobbies.html" target="__blank"
+                                class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                Abilities / Routines / Hobbies
+                                <span class="sr-only"> Se abre en nueva pestaña</span>
+                            </a>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="Topic-1/family.html" target="__blank"
+                                class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                Family
+                                <span class="sr-only"> Se abre en nueva pestaña</span>
+                            </a>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="Topic-1/personality-and-physical-description.html" target="__blank"
+                                class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                Personality and physical description
+                                <span class="sr-only"> Se abre en nueva pestaña</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-4" accesskey="1" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA01. Glossary and phrases
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> Click on the cards to match the words with the images.
+                </p>
+                
+                <div id="memorama1" class="escritorio">
+                    <div class="conSel">
+                        <label>&nbsp;
+                            <select class="parrafo memo-nivel" data-actividad="memorama1" id="selMem">
+                                <option value="6" selected="selected">Nivel 1</option>
+                                <option value="7">Nivel 2</option>
+                                <option value="11">Nivel 3</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="sr-only respuestas-correctas" aria-hidden="true">
+                        <p>Respuestas correctas</p>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="interiorMemorama">
+
+                    </div>
+                    <!---->
+
+                    <p class="retroalimentacion" aria-hidden="true">Very good! You are ready to continue.<span
+                            class="sr-only"> deberás subir para escuchar las respuestas correctas</span></p>
+                    <div class="text-right">
+                        <button class="reiniciarmemo btn boton-check btn-reintentar bt waves-effect waves-light"
+                            role="button" disabled>
+                            Try again
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <div class="conSel movil">
+                    <label>&nbsp;
+                        <select class="parrafo memo-nivel" data-actividad="memorama1" id="selMemMov"
+                            name="seleccionar-1-1">
+                            <option value="6" selected="selected">Nivel 1</option>
+                            <option value="7">Nivel 2</option>
+                            <option value="11">Nivel 3</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="selescts seleccionar-1-1 memorama-movil movil">
+                    <div class="conTarjetas grid-2">
+
+                    </div>
+                    <div class="retroalimentacion1 rojoretro"></div>
+                    <div class="contenedor-botones2">
+                        <div class="text-right evaluacion">
+                            <button id="check-s-11-1" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-11-1"
+                                disabled="" name="seleccionar-1-1">Check</button>
+                        </div>
+                        <div class="text-right evaluacion">
+                            <button id="try-s-11-1" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-11-1" disabled
+                                name="seleccionar-1-1">Try again</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="Topic-1/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="Topic-1/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-1/scripts/home.js"></script>
+    <script type="text/javascript" src="Topic-1/scripts/menu-2.js"></script>
+    <!-- modales de ayuda y lector inmersivo -->
+    <script src="Topic-1/scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-1/scripts/menuacces.js"></script>
+    <script src="Topic-1/scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="Topic-1/scripts/scroll-timeline.js"></script>
+
+    <!-- memorama -->
+    <script type="text/javascript" src="Topic-1/scripts/memorama.js"></script>
+    <script type="text/javascript" src="Topic-1/scripts/unit-1_1.js"></script>
+
+
+
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

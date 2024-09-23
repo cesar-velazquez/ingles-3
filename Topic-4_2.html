@@ -1,0 +1,3383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 4.2 Talking about life experiences</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="./Topic-4_2/css/index.css">
+    <!-- <link rel="stylesheet" href="/Topic-4_2/css/unit1.css"> -->
+    <link rel="stylesheet" href="./Topic-4_2/css/unit4.css">
+    <!-- <link rel="stylesheet" href="./css/memorama.css"> -->
+
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="./Topic-4_2/css/menuacces.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es" class="sr-only">
+
+        <p>
+            Para acceder a la información de ayuda de esta Experiencia Educativa en <i lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control <span
+                    aria-hidden="true">+</span>
+                <span class="sr-only">más</span> Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+
+        <p class="parrafo">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4">
+            <li><span lang="en">Activity</span> OPA 46. Alt + 1</li>
+            <li><span lang="en">Activity</span> OPA 47. Alt + 2</li>
+            <li><span lang="en">Activity</span> OPA 48. Alt + 3</li>
+            <li><span lang="en">Activity</span> OPA 49. Alt + 4</li>
+            <li><span lang="en">Activity</span> OPA 50. Alt + 5</li>
+            <li><span lang="en">Activity</span> OPA 51. Alt + 6</li>
+        </ul>
+
+        <p class="parrafo mb-0" lang="en"><b>MacOS</b></p>
+
+        <ul class="parrafo ml-4">
+            <li><span lang="en">Activity</span> OPA 46. <i>Control + Option</i> + 1</li>
+            <li><span lang="en">Activity</span> OPA 47. <i>Control + Option</i> + 2</li>
+            <li><span lang="en">Activity</span> OPA 48. <i>Control + Option</i> + 3</li>
+            <li><span lang="en">Activity</span> OPA 49. <i>Control + Option</i> + 4</li>
+            <li><span lang="en">Activity</span> OPA 50. <i>Control + Option</i> + 5</li>
+            <li><span lang="en">Activity</span> OPA 51. <i>Control + Option</i> + 6</li>
+        </ul>
+
+    </div>
+
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-4_2/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- Inicio menu accesible -->
+    <div class="menuacces" aria-hidden="true">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-4_2/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-4_2/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-4_2/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-4_2/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-4_2/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-4_2/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-4_2/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-4_2/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-4_2/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-4_2/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none">
+                    <span class="text-left">
+                        <p class="font-weight-bold mb-3 texto-tema-margen">
+                            Topic 4.2 <span style="font-weight: normal;">Talking about life experiences</span>
+                        </p>
+                    </span>
+                </div>
+
+            </div>
+
+            <img src="Topic-3_1/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+
+
+                <div class="d-flex align-items-center ">
+
+                    <div class="pleca__ee ml-0" style="display: none; ">
+
+                        <p class="font-weight-bold mb-1 texto-tema-margen">
+                            Topic 4.2
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="Topic-3_1/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+        <div class="container">
+
+            <h1 class="titulo-principal-unit">
+
+                Topic 4.2
+                <span>Talking about life experiences</span>
+
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- <header class="banner-1">
+
+        <div class="">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" id="pleca_uv" class="pleca__uv" href="https://uv.mx/" target="__blank"
+                    lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left escritorio">
+                        <p class="font-weight-bold mb-3 texto-tema-margen">
+                            Topic 4.2 <span>Talking about life experiences</span>
+                        </p>
+                    </span>
+
+                    <p class="movil tam-font texto-tema-margen " aria-hidden="true">
+                        Topic 4.2 <span style="font-weight: normal;"></span>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <img class="escritorio" src="./Topic-4_2/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal"
+                aria-hidden="true" width="100%" height="auto">
+
+            <img class="movil" src="./Topic-4_2/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal"
+                aria-hidden="true" width="100%" height="auto">
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Topic 4.2
+                <span class="subtitulo-secundari-unit">Talking about life experiences</span>
+            </h1>
+        </div>
+
+    </header> -->
+
+    <!-- Codigo principal -->
+    <main>
+
+        <!-- <div class="container py-4">
+            <div class="pad2">
+                <h2 class="parrafo text-azul subtitulos mb-3" accesskey="0" tabindex="0">
+                    Past participe of regular and irregular verbs
+                </h2>
+            </div>
+        </div> -->
+
+        <section class="section-activity">
+            <div class="text-center">
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem" accesskey="1" tabindex="0">
+                    Online Practice Activity
+                    <span>OPA46. Vocabulary related to experiences</span>
+                </h2>
+
+                <p class="parrafo mb-0 instruccion-color-verde">
+                    <b>Instructions: </b>
+                </p>
+
+                <ol class="parrafo instruccion-color-verde ml-4">
+                    <li>Match the captions with the photos.</li>
+                </ol>
+
+                <div class="selescts seleccionar_opa46 recFacImg" tabindex="0">
+
+                    <div class="Grid2">
+                        <div>
+                            <div class="c1 ">
+                                <!-- <div class="texInc text-azul">
+                                    <label for="s12-0">a.</label>
+                                </div> -->
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-01.png" lang="es" alt="Avioneta en vuelo"
+                                    class="imgCuadro" />
+
+                                <div class="conTarjetas">
+
+                                    <div class="seleccionar-12-0">
+                                        <div id="opsel-12-0" class="divcontsel">
+                                            <select id="s12-0" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div class="c1 ">
+                                <!-- <div class="texInc text-azul">
+                                    <label for="s12-1">b.</label>
+                                </div> -->
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-02.png" lang="es"
+                                    alt="Persona conociendo y saludando a un famoso." class="imgCuadro" />
+
+                                <div class="conTarjetas">
+
+                                    <div class="seleccionar-12-1">
+                                        <div id="opsel-12-1" class="divcontsel">
+                                            <select id="s12-1" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="Grid2">
+                        <div>
+                            <div class="c1">
+                                <!-- <div class="texInc text-azul">
+                                    <label for="s12-2">c.</label>
+                                </div> -->
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-03.png" lang="es"
+                                    alt="Persona hablando frente a muchas personas (conferencia)." class="imgCuadro" />
+
+                                <div class="conTarjetas ">
+
+                                    <div class="seleccionar-12-2">
+                                        <div id="opsel-12-2" class="divcontsel">
+                                            <select id="s12-2" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div class="c1">
+                                <!-- <div class="texInc text-azul">
+                                    <label for="s12-3">d.</label>
+                                </div> -->
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-04.png" lang="es"
+                                    alt="Persona conduciendo un auto de carreras" class="imgCuadro" />
+
+
+                                <div class="conTarjetas ">
+
+                                    <div class="seleccionar-12-3">
+                                        <div id="opsel-12-3" class="divcontsel">
+                                            <select id="s12-3" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Grid2">
+                        <div>
+                            <div class="c1 ">
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-05.png" lang="es"
+                                    alt="Persona sosteniendo una araña en su mano" class="imgCuadro" />
+
+                                <div class="conTarjetas ">
+
+                                    <div class="seleccionar-12-4">
+                                        <div id="opsel-12-4" class="divcontsel">
+                                            <select id="s12-4" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="c1 ">
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-06.png" lang="es"
+                                    alt="Persona parada en lo alto de un edificio." class="imgCuadro" />
+                                <div class="conTarjetas ">
+                                    <div class="seleccionar-12-5">
+                                        <div id="opsel-12-5" class="divcontsel">
+                                            <select id="s12-5" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Grid2">
+                        <div>
+                            <div class="c1 ">
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-07.png" lang="es"
+                                    alt="Persona mudándose a otra ciudad" class="imgCuadro" />
+
+                                <div class="conTarjetas ">
+
+                                    <div class="seleccionar-12-6">
+                                        <div id="opsel-12-6" class="divcontsel">
+                                            <select id="s12-6" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="c1 ">
+                                <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA46-08.png" lang="es"
+                                    alt="Estudiante universitario realizando un examen." class="imgCuadro" />
+                                <div class="conTarjetas ">
+                                    <div class="seleccionar-12-7">
+                                        <div id="opsel-12-7" class="divcontsel">
+                                            <select id="s12-7" class="form-control reactivo custom-select"
+                                                data-valor="r1" name="seleccionar_opa46">
+                                                <option disabled="disabled" selected="selected" value="0"
+                                                    hidden="hidden" lang="en">Choose here...</option>
+                                                <option value="1" lang="en">a. Talking to a room full of people
+                                                </option>
+                                                <option value="2" lang="en">b. Standing on the top of a tall building
+                                                </option>
+                                                <option value="3" lang="en">c. Taking an exam
+                                                </option>
+                                                <option value="4" lang="en">d. Holding a spider in your hand
+                                                </option>
+                                                <option value="5" lang="en">e. Meeting a famous person
+                                                </option>
+                                                <option value="6" lang="en">f. Flying in a small airplane
+                                                </option>
+                                                <option value="7" lang="en">g. Driving a fast car
+                                                </option>
+                                                <option value="8" lang="en">h. Moving to another city
+                                                </option>
+                                            </select>
+                                            <div class="contselopce invisible parrafo mb-0">
+                                                <div class="TexSel"></div>
+                                                <i class="result fa-solid" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="respmens sr-only"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retroalimentacion1 none "></div>
+
+                    <p class="instruccion-color-verde text-left parrafo m-2rem">2. Press the buttons
+                        and check your answers.</p>
+
+                    <div id="btn_checkopa46" class="contenedor-botones2 paddR2_5">
+                        <div class="text-right ">
+                            <button id="check_Opa46" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check_Opa46"
+                                disabled="" name="seleccionar_opa46">Check</button>
+                        </div>
+                        <div class="text-right ">
+                            <button id="try_Opa46" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light try_Opa46" disabled=""
+                                name="seleccionar_opa46">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="">
+
+                    <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="2" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA47. Katty answering questions
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instructions:</b> <br>
+                        1. Listen to Katty answering questions about her life experiences.
+                    </p>
+
+                    <div class="text-center m-2rem" lang="es">
+                        <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA47.png"
+                            alt="Imagen de un hombre entrevistando a una mujer." width="60%" height="auto">
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <p class="parrafo text-azul">Listen to the audio.</p>
+                    </div>
+
+                    <div class="m-2rem text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./Topic-4_2/audios/M4A59EntrevistaaKatty.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                        <img src="./Topic-4_2/img/150pp/INGLESINT_separador-interior-actividad.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="escritorio">
+                        <img src="./Topic-4_2/img/150pp/INGLESINT_separador-interior-actividad-r.png"
+                            alt="Support image" aria-hidden="true" width="80%" height="auto" class="movil">
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde">
+                        2. Decide if the following statements are True or False:
+                    </p>
+
+                    <div class="selescts seleccionarOpa-47 recFacImg">
+                        <div class="conTarjetas grid-2 container_choose">
+                            <div class="texSen">
+                                <label for="select-opa47-0">
+                                    <p class="parrafo">a. She enjoys speaking in public.</p>
+                                </label>
+                            </div>
+                            <div class="seleccionar-opa47-0 ">
+                                <div id="opselect-opa47-0" class="divcontsel select_choose ">
+                                    <select id="select-opa47-0" class="form-control reactivo custom-select"
+                                        data-valor="r1" name="seleccionarOpa-47">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden"
+                                            lang="en">
+                                            Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <p class="TexSel"></p>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conTarjetas grid-2 container_choose">
+                            <div class="texSen">
+                                <label for="select-opa47-1">
+                                    <p class="parrafo">b. She has talked to a room full of people in her job.
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="seleccionar-opa47-1">
+                                <!-- opsel-12-1 -->
+                                <div id="opselect-opa47-1" class="divcontsel select_choose ">
+                                    <select id="select-opa47-1" class="form-control reactivo custom-select"
+                                        data-valor="r1" name="seleccionarOpa-47">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden"
+                                            lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <p class="TexSel"></p>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conTarjetas grid-2 container_choose">
+                            <div class="texSen">
+                                <label for="select-opa47-2">
+                                    <p class="parrafo">c. She thinks interviewing people can be a hard job to
+                                        do.</p>
+                                </label>
+                            </div>
+                            <div class="seleccionar-opa47-2 ">
+                                <!-- opsel-12-2 -->
+                                <div id="opselect-opa47-2" class="divcontsel select_choose ">
+                                    <select id="select-opa47-2" class="form-control reactivo custom-select"
+                                        data-valor="r1" name="seleccionarOpa-47">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden"
+                                            lang="en">
+                                            Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <p class="TexSel"></p>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conTarjetas grid-2 container_choose">
+                            <div class="texSen">
+                                <label for="select-opa47-3">
+                                    <p class="parrafo">d. She has never met a famous actor.</p>
+                                </label>
+                            </div>
+                            <div class="seleccionar-opa47-3">
+                                <!-- opsel-12-3 -->
+                                <div id="opselect-opa47-3" class="divcontsel select_choose">
+                                    <select id="select-opa47-3" class="form-control reactivo custom-select"
+                                        data-valor="r1" name="seleccionarOpa-47">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden"
+                                            lang="en">
+                                            Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <p class="TexSel"></p>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conTarjetas grid-2 container_choose">
+                            <div class="texSen">
+                                <label for="select-opa47-4">
+                                    <p class="parrafo">e. She is afraid of flying in a small airplane.</p>
+                                </label>
+                            </div>
+                            <div class="seleccionar-opa47-4">
+                                <!-- opsel-12-4 -->
+                                <div id="opselect-opa47-4" class="divcontsel select_choose">
+                                    <select id="select-opa47-4" class="form-control reactivo custom-select"
+                                        data-valor="r1" name="seleccionarOpa-47">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden"
+                                            lang="en">
+                                            Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <p class="TexSel"></p>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="retroalimentacion1 rojoretro mar2rem none"></div>
+
+                        <p class="instruccion-color-verde text-left m-2rem">3.
+                            Press the buttons and check your answers.
+                        </p>
+
+                        <div class=" paddR2_5">
+                            <div class="contenedor-botones2 paddR1_5">
+                                <div class="text-right">
+                                    <button id="check-opa47" role="button"
+                                        class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-opa47"
+                                        disabled="" name="seleccionarOpa-47">Check</button>
+                                </div>
+                                <div class="text-right">
+                                    <button id="try-opa47" role="button"
+                                        class="btn boton-check btn-reintentar bt waves-effect waves-light try-opa47"
+                                        disabled="" name="seleccionarOpa-47">Try again</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                        <img src="./Topic-4_2/img/150pp/INGLESINT_separador-interior-actividad.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="escritorio">
+                        <img src="./Topic-4_2/img/150pp/INGLESINT_separador-interior-actividad-r.png"
+                            alt="Support image" aria-hidden="true" width="80%" height="auto" class="movil">
+                    </div>
+
+                    <p class="instruccion-color-verde text-left movil">
+                        4. Now, download the script answers.
+                    </p>
+
+                    <p class="text-center movil">
+                        <a download="" class="btn-descarga btn btn-azul-modals waves-effect waves-light btn-14"
+                            href="./Topic-4_2/downloads/INGLES3-M4-GuionOPA47.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+                    <p class="instruccion-color-verde text-left escritorio">
+                        4. Now, check the script answers.
+                    </p>
+
+                    <div class="text-center">
+                        <details id="faqs-1-respuestas" class="text-right escritorio t2 faqs mb-2rem faqScript">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light text-center">Script
+                            </summary>
+                            <div class="details-content text-left">
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> So, what makes you feel nervous?
+                                </p>
+                                <p class="parrafo">
+                                    <b>Katty:</b> Let´s see. Well, I really hate the idea of speaking in public.
+                                </p>
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> Have you ever talked to a room full of people?
+                                </p>
+                                <p class="parrafo">
+                                    <b>Katty:</b> No, I haven´t. In my job, I´m a TV reporter, I talk to a lot of
+                                    people, but
+                                    one at a time, not all together. No, I´ve never talked to a room full of people –
+                                    and I never
+                                    want to!
+                                </p>
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> And what about interviewing people? Does that make you feel
+                                    nervous?
+                                </p>
+                                <p class="parrafo">
+                                    <b>Katty:</b> No, not at all. Well, it depends on the people, I suppose. Some
+                                    interviews can be difficult.
+                                </p>
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> Have you ever met any famous people? Have you ever interviewed a
+                                    film star or, I don´t know, a President?
+                                </p>
+                                <p class="parrafo">
+                                    <b>Katty:</b> Yes, I have. I´ve interviewed famous people. I interviewed Robert de
+                                    Niro once.
+                                </p>
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> Did you feel nervous?
+                                </p>
+                                <p class="parrafo">
+                                    <b>Katty:</b> No, not at all. He was really easy to talk to.
+                                </p>
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> So, is there anything else that makes you feel nervous?
+                                </p>
+                                <p class="parrafo">
+                                    <b>Katty:</b> Yes, I don´t really like the idea of flying. Especially in small
+                                    airplanes.
+                                </p>
+                                <p class="parrafo">
+                                    <b>Interviewer:</b> Have you ever flown in a small airplane?
+                                </p>
+                                <p class="parrafo mb-0">
+                                    <b>Katty:</b> Yes, I have. Over the Amazon. We were making a programme about the
+                                    Amazon people. I was absolutely terrified! I never want to do that again.
+                                </p>
+
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                        <img src="./topic-4_2/img/150pp/INGLESINT_separador-contenido.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="escritorio">
+                        <img src="./topic-4_2/img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="movil">
+                    </div>
+
+                    <p class="parrafo">
+                        Observe the following chart about Katty´s life experiences based on the previous listening:
+                    </p>
+
+                    <div class="escritorio">
+
+                        <div class="layout-participle-form table_center">
+
+                            <div class="d-flex align-items-center ">
+
+                                <div class="azul-claro text-center w-100 min_head_height cont_display "
+                                    style="border-bottom: 2px solid #17529C; border-right: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Interviewer (question)
+                                    </p>
+                                </div>
+
+                                <div class="azul-claro text-center w-100 min_head_height cont_display  "
+                                    style="border-bottom: 2px solid #17529C;  border-right: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Katty (answer)
+                                    </p>
+                                </div>
+
+                                <div class="azul-claro text-center w-100 min_head_height cont_display"
+                                    style="border-bottom: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Katty´s life experiences
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div id="content_tabs" class="texto contenedor-ajustable cont_display">
+                                        <p class="parrafo mb-0">
+                                            Have you ever talked to a room full of people?
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto contenedor-ajustable cont_display">
+                                        <p class="parrafo mb-0">
+                                            No, I haven´t. I´ve never talked to a room full of people.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto contenedor-ajustable cont_display">
+                                        <p class="parrafo mb-0">
+                                            She hasn´t talked to a room full of people.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <!-- <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()"
+                                            class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div> -->
+
+                                    <div class="texto contenedor-ajustable cont_display">
+                                        <p class="parrafo mb-0">
+                                            Have you ever met any famous people?
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto contenedor-ajustable cont_display">
+                                        <p class="parrafo mb-0">
+                                            Yes, I have.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto contenedor-ajustable cont_display">
+                                        <p class="parrafo mb-0">
+                                            She has met famous people.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <!-- <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()"
+                                            class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div> -->
+
+                                    <div class="texto contenedor-ajustable cont_display  ">
+                                        <p class="parrafo mb-0">
+                                            Have you ever flown in a small airplane?
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto contenedor-ajustable cont_display  ">
+                                        <p class="parrafo mb-0">
+                                            Yes I have. Over the Amazon.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto contenedor-ajustable cont_display  ">
+                                        <p class="parrafo mb-0">
+                                            She has flown in a small airplane over the Amazon.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="movil">
+                        <!-- layout-participle-form  -->
+                        <div class="border_total table_center ">
+
+                            <div class="d-flex align-items-center ">
+
+                                <div class="azul-claro text-center w-100  ">
+                                    <p class="parrafo mb-0">
+                                        Interviewer (question)
+                                    </p>
+                                </div>
+
+                                <!-- <div class="azul-claro text-center w-100   "
+                                    style="border-bottom: 2px solid #17529C;  border-right: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Katty (answer)
+                                    </p>
+                                </div>
+
+                                <div class="azul-claro text-center w-100 "
+                                    style="border-bottom: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Katty´s life experiences
+                                    </p>
+                                </div> -->
+
+                            </div>
+
+                            <div class="d-flex ">
+                                <div class="nouns w-100 ">
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0 ">
+                                            Have you ever talked to a room full of people?
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 ">
+
+                                    <!-- <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()"
+                                            class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div> -->
+
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            Have you ever met any famous people?
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <!-- <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Yes, I have.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <!-- <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            She has met famous people.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="w-100 ">
+
+                                    <!-- <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()"
+                                            class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div> -->
+
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            Have you ever flown in a small airplane?
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <!-- <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Yes I have. Over the Amazon.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <!-- <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            She has flown in a small airplane over the Amazon.
+                                        </p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- layout-participle-form -->
+                        <div class=" table_center border_total">
+
+                            <div class="d-flex align-items-center ">
+
+                                <!-- <div class="azul-claro text-center w-100  "
+                                    style="border-bottom: 2px solid #17529C; border-right: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Interviewer (question)
+                                    </p>
+                                </div> -->
+
+                                <div class="azul-claro text-center w-100 ">
+                                    <p class="parrafo mb-0">
+                                        Katty (answer)
+                                    </p>
+                                </div>
+
+                                <!-- <div class="azul-claro text-center w-100 "
+                                    style="border-bottom: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Katty´s life experiences
+                                    </p>
+                                </div> -->
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <!-- <div class="nouns w-100 border-right">
+                                    
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Have you ever talked to a room full of people?
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            No, I haven´t. I´ve never talked to a room full of people.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <!-- <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            She hasn´t talked to a room full of people.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <!-- <div class="nouns w-100 border-right">                                   
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Have you ever met any famous people?
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <div class="nouns w-100 ">
+
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            Yes, I have.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <!-- <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            She has met famous people.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <!-- <div class="nouns w-100 border-right">                                   
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Have you ever flown in a small airplane?
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <div class="w-100">
+
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            Yes I have. Over the Amazon.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <!-- <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            She has flown in a small airplane over the Amazon.
+                                        </p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- layout-participle-form  -->
+                        <div class="table_center border_total">
+
+                            <div class="d-flex align-items-center ">
+
+                                <!-- <div class="azul-claro text-center w-100  "
+                                    style="border-bottom: 2px solid #17529C; border-right: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Interviewer (question)
+                                    </p>
+                                </div> -->
+
+                                <!-- <div class="azul-claro text-center w-100   "
+                                    style="border-bottom: 2px solid #17529C;  border-right: 2px solid #17529C; border-top: 2px solid #17529C;">
+                                    <p class="parrafo mb-0">
+                                        Katty (answer)
+                                    </p>
+                                </div> -->
+
+                                <div class="azul-claro text-center w-100 ">
+                                    <p class="parrafo mb-0">
+                                        Katty´s life experiences
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <!-- <div class="nouns w-100 border-right">
+                                    
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Have you ever talked to a room full of people?
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <!-- <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            No, I haven´t. I´ve never talked to a room full of people.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <div class="nouns w-100">
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            She hasn´t talked to a room full of people.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <!-- <div class="nouns w-100 border-right">                                   
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Have you ever met any famous people?
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <!-- <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Yes, I have.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            She has met famous people.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <!-- <div class="nouns w-100 border-right">                                   
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Have you ever flown in a small airplane?
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <!-- <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            Yes I have. Over the Amazon.
+                                        </p>
+                                    </div>
+
+                                </div> -->
+
+                                <div class="w-100">
+                                    <div class="texto padd-1rem w-100 color_black">
+                                        <p class="parrafo mb-0">
+                                            She has flown in a small airplane over the Amazon.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="movil">
+                        <div class="layout-participle-form">
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()"
+                                        class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        To walk
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        walk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        walk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form mt-4">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()"
+                                        class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        To talk
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        Talk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        Talk<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="linea-tabs-movil">
+
+                        <div class="layout-participle-form mt-4">
+
+                            <div class="bg-azul text-center">
+                                <p class="parrafo mb-0">
+                                    Infinitive form
+                                </p>
+                            </div>
+
+                            <div class="nouns w-100">
+
+                                <div class="audio text-center">
+                                    <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                    <button onclick="document.getElementById('audio1-01').play()"
+                                        class="fa fa-volume-up bocina">
+                                        <span class="sr-only">Audio</span>
+                                    </button>
+                                </div>
+
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        To play
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past simple
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        Play<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-azul text-center mt-3">
+                                <p class="parrafo mb-0">
+                                    Past participle
+                                </p>
+                            </div>
+
+                            <div class="nouns">
+                                <div class="texto">
+                                    <p class="parrafo mb-0">
+                                        Play<strong>ed</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <p class="parrafo">
+                        Look at the third column. Do you recognize the words that are used in the sentences to express
+                        Katty´s life experiences?
+                    </p>
+
+                    <p class="parrafo">
+                        We use <span class="text-azul">present perfect</span> to talk about our experiences for our
+                        whole life or our recent
+                        experiences.
+                    </p>
+
+                    <p class="parrafo">
+                        This chart shows the affirmative, negative and interrogative form of the PRESENT PERFECT tense.
+                    </p>
+
+                    <div class="escritorio-2">
+
+                        <div class="layout-participle-form">
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Affirmative form
+                                    </p>
+                                </div>
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Negative form
+                                    </p>
+                                </div>
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Interrogative form
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right ">
+                                    <!-- padd_table -->
+                                    <div class="texto min_h_table min_heightT2 ">
+                                        <p class="parrafo bold text-azul">
+                                            Subject + HAVE / HAS + Past participle
+                                        </p>
+
+                                        <p class="parrafo bold mb-0">
+                                            Past participle for regular Verbs: -ed
+                                        </p>
+                                        <ul class="pad2">
+                                            <li>
+                                                Robert <b>has worked</b> hard all his life.
+                                                <ul class="pad2">
+                                                    <li>
+                                                        work > work<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        play > play<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        clean> clean<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        start > start<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        dance > danc<b>ed</b>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold mb-0">
+                                            Past participle for irregular verbs
+                                        </p>
+                                        <ul class="pad2">
+                                            <li>
+                                                I have <b>been</b> in Canada three times.
+                                            </li>
+                                            <li>
+                                                She has <b>had</b> a lot of troubles recently.
+                                            </li>
+                                            <li>
+                                                They have never <b>seen</b> their father.
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold text-pink mb-0">
+                                            TO REMEMBER:
+                                        </p>
+
+                                        <p class="parrafo bold mb-0">
+                                            Contractions:
+                                        </p>
+                                        <ul class="pad2 mb-0">
+                                            <li>
+                                                <b>I have</b> been = <b>I´ve</b> been
+                                            </li>
+                                            <li>
+                                                <b>She has</b> lived= <b>She´s</b> lived
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+                                    <!-- padd_table -->
+                                    <div class="min_h_table min_heightT2 texto fondo-div-azul ">
+                                        <p class="parrafo bold text-azul">
+                                            Subject + HAVE / HAS + NOT + Past participle
+                                        </p>
+
+                                        <ul class="pad2">
+                                            <li>
+                                                <b>I haven’t seen you</b> for ages!
+                                            </li>
+                                            <li>
+                                                Scientists <b>haven’t found</b> a cure for AIDS.
+                                            </li>
+                                            <li>
+                                                It <b>hasn’t rained</b> since August.
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold text-pink mb-0">
+                                            TO REMEMBER:
+                                        </p>
+
+                                        <p class="parrafo bold">
+                                            We can make negative sentences by using "not" or "never":
+                                        </p>
+
+                                        <ul class="pad2">
+                                            <li>
+                                                I have <b>not</b> seen her today.
+                                            </li>
+                                            <li>
+                                                I have <b>never</b> seen her. (0 times in my life)
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100">
+                                    <!-- padd_table -->
+                                    <div class="texto min_h_table min_heightT2 ">
+                                        <p class="parrafo bold text-azul">
+                                            HAVE / HAS + subject + Past participle?
+                                        </p>
+
+                                        <ul class="pad2">
+                                            <li>
+                                                <b>Have the children</b> finished their homework?
+                                            </li>
+                                            <li>
+                                                <b>Has Susan gone</b> to bed?
+                                            </li>
+                                            <li>
+                                                Where <b>have you been</b>?
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold mb-0">
+                                            Short answers:
+                                        </p>
+
+                                        <ul class="pad2">
+                                            <li>
+                                                <b>Have</b> you finished your work? <b>Yes, I have.</b>
+                                            </li>
+                                            <li>
+                                                <b>Has</b> Tom eaten his dinner? <b>No, he hasn´t.</b>
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold text-pink mb-0">
+                                            TO REMEMBER:
+                                        </p>
+
+                                        <p class="parrafo">
+                                            We use questions with <b> Have you ever + verb ...?</b> to ask about
+                                            experiences:
+                                        </p>
+
+                                        <p class="parrafo">
+                                            <b>Have you</b> ever <b>been</b> to London?
+                                        </p>
+
+                                        <p class="parrafo mb-0">
+                                            The use of <b>ever</b> intensifies a question, but it’s perfectly fine to
+                                            ask questions without ever.
+                                        </p>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()"
+                                            class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            To talk
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            talk<strong>ed</strong>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            talk<strong>ed</strong>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div> -->
+
+                            <!-- <div class="d-flex align-items-center">
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="audio text-center">
+                                        <audio id="audio1-01" src="" type="audio/ogg"></audio>
+                                        <button onclick="document.getElementById('audio1-01').play()"
+                                            class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            To play
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100 border-right">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            play<strong>ed</strong>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="nouns w-100">
+
+                                    <div class="texto">
+                                        <p class="parrafo mb-0">
+                                            play<strong>ed</strong>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div> -->
+
+                        </div>
+
+                    </div>
+                    <!-- tabla movil inicio-->
+                    <div class="movil-2">
+
+                        <div class="layout-participle-form w-100">
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Affirmative form
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center ">
+                                <div class="nouns w-100 border_total">
+                                    <div class="texto w-100">
+                                        <p class="parrafo bold text-azul">
+                                            Subject + HAVE / HAS + Past participle
+                                        </p>
+
+                                        <p class="parrafo bold mb-0">
+                                            Past participle for regular Verbs: -ed
+                                        </p>
+                                        <ul class="padd-L_Resp">
+                                            <li>
+                                                Robert <b>has worked</b> hard all his life.
+                                                <ul class="padd-1rem">
+                                                    <li>
+                                                        work -> work<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        play -> play<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        clean-> clean<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        start -> start<b>ed</b>
+                                                    </li>
+                                                    <li>
+                                                        dance -> danc<b>ed</b>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold mb-0">
+                                            Past participle for irregular verbs
+                                        </p>
+                                        <ul class="padd-L_Resp">
+                                            <li>
+                                                I have <b>been</b> in Canada three times.
+                                            </li>
+                                            <li>
+                                                She has <b>had</b> a lot of troubles recently.
+                                            </li>
+                                            <li>
+                                                They have never <b>seen</b> their father.
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold text-pink mb-0">
+                                            TO REMEMBER:
+                                        </p>
+
+                                        <p class="parrafo bold mb-0">
+                                            Contractions:
+                                        </p>
+                                        <ul class="mb-0 padd-L_Resp">
+                                            <li>
+                                                <b>I have</b> been = <b>I´ve</b> been
+                                            </li>
+                                            <li>
+                                                <b>She has</b> lived= <b>She´s</b> lived
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layout-participle-form w-100">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Negative form
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <div class="nouns w-100 border_total">
+                                    <div class="texto ">
+                                        <p class="parrafo bold text-azul">
+                                            Subject + HAVE / HAS + NOT + Past participle
+                                        </p>
+
+                                        <ul class="padd-L_Resp">
+                                            <li>
+                                                <b>I haven’t seen you</b> for ages!
+                                            </li>
+                                            <li>
+                                                Scientists <b>haven’t found</b> a cure for AIDS.
+                                            </li>
+                                            <li>
+                                                It <b>hasn’t rained</b> since August.
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold text-pink mb-0">
+                                            TO REMEMBER:
+                                        </p>
+
+                                        <p class="parrafo bold">
+                                            We can make negative sentences by using "not" or "never":
+                                        </p>
+
+                                        <ul class="padd-L_Resp mb-0">
+                                            <li>
+                                                I have <b>not</b> seen her today.
+                                            </li>
+                                            <li>
+                                                I have <b>never</b> seen her. (0 times in my life)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layout-participle-form w-100">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-azul text-center w-100">
+                                    <p class="parrafo mb-0">
+                                        Interrogative form
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="nouns w-100 border_total">
+                                    <div class="texto ">
+                                        <p class="parrafo bold text-azul">
+                                            HAVE / HAS + subject + Past participle?
+                                        </p>
+                                        <ul class="padd-L_Resp">
+                                            <li>
+                                                <b>Have the children</b> finished their homework?
+                                            </li>
+                                            <li>
+                                                <b>Has Susan gone</b> to bed?
+                                            </li>
+                                            <li>
+                                                Where <b>have you been</b>?
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold mb-0">
+                                            Short answers:
+                                        </p>
+
+                                        <ul class="padd-L_Resp">
+                                            <li>
+                                                <b>Have</b> you finished your work? <b>Yes, I have.</b>
+                                            </li>
+                                            <li>
+                                                <b>Has</b> Tom eaten his dinner? <b>No, he hasn´t.</b>
+                                            </li>
+                                        </ul>
+
+                                        <p class="parrafo bold text-pink mb-0">
+                                            TO REMEMBER:
+                                        </p>
+
+                                        <p class="parrafo">
+                                            We use questions with <b> Have you ever + verb ...?</b> to ask about
+                                            experiences:
+                                        </p>
+
+                                        <p class="parrafo">
+                                            <b>Have you</b> ever <b>been</b> to London?
+                                        </p>
+
+                                        <p class="parrafo">
+                                            The use of <b>ever</b> intensifies a question, but it’s perfectly fine to
+                                            ask questions without ever.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- tabla movil fin -->
+
+                    <p class="parrafo bold mb-0 m-2rem">
+                        The present perfect tense is often used with adverbial expressions or prepositions such as:
+                    </p>
+                    <p class="parrafo " style="color: #0051a0;">
+                        already, yet, just, ever, never since, for.
+                    </p>
+
+                    <p class="parrafo bold">
+                        These are the uses of the PRESENT PERFECT tense.
+                    </p>
+
+                    <div class="cuadro_rosa m-2em">
+                        <p class="parrafo bold mb-0">
+                            Action started in the past which continues up to the present:
+                        </p>
+
+                        <ul class="padd_2rem">
+                            <li>
+                                It has rained for about 3 days. (It continues raining.)
+                            </li>
+                            <li>
+                                I have lived in Bristol since 1984. (I continue living there.)
+                            </li>
+                        </ul>
+
+                        <p class="parrafo bold mb-0">
+                            Action in the past with a result in the present:
+                        </p>
+
+                        <ul class="padd_2rem">
+                            <li>
+                                I´ve lost my keys. (so I can´t get into my house.)
+                            </li>
+                        </ul>
+
+                        <p class="parrafo bold mb-0">
+                            Talk about experiences:
+                        </p>
+
+                        <ul class="padd_2rem mb-0">
+                            <li>
+                                Have you ever seen an igloo?
+                            </li>
+                            <li>
+                                I have never experienced a hurricane.
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <div class="">
+
+                    <h2 class="parrafo text-azul subtitulos m-2rem " accesskey="3" tabindex="0">
+                        Online Practice Activity <br>
+                        OPA48. Have / Has
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde escritorio">
+                        <b>Instructions:</b> <br>
+                        1. Choose the correct word, have or has, in each question and complete with a short answer.
+                    </p>
+
+                    <p class="parrafo instruccion-color-verde mb-4 movil">
+                        <b>Instructions:</b> <br>
+                        1. Choose the correct word, have or has, in each question and complete with a short answer.
+                    </p>
+
+                    <!-- prueba inicio -->
+                    <!-- <div> -->
+                    <!-- sImg -->
+                    <div class="conTarjetas  seleccionar-opa48 ">
+                        <div id="" class=" Activity_select mb-2rem ">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">Dialog 1</label>
+                            </div>
+                            <!-- <div id="opSelectOpa48-0" class="divcontsel"> -->
+                            <div id="opSelectOpa48-0" class="divcontsel ">
+                                <div class="parrafo mb-2rem mt-2rem section_opa48">
+                                    <p class="parrafo mb-0"><b>A:&nbsp; </b></p>
+
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+
+                                    <!-- <span class="mensaje-correct-incorrect-1 sr-only"></span> -->
+                                    <select id="select-Opa48-0"
+                                        class="form-control reactivo custom-select respuesta-correcta-select-1  wselect_opa48"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">have</option>
+                                        <option value="2">has</option>
+                                        <!-- <option value="3">sold</option> -->
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">María ever gone skiing before?</p>
+                                    <br>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <div id="opSelectOpa48-1" class="divcontsel">
+                                <div class="parrafo mb-0 section_opa48">
+                                    <p class="parrafo mb-0"><b>B: </b>No, she</p>&nbsp;
+                                    <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                                    <select id="select-Opa48-1"
+                                        class="form-control reactivo custom-select respuesta-correcta-select-2 wselect_opa48"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">hasn´t</option>
+                                        <option value="2">haven´t</option>
+                                        <!-- <option value="3">told</option> -->
+                                    </select>
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>.
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- prueba -->
+                        <div id="" class=" Activity_select mb-2rem">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">Dialog 2</label>
+                            </div>
+                            <!-- opSelectOpa48-2 -->
+                            <div id="opSelectOpa48-2" class="divcontsel">
+                                <div class="parrafo mb-2rem mt-2rem section_opa48">
+                                    <p class="parrafo mb-0"><b>A:&nbsp;</b></p>
+
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+
+                                    <!-- <span class="mensaje-correct-incorrect-1 sr-only"></span> -->
+                                    <select id="select-Opa48-2"
+                                        class="form-control reactivo custom-select respuesta-correcta-select-1 wselect_opa48"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">have</option>
+                                        <option value="2">has</option>
+                                        <!-- <option value="3">sold</option> -->
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">you ever played basketball?</p>
+                                    <br>
+                                </div>
+                            </div>
+                            <div id="opSelectOpa48-3" class="divcontsel">
+                                <div class="parrafo mb-0 section_opa48">
+                                    <p class="parrafo mb-0"><b>B: </b>Yes, I</p>&nbsp;
+                                    <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                                    <select id="select-Opa48-3"
+                                        class="form-control reactivo custom-select wselect_opa48 respuesta-correcta-select-2"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">have</option>
+                                        <option value="2">has</option>
+                                        <!-- <option value="3">told</option> -->
+                                    </select>.
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- dialog 3 inicio -->
+                        <div id="" class=" Activity_select mb-2rem">
+                            <div class="texInc content_text ">
+                                <label class="text-azul " for="s12-3 ">Dialog 3</label>
+                            </div>
+                            <!-- opSelectOpa48-2 -->
+                            <div id="opSelectOpa48-4" class="divcontsel">
+                                <div class="parrafo mb-2rem mt-2rem section_opa48">
+                                    <p class="parrafo mb-0">
+                                        <b>A:&nbsp; </b>
+                                    </p>
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+
+                                    <!-- <span class="mensaje-correct-incorrect-1 sr-only"></span> -->
+                                    <select id="select-Opa48-4"
+                                        class="form-control reactivo custom-select respuesta-correcta-select-1 wselect_opa48"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">have</option>
+                                        <option value="2">has</option>
+                                        <!-- <option value="3">sold</option> -->
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">Tom and Keyla ever eaten Korean food?</p>
+                                    <br>
+                                </div>
+                            </div>
+                            <div id="opSelectOpa48-5" class="divcontsel">
+                                <div class="parrafo mb-0 section_opa48">
+                                    <p class="parrafo mb-0"><b>B: </b>No, they</p>&nbsp;
+                                    <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                                    <select id="select-Opa48-5"
+                                        class="form-control reactivo custom-select wselect_opa48 respuesta-correcta-select-2"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">hasn´t</option>
+                                        <option value="2">haven´t</option>
+                                        <!-- <option value="3">told</option> -->
+                                    </select>
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- dialog 3 final -->
+                        <!-- fin prueba -->
+                        <div id="" class=" Activity_select mb-2rem">
+                            <div class="texInc content_text">
+                                <label class="text-azul" for="s12-3 ">Dialog 4</label>
+                            </div>
+                            <div id="opSelectOpa48-6" class="divcontsel">
+                                <div class="parrafo mb-2rem mt-2rem text-left section_opa48">
+                                    <p class="parrafo mb-0"><b>A:&nbsp;</b></p>
+
+                                    <div class='contselopce invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+
+                                    <!-- <span class="mensaje-correct-incorrect-1 sr-only"></span> -->
+
+                                    <select id="select-Opa48-6"
+                                        class="form-control reactivo custom-select respuesta-correcta-select-1 wselect_opa48"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose
+                                            here...</option>
+                                        <option value="1">have</option>
+                                        <option value="2">has</option>
+                                        <!-- <option value="3">sold</option> -->
+                                    </select>&nbsp;
+                                    <p class="parrafo mb-0">
+                                        your father ever flown a plane?
+                                    </p>
+                                    <br>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <div id="opSelectOpa48-7" class="divcontsel">
+                                <div class="parrafo mb-0 section_opa48">
+                                    <p class="parrafo mb-0"><b>B: </b></p>
+                                    <p class="parrafo mb-0">Yes, he</p> &nbsp;
+                                    <div class='contselopce  invisible w-200'>
+                                        <p class='TexSel'></p>
+                                        <i class='result fa-solid' aria-hidden='true'></i>
+                                    </div>
+                                    <div class='respmens sr-only'></div>
+                                    <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                                    <!-- <div id="slopa48-7" class="divcontsel">                                         -->
+                                    <select id="select-Opa48-7"
+                                        class="form-control reactivo custom-select wselect_opa48 respuesta-correcta-select-2"
+                                        name="seleccionar-opa48" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">
+                                            Choose here...</option>
+                                        <option value="1">has</option>
+                                        <option value="2">have</option>
+                                        <!-- <option value="3">told</option> -->
+                                    </select> .
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-0 mb-0 retroalimentacion1 rojoretro none "></div>
+                        <p class="parrafo instruccion-color-verde text-left m-2rem">
+                            2. Press the buttons and check your answers.
+                        </p>
+                        <div id="btn_checkopa48" class="contenedor-botones2 paddR2_5">
+                            <div class="text-right seleccionar-opa48 ">
+                                <button id="check_opa48" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect 
+                                            waves-light check_opa48" disabled=""
+                                    name="seleccionar-opa48">Check</button>
+                            </div>
+                            <div class="text-right ">
+                                <button id="try_opa48" role="button"
+                                    class="btn boton-check btn-reintentar bt waves-effect waves-light try_opa48"
+                                    disabled name="seleccionar-opa48">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- </div> -->
+
+                    <!-- prueba fin -->
+                </div>
+            </div>
+            </div>
+            <br>
+        </section>
+
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="4" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA49. Conversation
+                </h2>
+
+                <p class="parrafo instruccion-color-verde">
+                    <b>Instructions:</b> <br>
+                    1. Complete the conversation using the words provided.
+                </p>
+
+
+
+                <div class="selescts seleccionarOpa49 escribir-3-1 ">
+                    <div style="display: inline;" class="conTarjetas text-left recFacImg">
+                        <div class=" parrafo mar2rem section_opa48">
+                            <p class="parrafo mb-0"><b>Mia: (1)</b></p>&nbsp;
+                            <span class="mensaje-correct-incorrect-1 sr-only"></span>
+                            <div id="sl-opa49-0" class="divcontsel">
+                                <div class='w-200 contselopce invisible '>
+                                    <!-- disp-in -->
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                                <select id="select-49-0"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-1"
+                                    name="seleccionarOpa49" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a. gone</option>
+                                    <option value="2">b. ´ve</option>
+                                    <option value="3">c. have</option>
+                                    <option value="4">d. went</option>
+                                    <option value="5">e. did</option>
+                                </select>
+                            </div>&nbsp;
+                            <p class="parrafo mb-0">you ever. <b>(2)</b></p>&nbsp;
+                            <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                            <div id="sl-opa49-1" class="divcontsel">
+                                <div class='w-200 contselopce invisible '>
+                                    <!-- disp-in -->
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                                <select id="select-49-1"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa49" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a. gone</option>
+                                    <option value="2">b. ´ve</option>
+                                    <option value="3">c. have</option>
+                                    <option value="4">d. went</option>
+                                    <option value="5">e. did</option>
+                                </select>
+                            </div>&nbsp;
+                            <p class="parrafo mb-0">kayaking?</p>
+                        </div>
+
+                        <div id="sl-opa49-2" class="divcontsel parrafo mar2rem section_opa48">
+                            <p class="parrafo mb-0"><b>Joe: </b>Yes, I <b>(3)</b></p>&nbsp;
+
+                            <div class='w-200 contselopce invisible '>
+                                <!-- disp-in -->
+                                <div class='TexSel'></div>
+                                <i class='result fa-solid' aria-hidden='true'></i>
+                            </div>
+                            <div class='respmens sr-only'></div>
+
+                            <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                            <div class="disp-in">
+                                <select id="select-49-2"
+                                    class="form-control  reactivo custom-select  respuesta-correcta-select-2"
+                                    name="seleccionarOpa49" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a. gone</option>
+                                    <option value="2">b. ´ve</option>
+                                    <option value="3">c. have</option>
+                                    <option value="4">d. went</option>
+                                    <option value="5">e. did</option>
+                                </select>&nbsp;
+                            </div>
+                            <p class="parrafo mb-0">kayaking in Canada three years ago.</p>
+                        </div>
+                        <div id="sl-opa49-3" class="divcontsel mar2rem ">
+                            <div class="section_opa48">
+                                <p class="parrafo mb-0"><b>Mia: (4) </b></p>&nbsp;
+                                <div class='w-200 contselopce invisible '>
+                                    <!-- disp-in -->
+                                    <div class='TexSel'>
+                                        <p class="parrafo mb-0"></p>
+                                    </div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                                <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                                <div class="disp-in">
+                                    <select id="select-49-3"
+                                        class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                        name="seleccionarOpa49" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                            here...</option>
+                                        <option value="1">a. gone</option>
+                                        <option value="2">b. ´ve</option>
+                                        <option value="3">c. have</option>
+                                        <option value="4">d. went</option>
+                                        <option value="5">e. did</option>
+                                    </select>&nbsp;
+                                </div>
+                                <p class="parrafo mb-0">you like it?</p>
+                            </div>
+                        </div>
+
+                        <div id="sl-opa49-4" class="divcontsel parrafo mar2rem section_opa48">
+                            <p class="parrafo mb-0"><b>Joe:</b> Yes, I <b>(5)</b></p>&nbsp;
+                            <div class='w-200 contselopce invisible '>
+                                <!-- disp-in -->
+                                <div class='TexSel'></div>
+                                <i class='result fa-solid' aria-hidden='true'></i>
+                            </div>
+                            <div class='respmens sr-only'></div>
+
+                            <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                            <div class="disp-in">
+                                <select id="select-49-4"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa49" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a. gone</option>
+                                    <option value="2">b. ´ve</option>
+                                    <option value="3">c. have</option>
+                                    <option value="4">d. went</option>
+                                    <option value="5">e. did</option>
+                                </select>
+                            </div>
+                            <p class="parrafo mb-0">. It was a lot of fun. How about you?</p>
+                        </div>
+
+                        <div id="sl-opa49-5" class="divcontsel parrafo mar2rem section_opa48">
+                            <p class="parrafo mb-0"><b>Mia: </b> No, I<b> (6)</b></p>&nbsp;
+
+                            <div class='w-200 contselopce invisible '>
+                                <!-- disp-in -->
+                                <div class='TexSel'></div>
+                                <i class='result fa-solid' aria-hidden='true'></i>
+                            </div>
+                            <div class='respmens sr-only'></div>
+
+                            <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                            <div class="disp-in">
+                                <select id="select-49-5"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa49" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a. gone</option>
+                                    <option value="2">b. ´ve</option>
+                                    <option value="3">c. have</option>
+                                    <option value="4">d. went</option>
+                                    <option value="5">e. did</option>
+                                </select>
+                            </div>&nbsp;
+                            <p class="parrafo mb-0"> never tried kayaking.</p>
+                        </div>
+
+                        <div id="sl-opa49-6" class="divcontsel parrafo mar2rem section_opa48">
+                            <p class="parrafo mb-0">But I´ve <b> (7)</b></p>&nbsp;
+
+                            <div class='w-200 contselopce invisible '>
+                                <!-- disp-in -->
+                                <div class='TexSel'></div>
+                                <i class='result fa-solid' aria-hidden='true'></i>
+                            </div>
+                            <div class='respmens sr-only'></div>
+
+                            <!-- <span class="mensaje-correct-incorrect-2 sr-only"></span> -->
+                            <div class="disp-in">
+                                <select id="select-49-6"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa49" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a. gone</option>
+                                    <option value="2">b. ´ve</option>
+                                    <option value="3">c. have</option>
+                                    <option value="4">d. went</option>
+                                    <option value="5">e. did</option>
+                                </select>
+                            </div>&nbsp;
+                            <p class="parrafo mb-0"> windsurfing. That´s really exciting.</p>
+                        </div>
+                        <p class="parrafo mar2rem disp-flex">
+                            <b>Joe:</b> Wow! Where did you do that?
+                        </p>
+                        <p class="parrafo mar2rem">
+                            <b>Mia:</b> In California.
+                        </p>
+                    </div>
+                    <div class="retroalimentacion1 m-2rem rojoretro none"></div>
+
+                    <p class="parrafo instruccion-color-verde mt-4_5">
+                        2. Press the buttons and check your answers.
+                    </p>
+
+                    <div class="contenedor-botones2 paddR2_5">
+                        <div class="text-right ">
+                            <button id="check-Opa49" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="seleccionarOpa49">Check</button>
+                        </div>
+                        <div class="text-right ">
+                            <button id="try-Opa49" role="button"
+                                class="btn boton-check btn-reintentar try-Opa49 bt waves-effect waves-light" disabled
+                                name="seleccionarOpa49">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="5" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA50. Mark answering 
+                </h2>
+
+                <p class="parrafo instruccion-color-verde escritorio">
+                    <b>Instructions:</b> <br>
+                    1. Listen to a man answering questions about his life experiences.
+                </p>
+
+                <div class="text-center m-2rem " lang="es">
+                    <img src="./Topic-4_2/img/IB3V-M4-4.2_OPA50.png"
+                        alt="Imagen de entrevista entre un hombre y una mujer" width="60%" height="auto">
+                </div>
+
+                <div class="m-2rem text-center">
+                    <audio controls="" aria-role="audio">
+                        Tu navegador no soporta la etiqueta audio.
+                        <source src="./Topic-4_2/audios/M4A60EntrevistaaMark.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <p class="text-center movil">
+                    <a download="" class="btn-descarga btn btn-azul-modals waves-effect waves-light btn-14"
+                        href="./Topic-4_2/downloads/INGLES3-M4-Guion-OPA50.pdf">
+                        Script
+                        <span class="sr-only">PDF file</span>
+                    </a>
+                </p>
+
+                <div class="text-center">
+                    <details id="faqs-1-respuestas" class="text-right escritorio t2 faqs mb-2rem faqScript">
+                        <summary class="btn btn-actividad cheqfaq waves-effect waves-light text-center">Script
+                        </summary>
+                        <div class="details-content text-left">
+                            <p class="parrafo">
+                                <b>Interviewer:</b> So, what makes you feel nervous?
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> Mmm, let´s see. I´ve always hated spiders. They make me feel really
+                                nervous.
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> Have you ever held a spider in your hand? 
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> No! Never! I don´t think I could. 
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> Why don´t you like spiders?
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> I don´t know. I just don´t.
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> Is there anything else you don´t like?
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> Well, let´s see. Yes, I really don´t like heights. 
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> Have you ever stood on top of a tall building? 
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> Yes, I have. And I was terrified. I couldn´t look down. I just stood really
+                                close to the wall and closed my eyes. It was awful.
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> Anything else that make you feel nervous? 
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> Well, yes there is! You ´re  going to think I´m  a really nervous person,
+                                but I hate fast cars. They make me feel really bad.
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> Do you drive?
+                            </p>
+                            <p class="parrafo">
+                                <b>Mark:</b> Yes, I do. 
+                            </p>
+                            <p class="parrafo">
+                                <b>Interviewer:</b> And have you ever driven a fast car? I mean, a sports car? 
+                            </p>
+                            <p class="parrafo mb-0">
+                                <b>Mark:</b> No, I haven´t. One of my friends took me out in a Porsche once, but I´ve
+                                never  driven a fast car myself. May be it´s the driver that makes me nervous, and not
+                                the  car! 
+                            </p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./Topic-4_2/img/150pp/INGLESINT_separador-interior-actividad.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./Topic-4_2/img/150pp/INGLESINT_separador-interior-actividad-r.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+                <p class="parrafo instruccion-color-verde ">
+                    2. Use the information from the three columns to form sentences to say what he has or hasn´t done in
+                    his life.
+                </p>
+                <div class="  seleccionarOpa50_2 mt-0">
+                    <div class="conTarjetas " >
+                        <div class=" mt-0 order_opa50" >
+                            <p class="p_format mb-0">a.</p>
+                            <p class="parrafo mb-0">He</p>
+                            <span class="mensaje-correct-incorrect-2 sr-only"></span>
+                            <div id="opSelectOpa50-2-0" class="divcontsel">
+
+                                <div class='contselopce invisible w-200'>
+                                    <p class='TexSel'></p>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                                                                
+                                    <select id="select-Opa50-2-0" class="form-control reactivo custom-select 
+                                respuesta-correcta-select-2 " name="seleccionarOpa50_2" autocompleted="">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                            here...</option>
+                                        <option value="1">has</option>
+                                        <option value="2">hasn´t</option>
+                                    </select>                                
+                            </div>&nbsp;
+                            <p class="parrafo mb-0">stood</p>&nbsp;
+                            <span class="mensaje-correct-incorrect-2 sr-only"></span>
+                            <div id="opSelectOpa50-2-1" class="divcontsel">
+                                <div class='contselopce invisible second_selectop50'>
+                                    <p class='TexSel'></p>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+
+                                <select id="select-Opa50-2-1"
+                                    class="second_selectop50 form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa50_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a fast car by himself.</option>
+                                    <option value="2">a spider in his hand.</option>
+                                    <option value="3">on top of a tall building.</option>
+                                </select>
+                            </div>&nbsp;
+                        </div>
+                    </div>
+
+                    <div class="line_opa50"></div>
+
+                    <div class="conTarjetas">
+                        <div class="mt-0 order_opa50">
+                            <p class="p_format mb-0">b. </p>
+                            <p class="parrafo mb-0">He</p>
+                            <span class="mensaje-correct-incorrect-2 sr-only"></span>
+                            <div id="opSelectOpa50-2-2" class="divcontsel">
+                                <div class='contselopce invisible w-200'>
+                                    <p class='TexSel'></p>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+
+                                <select id="select-Opa50-2-2"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa50_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">has</option>
+                                    <option value="2">hasn´t</option>
+                                </select>
+                            </div>&nbsp;
+                            <p class="parrafo mb-0">driven</p>
+                            <span class="mensaje-correct-incorrect-2 sr-only"></span>
+                            <div id="opSelectOpa50-2-3" class="divcontsel">
+                                <div class='contselopce invisible second_selectop50'>
+                                    <p class='TexSel'></p>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                                <select id="select-Opa50-2-3"
+                                    class="second_selectop50 form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa50_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a fast car by himself.</option>
+                                    <option value="2">a spider in his hand.</option>
+                                    <option value="3">on top of a tall building.</option>
+                                </select>
+                            </div>&nbsp;
+                        </div>
+                    </div>
+
+                    <div class="line_opa50"></div>
+
+                    <div class="conTarjetas   ">
+                        <div class="order_opa50 mt-0">
+                            <p class="p_format mb-0">c. </p>
+                            <p class="parrafo mb-0">He</p>
+                            <span class="mensaje-correct-incorrect-2 sr-only"></span>
+                            <div id="opSelectOpa50-2-4" class="divcontsel">
+                                <div class='contselopce invisible w-200'>
+                                    <p class='TexSel'></p>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+
+                                <select id="select-Opa50-2-4"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa50_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">has</option>
+                                    <option value="2">hasn´t</option>
+                                </select>
+                            </div>&nbsp;
+                            <p class="parrafo mb-0">held</p>
+                            <span class="mensaje-correct-incorrect-2 sr-only"></span>
+                            <div id="opSelectOpa50-2-5" class="divcontsel">
+                                <div class='contselopce invisible second_selectop50'>
+                                    <p class='TexSel'></p>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                                <select id="select-Opa50-2-5"
+                                    class="second_selectop50 form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionarOpa50_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">a fast car by himself.</option>
+                                    <option value="2">a spider in his hand.</option>
+                                    <option value="3">on top of a tall building.</option>
+                                </select>
+                            </div>&nbsp;
+                        </div>
+                    </div>
+                    <div class="line_opa50"></div>
+                    <div class="retroalimentacion1 rojoretro paddR2_5 none "></div>
+
+                    <p class="text-left parrafo instruccion-color-verde mt-2rem">
+                        3. Press the buttons and check your answers.
+                    </p>
+
+                    <div class="contenedor-botones2">
+                        <div class="text-right">
+                            <button id="checkOpa50_2" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light checkOpa50_2"
+                                disabled="" name="seleccionarOpa50_2">Check</button>
+                        </div>
+                        <div class="text-right">
+                            <button id="tryOpa50_2" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light tryOpa50_2"
+                                disabled="" name="seleccionarOpa50_2">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="50%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-4_2/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="50%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem " accesskey="6" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA51. Present perfect 
+                </h2>
+
+                <p class="parrafo instruccion-color-verde">
+                    <b>Instructions:</b> <br>
+                    1. Write questions in present perfect.
+                </p>
+
+                <div class="Activity_select mb-2rem" style="padding: 2rem;">
+                    <p class="parrafo mb-0">
+                        Example:
+                    </p>
+                    <div class="movil">
+                        <p class="parrafo">
+                            <span style="text-decoration-line:underline; text-decoration-color:#17529C;
+                            text-decoration-thickness: .1rem;
+                            ">Have you ever slept</span> (sleep) on the floor?
+                        </p>
+                    </div>
+                    <div class="escritorio" style="display: flex; justify-content: center;
+                    width: 100%;">
+                        <div style="display: flex; justify-content: center; width: 50%;
+                        border-bottom: 2px solid #17529C;">
+                            <p class="parrafo mb-0 ">
+                                Have you ever slept
+                            </p>
+
+                        </div>
+
+                        <div style="display: flex; justify-content: left; width: 50%;">
+                            <p class="parrafo  text-center mb-0">
+                                (sleep) on the floor?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="escribir-3-1" class="selescts escribir-3-1 recFacImg">
+
+                    <div class="parrafo text-left container_escribir ">
+
+                        <p class="sr-only text-ayuda">
+                            a. (1) espacio a rellenar (hold) a snake?
+                        </p>
+
+                        <p class="parrafo reactivo16">
+                            a.
+                            <span class="sr-only text-ayuda"> espacio a rellenar a snake?</span>&nbsp;
+                            <!-- <span class="s-resp" aria-hidden="true"> </span> -->
+                            <input id="escribir-3-1-1" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(hold)</b> a snake?</span>
+                            <span class="s-resp">&nbsp;<b>(hold)</b> a snake?</span>
+                        </p>
+                        <p class="parrafo reactivo16">
+                            b.<span class="sr-only text-ayuda">espacio a rellenar (visit) an English speaking
+                                country?</span>
+
+                            <!-- <span class="s-resp" aria-hidden="true"></span> -->
+                            <input id="escribir-3-1-2" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(visit)</b> an English speaking
+                                country?</span>
+                            <span class="s-resp">&nbsp;<b>(visit)</b> an English speaking
+                                country?</span>
+                        </p>
+                        <p class="parrafo reactivo16">
+                            c.
+                            <span class="sr-only text-ayuda">espacio a rellenar (do) yoga?</span>
+
+                            <!-- <span class="s-resp" ></span> -->
+                            <input id="escribir-3-1-3" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(do)</b> yoga?</span>
+                            <span class="s-resp">&nbsp;<b>(do)</b> yoga?</span>
+                        </p>
+                        <p class="parrafo reactivo16">
+                            d.
+                            <span class="sr-only text-ayuda">espacio a rellenar (write) an e-mail in English?</span>
+
+                            <!-- <span class="s-resp" ></span> -->
+                            <input id="escribir-3-1-4" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(write)</b> an e-mail in English?</span>
+                            <span class="s-resp">&nbsp;<b>(write)</b> an e-mail in English?</span>
+                        </p>
+                        <p class="parrafo reactivo16">
+                            e.
+                            <span class="sr-only text-ayuda">espacio a rellenar (win) a sport event? </span>
+
+                            <!-- <span class="s-resp" >My father</span> -->
+                            <input id="escribir-3-1-5" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(win)</b> a sport event?</span>
+                            <span class="s-resp">&nbsp;<b>(win)</b> a sport event?</span>
+                        </p>
+                        <p class="parrafo reactivo16">
+                            f.
+                            <span class="sr-only text-ayuda">espacio a rellenar (lose) your house keys? </span>
+
+                            <!-- <span class="s-resp" >I</span> -->
+                            <input id="escribir-3-1-6" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(lose)</b> your house keys?</span>
+                            <span class="s-resp">&nbsp;<b>(lose)</b> your house keys?</span>
+                        </p>
+                        <p class="parrafo reactivo16">
+                            g.
+                            <span class="sr-only text-ayuda">espacio a rellenar (forget) to go to a meet!</span>
+
+                            <!-- <span class="s-resp" >Katia</span> -->
+                            <input id="escribir-3-1-7" type="text" placeholder="Write here..." name="escribir-3-1"
+                                class="escribir">
+                            <span class="contselopc"></span>
+                            <span class="sr-only">&nbsp;<b>(forget)</b> to go to a meet!</span>
+                            <span class="s-resp">&nbsp;<b>(forget)</b> to go to a meet!</span>
+                        </p>
+
+                    </div>
+
+
+                    <ol class="parrafo text-left instruccion-color-verde ml-4 m-2rem " start="2">
+                        <li>Press the buttons and check your answers. </li>
+                    </ol>
+
+                    <div class="retroalimentacion1 rojoretro none m-2rem ">
+                        <p></p>
+                    </div>
+
+                    <div class="contenedor-botones2 paddR2_5">
+                        <div class="text-right">
+                            <button id="check-e-33-1" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="escribir-3-1">Check</button>
+                        </div>
+                        <div class="text-right">
+                            <button id="try-e-33-1" role="button"
+                                class="btn boton-check btn-reintentar try bt waves-effect waves-light" disabled
+                                name="escribir-3-1">Try again</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+                    <img src="./Topic-4_2/img/150pp/INGLESINT_separador-contenido.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+                    <img src="./Topic-4_2/img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+                </div>
+
+
+                <div class="recap ">
+
+                    <h2 class="parrafo text-azul text-center mb-1-5">
+                        Recap of Topic 4.2 Talking about life experiences
+                    </h2>
+
+                    <p class="text-center text-azul parrafo mb-1-5">Listen to the audio.</p>
+                    <!-- <div class="mb-4 mt-4 text-center">
+                        <audio controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./Topic-4_2/audios/" type="audio/mpeg">
+                        </audio>
+                    </div> -->
+                    <div class="mb-4 mt-4 text-center">
+                        <audio class="tam_audio" controls="" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./Topic-4_2/audios/M4A61Recap4.2.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <p class="parrafo">
+                        You learned how to use the <b>present perfect tense</b> to talk about life experiences.
+                    </p>
+
+                    <p class="parrafo">
+                        Remember that we need the verb <b>have</b> as auxiliary verb and the <b>main verb goes in past
+                            participle</b>
+                        to form the present perfect tense in English.
+                    </p>
+
+                    <p class="parrafo mb-2">
+                        Examples:
+                    </p>
+
+                    <ul class="parrafo ml-4 mb-0">
+                        <li><b>I have travelled abroad twice in my life.</b></li>
+                        <li><b>My mother hasn´t been in China / My mother has never been in China.</b></li>
+                        <li><b>Has she finished her homework?</b> Yes, she has. / No, she hasn´t.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./Topic-4_2/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="./Topic-4_2/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <!-- <script src="./scripts/home.js"></script> -->
+    <script src="./Topic-4_2/scripts/home.js"></script>
+
+    <!-- Evaluaciones -->
+    <!-- <script src="./scripts/evaluacion/eval-act42.js"></script>
+    <script src="./scripts/evaluacion/eval-act43.js"></script>
+    <script src="./scripts/evaluacion/eval-act44.js"></script> -->
+
+
+    <script src="./Topic-4_2/scripts/menuacces.js"></script>
+    <script src="./Topic-4_2/scripts/marcador.js"></script>
+    <script src="./Topic-4_2/scripts/tabla1.js"></script>
+    <script src="./Topic-4_2/scripts/table2.js"></script>
+    <script src="./Topic-4_2/scripts/modalLectorInmersivo.js"></script>
+    <!-- <script src="./scripts/memorama.js"></script> -->
+    <script src="./Topic-4_2/scripts/unit-4_2/selects.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/inputs.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/unit-4_2.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/opa47.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/opa48.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/opa49.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/opa50_2.js"></script>
+    <script src="./Topic-4_2/scripts/unit-4_2/opa51.js"></script>
+
+
+
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <!-- <script src="./scripts/scroll-timeline.js"></script> -->
+    <script src="./Topic-4_2/scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper horizontal -->
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            speed: 600,
+            parallax: true,
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+    </script>
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+    <script>
+
+        function agregarGuiones(input) {
+            // Obtenemos el valor actual del input
+            let valorActual = input.value;
+
+            // Eliminamos cualquier guión existente
+            valorActual = valorActual.replace(/-/g, '');
+
+            // Agregamos un guión entre cada letra
+            let valorConGuiones = valorActual.split('').join('-');
+
+            // Actualizamos el valor del input
+            input.value = valorConGuiones;
+        }
+
+    </script>
+
+</body>
+
+</html>

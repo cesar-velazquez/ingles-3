@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 2.2 There was - there were </title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-2_2/css/index.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-2_2/css/menuacces.css"> 
+
+    <link rel="stylesheet" href="Topic-2_2/css/unit2.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+</head>
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+    
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4 sr-only">
+            <li lang="es">Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li><i lang="en">Activity OPA 16</i> Alt <i lang="es">+</i> 1</li>
+            <li><i lang="en">Activity OPA 17</i> Alt <i lang="es">+</i> 2</li>
+            <li><i lang="en">Activity OPA 18</i> Alt <i lang="es">+</i> 3</li>
+        </ul>
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="parrafo ml-4 sr-only">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li><i lang="en">Activity OPA16</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 1</li>
+            <li><i lang="en">Activity OPA17</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 2</li>
+            <li><i lang="en">Activity OPA18</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 3</li>
+        </ul>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-2_2/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-2_2/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-2_2/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-2_2/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-2_2/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-2_2/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-2_2/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-2_2/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-2_2/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-2_2/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-2_2/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es" aria-hidden="true">Universidad Veracruzana</a>
+               
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Topic 2.2 </b> <span style="font-weight: normal !important;">There was - there were</span>
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+
+            <img src="Topic-2_2/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                    <i class="fas fa-bars"></i>
+                </button>-->
+                
+                <div class="d-flex align-items-center mt-4">
+
+                    <div class="pleca__ee ml-0" style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <p class="tam-font font-weight-bold mb-1 texto-tema-margen">
+                                Topic 2.2 <!--<span style="font-weight: normal;">My habits and hobbies</span>-->
+                            </p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="Topic-2_2/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Topic 2.2 <br>
+                <span class="subtitulo-secundari-unit">There was - there were</span>
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="introduction">
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <div class="recTex mb-2rem">
+                        <p class="parrafo mb-0">
+                            We use <strong>there was</strong> or <strong>there were</strong> to indicate someone or something existed in a certain place.<br>
+                            In a statement, a noun always follows <strong>there was</strong> or <strong>there were</strong>.<br>
+                            <strong>There was</strong> and <strong>there were</strong> represent the past tense form of “there is” and “there are”.
+                        </p>
+                    </div>
+
+
+                    <div class="Grid2 mb-2rem">
+                        <div>
+                            <div class="c1">
+                                <img src="Topic-2_2/img/IB3V-M2_2.2-01.png" alt="Imagen de plato de sopa con una mosca" class="imgCuadro" lang="es" />
+                                <p class="mb-0"><span>I didn’t eat my soup because <strong>there was</strong> a <strong>fly</strong> in it. Yuck!</span></p>
+                            </div>
+                            <div class="recTex">
+                                <p class="mb-0">Use <strong>there was</strong> with a <strong>singular</strong> count noun or a noncount noun.</p>
+                            </div>
+                        </div>                    
+                        <div>
+                            <div class="c1">
+                                <img src="Topic-2_2/img/IB3V-M2_2.2-02.png" alt="Imagen de jóvenes divirtiéndose en un concierto" class="imgCuadro" lang="es" />
+                                <p class="mb-0"><span><strong>There were</strong> a lot of <strong>people</strong> at the concert.</span></p>
+                            </div>
+                            <div class="recTex">
+                                <p class="mb-0">Use <strong>there were</strong> with a <strong>plural</strong> noun.</p>
+                            </div>
+                        </div>                    
+                    </div>
+
+                    <p class="parrafo">There was and there were represent the past tense form of “there is” and “there are”.</p>
+                    
+
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+                    
+                
+
+                    <div class="mb-4 mb-md-5">
+                        
+                        <h2 class="parrafo text-azul subtitulos">
+                           Study the structures below
+                        </h2>
+
+                        <p class="parrafo instruccion-color-verde escritorio">
+                            <b>Instructions: </b> Press the buttons to access the information.
+                        </p>
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">Affirmative form</summary>
+                            <div class="details-content text-center">
+
+                                <p class="parrafo text-left texAzu">Singular Affirmative Statements</p>
+
+                                <div class="tabForm tit" aria-hidden="true">
+                                    <div><p class="mb-0">There was</p></div>
+                                    <div><p class="mb-0">Noun phrase</p></div>
+                                    <div></div>
+                                </div>
+                                <div class="tabForm uf mb-2rem" aria-hidden="true">
+                                    <div><p class="mb-0">There was</p></div>
+                                    <div class="cc">
+                                        <div><p class="mb-0">a singer</p></div>
+                                        <div><p class="mb-0">a lot of food</p></div>
+                                    </div>
+                                    <div><p class="mb-0">in my party</p></div>
+                                </div>
+
+                                <div class="sr-only">There was There was Noun phrase a singer in my party</div>
+                                <div class="sr-only">There was There was Noun phrase a lot of food in my party</div>
+
+                                <p class="parrafo text-left texAzu">Plural Affirmative Statements</p>
+
+                                <div class="tabForm tit" aria-hidden="true">
+                                    <div><p class="mb-0">There were</p></div>
+                                    <div><p class="mb-0">Noun phrase</p></div>
+                                    <div></div>
+                                </div>
+                                <div class="tabForm uf" aria-hidden="true">
+                                    <div><p class="mb-0">There were</p></div>
+                                    <div class="cc">
+                                        <div><p class="mb-0">hundreds of people</p></div>
+                                        <div><p class="mb-0">lots of lights</p></div>
+                                    </div>
+                                    <div><p class="mb-0">in my party</p></div>
+                                </div>
+                                
+                                <div class="sr-only">There were There were Noun phrase hundreds of people in my party</div>
+                                <div class="sr-only">There were There were Noun phrase lots of lights in my party</div>
+                                
+                            </div>
+                        </details>
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">Negative form</summary>
+                            <div class="details-content text-center"> 
+
+                                <p class="parrafo text-left texAzu">Singular negative statements</p>
+
+                                <div class="tabForm tit" aria-hidden="true">
+                                    <div><p class="mb-0">There was not / There wasn’t</p></div>
+                                    <div><p class="mb-0">Noun phrase</p></div>
+                                    <div></div>
+                                </div>
+                                <div class="tabForm uf mb-2rem" aria-hidden="true">
+                                    <div><p class="mb-0">There was not / There wasn’t</p></div>
+                                    <div class="cc">
+                                        <div><p class="mb-0">a clown</p></div>
+                                        <div><p class="mb-0">any wine</p></div>
+                                    </div>
+                                    <div><p class="mb-0">in my party</p></div>
+                                </div>
+
+                                <div class="sr-only">There was not / There wasn’t There was not / There wasn’t Noun phrase a clown in my party</div>
+                                <div class="sr-only">There was not / There wasn’t There was not / There wasn’t Noun phrase any wine in my party</div>
+
+                                <p class="parrafo text-left texAzu">Plural negative statements</p>
+
+                                <div class="tabForm tit" aria-hidden="true">
+                                    <div><p class="mb-0">There were not / There weren’t</p></div>
+                                    <div><p class="mb-0">Noun phrase</p></div>
+                                    <div></div>
+                                </div>
+                                <div class="tabForm uf" aria-hidden="true">
+                                    <div><p class="mb-0">There were not / There weren’t</p></div>
+                                    <div class="cc">
+                                        <div><p class="mb-0">many children</p></div>
+                                        <div><p class="mb-0">any unwelcome guests</p></div>
+                                    </div>
+                                    <div><p class="mb-0">in my party</p></div>
+                                </div> 
+
+                                <div class="sr-only">There were not / There weren’t There were not / There weren’t Noun phrase many children in my party</div>
+                                <div class="sr-only">There were not / There weren’t There were not / There weren’t Noun phrase any unwelcome guests in my party</div>
+                                
+                            </div>
+                        </details>
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Interrogative form</summary>
+                            <div class="details-content text-center">
+
+                                <p class="parrafo text-left texAzu">Yes – No questions</p>
+
+                                <div class="tabForm4 tit">
+                                    <div><p class="mb-0">Was / were</p></div>
+                                    <div><p class="mb-0">There</p></div>
+                                    <div><p class="mb-0">Noun phrase</p></div>
+                                    <div></div>
+                                </div>
+                                <div class="tabForm4" aria-hidden="true">
+                                    <div><p class="mb-0">Was</p></div>
+                                    <div><p class="mb-0">there</p></div>
+                                    <div><p class="mb-0">a singer</p></div>
+                                    <div><p class="mb-0">in your party?</p></div>
+                                </div>
+                                <div class="tabForm4 uf mb-2rem" aria-hidden="true">
+                                    <div><p class="mb-0">Were</p></div>
+                                    <div><p class="mb-0">there</p></div>
+                                    <div><p class="mb-0">many people</p></div>
+                                    <div><p class="mb-0">in your party?</p></div>
+                                </div>
+
+                                <div class="sr-only">Was / were Was There there Noun phrase a singer in your party?</div>
+                                <div class="sr-only">Was / were Were There there Noun phrase many people in your party?</div>
+                                
+
+                                <p class="parrafo texAzu text-left">Short answer</p>
+
+                                <div class="tabForm tit" aria-hidden="true">
+                                    <div><p class="mb-0">Yes</p></div>
+                                    <div><p class="mb-0">There</p></div>
+                                    <div><p class="mb-0">Was / were</p></div>
+                                </div>
+                                <div class="tabForm uf mb-2rem" aria-hidden="true">
+                                    <div><p class="mb-0">Yes,</p></div>
+                                    <div><p class="mb-0">there</p></div>
+                                    <div class="cc">
+                                        <div><p class="mb-0">was</p></div>
+                                        <div><p class="mb-0">were</p></div>
+                                    </div>                                
+                                </div>
+
+                                <div class="sr-only">Yes Yes, There there Was / were was</div>
+                                <div class="sr-only">Yes Yes, There there Was / were were</div>
+
+                                <div class="tabForm tit" aria-hidden="true">
+                                    <div><p class="mb-0">No</p></div>
+                                    <div><p class="mb-0">There</p></div>
+                                    <div><p class="mb-0">Is / are + not</p></div>
+                                </div>
+                                <div class="tabForm uf" aria-hidden="true">
+                                    <div><p class="mb-0">No,</p></div>
+                                    <div><p class="mb-0">there</p></div>
+                                    <div class="cc">
+                                        <div><p class="mb-0">wasn’t</p></div>
+                                        <div><p class="mb-0">weren’t</p></div>
+                                    </div>                                
+                                </div>
+
+                                <div class="sr-only">No No, There there Is / are + not wasn’t</div>
+                                <div class="sr-only">No No, There there Is / are + not weren’t</div>           
+
+
+                            </div>
+                        </details>
+
+
+
+                        <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Questions about quantity with how much and how many</summary>
+                            <div class="details-content text-center">
+
+                                <div class="tabForm5 tit">
+                                    <div><p class="mb-0">How much / many</p></div>
+                                    <div><p class="mb-0">Noun</p></div>
+                                    <div><p class="mb-0">Was / were</p></div>
+                                    <div><p class="mb-0">There</p></div>
+                                    <div></div>
+                                </div>
+                                <div class="tabForm5" aria-hidden="true">
+                                    <div><p class="mb-0">How much</p></div>
+                                    <div><p class="mb-0">traffic</p></div>
+                                    <div><p class="mb-0">was</p></div>
+                                    <div><p class="mb-0">there</p></div>
+                                    <div><p class="mb-0">in the city?</p></div>
+                                </div>
+                                <div class="tabForm5" aria-hidden="true">
+                                    <div><p class="mb-0">How many</p></div>
+                                    <div><p class="mb-0">children</p></div>
+                                    <div><p class="mb-0">were</p></div>
+                                    <div><p class="mb-0">there</p></div>
+                                    <div><p class="mb-0">in the city?</p></div>
+                                </div>
+
+                                <div class="sr-only">How much / many How much Noun traffic Was / were was There there in the city?</div>
+                                <div class="sr-only">How much / many How many Noun children Was / were were There there in the city?</div>
+
+                            </div>
+                        </details>
+
+
+
+
+                        <p class="parrafo instruccion-color-verde mb-1 movil">
+                            <strong>Instruction:</strong> Press the button and download the file.
+                        </p>
+                        <p class="text-center movil">
+                            <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="Topic-2_2/downloads/INGLES3-M2-Study_the_structures_below.pdf">
+                                There was – there were
+                                <span class="sr-only">PDF file</span>
+                            </a>
+                        </p>
+
+
+
+                        <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                            <div class="separadorEsc escritorio"></div>
+                            <div class="separadorMov movil"></div>                        
+                        </div>
+
+                        <p class="parrafo"><strong>Now watch the following explanation about</strong> <span class="text-azul">There was / There were</span></p>
+
+
+                        <p class="parrafo instruccion-color-verde">
+                            <b>Instruction:</b> Select the button to watch the video.
+                        </p>
+
+                        <!--<div>
+                            <div class="vid3 embed-responsive embed-responsive-16by9 mt-4 mb-4 mt-md-5 mb-md-5">
+                                <iframe src="https://lumen.uv.mx/lumen/shared/embed/resource/10806" width="800" height="500"
+                                    allowfullscreen="" scrolling="no"></iframe>
+
+                            </div>
+                            <div class="recuadro-video"></div>
+                        </div>-->
+
+                        <div class="vid3 embed-responsive embed-responsive-16by9 mt-4 mb-4">
+                            <video id="video1" poster="Topic-2_2/img/portada_video.png" src="https://lumen.uv.mx/resources/files/videos/2024/9/3/10832/154d572e-901a-4de6-b693-cabccd397c47.mp4" controls="">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+
+
+
+                        <!--<div class="script-video escritorio" style="margin-bottom: 1.5rem;">
+                            <details class="collapsables-gi">
+                                <summary class="btn waves-effect waves-light" style=""><strong>Script</strong></summary>
+                                <div class="collapsables-gi__content">
+                                    <p class="mb-0">Pendiente</p>
+                                </div>
+                            </details>
+                        </div>-->
+
+                        <p class="text-center">
+                            <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="Topic-2_2/downloads/INGLES3-M2-There_was-There_were.pdf">
+                                Script
+                                <span class="sr-only">PDF file</span>
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="section-activity">
+
+                <div class="text-center" aria-hidden="true">
+                    <div class="separadorActividadEsc escritorio"></div>
+                    <div class="separadorActividadMov movil"></div>
+                </div>
+                
+
+                <div class="container py-4">
+
+                    <div class="pad2">
+
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA16. Last weekend
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instruction:</b> 
+                    </p>
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Look at the picture and complete the text with there was, there were.</li>
+                    </ol>
+
+                    <div class="text-center">
+                        <img src="Topic-2_2/img/IB3V-M2_2.2-OPA13.png" class="img-94" alt="Imagen de personas en una soleada playa, un chico surfeando, otros jugando voleibol, y aves volando." lang="es" >                    
+                    </div>
+
+
+
+                    <div class="selescts escribir-1-1 recFacImg" accesskey="1" tabindex="0">
+
+                        <div id="escribir-1-1" class="parrafo">
+
+                            <p class="sr-only text-ayuda">
+                                Last weekend, I went to the beach. The weather was hot and sunny. (1) <span lang="es">espacio a rellenar</span> a large number of people lying in the sand, (2) <span lang="es">espacio a rellenar</span> a boy surfing near the shore and (3) <span lang="es">espacio a rellenar</span> also some kids playing volleyball. In the sky, (4) <span lang="es">espacio a rellenar</span> some pelicans. It was a wonderful day.
+                            </p>
+
+                            <p class="mb-0 seguido">Last weekend, I went to the beach. The weather was hot and sunny. </p>
+                            <label for="escribir-1-1-1" class="active seguido" accesskey="1" tabindex="0"><p class="mb-0 seguido">(1)</p></label>
+                            <div class="reactivo seguido">                             
+                                <input id="escribir-1-1-1" type="text" placeholder="Write here..." name="escribir-1-1" class="escribir seguido">
+                                <div class="contselopc"></div>
+                            </div> 
+
+                            <p class="mb-0 seguido">a large number of people lying in the sand,</p> 
+                            <label for="escribir-1-1-2" class="active seguido"><p class="mb-0 seguido">(2)</p></label> 
+                            <div class="reactivo seguido">                            
+                                <input id="escribir-1-1-2" type="text" placeholder="Write here..." name="escribir-1-1" class="escribir seguido">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <p class="mb-0 seguido">a boy surfing near the shore and</p> 
+                            <label for="escribir-1-1-3" class="active seguido"><p class="mb-0 seguido">(3)</p></label> 
+                            <div class="reactivo seguido">                            
+                                <input id="escribir-1-1-3" type="text" placeholder="Write here..." name="escribir-1-1" class="escribir seguido">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <p class="mb-0 seguido">also some kids playing volleyball. In the sky,</p> 
+                            <label for="escribir-1-1-4" class="active seguido"><p class="mb-0 seguido">(4)</p></label> 
+                            <div class="reactivo seguido">                            
+                                <input id="escribir-1-1-4" type="text" placeholder="Write here..." name="escribir-1-1" class="escribir seguido">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <p class="mb-0 seguido">some pelicans. It was a wonderful day.</p>
+                            
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+
+                        <ol class="parrafo instruccion-color-verde ml-4" start="2">
+                            <li>Press the buttons and check your answers.</li>
+                        </ol>                
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-e-11-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="escribir-1-1">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-e-11-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled name="escribir-1-1">Try again</button>
+                            </div>
+                        </div>
+                    </div>                 
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>            
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA17. Lisa and Zac
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde mb-1">
+                        <b>Instructions: </b>
+                    </p>
+
+                    <ol class="instruccion-color-verde parrafo ml-4">
+                        <li>Listen to a conversation between Lisa and Zac about Lisa's last birthday.</li>                    
+                    </ol>
+
+                    <p class="texCenAzu parrafo">
+                        Listen to the audio.
+                    </p>
+
+                    <div>
+                        <!-- Audio -->
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="Topic-2_2/media/M2-A20-Lisa_and_Zac.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <div class="text-center escritorio">
+                        <img src="Topic-2_2/img/IB3V-M2_2.2-OPA14.png" class="img-central" alt="Imagen de Lisa y Zac hablando por teléfono" lang="es">
+                    </div>
+
+                    <div class="text-center mb-2rem">
+                        <details id="faqs-1-respuestas" class="text-right escritorio t2 faqs mb-2rem faqScript">
+                            <summary class="btn btn-actividad cheqfaq waves-effect waves-light text-center" style="">Read the script</summary>
+                            <div class="details-content text-left">
+                                <p class="parrafo"><strong>Lisa:</strong> Hello.</p>
+                                <p class="parrafo"><strong>Zac:</strong> Hi Lisa.</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Hi, Zac!</p>
+                                <p class="parrafo"><strong>Zac:</strong> I’m sorry I couldn’t make it to your birthday party. How was it?</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Well, it was amazing. I guess it was the best party I’ve ever had. You see, there was a great atmosphere and I think everybody had a good time!</p>
+                                <p class="parrafo"><strong>Zac:</strong> Yeah! I saw your post on Instagram. How many people were there?</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Well, There were a lot. My family, which you know is very big, my coworkers, all my friends from the gym and even my university classmates! Can you believe it?</p>
+                                <p class="parrafo"><strong>Zac:</strong> Wow! Please tell me about the food! Were there many dishes?</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Yes! It was an international menu. There was Italian food, you know pizza and lasagna. There was a wide variety of Greek salads and of course, my favorite Thai food, but there weren’t any meat dishes this year.</p>
+                                <p class="parrafo"><strong>Zac:</strong> Why?</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Because I’m a vegetarian now.</p>
+                                <p class="parrafo"><strong>Zac:</strong> Oh please, don’t tell me there wasn’t any meat dishes.</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Oh yes, there was. It was vegetarian pepperoni!</p>
+                                <p class="parrafo"><strong>Zac:</strong> Oh, come on!! Does it even exist?</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Of course, and everybody said it was delicious!</p>
+                                <p class="parrafo"><strong>Zac:</strong> Oh I can believe that! Anyway, what time did the party finish?</p>
+                                <p class="parrafo"><strong>Lisa:</strong> Well it finished late at night because the music was incredible and there was even a mariachi.</p>
+                                <p class="parrafo mb-0"><strong>Zac:</strong> Oh, I’m so sad I missed it!</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde mb-1 movil">
+                        Download and read the script.
+                    </p>
+
+                    <p class="text-center movil">
+                        <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="Topic-2_2/downloads/INGLES3-M2-OPA17-Lisas_last_birthday.pdf">
+                            Script
+                            <span class="sr-only">PDF file</span>
+                        </a>
+                    </p>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                            <div class="separadorEsc escritorio"></div>
+                            <div class="separadorMov movil"></div>                        
+                        </div>
+
+                    <ol class="instruccion-color-verde parrafo ml-4" start="2">
+                        <li>Complete the next sentences using there was / wasn’t or there were / weren’t.</li>                    
+                    </ol>
+
+
+                    <div class="selescts seleccionar-1-2 recFacImg">
+                        <div class="conTarjetas grid-3">
+                            <div class="texInc">
+                                <label for="s12-0" accesskey="2" tabindex="1"><p class="mb-0">a.</p></label>
+                            </div>
+                            <div class="seleccionar-12-0">
+                                <div id="opsel-12-0" class="divcontsel">
+                                    <select id="s12-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-1-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">There was</option>
+                                        <option value="2" lang="en">There wasn’t</option>
+                                        <option value="3" lang="en">There were</option>
+                                        <option value="4" lang="en">There weren’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <div class="texSen"><p class="mb-0">a great atmosphere.</p></div>
+                        </div>
+                        <div class="conTarjetas grid-3">
+                            <div class="texInc">
+                                <label for="s12-1"><p class="mb-0">b.</p></label>
+                            </div>
+                            <div class="seleccionar-12-1">
+                                <div id="opsel-12-1" class="divcontsel">
+                                    <select id="s12-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-1-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">There was</option>
+                                        <option value="2" lang="en">There wasn’t</option>
+                                        <option value="3" lang="en">There were</option>
+                                        <option value="4" lang="en">There weren’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <div class="texSen"><p class="mb-0">a lot of people.</p></div>
+                        </div>
+                        <div class="conTarjetas grid-3">
+                            <div class="texInc">
+                                <label for="s12-2"><p class="mb-0">c.</p></label>
+                            </div>
+                            <div class="seleccionar-12-2">
+                                <div id="opsel-12-2" class="divcontsel">
+                                    <select id="s12-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-1-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">There was</option>
+                                        <option value="2" lang="en">There wasn’t</option>
+                                        <option value="3" lang="en">There were</option>
+                                        <option value="4" lang="en">There weren’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <div class="texSen"><p class="mb-0">any meat dishes.</p></div>
+                        </div>
+                        <div class="conTarjetas grid-3">
+                            <div class="texInc">
+                                <label for="s12-3"><p class="mb-0">d.</p></label>
+                            </div>
+                            <div class="seleccionar-12-3">
+                                <div id="opsel-12-3" class="divcontsel">
+                                    <select id="s12-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-1-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">There was</option>
+                                        <option value="2" lang="en">There wasn’t</option>
+                                        <option value="3" lang="en">There were</option>
+                                        <option value="4" lang="en">There weren’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <div class="texSen"><p class="mb-0">Greek salads.</p></div>
+                        </div>
+                        <div class="conTarjetas grid-3">
+                            <div class="texInc">
+                                <label for="s12-4"><p class="mb-0">e.</p></label>
+                            </div>
+                            <div class="seleccionar-12-4">
+                                <div id="opsel-12-4" class="divcontsel">
+                                    <select id="s12-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-1-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">There was</option>
+                                        <option value="2" lang="en">There wasn’t</option>
+                                        <option value="3" lang="en">There were</option>
+                                        <option value="4" lang="en">There weren’t</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>
+                            <div class="texSen"><p class="mb-0">any pepperoni in the pizza.</p></div>
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p> 
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="3">
+                            <li><p class="mb-0">Press the buttons and check your answers.</p></li>                    
+                        </ol>                   
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-12-1" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-12-1" disabled="" name="seleccionar-1-2">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-12-1" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-12-1" disabled="" name="seleccionar-1-2">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>            
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA18. Language fest
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde mb-1">
+                        <b>Instructions: </b>
+                    </p>
+
+                    <ol class="instruccion-color-verde parrafo ml-4">
+                        <li>Read the next text.</li>                    
+                    </ol>
+
+                    <div class="text-center">
+                        <img src="Topic-2_2/img/IB3V-M2_2.2-OPA15.png" class="img-94" alt="Imagen ilustrativa" aria-hidden="true">                   
+                    </div>
+
+                    <p class="parrafo">There was a language fest at school yesterday morning. There were lots of students and teachers participating in different activities. One of them was the gastronomy room, where the students presented some famous dishes that are usually served on the American Thanksgiving Day. There was also a big table with a variety of delicious French food, such as “<i lang="fra">Crepes</i>” and “<i lang="fra">Tarte Tatin</i>”. Unfortunately, there wasn’t any Mexican food which is my favorite.</p>
+
+                    <p class="parrafo">There were also different culture rooms where students presented and explained important customs and traditions of the countries where the language they are learning is spoken.</p>
+
+                    <p class="parrafo">There was a Karaoke contest as well. Here students and teachers were able to sing their favorite songs in different languages, mostly English, French, and Japanese but there weren’t any K-pop songs. It was fantastic!!</p>
+
+
+
+
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+
+
+
+                    <ol class="instruccion-color-verde parrafo ml-4" start="2">
+                        <li>Now, answer True or False.</li>                    
+                    </ol>
+
+
+                    <div class="selescts seleccionar-2-2 recFacImg">
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s22-0" accesskey="3" tabindex="2"><p class="mb-0">a. The language festival was at noon.</p></label>
+                            </div>
+                            <div class="seleccionar-22-0">
+                                <div id="opsel-22-0" class="divcontsel">
+                                    <select id="s22-0" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-2-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s22-1"><p class="mb-0">b. There was American food.</p></label>
+                            </div>
+                            <div class="seleccionar-22-1">
+                                <div id="opsel-22-1" class="divcontsel">
+                                    <select id="s22-1" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-2-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s22-2"><p class="mb-0">c. Teachers explained the culture of different countries.</p></label>
+                            </div>
+                            <div class="seleccionar-22-2">
+                                <div id="opsel-22-2" class="divcontsel">
+                                    <select id="s22-2" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-2-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <<option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s33-3"><p class="mb-0">d. Students were able to sing.</p></label>
+                            </div>
+                            <div class="seleccionar-22-3">
+                                <div id="opsel-22-3" class="divcontsel">
+                                    <select id="s22-3" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-2-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="conTarjetas grid-2">
+                            <div class="texSen">
+                                <label for="s13-4"><p class="mb-0">e. There was K-pop music.</p></label>
+                            </div>
+                            <div class="seleccionar-22-4">
+                                <div id="opsel-22-4" class="divcontsel">
+                                    <select id="s22-4" class="form-control reactivo custom-select" data-valor="r1" name="seleccionar-2-2">
+                                        <option disabled="disabled" selected="selected" value="0" hidden="hidden" lang="en">Choose here...</option>
+                                        <option value="1" lang="en">True</option>
+                                        <option value="2" lang="en">False</option>
+                                    </select>
+                                    <div class="contselopce invisible">
+                                        <div class="TexSel"></div>
+                                        <i class="result fa-solid" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="respmens sr-only"></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        
+
+                        <p class="retroalimentacion1 rojoretro" lang="en"></p>
+                        <ol class="instruccion-color-verde parrafo ml-4 text-left" start="3">
+                            <li><p class="mb-0">Press the buttons and check your answers.</p></li>
+                        </ol>                
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-s-22-2" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-22-2" disabled="" name="seleccionar-2-2">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-s-22-2" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-22-2" disabled="" name="seleccionar-2-2">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+                    <div class="CuadroAudio">
+                        <p class="texCenAzu parrafo">
+                            Recap of Topic 2.2 There was - There were
+                        </p>
+                        <div>
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls="" aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-2_2/media/M2-A21-Recap_of_topic_2_2.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <p class="parrafo mb-0">In this topic, you learned to use the expressions <b>there was</b> and <b>there were</b> to describe what existed or did not exist in the past.</p>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </section>
+
+
+
+
+
+ 
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+        
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="Topic-2_2/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="Topic-2_2/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-2_2/scripts/home.js"></script>
+    <script type="text/javascript" src="Topic-2_2/scripts/menu-2.js"></script>
+
+    <!-- modales de ayuda y lector inmersivo -->
+    <script src="Topic-2_2/scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-2_2/scripts/menuacces.js"></script>
+    <script src="Topic-2_2/scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="Topic-2_2/scripts/scroll-timeline.js"></script>
+
+    <script type="text/javascript" src="Topic-2_2/scripts/unit-2_2.js"></script>
+
+    
+
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+    
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function(){
+
+            $('.ir-arriba').click(function(){
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function(){
+                if( $(this).scrollTop() > 0 ){
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</body>
+</html>
+

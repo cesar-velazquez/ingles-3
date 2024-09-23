@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 1.1 What do you do on the weekend?</title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-1_1/css/index.css">
+    <link rel="stylesheet" href="Topic-1_1/css/unit1-1_2.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-1_1/css/menuacces.css">
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style type="text/css">
+        .titulo-principal-unit2 {
+            left: 35.4%;
+        }
+    </style>
+
+
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+        <p lang="en" class="sr-only"><b><i>Windows</i></b></p>
+        <ul class="sr-only">
+            <li>Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li><i lang="en">Activity</i> OPA02: Alt + 1</li>
+            <li><i lang="en">Activity</i> OPA03: Alt + 2</li>
+            <li><i lang="en">Activity</i> OPA04: Alt + 3</li>
+            <li><i lang="en">Activity</i> OPA05: Alt + 4</li>
+
+        </ul>
+
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="sr-only">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li><i lang="en">Activity</i> OPA02: <i lang="en">Control </i> + <i lang="en">Option</i> + 1</li>
+            <li><i lang="en">Activity</i> OPA03: <i lang="en">Control </i> + <i lang="en">Option</i> + 2</li>
+            <li><i lang="en">Activity</i> OPA04: <i lang="en">Control </i> + <i lang="en">Option</i> + 3</li>
+            <li><i lang="en">Activity</i> OPA05: <i lang="en">Control </i> + <i lang="en">Option</i> + 4</li>
+        </ul>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-1_1/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-1_1/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-1_1/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-1_1/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-1_1/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-1_1/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-1_1/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-1_1/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-1_1/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-1_1/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-1_1/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- SIDEBAR MENÚ -->
+    <!--<navbar class="sidebar" style="overflow-y: scroll;">
+
+        <div class="sidebar__encabezado">
+            <button class="btn btn-link sidebar__dismiss" aria-label="Cerrar menú desplegado">
+                <span>X</span>
+            </button>
+        </div>
+        
+        <menu-component-2></menu-component-2>
+    
+    </navbar>-->
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad
+                    Veracruzana</a>
+
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Topic 1.1 </b> <span style="font-weight: normal !important;">What do you do on the
+                                weekend?</span>
+                        </p>
+                    </span>
+                </div>
+            </div>
+
+            <img src="Topic-1_1/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca scroll">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>-->
+
+                <!-- mt-4 -->
+                <div class="d-flex align-items-center ">
+
+                    <div class="pleca__ee ml-0 aparecer-desaparecer"
+                        style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <!-- margin_pleca -->
+                            <p class="tam-font font-weight-bold ">
+                                Topic 1.1
+                                <!--<span style="font-weight: normal;">What do you do on the weekend?</span>-->
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <img src="Topic-1_1/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <h1 class="titulo-principal-unit2 margin-left-titulo">
+
+            Topic 1.1 <br>
+            <span class="subtitulo-secundari-unit">What do you do on the weekend?</span>
+
+        </h1>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem" accesskey="1" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA02. Skills / Routines / Hobbies
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-1">
+                    <b>Instructions: </b>
+                </p>
+
+                <ol class="instruccion-color-verde parrafo ml-4">
+                    <li>Look at the following images. Which one depicts…</li>
+                    <li>Match the row of images and statements that describe a situation with the row of what they
+                        represent.</li>
+                </ol>
+
+
+
+
+                <div class="selescts seleccionar-1-1 recFacImg">
+                    <div class="conTarjetas grid-2">
+                        <div class='seleccionar-11-0'>
+                            <div class='cont-img'>
+                                <label for='s11-0'>
+                                    <span class="oculto">Image</span>
+                                    <img src='Topic-1_1/img/modulo1/IB3V-M1_m1-opa02-01.png'
+                                        alt='Imagen A. Persona tomando el autobús.' aria-hidden="true">
+                                    <span class="sr-only" lang="es">Imagen A. Persona tomando el autobús.</span>
+                                </label>
+                            </div>
+                            <div class="textDesc">
+                                <p class="">Monica takes the train to the office.</p>
+                            </div>
+                            <div id='opsel-11-0' class='divcontsel'>
+                                <select id='s11-0' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-1'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>a habit?</option>
+                                    <option value='2' lang='en'>a repeated action or regular action?</option>
+                                    <option value='3' lang='en'>things that are always/generally true?</option>
+                                    <option value='4' lang='en'>a fact?</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                        <div class='seleccionar-11-1'>
+                            <div class='cont-img'>
+                                <label for='s11-1'>
+                                    <span class="oculto">Image</span>
+                                    <img src='Topic-1_1/img/modulo1/IB3V-M1_m1-opa02-02.png'
+                                        alt='Imagen B. Persona con boina roja señalando la Torre Eiffel.'
+                                        aria-hidden="true">
+                                    <span class="sr-only" lang="es">Imagen B. Persona con boina roja señalando la Torre
+                                        Eiffel.</span>
+                                </label>
+                            </div>
+                            <div class="textDesc">
+                                <p class="">She comes from France.</p>
+                            </div>
+                            <div id='opsel-11-1' class='divcontsel'>
+                                <select id='s11-1' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-1'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>a habit?</option>
+                                    <option value='2' lang='en'>a repeated action or regular action?</option>
+                                    <option value='3' lang='en'>things that are always/generally true?</option>
+                                    <option value='4' lang='en'>a fact?</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                        <div class='seleccionar-11-2'>
+                            <div class='cont-img'>
+                                <label for='s11-2'>
+                                    <span class="oculto">Image</span>
+                                    <img src='Topic-1_1/img/modulo1/IB3V-M1_m1-opa02-03.png'
+                                        alt='Imagen C. Persona en la cama estirando los brazos.' aria-hidden="true">
+                                    <span class="sr-only" lang="es">Imagen C. Persona en la cama estirando los
+                                        brazos.</span>
+                                </label>
+                            </div>
+                            <div class="textDesc">
+                                <p>I get up at 6 a.m. every day.</p>
+                            </div>
+                            <div id='opsel-11-2' class='divcontsel'>
+                                <select id='s11-2' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-1'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>a habit?</option>
+                                    <option value='2' lang='en'>a repeated action or regular action?</option>
+                                    <option value='3' lang='en'>things that are always/generally true?</option>
+                                    <option value='4' lang='en'>a fact?</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                        <div class='seleccionar-11-3'>
+                            <div class='cont-img'>
+                                <label for='s11-3'>
+                                    <span class="oculto">Image</span>
+                                    <img src='Topic-1_1/img/modulo1/IB3V-M1_m1-opa02-04.png'
+                                        alt='Imagen D. Dos personas en la sala de su domicilio.' aria-hidden="true">
+                                    <span class="sr-only" lang="es">Imagen D. Dos personas en la sala de su
+                                        domicilio.</span>
+                                </label>
+                            </div>
+                            <div class="textDesc">
+                                <p>They live in a nice apartment.</p>
+                            </div>
+                            <div id='opsel-11-3' class='divcontsel'>
+                                <select id='s11-3' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-1'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>a habit?</option>
+                                    <option value='2' lang='en'>a repeated action or regular action?</option>
+                                    <option value='3' lang='en'>things that are always/generally true?</option>
+                                    <option value='4' lang='en'>a fact?</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="retroalimentacion1 rojoretro"></div>
+                    <p class="instruccion-color-verde parrafo text-left">3. Click on the buttons and check your answers.
+                    </p>
+                    <div class="contenedor-botones2">
+                        <div class="text-right evaluacion">
+                            <button id="check-s-11-1" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-11-1"
+                                disabled="" name="seleccionar-1-1">Check</button>
+                        </div>
+                        <div class="text-right evaluacion">
+                            <button id="try-s-11-1" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-11-1" disabled
+                                name="seleccionar-1-1">Try again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="parrafo">
+                    If you don’t know the answers, don’t worry. Here we explain what each image represents.
+                    <br aria-hidden="true">
+                    Picture A shows a repeated or regular action, B a fact, C a habit, and D a thing that is always /
+                    generally true.
+                </p>
+
+                <p class="texCenAzu parrafo">
+                    All these examples and definitions have to do with present simple.
+                </p>
+
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                    <div class="separadorEsc escritorio"></div>
+                    <div class="separadorMov movil"></div>
+                </div>
+
+
+
+                <h2 class="parrafo text-azul subtitulos">
+                    What is present simple?
+                </h2>
+
+                <p class="parrafo">This is something you probably remember from your English <span aria-hidden="true">I
+                        and II</span><span class="sr-only">1 and 2</span> courses. Let’s take a look at its structure.
+                </p>
+
+                <p class="parrafo instruccion-color-verde escritorio">
+                    <b>Instructions: </b> Click on the buttons below to read the information.
+                </p>
+
+                <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2 faqs">
+                    <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Afirmative sentences
+                    </summary>
+                    <div class="details-content text-left">
+
+                        <p class="parrafo">To make an affirmative sentence in present simple, write the subject, then
+                            the verb and finally the rest of the sentence:</p>
+
+                        <div class="ConTab">
+                            <div class="tab1 TitTab1">
+                                <div>
+                                    <p>Subject</p>
+                                </div>
+                                <div>
+                                    <p>Verb</p>
+                                </div>
+                                <div>
+                                    <p>Complement</p>
+                                </div>
+                            </div>
+                            <div class="tab1">
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p>I</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p>like</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p>comic books.</p>
+                                </div>
+                            </div>
+                            <div class="tab1">
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p>She</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p>lives</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p>in Veracruz.</p>
+                                </div>
+                            </div>
+                            <div class="tab1 BorBot">
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p>They</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p>work</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p>at home.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="parrafo">
+                            Remember that the spelling for the verb in the third person is different from the rest since
+                            it depends on the verb ending. Look at the following rules:
+                        </p>
+
+                        <ol type="a" class="mb-0">
+                            <li>For most verbs, just add -<strong>S</strong>. For example:</li>
+                            <ul type="disc">
+                                <li>Maria works at the office.</li>
+                                <li>He dances on Saturday.</li>
+                                <li>It rains a lot in fall.</li>
+                            </ul>
+                            <li>For verbs that end in <strong>-O, -CH, -SH, -SS, -X</strong>, or <strong>-Z</strong>,
+                                add <strong>–ES</strong>. For example:</li>
+                            <ul type="disc">
+                                <li>My son goes to school every day. (go-goes)</li>
+                                <li>She catches the bus after work. (catch-catches)</li>
+                                <li>He watches TV at night. (watch-watches)</li>
+                                <li>That mother kisses her baby kindly. (kiss-kisses)</li>
+                                <li>My father fixes the car. (fix-fixes)</li>
+                                <li>A bee buzzes. (buzz-buzzes)</li>
+                            </ul>
+                            <li class="mb-0">For verbs that end in a consonant + Y, eliminate Y and add
+                                <strong>-IES</strong>. For example:
+                            </li>
+                            <ul type="disc">
+                                <li>The princess marries the charming prince. (marry-marries)</li>
+                                <li>José studies hard. (study-studies)</li>
+                                <li>The horse carries heavy bags. (carry-carries)</li>
+                            </ul>
+                            <span><strong>LOOK OUT!</strong> If the verb ends in a vowel + Y, just add
+                                <strong>–S</strong>. For example:</span>
+                            <ul type="disc" class="mb-0">
+                                <li>Mario plays soccer every day. (play – plays)</li>
+                                <li class="mb-0">Sarah enjoys being at home. (enjoy – enjoys)</li>
+                            </ul>
+                        </ol>
+
+                    </div>
+                </details>
+
+                <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2 faqs">
+                    <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Negative sentences
+                    </summary>
+                    <div class="details-content text-left">
+                        <p class="parrafo">To make negative sentences in present simple, use the words called “auxiliary
+                            verbs” DON’T and DOESN’T with all verbs, except the verb “be” and modal verbs such as can,
+                            could, should, etc. The order is as follows:</p>
+
+                        <div class="ConTab">
+                            <div class="tab2 TitTab1">
+                                <div>
+                                    <p>Subject</p>
+                                </div>
+                                <div>
+                                    <p>Auxiliary Verb</p>
+                                </div>
+                                <div>
+                                    <p>Verb</p>
+                                </div>
+                                <div>
+                                    <p>Complement</p>
+                                </div>
+                            </div>
+                            <div class="tab2">
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p>I</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Auxiliary Verb</span>
+                                    <p>don’t</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p>like</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p>comic books.</p>
+                                </div>
+                            </div>
+                            <div class="tab2">
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p>She</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Auxiliary Verb</span>
+                                    <p>doesn’t</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p>live</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p>in Veracruz.</p>
+                                </div>
+                            </div>
+                            <div class="tab2 BorBot">
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p>They</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Auxiliary Verb</span>
+                                    <p>don’t</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p>work</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p>at home.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="parrafo">Pay attention to the use of <strong>DON’T</strong> and
+                            <strong>DOESN’T</strong>.
+                        </p>
+
+                        <ul>
+                            <li>Place it, between the subject and the verb. For example:</li>
+                            He doesn’t work every day.
+                        </ul>
+
+                        <ul>
+                            <li>Use DON’T when the subject is WE, YOU or THEY. For example:</li>
+                            They don’t live in an apartment.
+                        </ul>
+
+                        <ul>
+                            <li>Use DOESN’T when the subject is HE, SHE or IT. For example:</li>
+                            It doesn’t rain in summer.<br aria-hidden="true"><br aria-hidden="true">
+
+                            <p><strong>LOOK OUT!</strong> Observe that when using doesn’t you don’t need to add
+                                <strong>-s</strong>, <strong>es</strong>, or <strong>ies</strong> to the verbs in third
+                                person. For example: Correct: “She doesn’t work.” Incorrect: “She doesn't works.”
+                            </p>
+                        </ul>
+
+                        <p class="parrafo mb-0">DON’T is the same as DO NOT. DOESN’T is the same as DOES NOT. There is
+                            no change in meaning, contractions are usually used in spoken English.</p>
+
+                    </div>
+                </details>
+
+                <details id="faqs-1-respuestas" class="text-right escritorio t2 faqs mb-2rem">
+                    <summary class="btn btn-actividad cheqfaq waves-effect waves-light">Interrogative sentences
+                    </summary>
+                    <div class="details-content text-left">
+
+                        <p class="parrafo">To make questions in simple present, use the auxiliary verbs DO and DOES.
+                            These words don’t have any meaning in Spanish, but they are necessary to show your asking a
+                            question. Place them at the beginning of a sentence. Look at the following table:</p>
+
+                        <div class="ConTab">
+                            <div class="tab3 TitTab1">
+                                <div>
+                                    <p class="titles_table">Auxiliary verb</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Subject</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Verb</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Complement</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Short answer positive</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Short answer negative</p>
+                                </div>
+                            </div>
+                            <div class="tab3">
+                                <div>
+                                    <span class="sr-only">Auxiliary verb</span>
+                                    <p class="titles_table">Do</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p class="titles_table">you</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p class="titles_table">like</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p class="titles_table">comic books?</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Short answer positive</span>
+                                    <p class="titles_table">Yes, I do.</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Short answer negative</span>
+                                    <p class="titles_table">No, I don’t.</p>
+                                </div>
+                            </div>
+                            <div class="tab3">
+                                <div>
+                                    <span class="sr-only">Auxiliary verb</span>
+                                    <p class="titles_table">Does</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p class="titles_table">she</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p class="titles_table">live</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p class="titles_table">in Veracruz?</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Short answer positive</span>
+                                    <p class="titles_table">Yes, she does.</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Short answer negative</span>
+                                    <p class="titles_table">No, she doesn’t.</p>
+                                </div>
+                            </div>
+                            <div class="tab3">
+                                <div>
+                                    <span class="sr-only">Auxiliary verb</span>
+                                    <p class="titles_table">Do</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p class="titles_table">they</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p class="titles_table">work</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p class="titles_table">at home?</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Short answer positive</span>
+                                    <p class="titles_table">Yes, they do.</p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Short answer negative</span>
+                                    <p class="titles_table">No, they don’t.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="parrafo">As in negative sentences, you don’t need to add <strong>-s, -es</strong> or
+                            <strong>-ies</strong> to the verb when referring to the third person <strong>he,
+                                she,</strong> or <strong>it</strong>. Also, observe that in short answers you usually
+                            reply using the same auxiliary verb as in the question. These questions are called
+                            <strong>YES / NO questions</strong> since the answer is closed.
+                        </p>
+
+                        <p class="parrafo">When writing open questions, use WH- words. In this case, place the question
+                            word before the auxiliary verb:</p>
+
+                        <div class="ConTab mb-0">
+                            <div class="tab4 TitTab1">
+                                <div>
+                                    <p class="titles_table">Wh - word</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Auxiliary verb</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Subject</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Verb</p>
+                                </div>
+                                <div>
+                                    <p class="titles_table">Complement</p>
+                                </div>
+                            </div>
+                            <div class="tab4">
+                                <div>
+                                    <span class="sr-only">Wh - word</span>
+                                    <p class="titles_table"><i>Why</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Auxiliary verb</span>
+                                    <p class="titles_table"><i>do</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p class="titles_table"><i>you</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p class="titles_table"><i>like</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p class="titles_table"><i> comic books?</i></p>
+                                </div>
+                            </div>
+                            <div class="tab4">
+                                <div>
+                                    <span class="sr-only">Wh - word</span>
+                                    <p class="titles_table"><i>Who</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Auxiliary verb</span>
+                                    <p class="titles_table"><i>does</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p class="titles_table"><i>she</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p class="titles_table"><i>live with</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p class="titles_table"><i>in Veracruz?</i></p>
+                                </div>
+                            </div>
+                            <div class="tab4">
+                                <div>
+                                    <span class="sr-only">Wh - word</span>
+                                    <p class="titles_table"><i>When</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Auxiliary verb</span>
+                                    <p class="titles_table"><i>do</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Subject</span>
+                                    <p class="titles_table"><i>they</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Verb</span>
+                                    <p class="titles_table"><i>work</i></p>
+                                </div>
+                                <div>
+                                    <span class="sr-only">Complement</span>
+                                    <p class="titles_table"><i>at home?</i></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </details>
+
+                <p class="parrafo instruccion-color-verde mb-1 movil">
+                    <strong>Instruction:</strong> Click on the button below to read the information.
+                </p>
+                <p class="text-center movil">
+                    <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14"
+                        href="Topic-1_1/downloads/topic1/INGLES3-M1-What_is_present_simple.pdf">
+                        What is present simple?
+                        <span class="sr-only">archivo PDF</span>
+                    </a>
+                </p>
+
+                <p class="parrafo">Now, let’s do some practice.</p>
+
+
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem" accesskey="2" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA03. Helena’s routine and hobbies
+                </h2>
+
+                <p class="parrafo">In the previous explanation we said that present simple is used to talk about, among
+                    other things, repeated actions (routines) and hobbies.</p>
+
+                <p class="parrafo instruccion-color-verde mb-1">
+                    <b>Instructions: </b>
+                </p>
+
+                <ol class="instruccion-color-verde parrafo ml-4">
+                    <li>Let’s begin by listening to Helena’s routine and hobbies.</li>
+                </ol>
+
+                <p class="texCenAzu parrafo">
+                    Listen to the audio.
+                </p>
+
+                <div>
+                    <!-- Audio -->
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" src="Topic-1_1/media/M1-A3-Helenas-Routine-EDIT.mp3" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./audios/" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="text-center escritorio">
+                    <img src="Topic-1_1/img/modulo1/IB3V-M1_m1-opa03.png" class="img-central"
+                        alt="Imagen de apoyo de Bienvenida" aria-hidden="true">
+                </div>
+
+                <div class="text-center">
+                    <details id="faqs-1-respuestas" class="text-right escritorio t2 faqs mb-2rem faqScript">
+                        <summary class="btn btn-actividad cheqfaq waves-effect waves-light text-center">Read
+                            the script</summary>
+                        <div class="details-content text-left">
+                            <p class="parrafo mb-0">Helena has many hobbies so she’s very busy every day. She usually
+                                gets up at 5 in the morning so she can exercise for at least two hours before going to
+                                work. She always walks to work because it’s five minutes far from her house. She works
+                                at an international office so she can speak three languages, Spanish, Italian and
+                                English. She loves Italian a lot. She usually finishes work at 4 in the afternoon. She
+                                hurries to go home because she takes singing lessons at 5 p.m. She can sing very well.
+                                She has a band in which she is the leading singer. Apart from music, she enjoys going
+                                camping on the weekend. She and her friends ride their bicycles to a near mountain.
+                                Their favorite campsite is near a river because Helena’s favorite hobby is fishing.</p>
+                        </div>
+                    </details>
+                </div>
+
+
+
+                <div class="movil">
+                    <p class="parrafo">
+                        Helena has many hobbies so she’s very busy every day. She usually gets up at 5 in the morning so
+                        she
+                        can exercise for at least two hours before going to work. She always walks to work because it’s
+                        five
+                        minutes far from her house. She works at an international office so she can speak three
+                        languages,
+                        Spanish, Italian and English. She loves Italian a lot. She usually finishes work at 4 in the
+                        afternoon. She hurries to go home because she takes singing lessons at 5 p.m. She can sing very
+                        well. She has a band in which she is the leading singer. Apart from music, she enjoys going
+                        camping
+                        on the weekend. She and her friends ride their bicycles to a near mountain. Their favorite
+                        campsite
+                        is near a river because Helena’s favorite hobby is fishing.
+                    </p>
+                </div>
+
+                <!-- <p class="parrafo instruccion-color-verde mb-1 movil">
+                    Download and read the script.
+                </p>
+
+                <p class="text-center movil">
+                    <a download="" class="btn-actividad btn btn-azul-modals waves-effect waves-light btn-14" href="">
+                        Script
+                        <span class="sr-only">archivo PDF</span>
+                    </a>
+                </p> -->
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                    <div class="separadorEsc escritorio"></div>
+                    <div class="separadorMov movil"></div>
+                </div>
+
+
+                <ol class="instruccion-color-verde parrafo ml-4" start="2">
+                    <li>Now, decide if the following staments are True or False.</li>
+                </ol>
+
+                <div class="selescts seleccionar-1-2 recFacImg">
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-0">
+                                <p>a. Helena is usually busy on the weekend.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-0'>
+                            <div id='opsel-12-0' class='divcontsel'>
+                                <select id='s12-0' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-1">
+                                <p>b. Helena does exercise early in the morning.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-1'>
+                            <div id='opsel-12-1' class='divcontsel'>
+                                <select id='s12-1' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-2">
+                                <p>c. Helena’s office is far from home.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-2'>
+                            <div id='opsel-12-2' class='divcontsel'>
+                                <select id='s12-2' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-3">
+                                <p>d. Helena teaches a band to sing.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-3'>
+                            <div id='opsel-12-3' class='divcontsel'>
+                                <select id='s12-3' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-4">
+                                <p>e. Helena goes camping with friends.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-4'>
+                            <div id='opsel-12-4' class='divcontsel'>
+                                <select id='s12-4' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-5">
+                                <p>f. Helena rides her bike to the campsite.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-5'>
+                            <div id='opsel-12-5' class='divcontsel'>
+                                <select id='s12-5' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conTarjetas grid-2">
+                        <div class='texSen'>
+                            <label for="s12-6">
+                                <p>g. Helena loves fishing.</p>
+                            </label>
+                        </div>
+                        <div class='seleccionar-12-6'>
+                            <div id='opsel-12-6' class='divcontsel'>
+                                <select id='s12-6' class='form-control reactivo custom-select' data-valor='r1'
+                                    name='seleccionar-1-2'>
+                                    <option disabled='disabled' selected='selected' value='0' hidden='hidden' lang='en'>
+                                        Choose here...</option>
+                                    <option value='1' lang='en'>True</option>
+                                    <option value='2' lang='en'>False</option>
+                                </select>
+                                <div class='contselopce invisible'>
+                                    <div class='TexSel'></div>
+                                    <i class='result fa-solid' aria-hidden='true'></i>
+                                </div>
+                                <div class='respmens sr-only'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="retroalimentacion1 rojoretro"></div>
+                    
+                    <p class="instruccion-color-verde text-left">3. Click on the buttons and check your answers.</p>
+                    <div class="contenedor-botones2">
+                        <div class="text-right evaluacion">
+                            <button id="check-s-12-1" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check-s-12-1"
+                                disabled="" name="seleccionar-1-2">Check</button>
+                        </div>
+                        <div class="text-right evaluacion">
+                            <button id="try-s-12-1" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light try-s-12-1" disabled
+                                name="seleccionar-1-2">Try again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="texCenAzu parrafo">
+                    For you to remember! We use can to talk about abilities.
+                </p>
+
+                <p class="parrafo">
+                    She can speak three languages. (She knows how to speak three languages.)<br aria-hidden="true">
+                    She can sing very well. (She knows how to sing.)
+                </p>
+
+            </div>
+        </section>
+
+        <section class="section-activity">
+
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem" accesskey="3" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA04. Lucy and her brother
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-1">
+                    <b>Instructions: </b>
+                </p>
+
+                <p class="parrafo instruccion-color-verde">Do you like working on grammar exercises? Try the following:
+                </p>
+
+                <ol class="instruccion-color-verde parrafo ml-4">
+                    <li>Read the following text about Lucy and her brother.</li>
+                    <li>Put the words in the right form into the blanks.</li>
+                </ol>
+
+
+                <div class="selescts escribir-1-1 recFacImg">
+
+                    <div id="escribir-1-1" class="parrafo">
+
+                        <p aria-hidden="true" class="sr-only text-ayuda">
+                            This is Lucy. She (0) lives (live) with her family in a beautiful house downtown. She (1)
+                            espacio a rellenar (have) a brother, Tom. Lucy (2) espacio a rellenar (love) him very much
+                            because they (3) espacio a rellenar (do) many things together. Lucy (4) espacio a rellenar
+                            (get up) before Tom, but they (5) espacio a rellenar (leave) home at 7.30 p.m. every day.
+                            They (6) espacio a rellenar (go) to the same university. Lucy (7) espacio a rellenar (study)
+                            nursing and Tom (8) espacio a rellenar (study) medicine. They both (9) espacio a rellenar
+                            (want) to work in a hospital near their parents’ house. When Lucy and Tom (10) espacio a
+                            rellenar (not go) to school, they (11) espacio a rellenar (like) to go the movie theater.
+                            However, they (12) espacio a rellenar (not like) the same movies. Lucy (13) espacio a
+                            rellenar (hate) action movies, but Tom (14) espacio a rellenar (not). He (15) espacio a
+                            rellenar (prefer) to watch action and comedy movies. On the weekend, they (16) espacio a
+                            rellenar (enjoy) going to a river. Lucy usually (17) espacio a rellenar (swim) and Tom (18)
+                            espacio a rellenar (fish).
+                        </p>
+
+                        <p class="activity">This is Lucy. She (0) lives (live) with her family in a beautiful house
+                            downtown. She</p>
+                        <label for="escribir-1-1-1" class="active">
+                            <p class="activity">(1)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-1" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(have) a brother, Tom. Lucy</p>
+                        <label for="escribir-1-1-2" class="active">
+                            <p class="activity">(2)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-2" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(love) him very much because they</p>
+                        <label for="escribir-1-1-3" class="active">
+                            <p class="activity">(3)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-3" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(do) many things together. Lucy</p>
+                        <label for="escribir-1-1-4" class="active">
+                            <p class="activity">(4)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-4" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(get up) before Tom, but they</p>
+                        <label for="escribir-1-1-5" class="active">
+                            <p class="activity">(5)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-5" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(leave) home at 7.30 p.m. every day. They</p>
+                        <label for="escribir-1-1-6" class="active">
+                            <p class="activity">(6)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-6" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(go) to the same university. Lucy</p>
+                        <label for="escribir-1-1-7" class="active">
+                            <p class="activity">(7)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-7" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(study) nursing and Tom</p>
+                        <label for="escribir-1-1-8" class="active">
+                            <p class="activity">(8)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-8" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(study) medicine. They both</p>
+                        <label for="escribir-1-1-9" class="active">
+                            <p class="activity">(9)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-9" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(want) to work in a hospital near their parents’ house. When Lucy and Tom
+                        </p>
+                        <label for="escribir-1-1-10" class="active">
+                            <p class="activity">(10)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-10" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(not go) to school, they</p>
+                        <label for="escribir-1-1-11" class="active">
+                            <p class="activity">(11)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-11" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(like) to go the movie theater. However, they</p>
+                        <label for="escribir-1-1-12" class="active">
+                            <p class="activity">(12)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-12" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(not like) the same movies. Lucy</p>
+                        <label for="escribir-1-1-13" class="active">
+                            <p class="activity">(13)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-13" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(hate) action movies, but Tom</p>
+                        <label for="escribir-1-1-14" class="active">
+                            <p class="activity">(14)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-14" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(not). He</p>
+                        <label for="escribir-1-1-15" class="active">
+                            <p class="activity">(15)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-15" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(prefer) to watch action and comedy movies. On the weekend, they</p>
+                        <label for="escribir-1-1-16" class="active">
+                            <p class="activity">(16)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-16" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(enjoy) going to a river. Lucy usually</p>
+                        <label for="escribir-1-1-17" class="active">
+                            <p class="activity">(17)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-17" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(swim) and Tom</p>
+                        <label for="escribir-1-1-18" class="active">
+                            <p class="activity">(18)</p>
+                        </label>
+                        <div class="reactivo">
+                            <input id="escribir-1-1-18" type="text" placeholder="Write here..." name="escribir-1-1"
+                                class="escribir">
+                            <div class="contselopc"></div>
+                        </div>
+
+                        <p class="activity">(fish).</p>
+
+                    </div>
+
+
+                    <div class="retroalimentacion1 rojoretro"></div>
+
+                    <p class="instruccion-color-verde parrafo text-left">3. Click on the buttons and check your answers.
+                    </p>
+                    <div class="contenedor-botones2">
+                        <div class="text-right evaluacion">
+                            <button id="check-e-11-1" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="escribir-1-1">Check</button>
+                        </div>
+                        <div class="text-right evaluacion">
+                            <button id="try-e-11-1" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled
+                                name="escribir-1-1">Try again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="instruccion-color-verde parrafo text-left">4. Now, listen and keep practicing.</p>
+
+                <p class="texCenAzu parrafo">
+                    Listen to the audio.
+                </p>
+
+                <div>
+                    <!-- Audio -->
+                    <div class="mb-4 mt-4 text-center">
+                        <audio controls="" src="Topic-1_1/media/M1-A4-Lucy-and-her-brother-EDIT.mp3" aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="./audios/" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+
+
+
+
+                <!-- <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                    <div class="separadorEsc escritorio"></div>
+                    <div class="separadorMov movil"></div>
+                </div> -->
+
+
+                <!-- <div class="CuadroAudio">
+                    <p class="texCenAzu parrafo">
+                        Recap of Topic 1.1. What do you do on the weekend?
+                    </p>
+                    <div>
+                        audio                        
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" src="Topic-1_1/media/M1-A5-Recap-topic-1_1-EDIT.mp3" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="./audios/" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                    <p aria-hidden="true" class="parrafo mb-0">So far you have made a review of present simple in its
+                        affirmative,
+                        negative, and interrogative forms. Remember the importance of making the difference between
+                        affirmative sentences in the third person singular, the use of the auxiliary verbs DO / DON’T,
+                        DOES / DOESN’T in negative and interrogative sentences.</p>
+                </div> -->
+            </div>
+        </section>
+
+
+
+        <section class="section-activity">
+
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>
+
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-2rem" accesskey="4" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA05. Lucy and her brother (2)
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-1">
+                    <b>Instructions: </b>
+                </p>
+
+                <ol class="instruccion-color-verde parrafo ml-4">
+                    <li>Look at the following examples taken from the previous text.</li>
+                    <li>Complete the table with affirmative, negative and/or interrogative sentences.</li>
+                </ol>
+
+
+
+                <div class="escribir-1-2">
+                    <div id="escribir-1-2">
+
+                        <div class="escritorio">
+                            <div></div>
+                            <div>
+                                <p>+ (affirmative)</p>
+                            </div>
+                            <div>
+                                <p>- (negative)</p>
+                            </div>
+                            <div>
+                                <p>? (interrogative)</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="cirLet"><span>a.</span></div>
+                            <span class="encMov movil">+ (affirmative)</span>
+                            <div class="texPre">
+                                <span class="sr-only">affirmative</span>
+                                <p>She lives with her family</p>
+                            </div>
+                            <span class="encMov movil">- (negative)</span>
+                            <div>
+                                <span class="sr-only">negative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-1" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                            <span class="encMov movil">? (interrogative)</span>
+                            <div>
+                                <span class="sr-only">interrogative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-2" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="cirLet"><span>b.</span></div>
+                            <span class="encMov movil">+ (affirmative)</span>
+                            <div>
+                                <span class="sr-only">affirmative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-3" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                            <span class="encMov movil">- (negative)</span>
+                            <div class="texPre">
+                                <span class="sr-only">negative</span>
+                                <p>They don’t like the same movies.</p>
+                            </div>
+                            <span class="encMov movil">? (interrogative)</span>
+                            <div>
+                                <span class="sr-only">interrogative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-4" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="cirLet"><span>c.</span></div>
+                            <span class="encMov movil">+ (affirmative)</span>
+                            <div class="texPre">
+                                <span class="sr-only">affirmative</span>
+                                <p>Lucy studies nursing</p>
+                            </div>
+                            <span class="encMov movil">- (negative)</span>
+                            <div>
+                                <span class="sr-only">negative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-5" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                            <span class="encMov movil">? (interrogative)</span>
+                            <div>
+                                <span class="sr-only">interrogative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-6" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="cirLet"><span>d.</span></div>
+                            <span class="encMov movil">+ (affirmative)</span>
+                            <div>
+                                <span class="sr-only">affirmative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-7" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                            <span class="encMov movil">- (negative)</span>
+                            <div>
+                                <span class="sr-only">negative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-8" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                            <span class="encMov movil">? (interrogative)</span>
+                            <div class="texPre">
+                                <span class="sr-only">interrogative</span>
+                                <p>Does Tom hate action movies?</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="cirLet"><span>e.</span></div>
+                            <span class="encMov movil">+ (affirmative)</span>
+                            <div class="texPre">
+                                <span class="sr-only">affirmative</span>
+                                <p>They want to work at a hospital</p>
+                            </div>
+                            <span class="encMov movil">- (negative)</span>
+                            <div>
+                                <span class="sr-only">negative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-9" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                            <span class="encMov movil">? (interrogative)</span>
+                            <div>
+                                <span class="sr-only">interrogative</span>
+                                <div class="reactivo">
+                                    <input id="escribir-1-2-10" type="text" placeholder="Write here..."
+                                        name="escribir-1-2" class="escribir">
+                                    <div class="contselopc"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="retroalimentacion1 rojoretro"></div>
+                    <div class="contenedor-botones2">
+                        <div class="text-right evaluacion">
+                            <button id="check-e-12-1" role="button"
+                                class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check"
+                                disabled="" name="escribir-1-2">Check</button>
+                        </div>
+                        <div class="text-right evaluacion">
+                            <button id="try-e-12-1" role="button"
+                                class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled
+                                name="escribir-1-2">Try again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                    <div class="separadorEsc escritorio"></div>
+                    <div class="separadorMov movil"></div>
+                </div>
+
+                <div class="CuadroAudio">
+                    <p class="texCenAzu parrafo">
+                        Recap of Topic 1.1. What do you do on the weekend?
+                    </p>
+                    <div>
+                        <!-- Audio -->
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" src="Topic-1_1/media/M1-A5-Recap-topic-1_1-EDIT.mp3" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="./audios/" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                    <p aria-hidden="true" class="parrafo mb-0">So far you have made a review of present simple in its
+                        affirmative,
+                        negative, and interrogative forms. Remember the importance of making the difference between
+                        affirmative sentences in the third person singular, the use of the auxiliary verbs DO / DON’T,
+                        DOES / DOESN’T in negative and interrogative sentences.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="Topic-1_1/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="Topic-1_1/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-1_1/scripts/home.js"></script>
+    <script type="text/javascript" src="Topic-1_1/scripts/menu-2.js"></script>
+    <!-- modales lector inmersivo -->
+    <script src="Topic-1_1/scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-1_1/scripts/menuacces.js"></script>
+    <script src="Topic-1_1/scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="Topic-1_1/scripts/scroll-timeline.js"></script>
+
+    <script type="text/javascript" src="Topic-1_1/scripts/unit-1_1P2.js"></script>
+
+
+
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

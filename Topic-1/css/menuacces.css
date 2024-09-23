@@ -1,0 +1,449 @@
+.contenedorActivo {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    z-Index: 53;
+}
+
+.ident_Universal {
+    display: inline-flex !important;
+    transition-duration: 3s;
+    animation-duration: 3s;
+}
+
+.play_video {
+    position: absolute;
+    background: #ff000057;
+    display: inline;
+    bottom: 2.5rem;
+    left: 1rem;
+}
+
+.fullScreen {
+    position: absolute;
+    background: #ff000057;
+    display: inline;
+    bottom: 2.5rem;
+    right: 3.9rem;
+}
+
+.ident_Cero {
+    display: inline-flex !important;
+    position: fixed;
+    top: 39%;
+    right: 3.2rem;
+}
+
+.ident_Faqs {
+    display: inline-flex !important;
+    position: absolute;
+    top: 0;
+    right: .5rem;
+}
+
+/* identificador3 */
+.identificador3 {
+    font-size: 1rem;
+    text-indent: 0em;
+    position: absolute;
+    font-weight: bold;
+    z-index: 1;
+    background-color: white;
+    color: #18529D;
+    width: 49px;
+    height: 25px;
+    display: none;
+    justify-content: center;
+    /* align-items: center; */
+    border: 2px solid #18529D;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    top: 0;
+    right: 1rem;
+}
+
+.identVideo {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ml-3rem {
+    margin-left: 3rem;
+}
+
+/* .pausar{
+    display: none;
+} */
+
+/* backDrop */
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro con opacidad del 50% */
+    z-index: 1040;
+    /* Valor z-index mayor que el modal para que esté detrás */
+    display: none;
+    /* Inicialmente oculto */
+}
+
+/* fin backdrop */
+.animate-bounceIn {
+    animation: bounce 8s infinite;
+}
+
+/* boton de ayuda */
+.help {
+    position: fixed;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 62;
+    right: 2.5rem;
+    top: 37%;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+    font-size: 1.5rem;
+    outline: none !important;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.bxs-help-circle {
+    color: #18529D;
+}
+
+/* boton de ayuda fin */
+/* Identificador 1 */
+.container_menu {
+    position: relative;
+}
+
+.identificador {
+    font-size: 1rem;
+    position: absolute;
+    font-weight: bold;
+    top: 3.4rem;
+    left: -.7rem;
+    z-index: 1;
+    background: #f8c5fd;
+    width: 20px;
+    height: 20px;
+    /* border-radius: 50%; */
+    display: none;
+    /* transition: 3s; */
+    /* transition-duration: 2s; */
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.identificador2 {
+    font-size: 1rem;
+    text-indent: 0em;
+    font-weight: bold;
+    z-index: 1;
+    background: #FFFFFF;
+    color: #18529D;
+    font-weight: bold !important;
+    border: 2px solid #18529D;
+    min-width: 25px;
+    height: 25px;
+    width: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.btn_fuente {
+    color: black;
+}
+
+/* Fin Identificador 1 */
+
+/* .instruccion {
+    font-size: 1.3rem;
+} */
+
+/* Contenedor Notas */
+.contenedor_notas {
+    overflow: auto;
+    padding: 3.5rem 1rem;
+    width: 900px;
+    height: 70px;
+    position: fixed;
+    /* background: linear-gradient(120deg, #BDE4FA 0%, #FADAE9 80%); */
+    background-color: white;
+    /* z-index: 1; */
+    display: none;
+    bottom: 1rem;
+    left: 0;
+    margin: auto;
+    right: 0;
+    border: 2px solid #17529C;
+}
+
+/* Fin Contenedor Notas */
+
+/* Sección Microfono */
+.microfono {
+    position: fixed;
+    z-index: 53;
+    bottom: 1rem;
+    right: 1rem;
+    /* background: linear-gradient(120deg, #BDE4FA 0%, #FADAE9 80%); */
+    background-color: darkgray;
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+/* .micro {
+    font-size: 1.4rem;
+} */
+
+.activeMicro {
+    color: #800035;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    transition-duration: 5s;
+    background-color: rgb(7, 148, 37);
+}
+
+/* Fin Sección Microf */
+
+
+
+.btnAccessUniversal {
+    /* background: linear-gradient(120deg, #BDE4FA 0%, #FADAE9 80%); */
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    padding: 1rem;
+    /* width: 3.5rem;
+    height: 3.5rem; */
+    width: 80px;
+    height: 80px;
+    font-size: 1.3125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    right: 1rem;
+    z-index: 62;
+    border: none;
+    outline: none !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.btnAccessUniversal:hover {
+    /* background: linear-gradient(45deg, rgb(235, 114, 114) 50%, #7fec71 70%); */
+    /* color: red; */
+    border: none;
+}
+
+.menuacces {
+    border-radius: 2rem;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    bottom: 21rem;
+}
+
+.menuacces.active {
+    right: 6rem;
+    display: block;
+    z-index: 100;
+}
+
+.icon_desactivado {
+    display: none;
+}
+
+.menuComponentAcces {
+    background-color: white;
+    height: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-y: scroll;
+    padding: .5rem;
+}
+
+.sectionAcces {
+    background-color: rgb(255 255 255);
+    width: 190px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 2px solid gray;
+}
+
+.btn_accesible {
+    border: none;
+    background-color: #ffffff;
+    font-size: 1.125rem;
+    width: 190px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+    margin-bottom: 0;
+}
+
+/* .btn_accesible:hover {
+    color: #000;
+} */
+
+.btn_accesible:focus {
+    outline: none;
+    border: none;
+}
+
+.sectionBtnsacces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.btn-access {
+    background: linear-gradient(90deg, #0051a0 0%, #0b1b74 70%);
+    color: #FFFFFF;
+    padding: 1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    font-size: 1.3125em;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.btn-access:hover {
+    background: #FFFFFF;
+    color: #0051a0;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.questionAcces {
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* LINEA DE LECTURA */
+#readline {
+    display: none;
+    z-index: 1 !important;
+    left: 0px;
+    /* top: 10px; */
+    position: fixed;
+    background: white;
+    border-top: 4px solid #18529D;
+    border-bottom: 4px solid #18529D;
+    width: 100%;
+    height: 10px;
+}
+
+#readline.active {
+    display: flex;
+}
+
+@media screen and (min-width:768px) {
+    .resaltado {
+        background: #000;
+        color: rgb(255, 255, 0) !important;
+        /*transition: all ease-in .4s;*/
+    }
+
+    .resaltado:hover {
+        background: #000;
+        color: rgb(255, 255, 0);
+        text-decoration: underline;
+        /*transition: all ease-in .4s;*/
+    }
+}
+
+.btn_lecturaF.resaltado {
+    background-image: url(./img/accesibilidad/lecturaf-am.png);
+    background-repeat: no-repeat;
+    background-position: 2rem center;
+    border: .2rem solid #000;
+    ;
+}
+
+/* cuando el boton de comandos de voz se encuentre activo: */
+.HerramientaActivada {
+    background-color: #18529D;
+    width: 190px;
+    color: white;
+    transition-duration: .5s;
+}
+
+@media screen and (max-width: 767px) {
+    .menuComponentAcces {
+        display: none;
+    }
+
+    #readline {
+        display: none !important;
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .contenedor_notas {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+
+    /* helpA */
+    .help,
+    .section_voice,
+    .contenedor_notas,
+    .microfono,
+    .identificador,
+    .identificador2 {
+        display: none !important;
+    }
+
+    /* .modal-backdrop.show {
+        opacity: 0 !important;
+    } */
+
+    /* #container_notes{
+        display: none !important;
+    } */
+}

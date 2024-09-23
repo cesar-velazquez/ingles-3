@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crucigrama 3</title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/unit2.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link href="css/application.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+    
+    <!-- SIDEBAR MENÚ -->
+    <!--<navbar class="sidebar" style="overflow-y: scroll;">
+ 
+        <div class="sidebar__encabezado">
+            <button class="btn btn-link sidebar__dismiss" aria-label="Cerrar menú desplegado">
+                <span>X</span>
+            </button>
+        </div>
+        
+        <menu-component-2></menu-component-2>
+    
+    </navbar>-->
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+               
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Crucigrama 3</b> <!--<span style="font-weight: normal !important;">My best birthday ever!</span>-->
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+
+            <img src="img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                    <i class="fas fa-bars"></i>
+                </button>-->
+                
+                <div class="d-flex align-items-center mt-4">
+
+                    <div class="pleca__ee ml-0" style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <p class="tam-font font-weight-bold mb-1 texto-tema-margen">
+                                Crucigrama 3<!--<span style="font-weight: normal;"> My best birthday ever!</span>-->
+                            </p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <h1 class="titulo-principal-unit margin-left-titulo t1">
+            Crucigrama 3 <br>
+            <!--<span class="subtitulo-secundari-unit">My best birthday ever!</span>-->
+        </h1>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="introduction">
+
+            <div class="container py-4">
+
+                <div class="mb-4 mb-md-5">
+                    
+                    
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instructions: </b> 
+                    </p>
+                    <ol class="parrafo instruccion-color-verde ml-4">
+                        <li>Read the clues and find the correct answers</li>
+                        <li>Write the words in the corresponding spaces.</li>
+                    </ol>
+
+                    
+                    <div class="crucigrama-principal parrafo escritorio">
+                        <p class="text-left"><b>Across</b></p>
+                        <div class="preguntas-horizontal">                    
+                        </div>
+                        <p class="text-left"><b>Down</b></p>
+                        <div class="preguntas-vertical">
+                        </div>
+                          
+                        <div id="contenedor-crucigrama" class="contenedor-crucigrama" accesskey="1" tabindex="0">
+                            <div id="desplazador-crucigrama" class="desplazador-crucigrama3">
+                                <div id="lienzo-crucigrama" class="lienzo-crucigrama3"></div>
+                            </div>
+                        </div>
+                        <div class="retroalimentaciones" lang="es"><p aria-hidden="true">&nbsp;</p></div>
+                        <div class="contenedor-boton--derecha">
+                            <div>
+                                <button class="btnComprobar-cruc comprobar btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light" disabled="true">
+                                    <b>Check</b>
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btnlimpiar-cruc try btn boton-check btn-reintentar waves-effect waves-light" disabled>
+                                    <b>Try again</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <div class="selescts escribir-2-3 recFacImg CruciMov movil" accesskey="2" tabindex="1">
+
+                        <div id="escribir-2-3" class="parrafo">
+
+                            <p class="sr-only text-ayuda">
+                                1. Gentle, loving, or kind <span lang="es">espacio a rellenar</span>
+                                2. A movie, poem, or book that is long and contains a lot of action, usually dealing with a historical subject <span lang="es">espacio a rellenar</span>
+                                3. Very sudden or noticeable, or full of action and excitement <span lang="es">espacio a rellenar</span>
+                                4. Extremely great in ability, amount, or strength <span lang="es">espacio a rellenar</span>
+                                5. To show or experience great surprise or admiration <span lang="es">espacio a rellenar</span>
+                                6. Small in amount or number <span lang="es">espacio a rellenar</span>
+                                7. Having a larger distance from one side to the other than is usual or expected, especially in comparison with the length of something; not narrow <span lang="es">espacio a rellenar</span>                                
+                            </p>
+
+                            <label for="escribir-2-3-1" class="active"><strong>1.</strong> Gentle, loving, or kind </label>
+                            <div class="reactivo">                             
+                                <input id="escribir-2-3-1" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div> 
+                            
+                            <br aria-hidden="true">
+                            
+                            <label for="escribir-2-3-2" class="active"><strong>2.</strong> A movie, poem, or book that is long and contains a lot of action, usually dealing with a historical subject </label> 
+                            <div class="reactivo">                            
+                                <input id="escribir-2-3-2" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <br aria-hidden="true">
+                            
+                            <label for="escribir-2-3-3" class="active"><strong>3.</strong> Very sudden or noticeable, or full of action and excitement </label><div class="reactivo">                            
+                                <input id="escribir-2-3-3" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <br aria-hidden="true">
+
+                            <label for="escribir-2-3-4" class="active"><strong>4.</strong> Extremely great in ability, amount, or strength </label> 
+                            <div class="reactivo">                            
+                                <input id="escribir-2-3-4" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <br aria-hidden="true">
+
+                            <label for="escribir-2-3-5" class="active"><strong>5.</strong> To show or experience great surprise or admiration </label> 
+                            <div class="reactivo">                            
+                                <input id="escribir-2-3-5" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <br aria-hidden="true">
+
+                            <label for="escribir-2-3-6" class="active"><strong>6.</strong> Small in amount or number </label> 
+                            <div class="reactivo">                            
+                                <input id="escribir-2-3-6" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div>
+
+                            <br aria-hidden="true">
+
+                            <label for="escribir-2-3-7" class="active"><strong>7.</strong> Having a larger distance from one side to the other than is usual or expected, especially in comparison with the length of something; not narrow </label> 
+                            <div class="reactivo">                            
+                                <input id="escribir-2-3-7" type="text" placeholder="Write here..." name="escribir-2-3" class="escribir">
+                                <div class="contselopc"></div>
+                            </div>
+                            
+
+                        </div>                       
+
+                        <div class="retroalimentacion1 rojoretro"></div>                    
+                        <div class="contenedor-botones2">
+                            <div class="text-right evaluacion">
+                                <button id="check-e-23-3" role="button" class="btn boton-check btn-reintentar bc btn-descarga waves-effect waves-light check" disabled="" name="escribir-2-3">Check</button>
+                            </div>
+                            <div class="text-right evaluacion">
+                                <button id="try-e-23-3" role="button" class="btn boton-check btn-reintentar bt waves-effect waves-light" disabled name="escribir-2-3">Try again</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+           
+ 
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+        
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        
+    </footer>
+
+
+    <div class="overlay"></div>
+
+
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <!-- Funcionalidad general -->
+    <script src="scripts/home.js"></script>
+    <script type="text/javascript" src="scripts/menu-2.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="scripts/scroll-timeline.js"></script>
+
+    <script type="text/javascript" src="scripts/unit-2.js"></script>
+
+    
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+    
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function(){
+
+            $('.ir-arriba').click(function(){
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function(){
+                if( $(this).scrollTop() > 0 ){
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+    <script src="scripts/lib/crucigramaespaguetti.js"></script>
+    
+    <script type="text/javascript">
+        $(function () {          
+            cargarDatos('tema3.json');
+        });
+    </script>
+
+</body>
+</html>
+

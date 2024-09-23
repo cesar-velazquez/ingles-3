@@ -1,0 +1,3770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topic 1.3 What does he look like? / What is he like?</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-1_3/css/index.css">
+    <link rel="stylesheet" href="Topic-1_3/css/unit1.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-1_3/css/menuacces.css">
+    <!-- Libreria de Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Slide horizontal -->
+    <link rel="stylesheet" type="text/css" href="Topic-1_3/css/presentacion-horizontal.css" />
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+        <p lang="en" class="sr-only"><b><i>Windows</i></b></p>
+        <ul class="sr-only">
+            <li>Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li><i lang="en">Activity</i> OPA08: Alt + 1</li>
+            <li><i lang="en">Activity</i> OPA09: Alt + 2</li>
+            <li><i lang="en">Activity</i> OPA10: Alt + 3</li>
+        </ul>
+
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="sr-only">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li><i lang="en">Activity</i> OPA08: <i lang="en">Control </i> + <i lang="en">Option</i> + 1</li>
+            <li><i lang="en">Activity</i> OPA09: <i lang="en">Control </i> + <i lang="en">Option</i> + 2</li>
+            <li><i lang="en">Activity</i> OPA10: <i lang="en">Control </i> + <i lang="en">Option</i> + 3</li>
+        </ul>
+    </div>
+
+    <!-- <button class="btn btn-azul-modals btn-information" aria-label="Información de ayuda" title="Información de ayuda"
+        data-toggle="modal" data-target="#information-1" accesskey="I" aria-hidden="true">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+    </button> -->
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-1_3/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-1_3/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-1_3/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-1_3/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-1_3/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-1_3/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-1_3/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-1_3/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-1_3/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-1_3/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-1_3/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress" aria-hidden="true"></div>
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" class="pleca__uv" href="https://uv.mx/" target="_blank" lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Topic 1.3</b>
+                            <span style="font-weight: normal;">What does he look like? / What is he like?</span>
+                        </p>
+                    </span>
+                </div>
+
+            </div>
+
+            <img src="./Topic-1_3/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca scroll">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>-->
+
+                <!-- mt-4 -->
+                <div class="d-flex align-items-center ">
+
+                    <div class="pleca__ee ml-0 aparecer-desaparecer"
+                        style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <!-- margin_pleca -->
+                            <p class="tam-font font-weight-bold ">
+                                Topic 1.3
+                                <!--<span style="font-weight: normal;">What do you do on the weekend?</span>-->
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <img src="./Topic-1_3/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true"
+                width="100%" height="auto">
+
+        </div>
+
+        <h1 class="titulo-principal-unit">
+
+            Topic 1.3 <br>
+            <span class="subtitulo-secundari-unit">What does he look like? / What is he like?</span>
+
+        </h1>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-1_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="40%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-1_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="60%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-4" accesskey="1" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA08. Who is who?
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> <br>
+                    1. Listen and read the descriptions and write the correct name. <br>
+                    2. Write the correct name in each case.
+                </p>
+
+                <div lang="es" class="escritorio mt-4 mb-4 mt-md-5 mb-md-5 text-center">
+
+                    <div class="row align-items-end">
+
+                        <div class="col-md-2">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa07-jake.png" width="50%" height="auto"
+                                alt="JAKE">
+
+                            <div class="bg-who-is-who p-2 mt-4">
+
+                                <p class="parrafo mb-0 font-weight-bold" aria-hidden="true">
+                                    Jake
+                                </p>
+
+                                <p class="parrafo sr-only">
+                                    <span aria-hidden="true">J, A, K, E</span>
+                                    varón de estatura baja, cabello ondulado pelirrojo y ojos azules. Es una persona
+                                    generosa.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa07-sally.png" width="65%" height="auto"
+                                alt="SALLY">
+
+                            <div class="bg-who-is-who p-2 mt-4">
+
+                                <p class="parrafo mb-0 font-weight-bold" aria-hidden="true">
+                                    Sally
+                                </p>
+
+                                <p class="parrafo sr-only">
+                                    <span aria-hidden="true">S, A, L, L, Y</span>
+                                    mujer de mediana edad, de complexión y estatura media, cabello castaño ondulado y
+                                    ojos verdes. Es una persona simpática.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa07-sam.png" width="100%" height="auto"
+                                alt="SAM">
+
+                            <div class="bg-who-is-who p-2 mt-4">
+
+                                <p class="parrafo mb-0 font-weight-bold" aria-hidden="true">
+                                    Sam
+                                </p>
+
+                                <p class="parrafo sr-only">
+                                    <span aria-hidden="true">S, A, M</span>
+                                    varón joven, alto, de complexión fornida. Cabello lacio negro y ojos café oscuro. Es
+                                    una persona extrovertida.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa07-pete.png" width="90%" height="auto"
+                                alt="PETE">
+
+                            <div class="bg-who-is-who p-2 mt-4">
+
+                                <p class="parrafo mb-0 font-weight-bold" aria-hidden="true">
+                                    Pete
+                                </p>
+
+                                <p class="parrafo sr-only">
+                                    <span aria-hidden="true">P, E, T, E</span>
+                                    varón joven, alto, de complexión fornida, cabello rubio y ojos azules. Es una
+                                    persona agradable.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa07-july.png" width="56%" height="auto"
+                                alt="JULY">
+
+                            <div class="bg-who-is-who p-2 mt-4">
+
+                                <p class="parrafo mb-0 font-weight-bold" aria-hidden="true">
+                                    July
+                                </p>
+
+                                <p class="parrafo sr-only">
+                                    <span aria-hidden="true">J, U, L, Y</span>
+                                    mujer joven, alta y delgada, cabello rizado, pelirrojo y ojos verdes. Es una persona
+                                    responsable.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa07-mary.png" width="65%" height="auto"
+                                alt="MARY">
+
+                            <div class="bg-who-is-who p-2 mt-4">
+
+                                <p class="parrafo mb-0 font-weight-bold" aria-hidden="true">
+                                    Mary
+                                </p>
+
+                                <p class="parrafo sr-only">
+                                    <span aria-hidden="true">M, A, R, Y</span>
+                                    mujer de mediana edad, estatura media y sobrepeso. Cabello rubio lacio y ojos
+                                    azules. Ella es honesta.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="movil">
+
+                    <div class="movil">
+
+                        <div class="text-right mt-4 mb-4">
+
+                            <a class="btn btn-descarga waves-effect waves-light"
+                                href="./Topic-1_3/downloads/INGLES3-M1-OPA07. Who is who.pdf" target="_blank"
+                                download="">
+                                OPA08 Images
+                                <span class="sr-only">file pdf</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="seleccionar1_2_1">
+
+                    <div class="row">
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-1 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        a.
+                                    </p>
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A7/M1 A7 OPA08.01.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <ul class="parrafo ml-4 mb-0" aria-hidden="true">
+                                    <li>My father is short and slim.</li>
+                                    <li>He has short red wavy hair.</li>
+                                    <li>He is clever and generous. </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="bg-evaluacion-escribir mt-1">
+
+                                <p class="parrafo mb-3 text-azul">
+                                    Who is my father?
+                                </p>
+
+                                <input id="input-e-1" type="text" name="seleccionar1_2_1" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-2 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        b.
+                                    </p>
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A7/M1 A7 OPA 8.03.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <ul class="parrafo ml-4 mb-0" aria-hidden="true">
+                                    <li>My sister is tall and slim.</li>
+                                    <li>She has long curly red hair.</li>
+                                    <li>She has green eyes.</li>
+                                    <li>She is brave and responsible.</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="bg-evaluacion-escribir mt-1">
+
+                                <p class="parrafo mb-3 text-azul">
+                                    Who is my sister?
+                                </p>
+
+                                <input id="input-e-2" type="text" name="seleccionar1_2_1" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        c.
+                                    </p>
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A7/M1 A7 OPA8.02.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <ul class="parrafo ml-4 mb-0" aria-hidden="true">
+                                    <li>My mother is medium height and overweight.</li>
+                                    <li>She has blond straight hair.</li>
+                                    <li>She has blue eyes.</li>
+                                    <li>She is shy and honest.</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="bg-evaluacion-escribir mt-1">
+
+                                <p class="parrafo mb-3 text-azul">
+                                    Who is my mother?
+                                </p>
+
+                                <input id="input-e-3" type="text" name="seleccionar1_2_1" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-4 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        d.
+                                    </p>
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A7/M1 A7 OPA 8.04.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <ul class="parrafo ml-4 mb-0" aria-hidden="true">
+                                    <li>My brother is tall and well built.</li>
+                                    <li>He has short straight black hair.</li>
+                                    <li>He has dark brown eyes.</li>
+                                    <li>He is popular and extroverted. </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="bg-evaluacion-escribir mt-1">
+
+                                <p class="parrafo mb-3 text-azul">
+                                    Who is my brother?
+                                </p>
+
+                                <input id="input-e-4" type="text" name="seleccionar1_2_1" class="form-control escribir"
+                                    placeholder="Write here...">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <p class="mb-0 parrafo text-success mensaje-correcto-2 d-none mt-4 font-weight-bold">Very good!
+                            You are ready to continue.</p>
+
+                        <p class="mb-0 parrafo text-danger mensaje-incorrecto-2 d-none mt-4 font-weight-bold">Please,
+                            try to answer the exercise again.</p>
+
+                        <p class="mb-0 parrafo mensaje-ver-respuestas-2 d-none mt-4 font-weight-bold"><b>Please, check
+                                the correct answers.</b></p>
+
+                        <div class="retroalimentacion-2 d-none">
+
+                            <p class="parrafo sr-only">
+                                Who is my father? ... Jake
+                                Who is my sister? ... July
+                                Who is my mother? ... Mary
+                                Who is my brother? ... Sam
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde mt-4 mb-4">
+                        3. Click on the buttons and check your answers.
+                    </p>
+
+                    <div class="text-right mt-4 mt-md-5">
+
+                        <button aria-label="button check" id="check-S1_2_2" role="button"
+                            class="btn boton-check no-imp btn-descarga seleccionar1_2_1" disabled=""
+                            name="seleccionar1_2_1" tabindex="1">
+                            Check
+                        </button>
+
+                        <br>
+
+                        <button aria-label="button try again" id="check-s-try-2" role="button"
+                            class="btn btn-reintentar no-imp btn-descarga-blanco mt-3" disabled="" tabindex="1">
+                            Try again
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                    <img src="./Topic-1_3/img/150pp/INGLESINT_separador-contenido.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+
+                    <img src="./Topic-1_3/img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+
+                </div>
+
+                <p class="parrafo text-azul">
+                    So how do you describe a person?
+                </p>
+
+                <p class="parrafo">
+                    There are two ways to describe people in English. You can describe people’s <b>appearance</b> and
+                    <b>personality</b>.
+                </p>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-4">
+
+                    <img src="./Topic-1_3/img/syllabus/separador-interior-r.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="movil">
+
+                    <img src="./Topic-1_3/img/syllabus/separador-interior-e.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="escritorio">
+
+                </div>
+
+                <p class="parrafo text-azul">
+                    Appearance
+                </p>
+
+                <p class="parrafo">
+                    To describe a person’s appearance in English, you can use adjectives to describe their physical
+                    characteristics such as their height, build, hair and facial features.
+                </p>
+
+                <div class="bg-appearance">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-4 text-center">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-appearance-01.png" width="100%"
+                                height="auto" alt="Support image" aria-hidden="true" class="mb-3">
+
+                            <p class="parrafo mb-3 text-azul">
+                                Height <span class="sr-only" lang="es">Estatura</span>
+                            </p>
+
+                            <!-- Audio -->
+                            <div class="text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 Height.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Tall
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            She is very tall.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Short
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            He is short.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Medium height
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            My brother is of medium height.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4 text-center">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-appearance-02.png" width="100%"
+                                height="auto" alt="Support image" aria-hidden="true" class="mb-3">
+
+                            <p class="parrafo mb-3 text-azul">
+                                Build <span class="sr-only" lang="es">Desarrollar</span>
+                            </p>
+
+                            <!-- Audio -->
+                            <div class="text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 Build.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Overweight
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            He is overweight.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Slim
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            You are slim.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Well built
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            He is well built.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Chubby
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            I am chubby.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4 text-center">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-appearance-03.png" width="100%"
+                                height="auto" alt="Support image" aria-hidden="true" class="mb-3">
+
+                            <p class="parrafo mb-3 text-azul">
+                                Hair color <span class="sr-only" lang="es">Color de cabello</span>
+                            </p>
+
+                            <!-- Audio -->
+                            <div class="text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 Hair Color.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Blond
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            You have blond hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Brown hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            She has brown hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Red hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            I have red hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Black hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            She has black hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Grey hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            He has grey hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4 text-center">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-appearance-04.png" width="100%"
+                                height="auto" alt="Support image" aria-hidden="true" class="mb-3">
+
+                            <p class="parrafo mb-3 text-azul">
+                                Eyes color <span class="sr-only" lang="es">Color de ojos</span>
+                            </p>
+
+                            <!-- Audio -->
+                            <div class="text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M! A8 1.3 Eyes Color.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Grey eyes
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            I have grey eyes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Green eyes
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            She has green eyes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Blue eyes
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            I have blue eyes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Brown eyes
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            My aunt has brown eyes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Dark brown eyes
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            They have dark brown eyes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4 text-center">
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-appearance-05.png" width="100%"
+                                height="auto" alt="Support image" aria-hidden="true" class="mb-3">
+
+                            <p class="parrafo mb-3 text-azul">
+                                Length / Type of hair <span class="sr-only" lang="es">Largo / estilo de cabello</span>
+                            </p>
+
+                            <!-- Audio -->
+                            <div class="text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 Lenght-Type of hair.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Long hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            She has long hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Short hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            He has short hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Bald
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            He is bald.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Medium length
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            They have medium length hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Wavy hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            She has wavy hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Curly hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            I have curly hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-5 col-md-5 col-4 pr-0">
+                                    <div class="bg-azul-appearance p-2 text-center">
+                                        <p class="parrafo mb-0 text-azul" aria-hidden="true">
+                                            Straight hair
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 col-8 pl-0">
+                                    <div class="bg-white-appearance p-2">
+                                        <p class="parrafo mb-0" aria-hidden="true">
+                                            We have straight hair.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-4">
+
+                    <img src="./Topic-1_3/img/syllabus/separador-interior-r.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="movil">
+
+                    <img src="./Topic-1_3/img/syllabus/separador-interior-e.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="escritorio">
+
+                </div>
+
+                <p class="parrafo">
+                    When you ask about someone’s physical appearance you need to use the following questions:
+                </p>
+
+                <div class="audios-texto-1">
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 You What do you look like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                YOU:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT DO <span class="text-azul">YOU</span> LOOK LIKE?
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                I <span class="text-azul">am</span> short and slim. I <span
+                                    class="text-azul">have</span> short, wavy black hair.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source
+                                        src="Topic-1_3/audios/M1 A8/M1 A8 1.3 He What does your father look like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                HE:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT DOES <span class="text-azul">YOUR FATHER</span> LOOK LIKE?
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                My father <span class="text-azul">is</span> tall and chubby.
+                                He <span class="text-azul">has</span> short, curly brown hair.
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT DOES <span class="text-azul">HE</span> LOOK LIKE?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source
+                                        src="Topic-1_3/audios/M1 A8/M1 A8 1.3 She What does your mother look like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                SHE:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT DOES <span class="text-azul">YOUR MOTHER</span> LOOK LIKE?
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                My mother <span class="text-azul">is</span> slim and middle height.
+                                She <span class="text-azul">has</span> long, straight blond hair.
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT DOES <span class="text-azul">SHE</span> LOOK LIKE?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source
+                                        src="Topic-1_3/audios/M1 A8/M1 A8 1.3 They What do your brothers looks like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                THEY:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT DO <span class="text-azul">YOUR BROTHERS</span> LOOK LIKE?
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                They <span class="text-azul">are</span> tall and well built.
+                                They <span class="text-azul">have</span> short wavy black hair
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT DO <span class="text-azul">THEY</span> LOOK LIKE?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-4">
+
+                    <img src="./Topic-1_3/img/syllabus/separador-interior-r.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="movil">
+
+                    <img src="./Topic-1_3/img/syllabus/separador-interior-e.png" alt="Support image" aria-hidden="true"
+                        width="80%" height="auto" class="escritorio">
+
+                </div>
+
+                <p class="parrafo text-azul">
+                    Personality (character)
+                </p>
+
+                <p class="parrafo">
+                    To describe a person’s personality, you can use the following adjectives.
+                </p>
+
+                <div class="escritorio" aria-hidden="true">
+
+                    <p class="parrafo instruccion-color-verde mt-4 mb-4_5" aria-hidden="true">
+                        <b>Instruction:</b> Click on the buttons below to read the information.
+                    </p>
+
+                    <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden mb-5"
+                        aria-hidden="true">
+
+                        <div class="swiper-wrapper" id="swiper-wrapper-1f150146e7b59405" aria-live="polite"
+                            style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); transition-delay: 0ms;">
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="1 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-friendly.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Friendly
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Friendly.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">1 / 20</span>
+                                        <span class="sr-only">1 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="2 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-sociable.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Sociable
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Sociable.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">2 / 20</span>
+                                        <span class="sr-only">2 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="3 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-hardworking.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Hardworking
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Hardworking.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">3 / 20</span>
+                                        <span class="sr-only">3 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="4 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-shy.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Shy
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Shy.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">4 / 20</span>
+                                        <span class="sr-only">4 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="5 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-lazy.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Lazy
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Lazy.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">5 / 20</span>
+                                        <span class="sr-only">5 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="6 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-kind.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Kind
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Kind.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">6 / 20</span>
+                                        <span class="sr-only">6 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="7 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-generous.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Generous
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Generous.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">7 / 20</span>
+                                        <span class="sr-only">7 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="8 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-optimistic.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Optimistic
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Optimistic.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">8 / 20</span>
+                                        <span class="sr-only">8 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="9 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-clever.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Clever
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Clever.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">9 / 20</span>
+                                        <span class="sr-only">9 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="10 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-independent.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Independent
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Independent.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">10 / 20</span>
+                                        <span class="sr-only">10 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="11 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-extroverted.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Extroverted
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Extroverted.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">11 / 20</span>
+                                        <span class="sr-only">11 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="12 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-rude.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Rude
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Rude.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">12 / 20</span>
+                                        <span class="sr-only">12 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="13 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-introverted.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Introverted
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Introverted.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">13 / 20</span>
+                                        <span class="sr-only">13 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="14 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-pessimistic.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Pessimistic
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Pesimistic.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">14 / 20</span>
+                                        <span class="sr-only">14 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="15 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-responsible.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Responsible
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Responsible.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">15 / 20</span>
+                                        <span class="sr-only">15 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="16 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-moody.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Moody
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Moody.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">16 / 20</span>
+                                        <span class="sr-only">16 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="17 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-honest.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Honest
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Honest.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">17 / 20</span>
+                                        <span class="sr-only">17 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="18 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-talkative.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Talkative
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Talkative.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">18 / 20</span>
+                                        <span class="sr-only">18 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="19 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-brave.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Brave
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Brave.mp3" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">19 / 20</span>
+                                        <span class="sr-only">19 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+                                role="group" aria-label="20 / 20" style="width: 744px;">
+
+                                <div class="swiper-content text-center">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-punctual.png"
+                                        width="100%" height="auto" alt="Support image" class="mb-3" aria-hidden="true">
+
+                                    <p class="parrafo text-azul mb-3" aria-hidden="true">
+                                        Punctual
+                                    </p>
+
+                                    <!-- Audio -->
+                                    <div class="text-center mb-4">
+                                        <audio controls aria-role="audio">
+                                            Tu navegador no soporta la etiqueta audio.
+                                            <source src="Topic-1_3/audios/Glosario/M1 A2 Punctual.mp3"
+                                                type="audio/mpeg">
+                                        </audio>
+                                    </div>
+
+                                    <p class="parrafo text-grey mb-0" aria-hidden="true">
+                                        <span aria-hidden="true">20 / 20</span>
+                                        <span class="sr-only">20 of 20 </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="contenedor-botones" aria-hidden="true">
+                            <div class="swiper-button-prev swiper-button-disabled" aria-hidden="true" tabindex="-1"
+                                role="button" aria-label="Previous slide"
+                                aria-controls="swiper-wrapper-1f150146e7b59405" aria-disabled="true">
+                                <span class="parrafo mb-0">Back</span>
+                                <!-- Back -->
+                            </div>
+                            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+                                aria-controls="swiper-wrapper-1f150146e7b59405" aria-disabled="false">
+                                <span class="parrafo mb-0">Next</span>
+                            </div>
+                        </div>
+
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+
+                    </div>
+
+                    <div class="text-center mb-4 sr-only">
+                        <audio controls aria-role="audio">
+                            Tu navegador no soporta la etiqueta audio.
+                            <source src="Topic-1_3/audios/M1 A2 Personality.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                </div>
+
+                <div class="movil mb-4">
+
+                    <div class="text-center">
+
+                        <img src="./Topic-1_3/img/topics/IB3V-M1_m1-topic1.3-personality-responsivo.png" width="100%"
+                            height="auto" alt="Support image" aria-hidden="true" class="mt-4 mb-4">
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-01" src="Topic-1_3/audios/Glosario/M1 A2 Friendly.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-01').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Friendly
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-02" src="Topic-1_3/audios/Glosario/M1 A2 Sociable.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-02').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Sociable
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-03" src="Topic-1_3/audios/Glosario/M1 A2 Hardworking.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-03').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Hardworking
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-04" src="Topic-1_3/audios/Glosario/M1 A2 Shy.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-04').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Shy
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-05" src="Topic-1_3/audios/Glosario/M1 A2 Lazy.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-05').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Lazy
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-06" src="Topic-1_3/audios/Glosario/M1 A2 Kind.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-06').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Kind
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-07" src="Topic-1_3/audios/Glosario/M1 A2 Generous.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-07').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Generous
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-08" src="Topic-1_3/audios/Glosario/M1 A2 Optimistic.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-08').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Optimistic
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-09" src="Topic-1_3/audios/Glosario/M1 A2 Clever.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-09').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Clever
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-10" src="Topic-1_3/audios/Glosario/M1 A2 Independent.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-10').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Independent
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-11" src="Topic-1_3/audios/Glosario/M1 A2 Extroverted.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-11').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Extroverted
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-12" src="Topic-1_3/audios/Glosario/M1 A2 Rude.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-12').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Rude
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-13" src="Topic-1_3/audios/Glosario/M1 A2 Introverted.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-13').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Introverted
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-14" src="Topic-1_3/audios/Glosario/M1 A2 Pesimistic.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-14').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Pessimistic
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-15" src="Topic-1_3/audios/Glosario/M1 A2 Responsible.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-15').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Responsible
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-16" src="Topic-1_3/audios/Glosario/M1 A2 Moody.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-16').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Moody
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-17" src="Topic-1_3/audios/Glosario/M1 A2 Honest.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-17').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Honest
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-18" src="Topic-1_3/audios/Glosario/M1 A2 Talkative.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-18').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Talkative
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-19" src="Topic-1_3/audios/Glosario/M1 A2 Brave.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-19').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Brave
+                        </p>
+
+                    </div>
+
+                    <div class="row align-items-center personality-audios">
+
+                        <!-- Audio -->
+                        <div class="audio">
+                            <audio id="audio1-20" src="Topic-1_3/audios/Glosario/M1 A2 Punctual.mp3"
+                                type="audio/ogg"></audio>
+                            <button onclick="document.getElementById('audio1-20').play()"
+                                class="fa fa-volume-up bocina">
+                                <span class="sr-only">Audio</span>
+                            </button>
+                        </div>
+
+                        <p class="parrafo ml-3 mb-0 text-azul font-weight-bold">
+                            Punctual
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p class="parrafo">
+                    When you ask about someone’s personality you need to use the following questions:
+                </p>
+
+                <div class="audios-texto-2">
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 You what are you like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                YOU:
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT ARE <span class="text-azul">YOU</span> LIKE? I am shy and pessimistic.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 He What is you father like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                HE:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT IS <span class="text-azul">YOUR FATHER</span> LIKE? My father is friendly and
+                                hardworking.
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT IS <span class="text-azul">HE</span> LIKE?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 She What is your mother like.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                SHE:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT IS <span class="text-azul">YOUR MOTHER</span> LIKE? My mother is polite and
+                                cheerful.
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT IS <span class="text-azul">SHE</span> LIKE?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row align-items-center mt-4 mt-md-5 mb-4 mb-md-5">
+
+                        <div class="col-md-4">
+
+                            <!-- Audio -->
+                            <div class="mb-4 mt-4 text-center">
+                                <audio controls aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="Topic-1_3/audios/M1 A8/M1 A8 1.3 They What are your brothers.mp3"
+                                        type="audio/mpeg">
+                                </audio>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                THEY:
+                            </p>
+
+                            <p class="parrafo mb-1" aria-hidden="true">
+                                WHAT ARE <span class="text-azul">YOUR BROTHERS</span> LIKE? They are rude and lazy.
+                            </p>
+
+                            <p class="parrafo mb-0" aria-hidden="true">
+                                WHAT ARE <span class="text-azul">THEY</span> LIKE?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="parrafo mb-4">
+                    Do you have any question?
+                </p>
+
+                <p class="parrafo">
+                    Ok, let's do some exercises...
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-1_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="40%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-1_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="60%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-4" accesskey="2" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA09. This person...
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> <br>
+                    Match the sentences with the correct picture.
+                </p>
+
+                <div class="pictures mt-4 mb-4 mt-md-5 mb-md-5">
+
+                    <div class="pictues-1 mt-1 mb-1 mt-md-4 mb-md-4">
+
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                A.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-01.png" width="100%" height="auto"
+                                alt="Imagen inciso A. Persona de cabello corto, castaño y ondulado.">
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                B.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-02.png" width="100%" height="auto"
+                                alt=" Imagen inciso B. Persona de estatura baja y complexión delgada.">
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                C.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-03.png" width="100%" height="auto"
+                                alt="Imagen inciso C. Persona de cabello largo, lacio, rubio y ojos azules.">
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                D.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-04.png" width="100%" height="auto"
+                                alt="Imagen inciso D. Persona de cabello negro, longitud media y ojos grises.">
+
+                        </div>
+
+                    </div>
+
+                    <div class="pictues-2 mt-1 mb-1 mt-md-4 mb-md-4">
+
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                E.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-05.png" width="100%" height="auto"
+                                alt=" Imagen inciso E. Persona de cabello corto, pelirrojo y ojos azules. ">
+
+                        </div>
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                F.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-06.png" width="100%" height="auto"
+                                alt=" Imagen inciso F. Persona de estatura alta y complexión regordeta.">
+
+                        </div>
+                        <div class="text-center">
+
+                            <p class="parrafo text-azul mb-2" aria-hidden="true">
+                                G.
+                            </p>
+
+                            <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa08-07.png" width="100%" height="auto"
+                                alt="Imagen inciso G. Persona calva con barba y ojos café.">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="seleccionar1_2_2">
+
+                    <div class="evaluacion">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-2 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.1.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    1. This person has short, curly brown hair.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_1 sr-only"></p>
+
+                                <select id="Act_Select1_2_1"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-1"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.2.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    2. This person is short and slim.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_2 sr-only"></p>
+
+                                <select id="Act_Select1_2_2"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-2"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.3.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    3. This person has long, straight blond hair.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_3 sr-only"></p>
+
+                                <select id="Act_Select1_2_3"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.4.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    4. This person has middle length black hair.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_4 sr-only"></p>
+
+                                <select id="Act_Select1_2_4"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-4"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.5.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    5. This person has blue eyes and short red hair.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_5 sr-only"></p>
+
+                                <select id="Act_Select1_2_5"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-5"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.6.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    6. This person is tall and chubby.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_6 sr-only"></p>
+
+                                <select id="Act_Select1_2_6"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-6"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row align-items-center">
+
+                            <div class="col-md-3">
+
+                                <div class="mb-1 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A9/M1 A9 OPA 9.7.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5 p-3 opciones_evaluacion">
+
+                                <p class="parrafo mb-0" aria-hidden="true">
+                                    7. This person is bald.
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4 p-3">
+
+                                <p class="mensaje-correct-incorrect-2_7 sr-only"></p>
+
+                                <select id="Act_Select1_2_7"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-7"
+                                    name="seleccionar1_2_2" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Picture A</option>
+                                    <option value="2">Picture B</option>
+                                    <option value="3">Picture C</option>
+                                    <option value="4">Picture D</option>
+                                    <option value="5">Picture E</option>
+                                    <option value="6">Picture F</option>
+                                    <option value="7">Picture G</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <p class="mb-0 parrafo text-success mensaje-correcto d-none mt-4 font-weight-bold">Very good!
+                            You are ready to continue.</p>
+
+                        <p class="mb-0 parrafo text-danger mensaje-incorrecto d-none mt-4 font-weight-bold">Please, try
+                            to answer the exercise again.</p>
+
+                        <p class="mb-0 parrafo mensaje-ver-respuestas d-none mt-4 font-weight-bold"><b>Please, check the
+                                correct answers.</b></p>
+
+                        <div class="retroalimentacion d-none">
+
+                            <p class="parrafo sr-only">
+                                1. This person has short, curly brown hair. is Picture C
+
+                                2. This person is short and slim. is picture G
+
+                                3. This person has long, straight blond hair. is picture F
+
+                                4. This person has middle length black hair. is picture E
+
+                                5. This person has blue eyes and short red hair. is picture D
+
+                                6. This person is tall and chubby. is picture B
+
+                                7. This person is bald. is picture A
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde mb-4">
+                        2. Click on the buttons and check your answers.
+                    </p>
+
+                    <div class="text-right mt-4 mt-md-5">
+
+                        <button aria-label="button check" id="check-S1_2_1" role="button"
+                            class="btn boton-check no-imp btn-descarga seleccionar1_2_2" disabled=""
+                            name="seleccionar1_2_2" tabindex="1">
+                            Check
+                        </button>
+
+                        <br>
+
+                        <button aria-label="button try again" id="check-s-try-1" role="button"
+                            class="btn btn-reintentar no-imp btn-descarga-blanco mt-3" disabled="" tabindex="1">
+                            Try again
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <br><br>
+
+            </div>
+
+        </section>
+
+        <section class="section-activity">
+
+            <div class="text-center">
+
+                <img src="./Topic-1_3/img/150pp/INGLESINT_separador-seccion-actividad.png" alt="Section activity"
+                    width="40%" height="auto" class="escritorio" aria-hidden="true">
+
+                <img src="./Topic-1_3/img/150pp/INGLESINT_separador-seccion-actividad-r.png" alt="Section activity"
+                    width="60%" height="auto" class="movil" aria-hidden="true">
+
+            </div>
+
+            <div class="container py-4">
+
+                <h2 class="parrafo text-azul subtitulos mb-4" accesskey="3" tabindex="0">
+                    Online Practice Activity <br>
+                    OPA10. Descriptions
+                </h2>
+
+                <p class="parrafo instruccion-color-verde mb-4">
+                    <b>Instructions: </b> <br>
+                    1. Read the descriptions. <br>
+                    2. Complete the correct option for each one.
+                </p>
+
+                <div class="seleccionar1_2_3">
+
+                    <div class="row">
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_1 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        a.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-a.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 1. EDIT.mp3"
+                                            type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    Hi! I’m Sandy I love talking. I talk with friends, family with everyone!
+                                </p>
+
+                                <select id="Act_Select1_3_1"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_1"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_2 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        b.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-b.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 2 EDIT.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    Hello! My name is Kevin. I don’t work or study. I watch TV all day!
+                                </p>
+
+                                <select id="Act_Select1_3_2"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_2"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_3 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        c.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-c.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 3 EDIT.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    Hi! I’m Fernanda. I always arrive on time!
+                                </p>
+
+                                <select id="Act_Select1_3_3"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_3"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_4 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        d.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-d.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 4 EDIT.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    My name is Mary. I love meeting people. I have a lot of friends.
+                                </p>
+
+                                <select id="Act_Select1_3_4"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_4"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_5 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        e.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-e.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 5 EDIT.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    My name is Luis. I like helping people. I give toys or food to people who need it.
+                                </p>
+
+                                <select id="Act_Select1_3_5"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_5"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_6 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        f.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-f.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 6. EDIT.mp3"
+                                            type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    Hi! I´m Sebastian. I don’t like talking or meeting people. I like being alone.
+                                </p>
+
+                                <select id="Act_Select1_3_6"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_6"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_7 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        g.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-g.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 7 EDIT.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    Hello! I’m Charles. I always get 10 in all my exams. I love studying.
+                                </p>
+
+                                <select id="Act_Select1_3_7"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_7"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mt-4">
+
+                            <div class="bg-evaluacion-escribir ajuste-alto">
+
+                                <p class="mensaje-correct-incorrect-esc-3_8 sr-only"></p>
+
+                                <div class="text-center inciso-evaluacion">
+                                    <p class="parrafo text-azul mb-0">
+                                        h.
+                                    </p>
+                                </div>
+
+                                <div class="text-center mb-3 mt-3">
+
+                                    <img src="./Topic-1_3/img/topics/IB3V-M1_m1-opa09-h.png" width="30%" height="auto"
+                                        alt="Support image" aria-hidden="true">
+
+                                </div>
+
+                                <!-- Audio -->
+                                <div class="mb-4 mt-4 text-center">
+                                    <audio controls aria-role="audio">
+                                        Tu navegador no soporta la etiqueta audio.
+                                        <source src="Topic-1_3/audios/M1 A10/M1 A10 Diapo 8 EDIT.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+
+                                <p class="parrafo" aria-hidden="true">
+                                    Hello! My name is Mark. I don’t lie. I always tell the truth.
+                                </p>
+
+                                <select id="Act_Select1_3_8"
+                                    class="form-control reactivo custom-select respuesta-correcta-select-3_8"
+                                    name="seleccionar1_2_3" autocompleted="">
+                                    <option disabled="disabled" selected="selected" value="0" hidden="hidden">Choose
+                                        here...</option>
+                                    <option value="1">Talkative</option>
+                                    <option value="2">Lazy</option>
+                                    <option value="3">Punctual</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Generous</option>
+                                    <option value="6">Shy</option>
+                                    <option value="7">Clever</option>
+                                    <option value="8">Honest</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <p class="mb-0 parrafo text-success mensaje-correcto-3 d-none mt-4 font-weight-bold">Very good!
+                            You are ready to continue.</p>
+
+                        <p class="mb-0 parrafo text-danger mensaje-incorrecto-3 d-none mt-4 font-weight-bold">Please,
+                            try to answer the exercise again.</p>
+
+                        <p class="mb-0 parrafo mensaje-ver-respuestas-3 d-none mt-4 font-weight-bold"><b>Please, check
+                                the correct answers.</b></p>
+
+                        <div class="retroalimentacion-3 d-none">
+
+                            <p class="parrafo sr-only">
+                                Sandy is talkative.
+                                Kevin is lazy.
+                                Fernanda is punctual.
+                                Mary is friendly.
+                                Luis is generous.
+                                Sebastian is shy.
+                                Charles is clever.
+                                Mark is honest.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="parrafo instruccion-color-verde mt-4 mb-4">
+                        3. Click on the buttons and check your answers.
+                    </p>
+
+                    <div class="text-right mt-4 mt-md-5">
+
+                        <button aria-label="button check" id="check-S1_2_3" role="button"
+                            class="btn boton-check no-imp btn-descarga seleccionar1_2_3" disabled=""
+                            name="seleccionar1_2_3" tabindex="1">
+                            Check
+                        </button>
+
+                        <br>
+
+                        <button aria-label="button try again" id="check-s-try-3" role="button"
+                            class="btn btn-reintentar no-imp btn-descarga-blanco mt-3" disabled="" tabindex="1">
+                            Try again
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                    <img src="./Topic-1_3/img/150pp/INGLESINT_separador-contenido.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="escritorio">
+
+                    <img src="./Topic-1_3/img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                        aria-hidden="true" width="80%" height="auto" class="movil">
+
+                </div>
+
+                <div class="recap">
+
+                    <h2 class="parrafo text-azul text-center">
+                        Recap of Topic 1.3 What does he look like? / What is he like
+                    </h2>
+
+                    <!-- Audio -->
+                    <div class="escritorio">
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="Topic-1_3/audios/M1 A10/M1 A11 Recap 1.3 EDIT.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <p class="parrafo" aria-hidden="true">
+                        In this section…
+                    </p>
+
+                    <p class="parrafo mb-0" aria-hidden="true">
+                        You learned to describe someone’s physical appearance and personality.
+                    </p>
+
+                </div>
+
+                <br><br>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba"
+            title="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./Topic-1_3/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana" aria-hidden="true">
+        </div>
+
+        <div class="movil">
+            <img src="./Topic-1_3/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana" aria-hidden="true">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-1_3/scripts/home.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-1_3/scripts/menuacces.js"></script>
+    <script src="Topic-1_3/scripts/marcador.js"></script>
+    <!-- modal lector inmersivo -->
+    <script src="Topic-1_3/scripts/modalLectorInmersivo.js"></script>
+
+    <!-- Evaluaciones -->
+    <script type="text/javascript" src="Topic-1_3/scripts/evaluacion/topic-1_2_1.js"></script>
+    <script type="text/javascript" src="Topic-1_3/scripts/evaluacion/topic-1_2_2.js"></script>
+    <script type="text/javascript" src="Topic-1_3/scripts/evaluacion/topic-1_2_3.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script src="Topic-1_3/scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper horizontal -->
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            speed: 600,
+            parallax: true,
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+    </script>
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

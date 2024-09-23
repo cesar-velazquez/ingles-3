@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Module 2. My last birthday</title>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="Topic-2/css/index.css">
+    <link rel="stylesheet" href="Topic-2/css/unit2.css">
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="Topic-2/css/menuacces.css"> 
+
+    
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    
+</head>
+<body onmousemove="detectarPosicionMouse(event);">
+    <div id="readline"></div>
+    
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es">
+        <p class="sr-only">
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control</i> + <i
+                lang="en">Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+        <p class="sr-only">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4 sr-only">
+            <li lang="es">Abrir la ventana con la información de ayuda: Alt + I </li>
+            <li><i lang="en">Activity OPA 11</i> Alt <i lang="es">+</i> 1</li>
+        </ul>
+        <p class="parrafo mb-0 sr-only" lang="en"><b><i>MacOS</i></b></p>
+        <ul class="parrafo ml-4 sr-only">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li><i lang="en">Activity OPA 11</i> <i lang="en">Control </i> <i lang="es">+</i> <i lang="en">Option</i> + 1</li>
+        </ul>
+    </div>
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./Topic-2/img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- inicio modal ayuda -->
+    <modal-ayuda></modal-ayuda>
+    <!-- fin modal ayuda -->
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Inicio menu accesible -->
+
+    <div aria-hidden="true" class="menuacces ">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./Topic-2/img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./Topic-2/img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./Topic-2/img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado"
+                            src="./Topic-2/img/accesibilidad/MA-_m-hiper-w.png" alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./Topic-2/img/accesibilidad/MA-_m-cursor-a.png"
+                            alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./Topic-2/img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./Topic-2/img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./Topic-2/img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./Topic-2/img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./Topic-2/img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+    
+    
+
+    <!-- PLECA Y TITULO -->
+    <header class="banner-1">
+
+        <div class="escritorio">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es" aria-hidden="true">Universidad Veracruzana</a>
+               
+                <!--<div class="dropdown">
+                    <button class="btn btn-menu js-sidebar__collapse" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>-->
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+                    <span class="text-left">
+                        <p class="tam-font font-weight-bold mb-3 texto-tema-margen">
+                            <b>Module 2. </b> <span style="font-weight: normal !important;">My last birthday</span>
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+
+            <img src="Topic-2/img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="movil">
+
+            <div class="js-pleca pleca">
+
+                <a class="pleca__uv" href="https://uv.mx/" target="__blank" lang="es">Universidad Veracruzana</a>
+
+                <!--<button class="btn btn-menu js-sidebar__collapse d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-weight-bold">MENÚ&nbsp;&nbsp;</span>
+                    <i class="fas fa-bars"></i>
+                </button>-->
+                
+                <div class="d-flex align-items-center mt-4">
+
+                    <div class="pleca__ee ml-0" style="display: none; padding-right: 5px !important;">
+                        <span class="text-left">
+                            <p class="tam-font font-weight-bold mb-1 texto-tema-margen">
+                                Module 2 <!--<span style="font-weight: normal;">My habits and hobbies</span>-->
+                            </p>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <img src="Topic-2/img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal" aria-hidden="true" width="100%" height="auto"> 
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit">
+                Module 2. <br>
+                <span class="subtitulo-secundari-unit">My last birthday</span>
+            </h1>            
+        </div>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section class="introduction">
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                <div class="mt-4 mt-md-5">
+
+                    <h2 class="parrafo text-azul subtitulos">
+                        Welcome to the module
+                    </h2>
+
+                    <p class="texCenAzu parrafo" style="font-size: 1.3rem;">
+                        Listen to the audio.
+                    </p>
+                    <div>
+                        <div class="mb-4 mt-4 text-center">
+                            <audio controls="" aria-role="audio">
+                                Tu navegador no soporta la etiqueta audio.
+                                <source src="Topic-2/media/M2-A14-Bienvenida.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <p class="parrafo">
+                        In this module you will express  both orally and in writing your likes, dislikes and opinions about your hobbies, daily activities and leisure through the development of different activities. You will also be able to do an integrating task.
+                    </p>
+
+                    <p class="parrafo text-center"><strong>Good luck!</strong></p>
+                    
+                </div>
+
+
+                <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                    <div class="separadorEsc escritorio"></div>
+                    <div class="separadorMov movil"></div>                        
+                </div>
+
+
+                <div class="mb-4 mb-md-5">
+                    
+                    <h2 class="parrafo text-azul subtitulos">
+                       Topics to talk about                    
+                    </h2>
+
+                    <div class="ContenedorTopics escritorio">
+                        <div class="Topics">
+                            <div>
+                                <div class="cuaBla"><p class="mb-0">My best birthday ever!</p></div>
+                                <div class="cuaAzu"><p class="mb-0">Simple Past Tense in affirmative, interrogative and negative.</p></div>
+                            </div>
+                            <div>
+                                <div class="cuaBla"><p class="mb-0">There was a fly!</p></div>
+                                <div class="cuaAzu"><p class="mb-0">There was / there were could.</p></div>
+                            </div>
+                            <div>
+                                <div class="cuaBla"><p class="mb-0">Child prodigies</p></div>
+                                <div class="cuaAzu"><p class="mb-0">Could for past ability.</p></div>
+                            </div>
+                            <div>
+                                <div class="cuaBla"><p class="mb-0">An unusual experience</p></div>
+                                <div class="cuaAzu"><p class="mb-0">Sequencing words.</p></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ContenedorTopics movil">
+                        <ul class="ml-4 mb-0">
+                            <li><strong>My best birthday ever!</strong><br>Simple Past Tense in affirmative, interrogative and negative.</li>
+                            <li><strong>There was a fly!</strong><br>There was / there were could.</li>
+                            <li><strong>Child prodigies</strong><br>Could for past ability.</li>
+                            <li class="mb-0"><strong>An unusual experience</strong><br>Sequencing words.</li>
+                        </ul>                        
+                    </div>
+
+
+                    <div class="text-center mt-4 mb-4 mt-md-5" aria-hidden="true">
+                        <div class="separadorEsc escritorio"></div>
+                        <div class="separadorMov movil"></div>                        
+                    </div>
+
+
+                </div>
+
+                <!--<div class="mb-4 mb-md-5">-->
+                    
+                <h2 class="parrafo text-azul subtitulos">
+                       Glossary of terms and phrases from the module
+                </h2>
+
+                <p class="parrafo instruccion-color-verde">
+                        <b>Instructions: </b> Press the buttons to access the information.
+                </p>
+
+                <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                    <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">My best birthday ever!</summary>
+                    <div class="details-content text-center">
+
+                        <audio id="audio1-00" src="Topic-2/media/M2-A15-My_Best_Birthday.mp3" type="audio/ogg"></audio> 
+                        <button onclick="document.getElementById('audio1-00').play()" class="fa fa-volume-up bocina sr-only">
+                            <span>Audio</span>
+                        </button>
+
+                        <div class="contenedorGlosario" aria-hidden="true">
+                            <div class="GLosario">
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio1-01" src="Topic-2/media/cortos/M2-A15-Amazing.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Amazing</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio1-02" src="Topic-2/media/cortos/M2-A15-Plenty_of.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-02').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0"><p class="mb-0">Plenty of</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio1-03" src="Topic-2/media/cortos/M2-A15-To_turn.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-03').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">To turn</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio1-04" src="Topic-2/media/cortos/M2-A15-Used_to.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-04').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Used to</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio1-05" src="Topic-2/media/cortos/M2-A15-Hang_out_with.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-05').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Hangout with</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">                                        
+                                        <audio id="audio1-06" src="Topic-2/media/cortos/M2-A15-Once_in_a_while.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-06').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Once in a while</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">                                        
+                                        <audio id="audio1-07" src="Topic-2/media/cortos/M2-A15-Memorable.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-07').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>       
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Memorable</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">                                        
+                                        <audio id="audio1-08" src="Topic-2/media/cortos/M2-A15-Cant_believe.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio1-08').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>          
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Can’t believe somebody’s eyes</p></div>
+                                </div>
+                            </div>                            
+                        </div>  
+                    </div>
+                </details>
+
+                <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                    <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">There was / there were could</summary>
+                    <div class="details-content text-center"> 
+
+                        <p class="parrafo text-left"><strong>Expressions</strong></p>
+                    
+                        <audio id="audio2-00" src="Topic-2/media/M2-A15-Expression-There_Was.mp3" type="audio/ogg"></audio> 
+                        <button onclick="document.getElementById('audio2-00').play()" class="fa fa-volume-up bocina sr-only">
+                            <span>Audio</span>
+                        </button>
+
+                        <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                            <div class="GLosario">
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-01" src="Topic-2/media/cortos/M2-A15-There_was.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">There was…</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-02" src="Topic-2/media/cortos/M2-A15-There_where.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-02').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">There were…</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-03" src="Topic-2/media/cortos/M2-A15-There_wasnt.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-03').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">There wasn’t…</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-04" src="Topic-2/media/cortos/M2-A15-There_werent.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-04').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">There weren’t…</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-05" src="Topic-2/media/cortos/M2-A15-Was_there_there_was_No_there_wasnt.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-05').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Was there?... Yes, there was. No there wasn’t</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-06" src="Topic-2/media/cortos/M2-A15-Where_There.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-06').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Were there?...</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-07" src="Topic-2/media/cortos/M2-A15-Yes_There_Were-No_there_Werent.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-07').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Yes, there were. No, there weren’t…</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio2-08" src="Topic-2/media/cortos/M2-A15-How_many_people_were_there.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio2-08').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">How many people were there?</p></div>
+                                </div>                                   
+                            </div>
+                        </div>
+
+
+                        <p class="parrafo text-left"><strong>Quantifiers</strong></p>
+                        <audio id="audio3-00" src="Topic-2/media/M2-A15-Quantifiers.mp3" type="audio/ogg"></audio> 
+                        <button onclick="document.getElementById('audio3-00').play()" class="fa fa-volume-up bocina sr-only">
+                            <span>Audio</span>
+                        </button>
+
+                        <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                            <div class="GLosario">
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-01" src="Topic-2/media/cortos/M2-A15-Much.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Much</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-02" src="Topic-2/media/cortos/M2-A15-A_Little.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-02').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">A little</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-03" src="Topic-2/media/cortos/M2-A15-Very_Little.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-03').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Very little</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-04" src="Topic-2/media/cortos/M2-A15-Many.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-04').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Many</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-05" src="Topic-2/media/cortos/M2-A15-A_few.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-05').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">A few</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-06" src="Topic-2/media/cortos/M2-A15-Several.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-06').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Several</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-07" src="Topic-2/media/cortos/M2-A15-Some.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-07').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Some</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-08" src="Topic-2/media/cortos/M2-A15-Any.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-08').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Any</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-09" src="Topic-2/media/cortos/M2-A15-A_lot_of.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-09').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">A lot of</p></div>
+                                </div>
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio3-10" src="Topic-2/media/cortos/M2-A15-Lots_of.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio3-10').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Lots of</p></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <p class="parrafo text-left"><strong>Nouns</strong></p>
+
+                        <audio id="audio4-00" src="Topic-2/media/M2-A15-Nouns-There_Was.mp3" type="audio/ogg"></audio> 
+                        <button onclick="document.getElementById('audio4-00').play()" class="fa fa-volume-up bocina sr-only">
+                            <span>Audio</span>
+                        </button>
+
+                        <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                            <div class="GLosario">
+                                <div class="palabra">
+                                    <div class="audio">
+                                        <audio id="audio4-01" src="Topic-2/media/cortos/M2-A15-Gastronomy.mp3" type="audio/ogg"></audio> 
+                                        <button onclick="document.getElementById('audio4-01').play()" class="fa fa-volume-up bocina">
+                                            <span class="sr-only">Audio</span>
+                                        </button>
+                                    </div>
+                                    <div class="texto"><p class="mb-0">Gastronomy</p></div>
+                                </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-02" src="Topic-2/media/cortos/M2-A15-Variety.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Variety</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-03" src="Topic-2/media/cortos/M2-A15-Wine.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-03').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Wine</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-04" src="Topic-2/media/cortos/M2-A15-Guest.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-04').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Guests</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-05" src="Topic-2/media/cortos/M2-A15-Pelicans.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-05').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Pelicans</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-06" src="Topic-2/media/cortos/M2-A15-Atmosphere.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-06').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Atmosphere</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-07" src="Topic-2/media/cortos/M2-A15-Coworkers.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-07').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Coworkers</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio4-08" src="Topic-2/media/cortos/M2-A15-K_Pop.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio4-08').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">K-pop</p></div>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+
+                        <p class="parrafo text-left"><strong>Adjectives</strong></p>
+                        <audio id="audio5-00" src="Topic-2/media/M2-A15-Adjectives-There_Was.mp3" type="audio/ogg"></audio> 
+                        <button onclick="document.getElementById('audio5-00').play()" class="fa fa-volume-up bocina sr-only">
+                            <span>Audio</span>
+                        </button>
+
+                        <div class="contenedorGlosario" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio5-01" src="Topic-2/media/cortos/M2-A15-Unwelcome.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio5-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Unwelcome</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio5-02" src="Topic-2/media/cortos/M2-A15-Wide.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio5-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Wide</p></div>
+                                    </div>                                    
+                                    
+                                </div>
+                        </div>
+                            
+                    </div>
+                </details>
+
+                <details id="faqs-1-respuestas" class="text-right escritorio mb-0 t2">
+                    <summary class="btn btn-actividad cheqfaq waves-effect waves-light" style="">Could for past ability</summary>
+                    <div class="details-content text-center">
+
+                            <p class="parrafo text-left"><strong>Expressions</strong></p>
+
+                            <audio id="audio6-00" src="Topic-2/media/M2-A15-Expression_Could.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio6-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-01" src="Topic-2/media/cortos/M2-A15-I_could_but_i_couldnt.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">I could…, but I couldn’t…</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-02" src="Topic-2/media/cortos/M2-A15-could_you_drive-understand.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Could you drive / understand...?</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-03" src="Topic-2/media/cortos/M2-A15-Could_You.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-03').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Could you…?</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-04" src="Topic-2/media/cortos/M2-A15-Yes_I_Can-No_I_Cant.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-04').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Yes, I can. / No, I can’t.</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-05" src="Topic-2/media/cortos/M2-A15-What_could_you.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-05').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">What could you…?</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-06" src="Topic-2/media/cortos/M2-A15-Better-known-as.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-06').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Better known as…</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-07" src="Topic-2/media/cortos/M2-A15-Sign_language.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-07').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Sign language</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-08" src="Topic-2/media/cortos/M2-A15-Contraceptive_methods.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-08').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Contraceptive methods</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-09" src="Topic-2/media/cortos/M2-A15-Birth_control.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio6-09').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Birth control</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio6-10" src="Topic-2/media/cortos/M2-A15-Sexual_harrasment.mp3" type="audio/ogg"></audio>
+                                            <button onclick="document.getElementById('audio6-10').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Sexual harassment</p></div>
+                                    </div>
+                                    
+                                </div>
+                            </div> 
+
+
+
+                            <p class="parrafo text-left"><strong>Verbs</strong></p>
+
+                            <audio id="audio7-00" src="Topic-2/media/M2-A15-Verbs-Could.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio7-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-01" src="Topic-2/media/cortos/M2-A15-Receive.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Receive</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-02" src="Topic-2/media/cortos/M2-A15-Compose.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Compose</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-03" src="Topic-2/media/cortos/M2-A15-Dance_tap.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-03').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Dance tap</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-04" src="Topic-2/media/cortos/M2-A15-Quit.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-04').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Quit</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-05" src="Topic-2/media/cortos/M2-A15-Tie.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-05').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Tie</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-06" src="Topic-2/media/cortos/M2-A15-Mark.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-06').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Mark</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-07" src="Topic-2/media/cortos/M2-A15-Get_pregnant.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-07').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Get pregnant</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-08" src="Topic-2/media/cortos/M2-A15-Get_fired.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-08').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Get fired</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-09" src="Topic-2/media/cortos/M2-A15-Be_willing_to.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-09').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Be willing to</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-10" src="Topic-2/media/cortos/M2-A15-Deny.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-10').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Deny</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-11" src="Topic-2/media/cortos/M2-A15-Vote.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-11').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Vote</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio7-12" src="Topic-2/media/cortos/M2-A15-Serve_due_to.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio7-12').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Serve due to</p></div>
+                                    </div>
+                                    
+                                </div>
+                            </div> 
+
+
+
+                            <p class="parrafo text-left"><strong>Nouns</strong></p>
+
+                            <audio id="audio8-00" src="Topic-2/media/M2-A15-Nouns-Could.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio8-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-01" src="Topic-2/media/cortos/M2-A15-Prodigy.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Prodigy</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-02" src="Topic-2/media/cortos/M2-A15-Viceroyalty.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Viceroyalty</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-03" src="Topic-2/media/cortos/M2-A15-Finances.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-03').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Finances</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-04" src="Topic-2/media/cortos/M2-A15-Harpsichord.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-04').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Harpsichord</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-05" src="Topic-2/media/cortos/M2-A15-Car_service.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-05').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Car service</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-06" src="Topic-2/media/cortos/M2-A15-Freedom.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-06').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Freedom</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-07" src="Topic-2/media/cortos/M2-A15-Equality.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-07').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Equality</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-08" src="Topic-2/media/cortos/M2-A15-Norms.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-08').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Norms</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio8-09" src="Topic-2/media/cortos/M2-A15-Gender.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio8-09').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Gender</p></div>
+                                    </div>
+                                                                        
+                                </div>
+                            </div> 
+
+
+
+                            <p class="parrafo text-left"><strong>Adjectives</strong></p>
+
+                            <audio id="audio9-00" src="Topic-2/media/M2-A15-Adjectives-Could.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio9-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-01" src="Topic-2/media/cortos/M2-A15-Early_on.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Early on</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-02" src="Topic-2/media/cortos/M2-A15-Dramatic.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Dramatic</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-03" src="Topic-2/media/cortos/M2-A15-Limited.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-03').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Limited</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-04" src="Topic-2/media/cortos/M2-A15-Prodigious.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-04').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Prodigious</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-05" src="Topic-2/media/cortos/M2-A15-Marvel.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-05').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Marvel</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-06" src="Topic-2/media/cortos/M2-A15-Tender.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-06').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Tender</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio9-07" src="Topic-2/media/cortos/M2-A15-Epic.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio9-07').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Epic</p></div>
+                                    </div>
+                                                                                                            
+                                </div>
+                            </div> 
+
+
+                            <p class="parrafo text-left"><strong>Prepositions</strong></p>
+
+                            <audio id="audio10-00" src="Topic-2/media/cortos/M2-A15-Due_To.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio10-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio10-01" src="Topic-2/media/cortos/M2-A15-Due_To.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio10-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Due to</p></div>
+                                    </div>                                    
+                                                                                                            
+                                </div>
+                            </div> 
+
+
+
+                            <p class="parrafo text-left"><strong>Conjunction</strong></p>
+
+                            <audio id="audio11-00" src="Topic-2/media/cortos/M2-A15-However.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio11-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario mb-2rem" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio11-01" src="Topic-2/media/cortos/M2-A15-However.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio11-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">However</p></div>
+                                    </div>                                    
+                                                                                                            
+                                </div>
+                            </div> 
+
+
+
+                            <p class="parrafo text-left"><strong>Adverbs</strong></p>
+
+                            <audio id="audio12-00" src="Topic-2/media/M2-A15-Adverbs-Could.mp3" type="audio/ogg"></audio> 
+                            <button onclick="document.getElementById('audio12-00').play()" class="fa fa-volume-up bocina sr-only">
+                                <span>Audio</span>
+                            </button>
+
+                            <div class="contenedorGlosario" aria-hidden="true">
+                                <div class="GLosario">
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio12-01" src="Topic-2/media/cortos/M2-A15-Par_excellence.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio12-01').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Par excellence</p></div>
+                                    </div>
+                                    <div class="palabra">
+                                        <div class="audio">
+                                            <audio id="audio12-02" src="Topic-2/media/cortos/M2-A15-Nowadays.mp3" type="audio/ogg"></audio> 
+                                            <button onclick="document.getElementById('audio12-02').play()" class="fa fa-volume-up bocina">
+                                                <span class="sr-only">Audio</span>
+                                            </button>
+                                        </div>
+                                        <div class="texto"><p class="mb-0">Nowadays</p></div>
+                                    </div>                                    
+                                                                                                            
+                                </div>
+                            </div> 
+
+
+                    </div>
+                </details>
+
+                <!--</div>-->
+
+                <div class="movil">
+
+                    <div class="text-center">
+                        <a href="Topic-2/my-best-birthday-ever.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                            My best birthday ever!
+                            <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="Topic-2/there-was-there-were-could.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                            There was / there were could
+                            <span class="sr-only" lang="es"> Se abre en nueva pestañ</span>
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="Topic-2/could-for-past-ability.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                            Could for past ability
+                            <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                </div>              
+
+            </div>
+
+        </section>
+
+
+
+
+        <section class="section-activity">
+
+            <div class="text-center" aria-hidden="true">
+                <div class="separadorActividadEsc escritorio"></div>
+                <div class="separadorActividadMov movil"></div>
+            </div>            
+
+            <div class="container py-4">
+                
+                <div class="pad2">
+                
+                    <h2 class="parrafo text-azul subtitulos mb-4">
+                        Online Practice Activity  <br>
+                        OPA11. Practice your vocabulary, solve crossword puzzles
+                    </h2>
+
+                    <p class="parrafo instruccion-color-verde mb-4">
+                        <b>Instructions: </b> Press the buttons to access the activities.
+                    </p> 
+
+                    <div class="contGrid" accesskey="1" tabindex="0">
+                        <div class="escritorio">
+
+                        <div class="Grid4">
+
+                                <div class="text-center">
+                                    <a href="Topic-2/crucigrama-1.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Crossword 1
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="Topic-2/crucigrama-2.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Crossword 2
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestañ</span>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="Topic-2/crucigrama-3.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Crossword 3
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="Topic-2/crucigrama-4.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Crossword 4
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+
+                        <div class="movil">
+
+                        <div class="Grid4">
+
+                                <div class="text-center">
+                                    <a href="Topic-2/Activity-1.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Activity 1
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="Topic-2/Activity-2.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Activity 2
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestañ</span>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="Topic-2/Activity-3.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Activity 3
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="Topic-2/Activity-4.html" target="_blank" class="btn btn-azul-modals waves-effect waves-light btn-90p">
+                                        Activity 4
+                                        <span class="sr-only" lang="es"> Se abre en nueva pestaña</span>
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </section>
+ 
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+        
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="Topic-2/img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="Topic-2/img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto" alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="Topic-2/scripts/home.js"></script>
+    <script type="text/javascript" src="Topic-2/scripts/menu-2.js"></script>
+
+    <!-- modales de ayuda y lector inmersivo -->
+    <script src="Topic-2/scripts/modalLectorInmersivo.js"></script>
+    <!-- función para abrir el menu accesible -->
+    <script src="Topic-2/scripts/menuacces.js"></script>
+    <script src="Topic-2/scripts/marcador.js"></script>
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script type="text/javascript" src="Topic-2/scripts/scroll-timeline.js"></script>
+
+    <script type="text/javascript" src="Topic-2/scripts/unit-2.js"></script>
+
+    
+
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+    
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</body>
+</html>
+
