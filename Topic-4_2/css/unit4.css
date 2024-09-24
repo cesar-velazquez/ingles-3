@@ -435,7 +435,7 @@ ol {
 
 .section_opa48 {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     width: 100%;
     flex-wrap: wrap;
 }
@@ -445,20 +445,19 @@ ol {
 }
 
 .line_opa50 {
-    width: 100%;
-    margin-top: 2rem;
+    width: 77%;    
     height: 2px;
     background-color: #17529C;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
 }
 
 .order_opa50 {
     /* background-color: rgb(60, 151, 231); */
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     margin: auto;
-    gap:.5rem;
+    gap:.5rem;    
 }
 
 @media screen and (max-width: 1199px) {
@@ -928,6 +927,7 @@ details summary.cheqfaq:hover {
     color: #1854AA;
     padding: 0.3rem 0;
     text-align: center;
+    background-color: #FFF;
 }
 
 .recFacImg .TexSel {
@@ -1541,7 +1541,7 @@ img.imgCuadro {
 
 .w-200 {
     width: 200px !important;
-    height: 50px !important;
+    height: 56px !important;
 }
 
 .w-500 {
