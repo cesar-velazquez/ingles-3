@@ -2388,6 +2388,9 @@ h1.texto-azul:after,
 }
 
 @media screen and (max-width: 767px) {
+    .paddR2_5{
+        padding-right: 0;
+    }
     .tam_audio {
         width: 250px;
     }

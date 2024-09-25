@@ -572,8 +572,13 @@ ol {
 }
 
 @media screen and (max-width: 767px) {
+<<<<<<< HEAD
     .mb1-r{
         margin-bottom: 1rem !important;
+=======
+    .layout-participle-form {     
+        margin: 1rem auto;
+>>>>>>> feea55c3fc2cc5bec3fafbf833cc1876e5724bcf
     }
     .p1 {
         padding: 1rem 0;
