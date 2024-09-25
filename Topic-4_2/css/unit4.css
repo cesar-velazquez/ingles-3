@@ -572,6 +572,9 @@ ol {
 }
 
 @media screen and (max-width: 767px) {
+    .mb1-r{
+        margin-bottom: 1rem !important;
+    }
     .p1 {
         padding: 1rem 0;
     }
@@ -612,6 +615,7 @@ ol {
 
     .order_opa50 {
         flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .line_opa50 {
