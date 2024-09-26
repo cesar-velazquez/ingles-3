@@ -363,7 +363,7 @@
 
 .resaltado {
     background: #000;
-    color: rgb(255, 255, 0);
+    color: rgb(255, 255, 0) !important;
     /*transition: all ease-in .4s;*/
 }
 

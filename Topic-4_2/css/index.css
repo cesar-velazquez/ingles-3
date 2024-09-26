@@ -2379,7 +2379,7 @@ h1.texto-azul:after,
 .content_text {
     width: auto;
     max-width: 9rem;
-    max-height: 2.5rem;
+    max-height: 3.5rem;
 }
 
 .escribir {
@@ -2414,7 +2414,7 @@ h1.texto-azul:after,
 
 .recap {
     background-color: #FFEADE;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 8px;
 }
 
@@ -2446,6 +2446,9 @@ h1.texto-azul:after,
 }
 
 @media screen and (max-width: 767px) {
+    .recap {        
+        padding: 1rem;
+    }
     .pad2 {
         padding: 0 0;
     }

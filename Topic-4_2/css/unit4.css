@@ -524,6 +524,17 @@ ol {
     list-style: lower-latin;
 }
 
+.upp_latin {
+    list-style: upper-latin;
+}
+
+.padding2 {
+    padding: 2rem !important;
+}
+
+
+
+
 @media screen and (max-width: 1199px) {
     .line_opa50 {
         width: 92%;
@@ -572,14 +583,27 @@ ol {
 }
 
 @media screen and (max-width: 767px) {
-<<<<<<< HEAD
-    .mb1-r{
-        margin-bottom: 1rem !important;
-=======
-    .layout-participle-form {     
-        margin: 1rem auto;
->>>>>>> feea55c3fc2cc5bec3fafbf833cc1876e5724bcf
+    .p_2-r {
+        padding-left: .2rem;
     }
+
+    .section_opa48 {
+        gap: .1rem;
+    }
+
+    .padding2 {
+        padding: 1rem !important;
+    }
+
+    .mb1-r {
+        margin-bottom: 1rem !important;
+    }
+
+    .layout-participle-form {
+        margin: 1rem auto;
+
+    }
+
     .p1 {
         padding: 1rem 0;
     }
@@ -629,7 +653,10 @@ ol {
     }
 
     .wselect_opa48 {
-        width: 75%;
+        width: 166px;
+    }
+    .ml-4{
+        margin-left: .5rem !important;
     }
 
     .padd_table {
@@ -1648,9 +1675,9 @@ img.imgCuadro {
 
 .texInc {
     background: #fff;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0rem;
     border-radius: 0 0 1rem 1rem;
-    width: 6rem;
+    width: auto;
     text-align: center;
 }
 
@@ -1918,7 +1945,7 @@ img.imgCuadro {
 
     /*.recFacImg .fa-solid { top: 0.5rem !important; }*/
     .recFacImg {
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
     }
 
     .ConTab {
@@ -2255,6 +2282,10 @@ input.escribir {
     gap: .5rem;
 }
 
+.tam_img {
+    max-width: 60%;
+}
+
 @media screen and (max-width:1199px) {
     .fondo-div-azul-2 {
         /*background: url("../../Topic-3_1/img/IB3V-M3_llave.png") no-repeat 45% center #E7EFF7;*/
@@ -2263,6 +2294,14 @@ input.escribir {
 }
 
 @media screen and (max-width:767px) {
+    .padd_2rem {
+        padding-left: 1.3rem;
+    }
+    
+    .tam_img {
+        max-width: 100%;
+    }
+
     .disp-flex {
         gap: 1rem;
     }
