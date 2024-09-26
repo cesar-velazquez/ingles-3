@@ -71,7 +71,7 @@ $(function () {
             }
 
         }
-        // $("." + recursoopa48).focus();
+        $(".seleccionar-opa48").focus();
         $("." + recursoopa48 + " .bc").attr("disabled", "disabled");
 
     });
@@ -84,6 +84,7 @@ $(function () {
             if ($(this).hasClass("eincorrecto")) {
                 idcontenedoropa48 = $(this).closest(".divcontsel").attr("id");
                 $("#" + idcontenedoropa48 + " select").removeClass("invisible");
+                $("#" + idcontenedoropa48 + " .prueba").removeClass("invisible");
                 $("#" + idcontenedoropa48 + " select").val('0')
                 $("#" + idcontenedoropa48 + " .TexSel").removeClass("ecorrecto");
                 $("#" + idcontenedoropa48 + " .TexSel").removeClass("eincorrecto");
@@ -97,7 +98,7 @@ $(function () {
             }
             console.log("idContenedoropa4822: ", idcontenedoropa48);
         });
-        // $(".seleccion-opa48").focus();
+        $(".seleccionar-opa48").focus();
         $("#try_opa48").attr("disabled", "disabled");
         $("#try_opa48").removeClass("btn-descarga");
         $(".seleccionar-opa48 .retroalimentacion1").html("");

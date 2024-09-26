@@ -361,10 +361,11 @@
 }
 
 
-.resaltado {
-    background: #000;
-    color: rgb(255, 255, 0) !important;
-    /*transition: all ease-in .4s;*/
+@media screen and (min-width: 768px) {
+    .resaltado {
+        background: #000;
+        color: rgb(255, 255, 0) !important;
+    }
 }
 
 .resaltado:hover {
@@ -391,6 +392,9 @@
 }
 
 @media screen and (max-width: 767px) {
+    #readline {
+        display: none !important;
+    }
     .menuComponentAcces {
         display: none;
     }

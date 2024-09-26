@@ -56,6 +56,7 @@ $(function () {
             }
 
         }
+        $(".seleccionarOpa-47").focus();
         $("." + recursoOpa47 + " .bc").attr("disabled", "disabled");
 
     });
@@ -77,6 +78,7 @@ $(function () {
                 $("." + recursoOpa47 + " .retroalimentacion1").addClass("none");
             }
         });
+        $(".seleccionarOpa-47").focus();
         $("#try-opa47").attr("disabled", "disabled");
         $("#try-opa47").removeClass("btn-descarga");
         $(".seleccionarOpa-47 .retroalimentacion1").html("");

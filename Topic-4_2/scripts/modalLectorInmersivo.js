@@ -58,7 +58,7 @@ class lectorInmersivo extends HTMLElement {
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-cerrar-modal waves-effect waves-light"
-                        style="border-radius: 7px;" data-dismiss="modal">Close</button>
+                        style="border-radius: 7px;" data-dismiss="modal">Cerrar</button>
                 </div>
 
             </div>

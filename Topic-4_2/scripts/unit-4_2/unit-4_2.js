@@ -68,7 +68,7 @@ $(function () {
             }
 
         }
-        // $("." + recurso).focus();
+        $(".seleccionar_opa46").focus();
         $("." + recurso + " .bc").attr("disabled", "disabled");
 
     });
@@ -90,9 +90,9 @@ $(function () {
                 $("." + recurso + " .retroalimentacion1").addClass("none");
             }
         });
-        // $(".seleccionar_opa46").focus();
+        $(".seleccionar_opa46").focus();
         $("#try_Opa46").attr("disabled", "disabled");
-        $("#try_Opa46").removeClass("btn-descarga");        
+        $("#try_Opa46").removeClass("btn-descarga");
         $(".seleccionar_opa46 .retroalimentacion1").html("");
     });
     // fin prueba

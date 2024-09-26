@@ -1,14 +1,14 @@
 $(function () {
     /************ OPA46  - Unit 4.2****************************/
     /* Recursoopa50_2 de Selecionar */
-    var ImgRespuestasSeleccionaropa50_2 = [2, 2, 1, 3, 2, 1];
+    var ImgRespuestasSeleccionaropa50_2 = [1, 3, 2, 1, 2, 2];
     var resTexopa50_2 = [
-        "hasn't",
-        "a spider in his hand",
         "has",
         "on top of a tall building",
-        "hasn´t",
-        "a fast car by himself"
+        "hasn’t",
+        "a fast car by himself",
+        "hasn’t",
+        "a spider in his hand"
     ];
 
     var BuenasSeleccionaropa50_2 = 0;
@@ -69,7 +69,7 @@ $(function () {
             }
 
         }
-        // $("." + recursoopa50_2).focus();
+        $(".seleccionarOpa50_2").focus();
         $("." + recursoopa50_2 + " .bc").attr("disabled", "disabled");
 
     });
@@ -95,12 +95,60 @@ $(function () {
             }
             // console.log("idContenedoropa50_222: ", idcontenedoropa50_2);
         });
-        // $(".seleccion-opa48").focus();
+        $(".seleccionarOpa50_2").focus();
         $("#tryOpa50_2").attr("disabled", "disabled");
         $("#tryOpa50_2").removeClass("btn-descarga");
         $(".seleccionarOpa50_2 .retroalimentacion1").html("");
     });
     // fin prueba
+})
+
+// let btnFuente = document.getElementById("font_size");
+// let check = document.getElementById("checkOpa50_2");
+// let orderOpa50 = document.querySelectorAll('.order_opa50');
+
+// let cuadrosOpa50 = document.getElementById("opa50_cuadros");
+// let select = document.getElementById("select-Opa50-2-0");
+
+// btnFuente.addEventListener("click", function () {
+//     if (cont != 1 && select.classList.contains("invisible")) {
+//         cuadrosOpa50.classList.add("opa50font");
+//     } else {
+//         cuadrosOpa50.classList.remove("opa50font");
+//     }
+// })
+
+// check.addEventListener("click", function () {
+//     if (cont != 1 ) {
+//         cuadrosOpa50.classList.add("opa50font");
+//     } else {
+//         cuadrosOpa50.classList.remove("opa50font");
+//     }
+// })
+
+let btnFuente = document.getElementById("font_size");
+let check = document.getElementById("checkOpa50_2");
+let orderOpa50 = document.querySelectorAll('.order_opa50');
+
+let cuadrosOpa50 = document.getElementById("opa50_cuadros");
+let select = document.getElementById("select-Opa50-2-0");
+
+btnFuente.addEventListener("click", function () {
+    orderOpa50.forEach(order50 => {
+        if (cont != 1 && select.classList.contains("invisible")) {
+            order50.classList.add("opa50font");
+        } else {
+            order50.classList.remove("opa50font");
+        }
+    })
+})
+
+check.addEventListener("click", function () {
+    if (cont != 1) {
+        cuadrosOpa50.classList.add("opa50font");
+    } else {
+        cuadrosOpa50.classList.remove("opa50font");
+    }
 })
 
 

@@ -65,7 +65,7 @@ $(function () {
             }
 
         }
-        // $("." + recurso).focus();
+        $(".seleccionarOpa49").focus();
         $("." + recurso + " .bc").attr("disabled", "disabled");
 
     });
@@ -91,7 +91,7 @@ $(function () {
             }
             // console.log(idcontenedor);
         });
-        // $(".seleccionar_opa46").focus();
+        $(".seleccionarOpa49").focus();
         $("#try-Opa49").attr("disabled", "disabled");
         $("#try-Opa49").removeClass("btn-descarga");
         $(".seleccionarOpa49 .retroalimentacion1").html("");

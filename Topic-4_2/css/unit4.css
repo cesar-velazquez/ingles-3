@@ -1713,6 +1713,10 @@ img.imgCuadro {
     width: 200px !important;
     height: 56px !important;
 }
+.w-opa48v2{
+    width: 192px !important;
+    height: 56px !important;
+}
 
 .w-opa49 {
     width: 186px !important;
@@ -1748,6 +1752,11 @@ img.imgCuadro {
     height: 51px;
     display: flex;
     align-items: center;
+}
+
+.opa50font{    
+    flex-direction: column;
+    gap: 2rem;
 }
 
 @media screen and (max-width: 1199px) {
@@ -1881,6 +1890,11 @@ img.imgCuadro {
 
     .w-200 {
         width: auto !important;
+    }
+
+    .w-opa48v2{
+        width: 166px !important;
+        height: 38px !important;
     }
 
     .w-opa49 {
@@ -2335,7 +2349,7 @@ input.escribir {
 
 .recFacImg .w_48 {
     text-align: left;
-    padding: .4rem 4.1rem .4rem;
+    padding: 0.8rem 8.1rem 0.9rem 2rem;
     background: #fff;
 }
 
@@ -2371,6 +2385,9 @@ input.escribir {
 }
 
 @media screen and (max-width:767px) {
+    .recFacImg .w_48 {        
+        padding: 0.4rem 6.2rem .4rem 2rem;        
+    }
     .format_48 {
         margin: 1rem 0rem 1rem .5rem;
     }

@@ -82,11 +82,12 @@ $(function () {
                     let sentencias = string.split("/");
 
                     $("#" + recurso + " #escribir-3-1-" + a).siblings(".contselopc").html(sentencias[0] + ' <i class="result fa-solid fa-check"></i><span class="respmens sr-only">correct answer</span>');
-                    $("#" + recurso + " #escribir-3-1-" + a).siblings(".contselopc").addClass("correcto");                    
+                    $("#" + recurso + " #escribir-3-1-" + a).siblings(".contselopc").addClass("correcto");
                 }
             }
         }
 
+        $(".escribir-3-1").focus();
         $("#" + recurso + ' input').attr('disabled', true).addClass("invisible");
 
         $("#escribir-3-1 .s-resp").attr("aria-hidden", "false");
@@ -120,9 +121,8 @@ $(function () {
         }
 
         $("#" + recurso + " .retroalimentacion1 p").html("");
-
-
-        // $("#" + recurso + " .comprobar").removeAttr('disabled');
+        $(".escribir-3-1").focus();
+        $("#" + recurso + " .comprobar").removeAttr('disabled');
 
     });
 

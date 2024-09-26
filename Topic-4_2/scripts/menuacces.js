@@ -120,26 +120,39 @@ let btncursor = document.getElementById("cursorBig");
 let cursorActivo = false;
 let estadoCursor = localStorage.getItem("cursor");
 
-if (estadoCursor) {
-    document.body.style.cursor = estadoCursor;
+function actualizarCursor() {
+    if (window.matchMedia("(max-width: 767px").matches) {
+        document.body.style.cursor = "auto";
+        cursorActivo = false;
+        btncursor.classList.remove("activo");
+    } else {
+        if (estadoCursor) {
+            document.body.style.cursor = estadoCursor;
+            cursorActivo = estadoCursor !== "auto";
+            if (cursorActivo) {
+                btncursor.classList.add("activo");
+            }
+        }
+    }
 }
 
+actualizarCursor();
+
 btncursor.addEventListener('click', function (e) {
-    if (!cursorActivo) {
-        console.log(cursorActivo);
-        document.body.style.cursor = "url('../img/cursor/cursoracces.png'), auto";
-        btncursor.classList.add("active");
+    if (!cursorActivo && window.matchMedia("(min-width: 767px)").matches) {
+        document.body.style.cursor = "url('../Topic-4_2/img/cursor/cursoracces.png'), auto";
+        btncursor.classList.add("activo");
         cursorActivo = true;
-        localStorage.setItem("cursor", document.body.style.cursor);
     } else {
         console.log(cursorActivo);
         document.body.style.cursor = "auto";
         btncursor.classList.remove("active");
         cursorActivo = false;
-        localStorage.setItem("cursor", document.body.style.cursor);
     }
-})
+    localStorage.setItem("cursor", document.body.style.cursor);
+});
 
+window.addEventListener('resize', actualizarCursor);
 // fin función cursor
 
 
