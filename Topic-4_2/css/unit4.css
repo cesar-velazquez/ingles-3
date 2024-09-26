@@ -362,7 +362,7 @@ ol {
 
 @media screen and (max-width: 991px) {
     .second_selectop50 {
-        width: 100% !important;
+        width: 270px !important;
     }
 
     .layout-participle-form {
@@ -443,7 +443,7 @@ ol {
 }
 
 .wselect_opa48 {
-    width: 27%;
+    width: 28%;
 }
 
 .line_opa50 {
@@ -655,7 +655,8 @@ ol {
     .wselect_opa48 {
         width: 166px;
     }
-    .ml-4{
+
+    .ml-4 {
         margin-left: .5rem !important;
     }
 
@@ -1028,7 +1029,7 @@ details summary.cheqfaq:hover {
     background-image: url(../img/flecha.png);
     color: #000;
     background-size: 1.3rem;
-    height: calc(2em + 0.75rem + 2px);
+    height: calc(2em + 0.75rem + 2.01px);
     padding-right: 2.5rem;
 }
 
@@ -1156,6 +1157,8 @@ details summary.cheqfaq:hover {
     top: .4rem !important;
 }
 
+/* top: .4rem !important; */
+
 /* top: .8rem !important; */
 
 
@@ -1196,7 +1199,7 @@ details summary.cheqfaq:hover {
 
 .recFacImg .TexSel {
     text-align: left;
-    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    padding: 0.4rem 1rem;
     background: #fff;
 }
 
@@ -1711,6 +1714,16 @@ img.imgCuadro {
     height: 56px !important;
 }
 
+.w-opa49 {
+    width: 186px !important;
+    height: 56px !important;
+}
+
+.w-opa50 {
+    width: 186px !important;
+    height: 56px !important;
+}
+
 .w-500 {
     min-width: 200px !important;
     width: 250px !important;
@@ -1730,6 +1743,12 @@ img.imgCuadro {
     display: flex !important;
 }
 
+.format_opa51 {
+    width: 266px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+}
 
 @media screen and (max-width: 1199px) {
     .Topics div:first-child {
@@ -1835,6 +1854,11 @@ img.imgCuadro {
 }
 
 @media screen and (max-width:767px) {
+    .contselopce .fa-solid {
+        top: 0rem !important;
+        bottom: 0rem !important;
+    }
+
     .seleccionar_opa46 select {
         height: calc(2em + 0.1rem + 2px) !important;
     }
@@ -1856,7 +1880,16 @@ img.imgCuadro {
     }
 
     .w-200 {
-        width: 150px;
+        width: auto !important;
+    }
+
+    .w-opa49 {
+        width: 160px !important;
+    }
+
+    .w-opa50 {
+        width: 167px !important;
+        height: 39px !important;
     }
 
     .GLosario {
@@ -1930,12 +1963,12 @@ img.imgCuadro {
 
     .recFacImg .conTarjetas select {
         margin: 0 2%;
-        width: 96%;
+        width: 100%;
     }
 
     .recFacImg .TexSel {
         text-align: left;
-        padding: .4rem 2.5rem .4rem 0.5rem;
+        padding: .1rem 2.5rem .1rem 0.5rem;
         margin: 0;
     }
 
@@ -2256,6 +2289,10 @@ input.escribir {
 .reactivo16 .correcto {
     padding: 0.5rem 2.5rem 0.5rem 0.5rem;
     margin-right: .5rem;
+    width: 266px;
+    height: 51px;
+    display: flex;
+    align-items: center;
 }
 
 .fa-solid {
@@ -2286,6 +2323,39 @@ input.escribir {
     max-width: 60%;
 }
 
+.format_48 {
+    display: flex;
+    width: 100%;
+    /* background: antiquewhite; */
+    gap: .5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem 0rem 2rem 1rem;
+}
+
+.recFacImg .w_48 {
+    text-align: left;
+    padding: .4rem 4.1rem .4rem;
+    background: #fff;
+}
+
+.w_48 {
+    width: 186px;
+    height: 56px;
+    position: relative;
+}
+
+.contselopce .check_48 {
+    position: absolute;
+    right: 0 !important;
+    top: -.5rem !important;
+}
+
+.positionR {
+    position: relative;
+    display: inline;
+}
+
 @media screen and (max-width:1199px) {
     .fondo-div-azul-2 {
         /*background: url("../../Topic-3_1/img/IB3V-M3_llave.png") no-repeat 45% center #E7EFF7;*/
@@ -2293,11 +2363,33 @@ input.escribir {
     }
 }
 
+@media screen and (max-width: 991px) {
+    .format_48 {
+        display: inline;
+        gap: 1rem;
+    }
+}
+
 @media screen and (max-width:767px) {
+    .format_48 {
+        margin: 1rem 0rem 1rem .5rem;
+    }
+
+    .w_48 {
+        width: 166px !important;
+        height: 38px !important;
+    }
+
+    .reactivo16 .incorrecto,
+    .reactivo16 .correcto {
+        width: 227px;
+        height: 46px;
+    }
+
     .padd_2rem {
         padding-left: 1.3rem;
     }
-    
+
     .tam_img {
         max-width: 100%;
     }

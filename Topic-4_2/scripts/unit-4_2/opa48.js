@@ -40,6 +40,7 @@ $(function () {
             }
         }
         $(".seleccionar-opa48 select").addClass("invisible");
+        $(".seleccionar-opa48 .prueba").addClass("invisible");
         if (malasopa48 == 0) {
 
             $("." + recursoopa48 + " .retroalimentacion1").removeClass("rojoretro");
