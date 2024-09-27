@@ -144,11 +144,13 @@ btnFuente.addEventListener("click", function () {
 })
 
 check.addEventListener("click", function () {
-    if (cont != 1) {
-        cuadrosOpa50.classList.add("opa50font");
-    } else {
-        cuadrosOpa50.classList.remove("opa50font");
-    }
+    orderOpa50.forEach(order50 => {
+        if (cont != 1) {
+            order50.classList.add("opa50font");
+        } else {
+            order50.classList.remove("opa50font");
+        }
+    })    
 })
 
 
