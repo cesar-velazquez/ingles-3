@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Platform Learning Task (PLT) 04</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/unit3.css">
+
+    <!-- Menu accesible .css -->
+    <link rel="stylesheet" href="./css/menuacces.css">
+
+    <!-- Libreria para animar  los recursos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+
+<body onmousemove="detectarPosicionMouse(event);">
+
+    <div id="readline"></div>
+
+    <!-- Instrucción para información de ayuda -->
+    <div lang="es" class="sr-only">
+        <p>
+            Instrucción: Para acceder a la información de ayuda de esta Experiencia Educativa en <i
+                lang="en">Windows</i> presiona
+            las teclas Alt + i, en <i lang="en">MacOS</i> presiona las teclas <i lang="en">Control <span
+                    aria-hidden="true">+</span> <span class="sr-only">más</span> Option</i> + i
+            Para cerrar la ventana con la información de ayuda en <i lang="en">Windows</i> presiona las teclas Alt + X,
+            en <i lang="en">MacOS</i> presiona la tecla Esc
+        </p>
+
+        <p class="parrafo">
+            Para navegar dentro de la Experiencia Educativa utiliza los siguientes atajos:
+        </p>
+
+        <p class="parrafo mb-0"><b><i>Windows</i></b></p>
+
+        <ul class="parrafo ml-4">
+            <li>Abrir la ventana con la información de ayuda: Alt + I</li>
+            <li>Task 04: Alt + 1</li>
+        </ul>
+
+        <p class="parrafo mb-0"><b><i lang="en">MacOS</i></b></p>
+
+        <ul class="parrafo ml-4">
+            <li>Abrir la ventana con la información de ayuda: <i lang="en">Control</i> + <i lang="en">Option</i> + I
+            </li>
+            <li>Task 04: <i lang="en">Control</i> + <i lang="en">Option</i> + 1</li>
+        </ul>
+
+    </div>
+
+    <!-- Implementacion del boton menu accesible: -->
+    <div class="escritorio">
+        <button aria-hidden="true" onclick="handleMenu()" class="btnAccessUniversal">
+            <img src="./img/accesibilidad/MA-_menu-acc.png" alt="Logo boton accesible">
+        </button>
+    </div>
+    <!-- fin de implementación del boton del menu accesible -->
+
+    <!-- Lector Inmersivo Inicio -->
+    <modal-lectorinmersivo></modal-lectorinmersivo>
+    <!-- Lector Inmersivo Fin -->
+
+    <!-- Barra de progreso en la parte superior -->
+    <div id="progress"></div>
+
+    <!-- Inicio menu accesible -->
+    <div class="menuacces" aria-hidden="true">
+        <div class="menuComponentAcces">
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="font_size">
+                        <img id="icon_FontSize" src="./img/accesibilidad/MA-_m-tamanofuente-a.png"
+                            alt="Icon auxiliar font size">
+                        <img id="icon_FontSize_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-tamanofuente-w.png" alt="Icon auxiliar font size">
+                        Tamaño de fuente
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button class="btn_accesible" id="link_resaltar">
+                        <img id="icon_Link" src="./img/accesibilidad/MA-_m-hiper-a.png"
+                            alt="Icon auxiliar hipervinculos">
+                        <img id="icon_Link_Active" class="icon_desactivado" src="./img/accesibilidad/MA-_m-hiper-w.png"
+                            alt="Icon auxiliar hipervinculos">
+                        Hipervínculos
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="cursorBig" class="btn_accesible">
+                        <img id="icon_Cursor" src="./img/accesibilidad/MA-_m-cursor-a.png" alt="Icon auxiliar cursor">
+                        <img id="icon_Cursor_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-cursor-w.png" alt="Icon auxiliar cursor">
+                        Cursor
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button id="btn_lectorInmersivo" class="btn_accesible" aria-label="Información de ayuda"
+                        title="Información de ayuda" data-toggle="modal" data-target="#information-1" accesskey="I"
+                        aria-hidden="true">
+                        <img id="icon_lector_inmersivo" src="./img/accesibilidad/MA-_m-lector-a.png"
+                            alt="Icon auxiliar Lector">
+                        <img id="icon_lector_inmersivo_active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-lector-w.png" alt="Icon auxiliar Lector">
+                        Lector Inmersivo
+                    </button>
+                </div>
+            </div>
+
+            <div class="sectionAcces">
+                <div>
+                    <button onclick="showLine()" id="lineaLectura" class="btn_accesible"
+                        aria-label="Botón accesibilidad">
+                        <img id="icon_Linea_Lectura" src="./img/accesibilidad/MA-_m-regla-a.png"
+                            alt="Icon auxiliar línea de lectura">
+                        <img id="icon_Linea_Lectura_Active" class="icon_desactivado"
+                            src="./img/accesibilidad/MA-_m-regla-w.png" alt="Icon auxiliar línea de lectura">
+                        Línea de lectura
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fin menú accesible -->
+
+    <header class="banner-1">
+
+        <div class="">
+
+            <div class="js-pleca pleca">
+
+                <a aria-hidden="true" id="pleca_uv" class="pleca__uv" href="https://uv.mx/" target="__blank"
+                    lang="es">Universidad Veracruzana</a>
+
+                <div class="pleca__ee container ml-0" style="display: none;">
+
+                    <p class="escritorio tam-font texto-tema-margen " aria-hidden="true">
+                        Platform Learning Task (PLT) 04
+                    </p>
+
+                    <p class="movil tam-font texto-tema-margen " aria-hidden="true">
+                        Task 04
+                    </p>
+
+                </div>
+
+            </div>
+
+            <img class="escritorio" src="./img/150pp/INGLESINT_banner-paginasec-e.png" alt="Banner principal"
+                aria-hidden="true" width="100%" height="auto">
+
+            <img class="movil" src="./img/150pp/INGLESINT_banner-paginasec-r.png" alt="Banner principal"
+                aria-hidden="true" width="100%" height="auto">
+
+        </div>
+
+        <div class="container">
+            <h1 class="titulo-principal-unit" accesskey="1" tabindex="0">
+                Platform Learning Task <br aria-hidden="true" class="movil">(PLT) 04
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- Codigo principal -->
+    <main>
+
+        <section>
+
+            <div class="container py-4">
+
+                <div class="pad2">
+
+                    <div class="text-center mt-4_5 mb-4_5">
+                        <img src="./img/IB3V-M3_PLT03-13.png" alt="Support image" width="60%" height="auto"
+                            aria-hidden="true" class="img-principal">
+                    </div>
+
+                    <div class="recap">
+
+                        <h2 class="parrafo text-azul text-center subtitulos">
+                            Recap of Module 4. I have just moved to another city
+                        </h2>
+
+                        <div>
+                            <!-- Audio -->
+                            <div class="mb-2rem text-center">
+                                <audio controls="" aria-role="audio">
+                                    Tu navegador no soporta la etiqueta audio.
+                                    <source src="./audios/M4A64Recap.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+
+                        <p class="parrafo">In this module…</p>
+                        <p class="parrafo mb-0">
+                            You learned the <b>present perfect</b> tense to talk about life experiences. You require the
+                            verb
+                            <b>have</b> as an auxiliary verb and the main verb in <b class="text-pink">past
+                                participle</b>
+                            form:
+                        </p>
+                        <ul class="text-pink pad1_3">
+                            <li>I have ridden a motorcycle on the beach.</li>
+                            <li>My mother has been to different countries in her life. </li>
+                        </ul>
+
+                        <p class="parrafo">
+                            You also learnt that you need the past participle form of  the verbs to structure the
+                            present perfect tense, and there are regular and irregular verbs: 
+                        </p>
+
+                        <div class="escritorio">
+                            <div class="sr-only">
+                                <p>Regular verbs</p>
+                                <p>Infinitive</p>
+                                <p>To work</p>
+                                <p>Past simple</p>
+                                <p>worked</p>
+                                <p>Past participle</p>
+                                <p>worked</p>
+
+                                <p>Regular verbs</p>
+                                <p>Infinitive</p>
+                                <p>To play</p>
+                                <p>Past simple</p>
+                                <p>played</p>
+                                <p>Past participle</p>
+                                <p>played</p>
+
+                                <p>Irregular verbs</p>
+                                <p>Infinitive</p>
+                                <p>To eat</p>
+                                <p>Past simple</p>
+                                <p>ate</p>
+                                <p>Past participle</p>
+                                <p>eaten</p>
+
+                                <p>Irregular verbs</p>
+                                <p>Infinitive</p>
+                                <p>To buy</p>
+                                <p>Past simple</p>
+                                <p>bought</p>
+                                <p>Past participle</p>
+                                <p>bought</p>
+                            </div>
+
+                            <div aria-hidden="true" class="layout-participle-form table_center">
+
+                                <div class="d-flex align-items-center ">
+
+                                    <div class="azul-claro text-center w-table min_head_height cont_display m-height "
+                                        style="border-bottom: 2px solid rgb(23, 82, 156); border-right: 2px solid rgb(23, 82, 156); border-top: 2px solid rgb(23, 82, 156); ">
+                                        <p class="parrafo mb-0">
+                                        </p>
+                                    </div>
+
+                                    <div class="azul-claro text-center w-table min_head_height cont_display m-height "
+                                        style="border-bottom: 2px solid rgb(23, 82, 156); border-right: 2px solid rgb(23, 82, 156); border-top: 2px solid rgb(23, 82, 156); ">
+                                        <p class="parrafo mb-0">
+                                            Infinitive
+                                        </p>
+                                    </div>
+
+                                    <div class="azul-claro text-center w-table min_head_height cont_display m-height  "
+                                        style="border-bottom: 2px solid rgb(23, 82, 156); border-right: 2px solid rgb(23, 82, 156); border-top: 2px solid rgb(23, 82, 156); ">
+                                        <p class="parrafo mb-0">
+                                            Past simple
+                                        </p>
+                                    </div>
+
+                                    <div class="azul-claro text-center w-table min_head_height cont_display m-height"
+                                        style="border-bottom: 2px solid rgb(23, 82, 156); border-top: 2px solid rgb(23, 82, 156); ">
+                                        <p class="parrafo mb-0">
+                                            Past participle
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="d-flex align-items-center relat">
+                                    <div class="w-table border-right">
+                                        <div id="content_tabs" class="texto cuadro_absoluto">
+                                            <p class="center_text_table azul-claro">Regular verbs</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div id="content_tabs" class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                To work
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                worked
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table">
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                worked
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="nouns w-table ">
+                                        <div id="content_tabs" class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div id="content_tabs" class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                To play
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                played
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table">
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                played
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center relat">
+                                    <div class=" w-table border-right s_border ">
+                                        <div id="content_tabs" class="texto cuadro_absoluto">
+                                            <p class="center_text_table azul-claro">Irregular verbs</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                To eat
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                ate
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table">
+
+                                        <div class="texto contenedor-ajustable cont_display">
+                                            <p class="parrafo mb-0">
+                                                eaten
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class=" w-table ">
+                                        <!-- texto contenedor-ajustable cont_display   -->
+                                        <div class="texto">
+                                            <!-- <p class="parrafo mb-0">                                                
+                                            </p> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div class="texto contenedor-ajustable cont_display  ">
+                                            <p class="parrafo mb-0">
+                                                To buy
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table border-right">
+                                        <div class="texto contenedor-ajustable cont_display  ">
+                                            <p class="parrafo mb-0">
+                                                bought
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="nouns w-table">
+
+                                        <div class="texto contenedor-ajustable cont_display  ">
+                                            <p class="parrafo mb-0">
+                                                bought
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- tabla movil -->
+                        <div class="movil">
+                            <!-- layout-participle-form  -->
+                            <div class="border_total table_center ">
+
+                                <div class="d-flex align-items-center ">
+
+                                    <div class="azul-claro text-center w-100  ">
+                                        <p class="parrafo mb-0">
+                                            Regular verbs
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex ">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Infinitive</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                To work
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past simple</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                worked
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past participle</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class=" w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                worked
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            
+                            <div class="border_total table_center ">
+
+                                <div class="d-flex align-items-center ">
+
+                                    <div class="azul-claro text-center w-100  ">
+                                        <p class="parrafo mb-0">
+                                            Regular verbs
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex ">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Infinitive</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                To play
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past simple</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                played
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past participle</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class=" w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                played
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="border_total table_center ">
+
+                                <div class="d-flex align-items-center ">
+
+                                    <div class="azul-claro text-center w-100  ">
+                                        <p class="parrafo mb-0">
+                                            Irregular verbs
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex ">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Infinitive</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                To eat
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past simple</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                ate
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past participle</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class=" w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                eaten
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="border_total table_center ">
+
+                                <div class="d-flex align-items-center ">
+
+                                    <div class="azul-claro text-center w-100  ">
+                                        <p class="parrafo mb-0">
+                                            Irregular verbs
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex ">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Infinitive</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                To buy
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past simple</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="nouns w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                bought
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black" style="border-right: 2px solid black;">
+                                            <p class="parrafo mb-0 ">
+                                                <b>Past participle</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class=" w-100 ">
+                                        <div class="texto padd-1rem w-100 color_black">
+                                            <p class="parrafo mb-0 ">
+                                                bought
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                        </div>
+                        <!-- fin tabla movil -->
+                        <p class="parrafo">
+                            You can use some adverbs and prepositions with the present perfect tense such as already,
+                            yet, ever, never, just, for  and since: 
+                        </p>
+                        <ul class="pad1_3 mb-0">
+                            <li>Tom has studied French <b>for</b> 3 years. / Tom has studied French <b>since</b> he was
+                                in high
+                                school.</li>
+                            <li>I have <b>already</b> finished university. / I haven’t finished university <b>yet</b>.
+                            </li>
+                            <li>Have you <b>ever</b> driven a racing car?</li>
+                            <li>They have <b>just</b> fallen in love.</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                        <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Support image" aria-hidden="true"
+                            width="80%" height="auto" class="escritorio">
+
+                        <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="movil">
+
+                    </div>
+
+                    <div class="bg-congrats">
+
+                        <p class="parrafo">
+                            <b>Congratulations!</b>
+                        </p>
+
+                        <p class="parrafo">
+                            You have done all the online practice activities. Now, test your knowledge by carrying out
+                            the following tasks.
+                        </p>
+
+                        <p class="parrafo">
+                            Remember that these Platform Learning Tasks count for your grade in this Experiencia
+                            Educativa.
+                        </p>
+
+                        <p class="parrafo">
+                            <b>PLT04A. I have just moved to another city…</b>
+                        </p>
+
+
+                        <ol type="A" class="parrafo ml-4">
+                            <li>
+                                Answer the quiz of this module that you’ll find in the EXAMENES section. The code for
+                                this task is PLT04A.Module4-Quiz
+                            </li>
+                            <li>
+                                Follow the instructions to work on the task of this module. Then, upload your file to
+                                the ACTIVIDADES Section. The code for this task is <b>PLT04. I have just moved to
+                                    another city</b>.
+                            </li>
+                        </ol>
+
+                        <p class="parrafo mb-0">
+                            Note: You are free to use any of these platforms GOOGLE DRIVE, DROPBOX, ONEDRIVE to share
+                            your task. Just make sure the shared link is open to anyone.
+                        </p>
+
+                    </div>
+
+                    <div class="text-center mt-4 mb-4 mt-md-5 mb-md-5">
+
+                        <img src="./img/150pp/INGLESINT_separador-contenido.png" alt="Support image" aria-hidden="true"
+                            width="80%" height="auto" class="escritorio">
+
+                        <img src="./img/150pp/INGLESINT_separador-contenido-r.png" alt="Support image"
+                            aria-hidden="true" width="80%" height="auto" class="movil">
+
+                    </div>
+
+                    <h2 class="parrafo text-azul subtitulos">
+                        <b>PLT04B. I have just moved to another city…</b>
+                    </h2>
+
+                    <!-- <p class="parrafo"><b>Objective:</b> To review the structures and vocabulary seen in this module.
+                    </p> -->
+
+                    <p class="parrafo instruccion-color-verde">
+                        <b>Instructions:</b>
+                    </p>
+
+                    <ol class="parrafo ml-4">
+                        <li class="parrafo ">Write a text (paragraph 100 - 130 words), describing some of your life
+                            experiences. Title
+                            your text “What I have done in my life up to now”. Use the structures and vocabulary of this
+                            module and pay attention to the spelling, punctuation and use of capital letters. This text
+                            will be your script for an audio you will record. Look at the example below.</li>
+
+                        <p class="parrafo mb-0">These are some ideas you can include and write about in your text: </p>
+
+                        <ul class="pad1_3" style="list-style: disc;">
+                            <li>A dream that you have had and later came true.</li>
+                            <li>A famous person you have met.</li>
+                            <li>A foreign country you have travelled to.</li>
+                            <li>Something disgusting you have eaten.</li>
+                            <li>Something you have won (For example, the lottery, a sport competition, a contest, etc.).
+                            </li>
+                            <li>A frightening experience you have had when travelling (on a bus, plane, bike, etc.).
+                            </li>
+                            <li>The best and worst movies you have ever seen. </li>
+                            <li>A city you have visited more than once.</li>
+                            <li>A concert you have recently been to.</li>
+                        </ul>
+                        <li>Read your script and practice your pronunciation.</li>
+                        <li>Record your script. Communicate your ideas clearly, with correct pronunciation and the
+                            necessary pauses between ideas.</li>
+                        <li>Create an MP3 file and name it: <b>PLT04_ last name and name (Example:
+                                PLT04_SanchezJorge)</b>.
+                        </li>
+                        <li>Copy and paste your text (script) in the Word processor space in your course in the
+                            Activities section module 4. (Look at the example below)</li>
+                        <li>Upload your MP3 file in your course in the Activities section module 4, or share the link of
+                            your drive (GOOGLE DRIVE, ONEDRIVE, etc.). Be sure the link is open to anyone.</li>
+                    </ol>
+
+                    <p class="parrafo mb-0"><b>Evidences of the task:</b></p>
+                    <ul class="pad1_3 mb-2rem">
+                        <li>A text (script): “What I have done in my life up to now”.</li>
+                        <li>A recording of this text: MP3 file.</li>
+                    </ul>
+
+                    <div class="bg_exampleScript mb-2rem">
+                        <p class="parrafo">Example of script:</p>
+                        <p class="parrafo">What I have done in my life up to now.</p>
+                        <p class="parrafo mb-0">I’ve trained hard in my sport: athletics, and I have developed great
+                            abilities. I’ve learned to jump long distances and to run very fast. I’ve taken part of the
+                            Panamerican Games and have won a lot of medals. I’ve been successful as a solo runner. I’ve
+                            broken many world records. Last games I broke one at short distances. For this reason, I’ve
+                            travelled to many countries in Europe as well as in Central and South America. I’ve been to
+                            Italy, Spain, Brazil and Peru, but I haven’t been to Argentina yet. In Peru, I visited the
+                            ruins of Machu Picchu and in Italy I went to Rome. I have been there more than once in my
+                            life. (129 words).</p>
+                    </div>
+
+
+
+                    <div class="bg-rubrica">
+
+                        <p class="parrafo instruccion-color-verde">
+                            <b>Instrucciones: </b> Presiona el botón para descargar el archivo.
+                        </p>
+
+                        <div class="text-center" lang="en">
+                            <a href="downloads/IB3V-Rubrica-M3.docx" download=""
+                                class="btn btn-azul-modals waves-effect waves-light" lang="en">
+                                Rubric
+                                <span class="sr-only">Word document</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="footer" style="position: relative;">
+
+        <span type="button" class="btn-volver-arriba ir-arriba" aria-hidden="true" aria-label="Volver arriba">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </span>
+
+        <div class="escritorio">
+            <img src="./img/150pp/INGLESINT_firmauv-r.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+        <div class="movil">
+            <img src="./img/150pp/INGLESINT_firmauv-e.png" loading="lazy" width="100%" height="auto"
+                alt="Logo de la Universidad Veracruzana">
+        </div>
+
+
+    </footer>
+
+
+    <div class="overlay"></div>
+
+    <!--  -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- Funcionalidad general -->
+    <script src="./scripts/home.js"></script>
+
+    <script src="./scripts/menuacces.js"></script>
+    <script src="./scripts/marcador.js"></script>
+    <script src="./scripts/modalLectorInmersivo.js"></script>
+
+
+    <!-- Funcionalidad para Progress-bar-scroll del inicio -->
+    <script src="./scripts/scroll-timeline.js"></script>
+
+    <script>
+
+        // Create ScrollTimeline
+        const myScrollTimeline = new ScrollTimeline({
+            source: document.scrollingElement,
+            scrollSource: document.scrollingElement, // For legacy implementations
+            orientation: 'block',
+            scrollOffsets: [
+                new CSSUnitValue(0, 'percent'),
+                new CSSUnitValue(100, 'percent'),
+            ],
+        });
+
+        // Animate Progress Bar on Scroll
+        new Animation(
+            new KeyframeEffect(
+                document.querySelector('#progress'),
+                {
+                    transform: ['scaleX(0)', 'scaleX(1)'],
+                },
+                { duration: 1, fill: "forwards" }
+            ),
+            myScrollTimeline
+        ).play();
+
+    </script>
+    <!--  -->
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper cards-->
+    <script>
+        var swiper = new Swiper(".mySwiper2", {
+            effect: "cards",
+            grabCursor: true
+        });
+    </script>
+
+    <!-- IR ARRIBA -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ir-arriba').click(function () {
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 300);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 0) {
+                    $('.ir-arriba').slideDown(300);
+                } else {
+                    $('.ir-arriba').slideUp(300);
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

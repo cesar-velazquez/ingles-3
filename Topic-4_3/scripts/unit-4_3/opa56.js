@@ -74,7 +74,7 @@ $(function () {
                 $("#" + recurso + " .bt").addClass("btn-descarga");
             }
             else {
-                $("#" + recurso + " .retroalimentacion1").addClass("rojoretro");
+                $("#" + recurso + " .retroalimentacion1").addClass("negroretro");
                 $("." + recurso + " .retroalimentacion1").removeClass("none");
                 $("#" + recurso + " .retroalimentacion1  p").html("Please, check the correct answers.");
                 for (a = 1; a <= RespuestasEscribir331.length; a++) {
@@ -83,13 +83,14 @@ $(function () {
 
                     $("#" + recurso + " #escribiropa56-" + a).siblings(".contselopc").html(sentencias[0] + ' <i class="result fa-solid fa-check"></i><span class="respmens sr-only">correct answer</span>');
                     $("#" + recurso + " #escribiropa56-" + a).siblings(".contselopc").addClass("correcto");
-                    $("." + recurso + " .retroalimentacion1 ").addClass("none");
+                    // $("." + recurso + " .retroalimentacion1").addClass("none");
                 }
             }
         }
 
+        // escribir_opa56
+        $(".escribir_opa56").focus();
         $("#" + recurso + ' input').attr('disabled', true).addClass("invisible");
-
         $("#escribir_opa56 .s-resp").attr("aria-hidden", "false");
         $("#escribir_opa56 .text-ayuda").attr("aria-hidden", "true");
         //text-ayuda
@@ -97,12 +98,12 @@ $(function () {
     });
 
     $(document).on('click', '#tryopa56', function (e) {
-        console.log("log");
+        // console.log("log");
         malEscribir31 = 0;
 
 
         recurso = $(this).attr('name');
-        $("#escribir_opa56").focus();
+        $(".escribir_opa56").focus();
         $(this).attr('disabled', 'disabled');
         $(this).removeClass("btn-descarga");
 
@@ -121,9 +122,7 @@ $(function () {
         }
 
         $("#" + recurso + " .retroalimentacion1 p").html("");
-
-
-        // $("#" + recurso + " .comprobar").removeAttr('disabled');
+        $("#" + recurso + " .comprobar").removeAttr('disabled');
 
     });
 

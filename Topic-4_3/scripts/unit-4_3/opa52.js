@@ -17,7 +17,7 @@ $(function () {
     $(document).on('click', '#check-opa52', function (e) {
         vecesEscribir31++;
         recurso = $(this).attr('name');
-        $("#escribir_opa52").focus();
+        $("#escribir_opa52").focus();        
         $(this).attr('disabled', 'disabled');
         var texto;
         // console.log(recurso);
@@ -70,7 +70,7 @@ $(function () {
                 $("#" + recurso + " .bt").addClass("btn-descarga");
             }
             else {
-                $("#" + recurso + " .retroalimentacion1").addClass("rojoretro");
+                $("#" + recurso + " .retroalimentacion1").addClass("negroretro");
                 $("." + recurso + " .retroalimentacion1").removeClass("none");
                 $("#" + recurso + " .retroalimentacion1 p").html("Please, check the correct answers.");
                 for (a = 1; a <= RespuestasEscribiropa52.length; a++) {

@@ -2,8 +2,6 @@
 let menu = document.querySelector('.menuacces');
 let btnAccess = document.querySelector('.btnAccessUniversal');
 
-var cursorOn = parseInt(localStorage.getItem("cursor")) || 0;
-
 function handleMenu() {
     if (menu.classList.contains('active')) {
         menu.classList.remove('active');
@@ -34,7 +32,6 @@ let btnHiper = document.getElementById("link_resaltar");
 btnHiper.addEventListener('click', function () {
     handleMenu();
 })
-
 // cursorBig
 let btnCursor = document.getElementById("cursorBig");
 btnCursor.addEventListener('click', function () {
@@ -119,20 +116,44 @@ botonResaltar.addEventListener("click", function () {
 });
 
 // Función que muestra el cursor más grande:
-$('.menuComponentAcces #cursorBig').click(function () {
+let btncursor = document.getElementById("cursorBig");
+let cursorActivo = false;
+let estadoCursor = localStorage.getItem("cursor");
 
-    if (!$(this).hasClass("HerramientaActivada")) {
-        $(this).addClass("HerramientaActivada");
-        localStorage.setItem("cursor", 1);
-        $("body").addClass("cursor-image");
+function actualizarCursor() {
+    if (window.matchMedia("(max-width: 767px").matches) {
+        document.body.style.cursor = "auto";
+        cursorActivo = false;
+        btncursor.classList.remove("activo");
+    } else {
+        if (estadoCursor) {
+            document.body.style.cursor = estadoCursor;
+            cursorActivo = estadoCursor !== "auto";
+            if (cursorActivo) {
+                btncursor.classList.add("activo");
+            }
+        }
     }
-    else {
-        $(this).removeClass("HerramientaActivada");
-        localStorage.setItem("cursor", 0);
-        $("body").removeClass("cursor-image");
+}
+
+actualizarCursor();
+
+btncursor.addEventListener('click', function (e) {
+    if (!cursorActivo && window.matchMedia("(min-width: 767px)").matches) {
+        document.body.style.cursor = "url('./Topic-4_3/img/cursor/cursoracces.png'), auto";
+        btncursor.classList.add("activo");
+        cursorActivo = true;
+    } else {
+        console.log(cursorActivo);
+        document.body.style.cursor = "auto";
+        btncursor.classList.remove("active");
+        cursorActivo = false;
     }
-    $(".menuacces").removeClass("active");
+    localStorage.setItem("cursor", document.body.style.cursor);
 });
+
+window.addEventListener('resize', actualizarCursor);
+// fin función cursor
 
 
 // función cambio de fuente
@@ -233,13 +254,6 @@ document.addEventListener("DOMContentLoaded", function () {
     subtitulosh3.forEach(subtituloh3 => {
         subtituloh3.style.fontSize = tamFuenteSubtitulosh3 + 'rem';
     })
-
-    //cursor imagen
-    if (cursorOn == 1) {
-        $("#cursorBig").addClass("HerramientaActivada");
-        $("body").addClass("cursor-image");
-    }
-
 });
 
 

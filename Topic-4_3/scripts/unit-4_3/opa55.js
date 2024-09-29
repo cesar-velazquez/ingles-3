@@ -73,7 +73,7 @@ $(function () {
                 $("#" + recurso + " .bt").addClass("btn-descarga");
             }
             else {
-                $("#" + recurso + " .retroalimentacion1").addClass("rojoretro");
+                $("#" + recurso + " .retroalimentacion1").addClass("negroretro");
                 $("." + recurso + " .retroalimentacion1").removeClass("none");
                 $("#" + recurso + " .retroalimentacion1 p").html("Please, check the correct answers.");
                 for (a = 1; a <= RespuestasEscribir331.length; a++) {
@@ -81,11 +81,13 @@ $(function () {
                     let sentencias = string.split("/");
 
                     $("#" + recurso + " #escribirOpa55-" + a).siblings(".contselopc").html(sentencias[0] + ' <i class="result fa-solid fa-check"></i><span class="respmens sr-only">correct answer</span>');
-                    $("#" + recurso + " #escribirOpa55-" + a).siblings(".contselopc").addClass("correcto");                    
+                    $("#" + recurso + " #escribirOpa55-" + a).siblings(".contselopc").addClass("correcto");
                 }
             }
         }
 
+        
+        $(".escribir_opa55").focus();
         $("#" + recurso + ' input').attr('disabled', true).addClass("invisible");
 
         $("#escribir_opa55 .s-resp").attr("aria-hidden", "false");
@@ -119,9 +121,8 @@ $(function () {
         }
 
         $("#" + recurso + " .retroalimentacion1 p").html("");
-
-
-        // $("#" + recurso + " .comprobar").removeAttr('disabled');
+        $(".escribir_opa55").focus();
+        $("#" + recurso + " .comprobar").removeAttr('disabled');
 
     });
 

@@ -42,7 +42,7 @@ $(function () {
                 $("." + recursoOpa53 + " .retroalimentacion1 p").html("Try to answer the exercise again.");
             }
             else {
-                $("." + recursoOpa53 + " .retroalimentacion1").addClass("rojoretro");
+                $("." + recursoOpa53 + " .retroalimentacion1").addClass("negroretro");
                 $("." + recursoOpa53 + " .retroalimentacion1").removeClass("none");
                 $("." + recursoOpa53 + " .retroalimentacion1 p").html("Please, check the correct answers.");
                 for (a = 0; a < ImgRespuestasSeleccionaropa53.length; a++) {
@@ -56,6 +56,7 @@ $(function () {
             }
 
         }
+        $(".seleccionar_opa53").focus();
         $("." + recursoOpa53 + " .bc").attr("disabled", "disabled");
 
     });
@@ -77,6 +78,7 @@ $(function () {
                 $("." + recursoOpa53 + " .retroalimentacion1").addClass("none");
             }
         });
+        $(".seleccionar_opa53").focus();
         $("#tryopa53").attr("disabled", "disabled");
         $("#tryopa53").removeClass("btn-descarga");
         $(".seleccionar_opa53 .retroalimentacion1 p").html("");

@@ -919,6 +919,7 @@ details summary.cheqfaq:hover {
     color: #1854AA;
     padding: 0.3rem 0;
     text-align: center;
+    background: #fff;
 }
 
 .recFacImg .TexSel {
@@ -1626,7 +1627,14 @@ img.imgCuadro {
     width: 70%;
 }
 
+.tam_img {
+    max-width: 60%;
+}
+
 @media screen and (max-width: 1199px) {
+    .gap_2 {
+        gap: 2rem;
+    }
     .Topics div:first-child {
         background-position: center 0, 8rem 1.9rem;
     }
@@ -1654,9 +1662,9 @@ img.imgCuadro {
 }
 
 @media screen and (max-width:991px) {
-    .gap_2 {
+    /* .gap_2 {
         gap: 2rem;
-    }
+    } */
 
     .texSen {
         height: 125px;
@@ -1734,6 +1742,13 @@ img.imgCuadro {
 }
 
 @media screen and (max-width:767px) {
+    .mt1_r{
+        margin-top: 1rem;
+    }
+    .tam_img {
+        max-width: 100%;
+    }
+
     .formatColumn_first {
         width: 40%;
     }
@@ -2214,6 +2229,7 @@ input.escribirv2 {
 .flex_direction {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .w_Containeropa55 {
@@ -2248,6 +2264,7 @@ input.escribirv2 {
 .wrap {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .style_li {
@@ -2316,6 +2333,9 @@ input.escribirv2 {
 }
 
 @media screen and (max-width:767px) {
+    .options_containers {
+        justify-content: center;
+    }
     .section_56 {
         gap: 1rem;
     }
@@ -2384,7 +2404,7 @@ input.escribirv2 {
     }
 
     .actividades-opciones p {
-        margin-top: 1rem;
+        margin-top: 0rem;
     }
 
     .actividades-opciones {

@@ -140,7 +140,7 @@ actualizarCursor();
 
 btncursor.addEventListener('click', function (e) {
     if (!cursorActivo && window.matchMedia("(min-width: 767px)").matches) {
-        document.body.style.cursor = "url('./Topic-4_2/img/cursor/cursoracces.png'), auto";
+        document.body.style.cursor = "url('./img/cursor/cursoracces.png'), auto";
         btncursor.classList.add("activo");
         cursorActivo = true;
     } else {

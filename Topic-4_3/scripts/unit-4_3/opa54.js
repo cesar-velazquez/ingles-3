@@ -4,7 +4,7 @@ $(function () {
 
     $("#escribir_opa54 .s-resp").attr("aria-hidden", "true");
 
-    var RespuestasEscribir331 = [        
+    var RespuestasEscribir331 = [
         "have lived/’ve lived/'ve lived/`ve lived/‘ve lived/´ve lived",
         "since",
         "have studied/’ve studied/'ve studied/`ve studied/‘ve studied/´ve studied",
@@ -14,11 +14,11 @@ $(function () {
         "have drunk/’ve drunk/'ve drunk/`ve drunk/‘ve drunk/´ve drunk",
         "since",
         "has been",
-        "for",        
+        "for",
         "hasn’t came/hasn't came/hasn`t came/hasn‘t came/hasn´t came/has not came",
-        "for",        
+        "for",
         "have lived/’ve lived/'ve lived/`ve lived/‘ve lived/´ve lived",
-        "since",        
+        "since",
         "haven’t talked/haven't talked/haven`t talked/haven‘t talked/haven´t talked/have not talked/’ve not talked/'ve not talked/`ve not talked/‘ve not talked/´ve not talked",
         "for"
     ];
@@ -83,7 +83,7 @@ $(function () {
                 $("#" + recurso + " .bt").addClass("btn-descarga");
             }
             else {
-                $("#" + recurso + " .retroalimentacion1").addClass("rojoretro");
+                $("#" + recurso + " .retroalimentacion1").addClass("negroretro");
                 $("." + recurso + " .retroalimentacion1").removeClass("none");
                 $("#" + recurso + " .retroalimentacion1").html("<p>Please, check the correct answers.</p>");
                 for (a = 1; a <= RespuestasEscribir331.length; a++) {
@@ -97,8 +97,8 @@ $(function () {
             }
         }
 
+        $(".escribir_opa54").focus();
         $("#" + recurso + ' input').attr('disabled', true).addClass("invisible");
-
         $("#escribir_Opa54 .s-resp").attr("aria-hidden", "false");
         $("#escribir_Opa54 .text-ayuda").attr("aria-hidden", "true");
         //text-ayuda
@@ -130,8 +130,8 @@ $(function () {
 
         $("#" + recurso + " .retroalimentacion1 p").html("");
 
-
-        // $("#" + recurso + " .comprobar").removeAttr('disabled');
+        $(".escribir_opa54").focus();
+        $("#" + recurso + " .comprobar").removeAttr('disabled');
 
     });
 
